@@ -1,5 +1,12 @@
 # asfl
 
+
+## create and activate venv
+
+```bash
+source env/Scripts/activate
+```
+
 ## Install dependencies
 
 ```bash
