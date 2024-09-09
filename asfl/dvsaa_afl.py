@@ -5,6 +5,8 @@ from flwr.server.strategy import FedAvg
 from asfl.task import Net, get_weights
 from flwr.server.strategy import Strategy
 
+import np as np
+
 from typing import Union
 
 from flwr.common import (
@@ -164,13 +166,12 @@ class FedCustom(FedAvg):
     ) -> List[Tuple[ClientProxy, FitIns]]:
         client_instructions = super().configure_fit(server_round, parameters, client_manager)
 
-        # modify to only take the first 2 clients for the training round
-
+        print(server_round)
 
         _, fit_ins = client_instructions[0]  # First (ClientProxy, FitIns) pair
-        fit_ins.config["hello"] = "world"  # Change config for this client only
+        # fit_ins.config["hello"] = "world"  # Change config for this client only
         print("-------")
         print(fit_ins.config)
-        return client_instructions[:2]
-
-        # return client_instructions
+        # please grab random index from client_instructions and include only those in the training round
+        
+        return client_instructions
