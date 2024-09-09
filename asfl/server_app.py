@@ -6,7 +6,8 @@ from flwr.server.strategy import FedAvg
 from asfl.task import Net, get_weights
 from flwr.server.strategy import Strategy
 
-from .fedcustom import FedCustom
+from .dvsaa_afl import DVSAAAFL
+from .dvsaa_afl import FedCustom
 
 from typing import Union
 
@@ -36,11 +37,17 @@ def server_fn(context: Context):
     num_rounds = context.run_config["num-server-rounds"]
 
     # Define strategy
+    # strategy = DVSAAAFL(
+    #     fraction_fit=1.0,
+    #     fraction_evaluate=1.0,
+    #     min_available_clients=2,
+    #     # initial_parameters=parameters,
+    # )
     strategy = FedCustom(
         fraction_fit=1.0,
         fraction_evaluate=1.0,
         min_available_clients=2,
-        # initial_parameters=parameters,
+        initial_parameters=parameters,
     )
     config = ServerConfig(num_rounds=num_rounds)
     return ServerAppComponents(strategy=strategy, config=config)

@@ -22,7 +22,7 @@ from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
 from typing import Dict, List, Optional, Tuple
 
-class FedCustom(Strategy):
+class DVSAAAFL(Strategy):
     def __init__(
         self,
         fraction_fit: float = 1.0,
@@ -39,7 +39,7 @@ class FedCustom(Strategy):
         self.min_available_clients = min_available_clients
 
     def __repr__(self) -> str:
-        return "FedCustom"
+        return "DVSAAAFL"
 
     def initialize_parameters(
         self, client_manager: ClientManager
@@ -156,3 +156,17 @@ class FedCustom(Strategy):
         """Use a fraction of available clients for evaluation."""
         num_clients = int(num_available_clients * self.fraction_evaluate)
         return max(num_clients, self.min_evaluate_clients), self.min_available_clients
+    
+
+class FedCustom(FedAvg):
+    def configure_fit(
+        self, server_round: int, parameters: Parameters, client_manager: ClientManager
+    ) -> List[Tuple[ClientProxy, FitIns]]:
+        client_instructions = super().configure_fit(server_round, parameters, client_manager)
+
+        # Add special "hello": "world" config key/value pair,
+        # but only to the first client in the list
+        _, fit_ins = client_instructions[0]  # First (ClientProxy, FitIns) pair
+        fit_ins.config["hello"] = "world"  # Change config for this client only
+
+        return client_instructions
