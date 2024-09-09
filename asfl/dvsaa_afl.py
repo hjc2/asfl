@@ -168,5 +168,6 @@ class FedCustom(FedAvg):
         # but only to the first client in the list
         _, fit_ins = client_instructions[0]  # First (ClientProxy, FitIns) pair
         fit_ins.config["hello"] = "world"  # Change config for this client only
-
+        print("-------")
+        print(fit_ins.config)
         return client_instructions
