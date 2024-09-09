@@ -107,6 +107,7 @@ def test(net, testloader):
     return loss, accuracy
 
 
+
 def get_weights(net):
     return [val.cpu().numpy() for _, val in net.state_dict().items()]
 

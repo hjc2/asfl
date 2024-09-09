@@ -4,6 +4,7 @@ import random
 from flwr.client import NumPyClient, ClientApp
 from flwr.common import Context
 import time
+from logging import INFO, DEBUG
 from flwr.common.logger import log
 
 from asfl.task import (
@@ -28,6 +29,8 @@ class FlowerClient(NumPyClient):
     def fit(self, parameters, config):
 
         set_weights(self.net, parameters)
+
+
         results = train(
             self.net,
             self.trainloader,
