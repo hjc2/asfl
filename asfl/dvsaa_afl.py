@@ -164,10 +164,13 @@ class FedCustom(FedAvg):
     ) -> List[Tuple[ClientProxy, FitIns]]:
         client_instructions = super().configure_fit(server_round, parameters, client_manager)
 
-        # Add special "hello": "world" config key/value pair,
-        # but only to the first client in the list
+        # modify to only take the first 2 clients for the training round
+
+
         _, fit_ins = client_instructions[0]  # First (ClientProxy, FitIns) pair
         fit_ins.config["hello"] = "world"  # Change config for this client only
         print("-------")
         print(fit_ins.config)
-        return client_instructions
+        return client_instructions[:2]
+
+        # return client_instructions
