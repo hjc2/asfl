@@ -23,7 +23,6 @@ def server_fn(context: Context):
         initial_parameters=parameters,
     )
     config = ServerConfig(num_rounds=num_rounds)
-
     return ServerAppComponents(strategy=strategy, config=config)
 
 # Create ServerApp

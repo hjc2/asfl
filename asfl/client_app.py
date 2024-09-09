@@ -1,7 +1,10 @@
 """asfl: A Flower / PyTorch app."""
 
+import random
 from flwr.client import NumPyClient, ClientApp
 from flwr.common import Context
+import time
+from logging import INFO, DEBUG
 
 from asfl.task import (
     Net,
@@ -23,6 +26,7 @@ class FlowerClient(NumPyClient):
         self.local_epochs = local_epochs
 
     def fit(self, parameters, config):
+
         set_weights(self.net, parameters)
         results = train(
             self.net,
@@ -31,11 +35,22 @@ class FlowerClient(NumPyClient):
             self.local_epochs,
             DEVICE,
         )
+
+        # # Simulate dropout with a 40% chance
+        # randChance = random.random()
+        # print(randChance)
+        # if random.random() < 0.5:
+        #     print("Client dropping out for this round")
+        #     time.sleep(config.get("round_duration", 10))  # Simulate dropout duration
+        #     return None  # Indicate dropout
+        
         return get_weights(self.net), len(self.trainloader.dataset), results
 
     def evaluate(self, parameters, config):
         set_weights(self.net, parameters)
         loss, accuracy = test(self.net, self.valloader)
+        log(INFO, f"Evaluation results - Loss: {loss}, Accuracy: {accuracy}")
+
         return loss, len(self.valloader.dataset), {"accuracy": accuracy}
 
 
