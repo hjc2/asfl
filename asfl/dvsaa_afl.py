@@ -23,6 +23,9 @@ from flwr.common import (
 )
 from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
+from flwr.server.criterion import Criterion
+
+from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -33,6 +36,12 @@ Setting `min_available_clients` lower than `min_fit_clients` or
 connected to the server. `min_available_clients` must be set to a value larger
 than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 """
+class CustomCriterion(Criterion):
+    def select(self, client: ClientProxy) -> bool:
+        return client.cid not in set()
+    
+    # return client.cid not in BAD_CID_LIST
+    # return 10
 
 class FedCustom(FedAvg):
 
@@ -85,7 +94,7 @@ class FedCustom(FedAvg):
     def configure_fit(
         self, server_round: int, parameters: Parameters, client_manager: ClientManager
     ) -> List[Tuple[ClientProxy, FitIns]]:
-
+        """Configure the next round of training."""
         config = {}
         if self.on_fit_config_fn is not None:
             # Custom fit config function provided
@@ -97,9 +106,10 @@ class FedCustom(FedAvg):
             client_manager.num_available()
         )
         clients = client_manager.sample(
-            num_clients=sample_size, min_num_clients=min_num_clients
+            num_clients=sample_size,
+            min_num_clients=min_num_clients,
+            criterion=CustomCriterion(), # Pass custom criterion here
         )
-
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))
 
         # Return client/config pairs
