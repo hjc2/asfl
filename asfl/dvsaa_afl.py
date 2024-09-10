@@ -7,6 +7,9 @@ from flwr.server.strategy import Strategy
 
 import np as np
 
+from .poisson import vehicles_in_round
+
+
 from typing import Union, Callable, Dict, List, Optional, Tuple
 
 from flwr.common import (
@@ -37,8 +40,14 @@ connected to the server. `min_available_clients` must be set to a value larger
 than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 """
 class CustomCriterion(Criterion):
+    def __init__(self, excludeList: List[int] = []) -> None:
+        self.excludeList = excludeList
+
     def select(self, client: ClientProxy) -> bool:
-        return client.cid not in set()
+        print("client: ", client)
+        print("cluent.cid: ", client.cid)
+        print("exclude list: ", self.excludeList)
+        return client.cid not in self.excludeList
     
     # return client.cid not in BAD_CID_LIST
     # return 10
@@ -102,22 +111,36 @@ class FedCustom(FedAvg):
         fit_ins = FitIns(parameters, config)
 
         # Sample clients
-        sample_size, min_num_clients = self.num_fit_clients(
+        _, min_num_clients = self.num_fit_clients(
             client_manager.num_available()
         )
 
+        log(CRITICAL, "min num clients " + str(min_num_clients))
+
         clients = client_manager.all()
         
+        log(CRITICAL, "clients" + str(clients))
         log(CRITICAL, "clients[0] " + str(list(clients)[0]))
-        # log(CRITICAL, "clients[0].cid " + str(clients[0].cid))
-
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))
-        # log(CRITICAL, str(client_manager.all()))
+        log(CRITICAL, "next(iter(clients))" + str(next(iter(clients))))
+        
+        first_key = next(iter(clients))
+        first_elem = clients[first_key]
+
+
+        BAD_CID_LIST = []
+        BAD_CID_LIST.append(first_elem.cid)
+
+        sample_size = len(clients) - len(BAD_CID_LIST)
+
+        log(CRITICAL, "sample size " + str(sample_size))
+        
+        custom = CustomCriterion(BAD_CID_LIST)
 
         clients = client_manager.sample(
             num_clients=sample_size,
             min_num_clients=min_num_clients,
-            criterion=CustomCriterion(), # Pass custom criterion here
+            criterion=custom, # Pass custom criterion here
         )
 
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))

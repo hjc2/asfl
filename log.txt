@@ -1,0 +1,36 @@
+dv - | CRITICAL flwr 2024-09-10 14:58:17,486 | server_app.py:61 | running in fedcustom
+dv - | INFO flwr 2024-09-10 14:58:17,486 | app.py:74 | Starting Flower ServerApp, config: num_rounds=1, no round_timeout
+dv - | INFO flwr 2024-09-10 14:58:17,486 | app.py:79 | 
+dv - | INFO flwr 2024-09-10 14:58:17,486 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-09-10 14:58:17,486 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-09-10 14:58:17,486 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-09-10 14:58:17,486 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-09-10 14:58:17,486 | server.py:112 | 
+dv - | INFO flwr 2024-09-10 14:58:17,486 | server.py:113 | [ROUND 1]
+dv - | CRITICAL flwr 2024-09-10 14:58:17,486 | dvsaa_afl.py:115 | min num clients 2
+dv - | CRITICAL flwr 2024-09-10 14:58:17,486 | dvsaa_afl.py:119 | clients{'-913732486813611192': <flwr.server.compat.driver_client_proxy.DriverClientProxy object at 0x000001CFD9498C10>, '-3606006583081081989': <flwr.server.compat.driver_client_proxy.DriverClientProxy object at 0x000001CFD9498A90>, '-6441603007160060633': <flwr.server.compat.driver_client_proxy.DriverClientProxy object at 0x000001CFD949A290>}
+dv - | CRITICAL flwr 2024-09-10 14:58:17,502 | dvsaa_afl.py:120 | clients[0] -913732486813611192
+dv - | CRITICAL flwr 2024-09-10 14:58:17,502 | dvsaa_afl.py:121 | total num of rounds 1
+dv - | CRITICAL flwr 2024-09-10 14:58:17,502 | dvsaa_afl.py:122 | next(iter(clients))-913732486813611192
+dv - | CRITICAL flwr 2024-09-10 14:58:17,502 | dvsaa_afl.py:133 | sample size 2
+dv - | CRITICAL flwr 2024-09-10 14:58:17,505 | dvsaa_afl.py:143 | total num of rounds 1
+dv - | INFO flwr 2024-09-10 14:58:17,505 | server.py:226 | configure_fit: strategy sampled 2 clients (out of 3)
+dv - | DEBUG flwr 2024-09-10 14:58:20,405 | raybackend.py:136 | Constructed ActorPool with: 4 actors
+dv - | DEBUG flwr 2024-09-10 14:58:20,405 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-09-10 14:58:42,559 | server.py:240 | aggregate_fit: received 2 results and 0 failures
+dv - | WARNING flwr 2024-09-10 14:58:42,563 | fedavg.py:252 | No fit_metrics_aggregation_fn provided
+dv - | INFO flwr 2024-09-10 14:58:42,563 | server.py:178 | configure_evaluate: strategy sampled 3 clients (out of 3)
+dv - | INFO flwr 2024-09-10 14:58:49,624 | server.py:192 | aggregate_evaluate: received 3 results and 0 failures
+dv - | WARNING flwr 2024-09-10 14:58:49,624 | fedavg.py:283 | No evaluate_metrics_aggregation_fn provided
+dv - | INFO flwr 2024-09-10 14:58:49,624 | server.py:496 | 
+dv - | INFO flwr 2024-09-10 14:58:49,624 | server.py:497 | [SUMMARY]
+dv - | INFO flwr 2024-09-10 14:58:49,624 | server.py:498 | Run finished 1 round(s) in 32.13s
+dv - | INFO flwr 2024-09-10 14:58:49,625 | server.py:500 | 	History (loss, distributed):
+dv - | INFO flwr 2024-09-10 14:58:49,625 | server.py:500 | 		round 1: 241.74770506223044
+dv - | INFO flwr 2024-09-10 14:58:49,625 | server.py:501 | 
+dv - | DEBUG flwr 2024-09-10 14:58:49,626 | run_serverapp.py:90 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-10 14:58:49,626 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-10 14:58:49,626 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-10 14:58:50,424 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-10 14:58:51,136 | raybackend.py:184 | Terminated RayBackend
+dv - | DEBUG flwr 2024-09-10 14:58:51,136 | run_simulation.py:452 | Stopping Simulation Engine now.
