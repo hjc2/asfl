@@ -39,21 +39,13 @@ def server_fn(context: Context):
 
     # Define strategy
 
-    # write something that maps strings to the strat i want
-    if strat_mode == 'dvsaa':
-        strategy = DVSAAAFL(
-            fraction_fit=1.0,
-            fraction_evaluate=1.0,
-            min_available_clients=2,
-            # initial_parameters=parameters,
-        )
-    elif strat_mode == 'fedcustom':
+    if strat_mode == 'fedcustom':
         strategy = FedCustom(
             fraction_fit=1.0,
             fraction_evaluate=1.0,
             min_available_clients=2,
             initial_parameters=parameters,
-            # max_rounds=num_rounds,
+            num_rounds=num_rounds,
         )
     elif strat_mode == 'fedavg':
         strategy = FedAvg(

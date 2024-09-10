@@ -7,13 +7,15 @@ from flwr.server.strategy import Strategy
 
 import np as np
 
-from typing import Union
+from typing import Union, Callable
 
 from flwr.common import (
     EvaluateIns,
     EvaluateRes,
     FitIns,
     FitRes,
+    NDArrays,
+    MetricsAggregationFn,
     Parameters,
     Scalar,
     ndarrays_to_parameters,
@@ -22,163 +24,84 @@ from flwr.common import (
 from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
+from flwr.common.logger import log
+from logging import WARNING, INFO
+WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW = """
+Setting `min_available_clients` lower than `min_fit_clients` or
+`min_evaluate_clients` can cause the server to fail when there are too few clients
+connected to the server. `min_available_clients` must be set to a value larger
+than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
+"""
+
 from typing import Dict, List, Optional, Tuple
 
-class DVSAAAFL(Strategy):
+class FedCustom(FedAvg):
+
     def __init__(
         self,
+        *,
         fraction_fit: float = 1.0,
         fraction_evaluate: float = 1.0,
         min_fit_clients: int = 2,
         min_evaluate_clients: int = 2,
         min_available_clients: int = 2,
+        evaluate_fn: Optional[
+            Callable[
+                [int, NDArrays, Dict[str, Scalar]],
+                Optional[Tuple[float, Dict[str, Scalar]]],
+            ]
+        ] = None,
+        on_fit_config_fn: Optional[Callable[[int], Dict[str, Scalar]]] = None,
+        on_evaluate_config_fn: Optional[Callable[[int], Dict[str, Scalar]]] = None,
+        accept_failures: bool = True,
+        initial_parameters: Optional[Parameters] = None,
+        fit_metrics_aggregation_fn: Optional[MetricsAggregationFn] = None,
+        evaluate_metrics_aggregation_fn: Optional[MetricsAggregationFn] = None,
+        inplace: bool = True,
+        num_rounds: int = 1,
     ) -> None:
         super().__init__()
+
+        if (
+            min_fit_clients > min_available_clients
+            or min_evaluate_clients > min_available_clients
+        ):
+            log(WARNING, WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW)
+
         self.fraction_fit = fraction_fit
         self.fraction_evaluate = fraction_evaluate
         self.min_fit_clients = min_fit_clients
         self.min_evaluate_clients = min_evaluate_clients
         self.min_available_clients = min_available_clients
-
-    def __repr__(self) -> str:
-        return "DVSAAAFL"
-
-    def initialize_parameters(
-        self, client_manager: ClientManager
-    ) -> Optional[Parameters]:
-        """Initialize global model parameters."""
-        net = Net()
-        ndarrays = get_weights(net)
-        return ndarrays_to_parameters(ndarrays)
+        self.evaluate_fn = evaluate_fn
+        self.on_fit_config_fn = on_fit_config_fn
+        self.on_evaluate_config_fn = on_evaluate_config_fn
+        self.accept_failures = accept_failures
+        self.initial_parameters = initial_parameters
+        self.fit_metrics_aggregation_fn = fit_metrics_aggregation_fn
+        self.evaluate_metrics_aggregation_fn = evaluate_metrics_aggregation_fn
+        self.inplace = inplace
+        self.num_rounds = num_rounds  
 
     def configure_fit(
         self, server_round: int, parameters: Parameters, client_manager: ClientManager
     ) -> List[Tuple[ClientProxy, FitIns]]:
-        """Configure the next round of training."""
+
+        config = {}
+        if self.on_fit_config_fn is not None:
+            # Custom fit config function provided
+            config = self.on_fit_config_fn(server_round)
+        fit_ins = FitIns(parameters, config)
 
         # Sample clients
         sample_size, min_num_clients = self.num_fit_clients(
             client_manager.num_available()
         )
-
         clients = client_manager.sample(
             num_clients=sample_size, min_num_clients=min_num_clients
         )
-        print("!")
-        print(clients)
 
-        # Create custom configs
-        n_clients = len(clients)
-        half_clients = n_clients // 2
-        standard_config = {"lr": 0.001}
-        higher_lr_config = {"lr": 0.003}
-        fit_configurations = []
-        for idx, client in enumerate(clients):
-            if idx < half_clients:
-                fit_configurations.append((client, FitIns(parameters, standard_config)))
-            else:
-                fit_configurations.append(
-                    (client, FitIns(parameters, higher_lr_config))
-                )
-        return fit_configurations
-
-    def aggregate_fit(
-        self,
-        server_round: int,
-        results: List[Tuple[ClientProxy, FitRes]],
-        failures: List[Union[Tuple[ClientProxy, FitRes], BaseException]],
-    ) -> Tuple[Optional[Parameters], Dict[str, Scalar]]:
-        """Aggregate fit results using weighted average."""
-
-        weights_results = [
-            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
-            for _, fit_res in results
-        ]
-        parameters_aggregated = ndarrays_to_parameters(aggregate(weights_results))
-        metrics_aggregated = {}
-
-        return parameters_aggregated, metrics_aggregated
-
-    def configure_evaluate(
-        self, server_round: int, parameters: Parameters, client_manager: ClientManager
-    ) -> List[Tuple[ClientProxy, EvaluateIns]]:
-        """Configure the next round of evaluation."""
-        if self.fraction_evaluate == 0.0:
-            return []
-        config = {}
-        evaluate_ins = EvaluateIns(parameters, config)
-
-        print(client_manager.all())
-
-        # Sample clients
-        sample_size, min_num_clients = self.num_evaluation_clients(
-            client_manager.num_available()
-        )
-        clients = client_manager.sample(
-            num_clients=sample_size, min_num_clients=min_num_clients
-        )
+        log(INFO, "total num of rounds", self.num_rounds)
 
         # Return client/config pairs
-        return [(client, evaluate_ins) for client in clients]
-
-    def aggregate_evaluate(
-        self,
-        server_round: int,
-        results: List[Tuple[ClientProxy, EvaluateRes]],
-        failures: List[Union[Tuple[ClientProxy, EvaluateRes], BaseException]],
-    ) -> Tuple[Optional[float], Dict[str, Scalar]]:
-        """Aggregate evaluation losses using weighted average."""
-
-        if not results:
-            return None, {}
-
-        loss_aggregated = weighted_loss_avg(
-            [
-                (evaluate_res.num_examples, evaluate_res.loss)
-                for _, evaluate_res in results
-            ]
-        )
-        metrics_aggregated = {}
-        return loss_aggregated, metrics_aggregated
-
-    def evaluate(
-        self, server_round: int, parameters: Parameters
-    ) -> Optional[Tuple[float, Dict[str, Scalar]]]:
-        """Evaluate global model parameters using an evaluation function."""
-
-        # Let's assume we won't perform the global model evaluation on the server side.
-        return None
-
-    def num_fit_clients(self, num_available_clients: int) -> Tuple[int, int]:
-        """Return sample size and required number of clients."""
-        num_clients = int(num_available_clients * self.fraction_fit)
-        return max(num_clients, self.min_fit_clients), self.min_available_clients
-
-    def num_evaluation_clients(self, num_available_clients: int) -> Tuple[int, int]:
-        """Use a fraction of available clients for evaluation."""
-        num_clients = int(num_available_clients * self.fraction_evaluate)
-        return max(num_clients, self.min_evaluate_clients), self.min_available_clients
-    
-
-class FedCustom(FedAvg):
-
-    # def __init__(self,)
-    def configure_fit(
-        self, server_round: int, parameters: Parameters, client_manager: ClientManager
-    ) -> List[Tuple[ClientProxy, FitIns]]:
-
-        # totalRounds = 
-        # can you load "num-server-rounds" from my pyproject.toml?
-
-
-        # client_manager.unregister("client_0")
-        
-        client_instructions = super().configure_fit(server_round, parameters, client_manager)
-
-        # print(server_round)
-
-        # _, fit_ins = client_instructions[0]  # First (ClientProxy, FitIns) pair
-        # print("-------")
-        # print(fit_ins.config)
-
-        return client_instructions
+        return [(client, fit_ins) for client in clients]
