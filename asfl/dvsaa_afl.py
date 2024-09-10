@@ -32,6 +32,7 @@ from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL
+import random
 
 WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW = """
 Setting `min_available_clients` lower than `min_fit_clients` or
@@ -124,12 +125,13 @@ class FedCustom(FedAvg):
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))
         log(CRITICAL, "next(iter(clients))" + str(next(iter(clients))))
         
-        first_key = next(iter(clients))
-        first_elem = clients[first_key]
+        CID_LIST = []
 
-
-        BAD_CID_LIST = []
-        BAD_CID_LIST.append(first_elem.cid)
+        for x in clients:
+            # print(clients[x].cid)
+            CID_LIST.append(x)
+        
+        BAD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
 
         sample_size = len(clients) - len(BAD_CID_LIST)
 
