@@ -41,17 +41,14 @@ connected to the server. `min_available_clients` must be set to a value larger
 than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 """
 class CustomCriterion(Criterion):
-    def __init__(self, excludeList: List[int] = []) -> None:
-        self.excludeList = excludeList
+    def __init__(self, includeList: List[int] = []) -> None:
+        self.includeList = includeList
 
     def select(self, client: ClientProxy) -> bool:
-        print("client: ", client)
-        print("cluent.cid: ", client.cid)
-        print("exclude list: ", self.excludeList)
-        return client.cid not in self.excludeList
-    
-    # return client.cid not in BAD_CID_LIST
-    # return 10
+        # print("client: ", client)
+        # print("cluent.cid: ", client.cid)
+        # print("exclude list: ", self.includeList)
+        return client.cid in self.includeList
 
 class FedCustom(FedAvg):
 
@@ -131,13 +128,15 @@ class FedCustom(FedAvg):
             # print(clients[x].cid)
             CID_LIST.append(x)
         
-        BAD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
+        GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
 
-        sample_size = len(clients) - len(BAD_CID_LIST)
+        sample_size = len(GOOD_CID_LIST)
 
         log(CRITICAL, "sample size " + str(sample_size))
         
-        custom = CustomCriterion(BAD_CID_LIST)
+        log(CRITICAL, "including clients in training round: " + str(sample_size))
+
+        custom = CustomCriterion(GOOD_CID_LIST)
 
         clients = client_manager.sample(
             num_clients=sample_size,
