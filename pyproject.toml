@@ -33,4 +33,4 @@ strat-mode = "fedcustom"
 default = "local-simulation"
 
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 2
+options.num-supernodes = 3

@@ -11,6 +11,8 @@ from .dvsaa_afl import FedCustom
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
 from flwr.common.logger import log
+import logging
+import flwr.common.logger as flwr_logger
 
 from flwr.common import (
     EvaluateIns,
@@ -63,6 +65,8 @@ def server_fn(context: Context):
 
 def client_manager_fn(context: Context):
     return None
+
+flwr_logger.configure(identifier="dv -", filename="log.txt")
 
 # Create ServerApp
 app = ServerApp(server_fn=server_fn)

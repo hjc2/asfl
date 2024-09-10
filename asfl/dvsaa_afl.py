@@ -105,11 +105,21 @@ class FedCustom(FedAvg):
         sample_size, min_num_clients = self.num_fit_clients(
             client_manager.num_available()
         )
+
+        clients = client_manager.all()
+        
+        log(CRITICAL, "clients[0] " + str(list(clients)[0]))
+        # log(CRITICAL, "clients[0].cid " + str(clients[0].cid))
+
+        log(CRITICAL, "total num of rounds " + str(self.num_rounds))
+        # log(CRITICAL, str(client_manager.all()))
+
         clients = client_manager.sample(
             num_clients=sample_size,
             min_num_clients=min_num_clients,
             criterion=CustomCriterion(), # Pass custom criterion here
         )
+
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))
 
         # Return client/config pairs
