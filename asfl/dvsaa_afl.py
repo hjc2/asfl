@@ -7,7 +7,7 @@ from flwr.server.strategy import Strategy
 
 import np as np
 
-from typing import Union, Callable
+from typing import Union, Callable, Dict, List, Optional, Tuple
 
 from flwr.common import (
     EvaluateIns,
@@ -25,15 +25,14 @@ from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
 from flwr.common.logger import log
-from logging import WARNING, INFO
+from logging import WARNING, INFO, DEBUG, CRITICAL
+
 WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW = """
 Setting `min_available_clients` lower than `min_fit_clients` or
 `min_evaluate_clients` can cause the server to fail when there are too few clients
 connected to the server. `min_available_clients` must be set to a value larger
 than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 """
-
-from typing import Dict, List, Optional, Tuple
 
 class FedCustom(FedAvg):
 
@@ -101,7 +100,7 @@ class FedCustom(FedAvg):
             num_clients=sample_size, min_num_clients=min_num_clients
         )
 
-        log(INFO, "total num of rounds", self.num_rounds)
+        log(CRITICAL, "total num of rounds " + str(self.num_rounds))
 
         # Return client/config pairs
         return [(client, fit_ins) for client in clients]

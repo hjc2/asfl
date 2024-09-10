@@ -6,10 +6,11 @@ from flwr.server.strategy import FedAvg
 from asfl.task import Net, get_weights
 from flwr.server.strategy import Strategy
 
-from .dvsaa_afl import DVSAAAFL
 from .dvsaa_afl import FedCustom
 
 from typing import Union
+from logging import WARNING, INFO, DEBUG, CRITICAL
+from flwr.common.logger import log
 
 from flwr.common import (
     EvaluateIns,
@@ -55,7 +56,7 @@ def server_fn(context: Context):
             initial_parameters=parameters,
         )
 
-    print("running in " + strat_mode)
+    log(CRITICAL, "running in " + strat_mode)
     
     config = ServerConfig(num_rounds=num_rounds)
     return ServerAppComponents(strategy=strategy, config=config)
