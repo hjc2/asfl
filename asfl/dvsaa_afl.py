@@ -118,15 +118,15 @@ class FedCustom(FedAvg):
         clients = client_manager.all()
         
         log(CRITICAL, "clients" + str(clients))
-        log(CRITICAL, "clients[0] " + str(list(clients)[0]))
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))
-        log(CRITICAL, "next(iter(clients))" + str(next(iter(clients))))
         
         CID_LIST = []
 
         for x in clients:
             # print(clients[x].cid)
             CID_LIST.append(x)
+
+        log(CRITICAL, "CID_LIST " + str(CID_LIST))
         
         GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
 
@@ -134,8 +134,6 @@ class FedCustom(FedAvg):
 
         log(CRITICAL, "sample size " + str(sample_size))
         
-        log(CRITICAL, "including clients in training round: " + str(sample_size))
-
         custom = CustomCriterion(GOOD_CID_LIST)
 
         clients = client_manager.sample(
