@@ -53,6 +53,7 @@ def server_fn(context: Context):
             fraction_evaluate=1.0,
             min_available_clients=2,
             initial_parameters=parameters,
+            # max_rounds=num_rounds,
         )
     elif strat_mode == 'fedavg':
         strategy = FedAvg(

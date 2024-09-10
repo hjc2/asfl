@@ -161,17 +161,24 @@ class DVSAAAFL(Strategy):
     
 
 class FedCustom(FedAvg):
+
+    # def __init__(self,)
     def configure_fit(
         self, server_round: int, parameters: Parameters, client_manager: ClientManager
     ) -> List[Tuple[ClientProxy, FitIns]]:
+
+        # totalRounds = 
+        # can you load "num-server-rounds" from my pyproject.toml?
+
+
+        # client_manager.unregister("client_0")
+        
         client_instructions = super().configure_fit(server_round, parameters, client_manager)
 
-        print(server_round)
+        # print(server_round)
 
-        _, fit_ins = client_instructions[0]  # First (ClientProxy, FitIns) pair
-        # fit_ins.config["hello"] = "world"  # Change config for this client only
-        print("-------")
-        print(fit_ins.config)
-        # please grab random index from client_instructions and include only those in the training round
-        
+        # _, fit_ins = client_instructions[0]  # First (ClientProxy, FitIns) pair
+        # print("-------")
+        # print(fit_ins.config)
+
         return client_instructions
