@@ -98,6 +98,50 @@ class FedCustom(FedAvg):
         self.inplace = inplace
         self.num_rounds = num_rounds  
 
+    def configure_evaluate(
+            self, server_round: int, parameters: Parameters, client_manager: ClientManager
+        ) -> List[Tuple[ClientProxy, EvaluateIns]]:
+        """Configure the next round of evaluation."""
+        # Do not configure federated evaluation if fraction eval is 0.
+        if self.fraction_evaluate == 0.0:
+            return []
+        
+        log(CRITICAL, "num of clients in manager " + str(client_manager.num_available()))
+
+        CID_LIST = []
+
+        clients = client_manager.all()
+
+        for x in clients:
+            CID_LIST.append(x)
+        random.seed = server_round
+        GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
+        log(ERROR, "EVAL: GOOD CID LIST" + str(GOOD_CID_LIST))
+    
+        # Parameters and config
+        config = {}
+        if self.on_evaluate_config_fn is not None:
+            # Custom evaluation config function provided
+            config = self.on_evaluate_config_fn(server_round)
+        evaluate_ins = EvaluateIns(parameters, config)
+
+        custom = CustomCriterion(GOOD_CID_LIST)
+        sample_size = len(GOOD_CID_LIST)
+
+        _, min_num_clients = self.num_fit_clients(
+            client_manager.num_available()
+        )
+
+        clients = client_manager.sample(
+            num_clients=sample_size,
+            min_num_clients=min_num_clients,
+            criterion=custom, # Pass custom criterion here
+        )
+
+
+        # Return client/config pairs
+        return [(client, evaluate_ins) for client in clients]
+
     def configure_fit(
         self, server_round: int, parameters: Parameters, client_manager: ClientManager
     ) -> List[Tuple[ClientProxy, FitIns]]:
@@ -118,17 +162,17 @@ class FedCustom(FedAvg):
         # log(CRITICAL, "clients" + str(clients))
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))
 
-        
         CID_LIST = []
 
         for x in clients:
             CID_LIST.append(x)
 
         log(ERROR, "CID_LIST " + str(CID_LIST))
-        
+        random.seed = server_round
         GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
 
         sample_size = len(GOOD_CID_LIST)
+        log(ERROR, "FIT: GOOD CID LIST" + str(GOOD_CID_LIST))
 
         log(DEBUG, "sample size " + str(sample_size))
         
@@ -142,3 +186,4 @@ class FedCustom(FedAvg):
 
         # Return client/config pairs
         return [(client, fit_ins) for client in clients]
+

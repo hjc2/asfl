@@ -16,5 +16,5 @@ def vehicles_in_round(num_rounds, num_vehicles, round):
     return res
 
 
-for i in range(1,11):
-    print (vehicles_in_round(11, 5, i))
+for i in range(1,101):
+    print (vehicles_in_round(100, 100, i))

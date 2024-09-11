@@ -39,8 +39,11 @@ def server_fn(context: Context):
     # Read from config
     num_rounds = context.run_config["num-server-rounds"]
     strat_mode = context.run_config["strat-mode"]
+    local_epochs = context.run_config["local-epochs"]
 
     # Define strategy
+
+    strategy = None
 
     if strat_mode == 'fedcustom':
         strategy = FedCustom(
@@ -59,9 +62,10 @@ def server_fn(context: Context):
         )
 
     log(CRITICAL, "running in " + strat_mode)
-
-    # ADD MIN AVAILABLE CLIENTS
     log(CRITICAL, "min num clients " + str(2))
+    log(CRITICAL, "num server rounds " + str(num_rounds))
+    log(CRITICAL, "num local epochs " + str(local_epochs))
+
 
     config = ServerConfig(num_rounds=num_rounds)
     return ServerAppComponents(strategy=strategy, config=config)
@@ -69,7 +73,10 @@ def server_fn(context: Context):
 def client_manager_fn(context: Context):
     return None
 
+
+
 flwr_logger.configure(identifier="dv -", filename="log.txt")
 
 # Create ServerApp
 app = ServerApp(server_fn=server_fn)
+

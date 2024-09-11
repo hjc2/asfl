@@ -34,7 +34,6 @@ class FlowerClient(NumPyClient):
 
         set_weights(self.net, parameters)
 
-
         results = train(
             self.net,
             self.trainloader,
