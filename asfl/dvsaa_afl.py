@@ -106,7 +106,7 @@ class FedCustom(FedAvg):
         if self.fraction_evaluate == 0.0:
             return []
         
-        log(CRITICAL, "num of clients in manager " + str(client_manager.num_available()))
+        # log(CRITICAL, "num of clients in manager " + str(client_manager.num_available()))
 
         CID_LIST = []
 
@@ -116,8 +116,11 @@ class FedCustom(FedAvg):
             CID_LIST.append(x)
         random.seed = server_round
         GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
+        sample_size = len(GOOD_CID_LIST)
+
         log(ERROR, "EVAL: GOOD CID LIST" + str(GOOD_CID_LIST))
-    
+        log(ERROR, "sample size " + str(sample_size))
+
         # Parameters and config
         config = {}
         if self.on_evaluate_config_fn is not None:
@@ -126,7 +129,6 @@ class FedCustom(FedAvg):
         evaluate_ins = EvaluateIns(parameters, config)
 
         custom = CustomCriterion(GOOD_CID_LIST)
-        sample_size = len(GOOD_CID_LIST)
 
         _, min_num_clients = self.num_fit_clients(
             client_manager.num_available()
@@ -174,7 +176,7 @@ class FedCustom(FedAvg):
         sample_size = len(GOOD_CID_LIST)
         log(ERROR, "FIT: GOOD CID LIST" + str(GOOD_CID_LIST))
 
-        log(DEBUG, "sample size " + str(sample_size))
+        log(ERROR, "sample size " + str(sample_size))
         
         custom = CustomCriterion(GOOD_CID_LIST)
 
@@ -206,7 +208,9 @@ class FedCustom(FedAvg):
 
         # Aggregate and print custom metric
         aggregated_accuracy = sum(accuracies) / sum(examples)
-        print(f"Round {server_round} accuracy aggregated from client results: {aggregated_accuracy}")
+
+        # print("Round ", server_round, " aggregated accuracy: ", aggregated_accuracy)
+        # print(f"Round {server_round:3} aggregated accuracy: {aggregated_accuracy:.6f} num vehicles {len(results)}")
 
         # Return aggregated loss and metrics (i.e., aggregated accuracy)
-        return aggregated_loss, {"accuracy": aggregated_accuracy}
+        return aggregated_loss, {"accuracy": aggregated_accuracy, "count": len(results)}

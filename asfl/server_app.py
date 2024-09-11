@@ -7,6 +7,7 @@ from asfl.task import Net, get_weights
 from flwr.server.strategy import Strategy
 
 from .dvsaa_afl import FedCustom
+from .federal_avg import FederalAvg
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -54,7 +55,7 @@ def server_fn(context: Context):
             num_rounds=num_rounds,
         )
     elif strat_mode == 'fedavg':
-        strategy = FedAvg(
+        strategy = FederalAvg(
             fraction_fit=1.0,
             fraction_evaluate=1.0,
             min_available_clients=2,

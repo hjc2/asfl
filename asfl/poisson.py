@@ -26,4 +26,4 @@ def old_in_round(num_rounds, num_vehicles, round):
 # for i in range(1,6):
 #     print (vehicles_in_round(5, 5, i))
 
-print(vehicles_in_round(8, 8, 2))
+# print(vehicles_in_round(8, 8, 2))

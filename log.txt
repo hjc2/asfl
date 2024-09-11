@@ -645,3 +645,461 @@ dv - | ERROR flwr 2024-09-11 14:22:52,383 | dvsaa_afl.py:170 | CID_LIST ['-36196
 dv - | ERROR flwr 2024-09-11 14:22:52,383 | dvsaa_afl.py:175 | FIT: GOOD CID LIST['1135292862162735609', '-5268455490641962901', '4532177081014547945', '-3619641846454565918', '-7279287403719415626']
 dv - | DEBUG flwr 2024-09-11 14:22:52,383 | dvsaa_afl.py:177 | sample size 5
 dv - | INFO flwr 2024-09-11 14:22:52,383 | server.py:226 | configure_fit: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:23:00,464 | server.py:240 | aggregate_fit: received 5 results and 0 failures
+dv - | CRITICAL flwr 2024-09-11 14:23:00,466 | dvsaa_afl.py:109 | num of clients in manager 10
+dv - | ERROR flwr 2024-09-11 14:23:00,467 | dvsaa_afl.py:119 | EVAL: GOOD CID LIST['1565622916187482188', '-7279287403719415626', '4532177081014547945', '1135292862162735609', '24519723205894981']
+dv - | INFO flwr 2024-09-11 14:23:00,467 | server.py:178 | configure_evaluate: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:23:01,486 | server.py:192 | aggregate_evaluate: received 5 results and 0 failures
+dv - | INFO flwr 2024-09-11 14:23:01,486 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:23:01,486 | server.py:113 | [ROUND 9]
+dv - | CRITICAL flwr 2024-09-11 14:23:01,486 | dvsaa_afl.py:163 | total num of rounds 10
+dv - | ERROR flwr 2024-09-11 14:23:01,486 | dvsaa_afl.py:170 | CID_LIST ['-3619641846454565918', '24519723205894981', '7614901125897318979', '-5268455490641962901', '4532177081014547945', '-493723842423210580', '1565622916187482188', '-7279287403719415626', '1135292862162735609', '1757946358635289247']
+dv - | ERROR flwr 2024-09-11 14:23:01,486 | dvsaa_afl.py:175 | FIT: GOOD CID LIST['1565622916187482188', '-493723842423210580', '24519723205894981', '1135292862162735609']
+dv - | DEBUG flwr 2024-09-11 14:23:01,486 | dvsaa_afl.py:177 | sample size 4
+dv - | INFO flwr 2024-09-11 14:23:01,486 | server.py:226 | configure_fit: strategy sampled 4 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:23:07,541 | server.py:240 | aggregate_fit: received 4 results and 0 failures
+dv - | CRITICAL flwr 2024-09-11 14:23:07,541 | dvsaa_afl.py:109 | num of clients in manager 10
+dv - | ERROR flwr 2024-09-11 14:23:07,541 | dvsaa_afl.py:119 | EVAL: GOOD CID LIST['-493723842423210580', '1135292862162735609', '7614901125897318979', '24519723205894981']
+dv - | INFO flwr 2024-09-11 14:23:07,541 | server.py:178 | configure_evaluate: strategy sampled 4 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:23:08,578 | server.py:192 | aggregate_evaluate: received 4 results and 0 failures
+dv - | INFO flwr 2024-09-11 14:23:08,578 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:23:08,578 | server.py:113 | [ROUND 10]
+dv - | CRITICAL flwr 2024-09-11 14:23:08,578 | dvsaa_afl.py:163 | total num of rounds 10
+dv - | ERROR flwr 2024-09-11 14:23:08,578 | dvsaa_afl.py:170 | CID_LIST ['-3619641846454565918', '24519723205894981', '7614901125897318979', '-5268455490641962901', '4532177081014547945', '-493723842423210580', '1565622916187482188', '-7279287403719415626', '1135292862162735609', '1757946358635289247']
+dv - | ERROR flwr 2024-09-11 14:23:08,578 | dvsaa_afl.py:175 | FIT: GOOD CID LIST['1565622916187482188', '-3619641846454565918', '1757946358635289247']
+dv - | DEBUG flwr 2024-09-11 14:23:08,578 | dvsaa_afl.py:177 | sample size 3
+dv - | INFO flwr 2024-09-11 14:23:08,578 | server.py:226 | configure_fit: strategy sampled 3 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:23:13,619 | server.py:240 | aggregate_fit: received 3 results and 0 failures
+dv - | CRITICAL flwr 2024-09-11 14:23:13,619 | dvsaa_afl.py:109 | num of clients in manager 10
+dv - | ERROR flwr 2024-09-11 14:23:13,619 | dvsaa_afl.py:119 | EVAL: GOOD CID LIST['1565622916187482188', '4532177081014547945', '-3619641846454565918']
+dv - | INFO flwr 2024-09-11 14:23:13,619 | server.py:178 | configure_evaluate: strategy sampled 3 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:192 | aggregate_evaluate: received 3 results and 0 failures
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:496 | 
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:497 | [SUMMARY]
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:498 | Run finished 10 round(s) in 100.51s
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	History (loss, distributed):
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 		round 1: 73.61224590407477
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 		round 2: 73.48825168609619
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 		round 3: 73.2881345351537
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 		round 4: 72.91838383674622
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 		round 5: 72.09121985435486
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 		round 6: 70.07461839914322
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 		round 7: 67.4675242304802
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 		round 8: 65.65071041584015
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 		round 9: 63.68738600611687
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 		round 10: 62.877487659454346
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	History (metrics, distributed, evaluate):
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	{'accuracy': [(1, 0.09566666666666666),
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	              (2, 0.1112),
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	              (3, 0.15483333333333332),
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	              (4, 0.1716),
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	              (5, 0.1654),
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	              (6, 0.193875),
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	              (7, 0.2355),
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	              (8, 0.2568),
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	              (9, 0.28225),
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:500 | 	              (10, 0.29133333333333333)]}
+dv - | INFO flwr 2024-09-11 14:23:14,640 | server.py:501 | 
+dv - | DEBUG flwr 2024-09-11 14:23:14,640 | run_serverapp.py:90 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:23:14,640 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:23:14,640 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-11 14:23:15,112 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-11 14:23:15,694 | raybackend.py:184 | Terminated RayBackend
+dv - | DEBUG flwr 2024-09-11 14:23:15,694 | run_simulation.py:452 | Stopping Simulation Engine now.
+dv - | CRITICAL flwr 2024-09-11 14:25:20,054 | server_app.py:64 | running in fedcustom
+dv - | CRITICAL flwr 2024-09-11 14:25:20,054 | server_app.py:65 | min num clients 2
+dv - | CRITICAL flwr 2024-09-11 14:25:20,054 | server_app.py:66 | num server rounds 2
+dv - | CRITICAL flwr 2024-09-11 14:25:20,054 | server_app.py:67 | num local epochs 1
+dv - | INFO flwr 2024-09-11 14:25:20,054 | app.py:74 | Starting Flower ServerApp, config: num_rounds=2, no round_timeout
+dv - | INFO flwr 2024-09-11 14:25:20,054 | app.py:79 | 
+dv - | INFO flwr 2024-09-11 14:25:20,054 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-09-11 14:25:20,054 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-09-11 14:25:20,054 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-09-11 14:25:20,054 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-09-11 14:25:20,054 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:25:20,054 | server.py:113 | [ROUND 1]
+dv - | CRITICAL flwr 2024-09-11 14:25:20,054 | dvsaa_afl.py:163 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:25:20,054 | dvsaa_afl.py:170 | CID_LIST ['5579358429390656222', '5476139508235577663', '8742979140163890560', '-5286554663832713914', '-3738780365942116789', '5821990338991540457', '-1901211749959328945', '439179528085224211', '320910828706227770', '-3932700007919837088']
+dv - | ERROR flwr 2024-09-11 14:25:20,054 | dvsaa_afl.py:175 | FIT: GOOD CID LIST['320910828706227770', '5579358429390656222', '-3932700007919837088', '439179528085224211', '5821990338991540457', '-3738780365942116789', '5476139508235577663', '8742979140163890560', '-1901211749959328945']
+dv - | DEBUG flwr 2024-09-11 14:25:20,054 | dvsaa_afl.py:177 | sample size 9
+dv - | INFO flwr 2024-09-11 14:25:20,054 | server.py:226 | configure_fit: strategy sampled 9 clients (out of 10)
+dv - | DEBUG flwr 2024-09-11 14:25:22,759 | raybackend.py:136 | Constructed ActorPool with: 4 actors
+dv - | DEBUG flwr 2024-09-11 14:25:22,759 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-09-11 14:25:44,882 | server.py:240 | aggregate_fit: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:25:44,882 | fedavg.py:252 | No fit_metrics_aggregation_fn provided
+dv - | CRITICAL flwr 2024-09-11 14:25:44,882 | dvsaa_afl.py:109 | num of clients in manager 10
+dv - | ERROR flwr 2024-09-11 14:25:44,882 | dvsaa_afl.py:119 | EVAL: GOOD CID LIST['-5286554663832713914', '5821990338991540457', '439179528085224211', '-1901211749959328945', '5579358429390656222', '5476139508235577663', '8742979140163890560', '-3738780365942116789', '-3932700007919837088']
+dv - | INFO flwr 2024-09-11 14:25:44,882 | server.py:178 | configure_evaluate: strategy sampled 9 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:25:46,908 | server.py:192 | aggregate_evaluate: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:25:46,908 | fedavg.py:283 | No evaluate_metrics_aggregation_fn provided
+dv - | INFO flwr 2024-09-11 14:25:46,908 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:25:46,908 | server.py:113 | [ROUND 2]
+dv - | CRITICAL flwr 2024-09-11 14:25:46,908 | dvsaa_afl.py:163 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:25:46,908 | dvsaa_afl.py:170 | CID_LIST ['5579358429390656222', '5476139508235577663', '8742979140163890560', '-5286554663832713914', '-3738780365942116789', '5821990338991540457', '-1901211749959328945', '439179528085224211', '320910828706227770', '-3932700007919837088']
+dv - | ERROR flwr 2024-09-11 14:25:46,908 | dvsaa_afl.py:175 | FIT: GOOD CID LIST['320910828706227770', '5579358429390656222', '5476139508235577663', '439179528085224211', '5821990338991540457']
+dv - | DEBUG flwr 2024-09-11 14:25:46,908 | dvsaa_afl.py:177 | sample size 5
+dv - | INFO flwr 2024-09-11 14:25:46,908 | server.py:226 | configure_fit: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:25:54,962 | server.py:240 | aggregate_fit: received 5 results and 0 failures
+dv - | CRITICAL flwr 2024-09-11 14:25:54,962 | dvsaa_afl.py:109 | num of clients in manager 10
+dv - | ERROR flwr 2024-09-11 14:25:54,962 | dvsaa_afl.py:119 | EVAL: GOOD CID LIST['439179528085224211', '5821990338991540457', '-1901211749959328945', '-5286554663832713914', '5579358429390656222']
+dv - | INFO flwr 2024-09-11 14:25:54,962 | server.py:178 | configure_evaluate: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:25:55,982 | server.py:192 | aggregate_evaluate: received 5 results and 0 failures
+dv - | INFO flwr 2024-09-11 14:25:55,982 | server.py:496 | 
+dv - | INFO flwr 2024-09-11 14:25:55,982 | server.py:497 | [SUMMARY]
+dv - | INFO flwr 2024-09-11 14:25:55,982 | server.py:498 | Run finished 2 round(s) in 35.93s
+dv - | INFO flwr 2024-09-11 14:25:55,982 | server.py:500 | 	History (loss, distributed):
+dv - | INFO flwr 2024-09-11 14:25:55,982 | server.py:500 | 		round 1: 73.76292424731784
+dv - | INFO flwr 2024-09-11 14:25:55,982 | server.py:500 | 		round 2: 73.72615261077881
+dv - | INFO flwr 2024-09-11 14:25:55,982 | server.py:500 | 	History (metrics, distributed, evaluate):
+dv - | INFO flwr 2024-09-11 14:25:55,982 | server.py:500 | 	{'accuracy': [(1, 0.10077777777777777), (2, 0.1024)]}
+dv - | INFO flwr 2024-09-11 14:25:55,982 | server.py:501 | 
+dv - | DEBUG flwr 2024-09-11 14:25:55,982 | run_serverapp.py:90 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:25:55,982 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:25:55,982 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-11 14:25:56,768 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-11 14:25:57,453 | raybackend.py:184 | Terminated RayBackend
+dv - | DEBUG flwr 2024-09-11 14:25:57,453 | run_simulation.py:452 | Stopping Simulation Engine now.
+dv - | CRITICAL flwr 2024-09-11 14:28:43,089 | server_app.py:64 | running in fedcustom
+dv - | CRITICAL flwr 2024-09-11 14:28:43,089 | server_app.py:65 | min num clients 2
+dv - | CRITICAL flwr 2024-09-11 14:28:43,089 | server_app.py:66 | num server rounds 2
+dv - | CRITICAL flwr 2024-09-11 14:28:43,089 | server_app.py:67 | num local epochs 1
+dv - | INFO flwr 2024-09-11 14:28:43,089 | app.py:74 | Starting Flower ServerApp, config: num_rounds=2, no round_timeout
+dv - | INFO flwr 2024-09-11 14:28:43,089 | app.py:79 | 
+dv - | INFO flwr 2024-09-11 14:28:43,089 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-09-11 14:28:43,089 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-09-11 14:28:43,089 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-09-11 14:28:43,089 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-09-11 14:28:43,089 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:28:43,089 | server.py:113 | [ROUND 1]
+dv - | CRITICAL flwr 2024-09-11 14:28:43,089 | dvsaa_afl.py:164 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:28:43,089 | dvsaa_afl.py:171 | CID_LIST ['-9079332800152145878', '8495380470686352199', '7687994655410047722', '-7511354280210497483', '239960440370947733', '-2516495581397453513', '4517592965875874551', '-7457883284896296964', '-6086174897517756164', '3464259220434636893']
+dv - | ERROR flwr 2024-09-11 14:28:43,089 | dvsaa_afl.py:176 | FIT: GOOD CID LIST['7687994655410047722', '-7457883284896296964', '-2516495581397453513', '-7511354280210497483', '-9079332800152145878', '-6086174897517756164', '4517592965875874551', '3464259220434636893', '8495380470686352199']
+dv - | ERROR flwr 2024-09-11 14:28:43,089 | dvsaa_afl.py:178 | sample size 9
+dv - | INFO flwr 2024-09-11 14:28:43,089 | server.py:226 | configure_fit: strategy sampled 9 clients (out of 10)
+dv - | DEBUG flwr 2024-09-11 14:28:45,913 | raybackend.py:136 | Constructed ActorPool with: 4 actors
+dv - | DEBUG flwr 2024-09-11 14:28:45,913 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-09-11 14:29:07,035 | server.py:240 | aggregate_fit: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:29:07,042 | fedavg.py:252 | No fit_metrics_aggregation_fn provided
+dv - | ERROR flwr 2024-09-11 14:29:07,042 | dvsaa_afl.py:119 | EVAL: GOOD CID LIST['239960440370947733', '-7511354280210497483', '-7457883284896296964', '8495380470686352199', '-6086174897517756164', '7687994655410047722', '-2516495581397453513', '4517592965875874551', '3464259220434636893']
+dv - | ERROR flwr 2024-09-11 14:29:07,043 | run_simulation.py:344 | ServerApp thread raised an exception: local variable 'sample_size' referenced before assignment
+dv - | ERROR flwr 2024-09-11 14:29:07,056 | run_simulation.py:345 | Traceback (most recent call last):
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\simulation\run_simulation.py", line 336, in server_th_with_start_checks
+    run_server_app(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\run_serverapp.py", line 88, in run
+    server_app(driver=driver, context=context)
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server_app.py", line 120, in __call__
+    start_driver(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\compat\app.py", line 87, in start_driver
+    hist = run_fl(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 492, in run_fl
+    hist, elapsed_time = server.fit(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 145, in fit
+    res_fed = self.evaluate_round(server_round=current_round, timeout=timeout)
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 170, in evaluate_round
+    client_instructions = self.strategy.configure_evaluate(
+  File "C:\Users\hughj\Documents\GitHub\asfl\asfl\dvsaa_afl.py", line 120, in configure_evaluate
+    log(ERROR, "sample size " + str(sample_size))
+UnboundLocalError: local variable 'sample_size' referenced before assignment
+
+dv - | DEBUG flwr 2024-09-11 14:29:07,056 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:29:07,056 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-11 14:29:07,733 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-11 14:29:08,486 | raybackend.py:184 | Terminated RayBackend
+dv - | CRITICAL flwr 2024-09-11 14:30:18,663 | server_app.py:64 | running in fedcustom
+dv - | CRITICAL flwr 2024-09-11 14:30:18,663 | server_app.py:65 | min num clients 2
+dv - | CRITICAL flwr 2024-09-11 14:30:18,663 | server_app.py:66 | num server rounds 2
+dv - | CRITICAL flwr 2024-09-11 14:30:18,663 | server_app.py:67 | num local epochs 1
+dv - | INFO flwr 2024-09-11 14:30:18,663 | app.py:74 | Starting Flower ServerApp, config: num_rounds=2, no round_timeout
+dv - | INFO flwr 2024-09-11 14:30:18,663 | app.py:79 | 
+dv - | INFO flwr 2024-09-11 14:30:18,663 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-09-11 14:30:18,663 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-09-11 14:30:18,663 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-09-11 14:30:18,663 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-09-11 14:30:18,663 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:30:18,663 | server.py:113 | [ROUND 1]
+dv - | CRITICAL flwr 2024-09-11 14:30:18,663 | dvsaa_afl.py:164 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:30:18,663 | dvsaa_afl.py:171 | CID_LIST ['8898752215089392701', '-3125468145094736182', '3356907028487135433', '-3999182027774038566', '353553607040271890', '1406523710529174546', '-7447428082274323656', '8061150337472099155', '4002256914744242520', '7368693651528522424']
+dv - | ERROR flwr 2024-09-11 14:30:18,663 | dvsaa_afl.py:176 | FIT: GOOD CID LIST['-7447428082274323656', '7368693651528522424', '3356907028487135433', '353553607040271890', '8061150337472099155', '-3125468145094736182', '-3999182027774038566', '1406523710529174546', '4002256914744242520']
+dv - | ERROR flwr 2024-09-11 14:30:18,663 | dvsaa_afl.py:178 | sample size 9
+dv - | INFO flwr 2024-09-11 14:30:18,663 | server.py:226 | configure_fit: strategy sampled 9 clients (out of 10)
+dv - | DEBUG flwr 2024-09-11 14:30:21,269 | raybackend.py:136 | Constructed ActorPool with: 4 actors
+dv - | DEBUG flwr 2024-09-11 14:30:21,269 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-09-11 14:30:44,377 | server.py:240 | aggregate_fit: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:30:44,383 | fedavg.py:252 | No fit_metrics_aggregation_fn provided
+dv - | ERROR flwr 2024-09-11 14:30:44,383 | dvsaa_afl.py:119 | EVAL: GOOD CID LIST['4002256914744242520', '3356907028487135433', '-3125468145094736182', '1406523710529174546', '7368693651528522424', '-3999182027774038566', '353553607040271890', '-7447428082274323656', '8061150337472099155']
+dv - | ERROR flwr 2024-09-11 14:30:44,383 | run_simulation.py:344 | ServerApp thread raised an exception: local variable 'sample_size' referenced before assignment
+dv - | ERROR flwr 2024-09-11 14:30:44,386 | run_simulation.py:345 | Traceback (most recent call last):
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\simulation\run_simulation.py", line 336, in server_th_with_start_checks
+    run_server_app(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\run_serverapp.py", line 88, in run
+    server_app(driver=driver, context=context)
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server_app.py", line 120, in __call__
+    start_driver(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\compat\app.py", line 87, in start_driver
+    hist = run_fl(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 492, in run_fl
+    hist, elapsed_time = server.fit(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 145, in fit
+    res_fed = self.evaluate_round(server_round=current_round, timeout=timeout)
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 170, in evaluate_round
+    client_instructions = self.strategy.configure_evaluate(
+  File "C:\Users\hughj\Documents\GitHub\asfl\asfl\dvsaa_afl.py", line 120, in configure_evaluate
+    log(ERROR, "sample size " + str(sample_size))
+UnboundLocalError: local variable 'sample_size' referenced before assignment
+
+dv - | DEBUG flwr 2024-09-11 14:30:44,386 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:30:44,386 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-11 14:30:45,034 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-11 14:30:45,553 | raybackend.py:184 | Terminated RayBackend
+dv - | CRITICAL flwr 2024-09-11 14:31:20,897 | server_app.py:64 | running in fedcustom
+dv - | CRITICAL flwr 2024-09-11 14:31:20,909 | server_app.py:65 | min num clients 2
+dv - | CRITICAL flwr 2024-09-11 14:31:20,909 | server_app.py:66 | num server rounds 2
+dv - | CRITICAL flwr 2024-09-11 14:31:20,909 | server_app.py:67 | num local epochs 1
+dv - | INFO flwr 2024-09-11 14:31:20,909 | app.py:74 | Starting Flower ServerApp, config: num_rounds=2, no round_timeout
+dv - | INFO flwr 2024-09-11 14:31:20,909 | app.py:79 | 
+dv - | INFO flwr 2024-09-11 14:31:20,910 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-09-11 14:31:20,910 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-09-11 14:31:20,910 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-09-11 14:31:20,910 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-09-11 14:31:20,910 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:31:20,911 | server.py:113 | [ROUND 1]
+dv - | CRITICAL flwr 2024-09-11 14:31:20,911 | dvsaa_afl.py:165 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:31:20,911 | dvsaa_afl.py:172 | CID_LIST ['7815746927738624989', '3682166799083920000', '8637994856828575327', '4455803518975452589', '-2064126710950845264', '-3407319395064373231', '2660992161615300018', '-7730978308580490090', '3127038102144062903', '172029612244384797']
+dv - | ERROR flwr 2024-09-11 14:31:20,911 | dvsaa_afl.py:177 | FIT: GOOD CID LIST['7815746927738624989', '172029612244384797', '4455803518975452589', '3682166799083920000', '8637994856828575327', '-3407319395064373231', '-7730978308580490090', '3127038102144062903', '2660992161615300018']
+dv - | ERROR flwr 2024-09-11 14:31:20,911 | dvsaa_afl.py:179 | sample size 9
+dv - | INFO flwr 2024-09-11 14:31:20,911 | server.py:226 | configure_fit: strategy sampled 9 clients (out of 10)
+dv - | DEBUG flwr 2024-09-11 14:31:23,570 | raybackend.py:136 | Constructed ActorPool with: 4 actors
+dv - | DEBUG flwr 2024-09-11 14:31:23,570 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-09-11 14:31:44,716 | server.py:240 | aggregate_fit: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:31:44,716 | fedavg.py:252 | No fit_metrics_aggregation_fn provided
+dv - | ERROR flwr 2024-09-11 14:31:44,716 | dvsaa_afl.py:121 | EVAL: GOOD CID LIST['3682166799083920000', '172029612244384797', '4455803518975452589', '-7730978308580490090', '-3407319395064373231', '3127038102144062903', '8637994856828575327', '7815746927738624989', '-2064126710950845264']
+dv - | ERROR flwr 2024-09-11 14:31:44,716 | dvsaa_afl.py:122 | sample size 9
+dv - | INFO flwr 2024-09-11 14:31:44,716 | server.py:178 | configure_evaluate: strategy sampled 9 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:31:46,754 | server.py:192 | aggregate_evaluate: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:31:46,754 | fedavg.py:283 | No evaluate_metrics_aggregation_fn provided
+dv - | INFO flwr 2024-09-11 14:31:46,754 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:31:46,754 | server.py:113 | [ROUND 2]
+dv - | CRITICAL flwr 2024-09-11 14:31:46,754 | dvsaa_afl.py:165 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:31:46,754 | dvsaa_afl.py:172 | CID_LIST ['7815746927738624989', '3682166799083920000', '8637994856828575327', '4455803518975452589', '-2064126710950845264', '-3407319395064373231', '2660992161615300018', '-7730978308580490090', '3127038102144062903', '172029612244384797']
+dv - | ERROR flwr 2024-09-11 14:31:46,754 | dvsaa_afl.py:177 | FIT: GOOD CID LIST['7815746927738624989', '4455803518975452589', '172029612244384797', '3127038102144062903', '-2064126710950845264']
+dv - | ERROR flwr 2024-09-11 14:31:46,754 | dvsaa_afl.py:179 | sample size 5
+dv - | INFO flwr 2024-09-11 14:31:46,754 | server.py:226 | configure_fit: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:31:54,811 | server.py:240 | aggregate_fit: received 5 results and 0 failures
+dv - | ERROR flwr 2024-09-11 14:31:54,811 | dvsaa_afl.py:121 | EVAL: GOOD CID LIST['7815746927738624989', '-3407319395064373231', '-7730978308580490090', '2660992161615300018', '8637994856828575327']
+dv - | ERROR flwr 2024-09-11 14:31:54,811 | dvsaa_afl.py:122 | sample size 5
+dv - | INFO flwr 2024-09-11 14:31:54,811 | server.py:178 | configure_evaluate: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:31:55,831 | server.py:192 | aggregate_evaluate: received 5 results and 0 failures
+dv - | INFO flwr 2024-09-11 14:31:55,831 | server.py:496 | 
+dv - | INFO flwr 2024-09-11 14:31:55,831 | server.py:497 | [SUMMARY]
+dv - | INFO flwr 2024-09-11 14:31:55,831 | server.py:498 | Run finished 2 round(s) in 34.92s
+dv - | INFO flwr 2024-09-11 14:31:55,831 | server.py:500 | 	History (loss, distributed):
+dv - | INFO flwr 2024-09-11 14:31:55,831 | server.py:500 | 		round 1: 73.62394952774048
+dv - | INFO flwr 2024-09-11 14:31:55,831 | server.py:500 | 		round 2: 73.54463319778442
+dv - | INFO flwr 2024-09-11 14:31:55,831 | server.py:500 | 	History (metrics, distributed, evaluate):
+dv - | INFO flwr 2024-09-11 14:31:55,831 | server.py:500 | 	{'accuracy': [(1, 0.10755555555555556), (2, 0.1174)], 'count': [(1, 9), (2, 5)]}
+dv - | INFO flwr 2024-09-11 14:31:55,831 | server.py:501 | 
+dv - | DEBUG flwr 2024-09-11 14:31:55,838 | run_serverapp.py:90 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:31:55,838 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:31:55,838 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-11 14:31:56,663 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-11 14:31:58,867 | raybackend.py:184 | Terminated RayBackend
+dv - | DEBUG flwr 2024-09-11 14:31:58,867 | run_simulation.py:452 | Stopping Simulation Engine now.
+dv - | CRITICAL flwr 2024-09-11 14:34:52,942 | server_app.py:65 | running in fedavg
+dv - | CRITICAL flwr 2024-09-11 14:34:52,942 | server_app.py:66 | min num clients 2
+dv - | CRITICAL flwr 2024-09-11 14:34:52,942 | server_app.py:67 | num server rounds 2
+dv - | CRITICAL flwr 2024-09-11 14:34:52,942 | server_app.py:68 | num local epochs 1
+dv - | INFO flwr 2024-09-11 14:34:52,942 | app.py:74 | Starting Flower ServerApp, config: num_rounds=2, no round_timeout
+dv - | INFO flwr 2024-09-11 14:34:52,942 | app.py:79 | 
+dv - | INFO flwr 2024-09-11 14:34:52,942 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-09-11 14:34:52,942 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-09-11 14:34:52,942 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-09-11 14:34:52,942 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-09-11 14:34:52,942 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:34:52,942 | server.py:113 | [ROUND 1]
+dv - | INFO flwr 2024-09-11 14:34:52,942 | server.py:226 | configure_fit: strategy sampled 10 clients (out of 10)
+dv - | DEBUG flwr 2024-09-11 14:34:55,605 | raybackend.py:136 | Constructed ActorPool with: 4 actors
+dv - | DEBUG flwr 2024-09-11 14:34:55,605 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-09-11 14:35:25,825 | server.py:240 | aggregate_fit: received 10 results and 0 failures
+dv - | ERROR flwr 2024-09-11 14:35:25,825 | run_simulation.py:344 | ServerApp thread raised an exception: name 'aggregate_inplace' is not defined
+dv - | ERROR flwr 2024-09-11 14:35:25,825 | run_simulation.py:345 | Traceback (most recent call last):
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\simulation\run_simulation.py", line 336, in server_th_with_start_checks
+    run_server_app(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\run_serverapp.py", line 88, in run
+    server_app(driver=driver, context=context)
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server_app.py", line 120, in __call__
+    start_driver(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\compat\app.py", line 87, in start_driver
+    hist = run_fl(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 492, in run_fl
+    hist, elapsed_time = server.fit(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 115, in fit
+    res_fit = self.fit_round(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 251, in fit_round
+    ] = self.strategy.aggregate_fit(server_round, results, failures)
+  File "C:\Users\hughj\Documents\GitHub\asfl\asfl\federal_avg.py", line 228, in aggregate_fit
+    aggregated_ndarrays = aggregate_inplace(results)
+NameError: name 'aggregate_inplace' is not defined
+
+dv - | DEBUG flwr 2024-09-11 14:35:25,825 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:35:25,825 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-11 14:35:26,784 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-11 14:35:27,372 | raybackend.py:184 | Terminated RayBackend
+dv - | CRITICAL flwr 2024-09-11 14:36:10,375 | server_app.py:65 | running in fedcustom
+dv - | CRITICAL flwr 2024-09-11 14:36:10,375 | server_app.py:66 | min num clients 2
+dv - | CRITICAL flwr 2024-09-11 14:36:10,375 | server_app.py:67 | num server rounds 2
+dv - | CRITICAL flwr 2024-09-11 14:36:10,375 | server_app.py:68 | num local epochs 1
+dv - | INFO flwr 2024-09-11 14:36:10,375 | app.py:74 | Starting Flower ServerApp, config: num_rounds=2, no round_timeout
+dv - | INFO flwr 2024-09-11 14:36:10,375 | app.py:79 | 
+dv - | INFO flwr 2024-09-11 14:36:10,375 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-09-11 14:36:10,375 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-09-11 14:36:10,375 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-09-11 14:36:10,375 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-09-11 14:36:10,375 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:36:10,375 | server.py:113 | [ROUND 1]
+dv - | CRITICAL flwr 2024-09-11 14:36:10,375 | dvsaa_afl.py:165 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:36:10,375 | dvsaa_afl.py:172 | CID_LIST ['-8436087556188368828', '-8383300546810563384', '6353338650756950788', '6157875264657505846', '-26452188051120014', '620791357467477587', '-5387429926769416009', '5655459354597078678', '9196959352112104664', '-3806269977869485570']
+dv - | ERROR flwr 2024-09-11 14:36:10,375 | dvsaa_afl.py:177 | FIT: GOOD CID LIST['-26452188051120014', '-8383300546810563384', '-3806269977869485570', '620791357467477587', '-5387429926769416009', '6353338650756950788', '6157875264657505846', '9196959352112104664', '-8436087556188368828']
+dv - | ERROR flwr 2024-09-11 14:36:10,375 | dvsaa_afl.py:179 | sample size 9
+dv - | INFO flwr 2024-09-11 14:36:10,375 | server.py:226 | configure_fit: strategy sampled 9 clients (out of 10)
+dv - | DEBUG flwr 2024-09-11 14:36:13,269 | raybackend.py:136 | Constructed ActorPool with: 4 actors
+dv - | DEBUG flwr 2024-09-11 14:36:13,269 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-09-11 14:36:34,388 | server.py:240 | aggregate_fit: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:36:34,388 | fedavg.py:252 | No fit_metrics_aggregation_fn provided
+dv - | ERROR flwr 2024-09-11 14:36:34,388 | dvsaa_afl.py:121 | EVAL: GOOD CID LIST['6353338650756950788', '620791357467477587', '9196959352112104664', '-3806269977869485570', '-8436087556188368828', '-8383300546810563384', '-26452188051120014', '5655459354597078678', '6157875264657505846']
+dv - | ERROR flwr 2024-09-11 14:36:34,388 | dvsaa_afl.py:122 | sample size 9
+dv - | INFO flwr 2024-09-11 14:36:34,388 | server.py:178 | configure_evaluate: strategy sampled 9 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:36:36,416 | server.py:192 | aggregate_evaluate: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:36:36,416 | fedavg.py:283 | No evaluate_metrics_aggregation_fn provided
+dv - | INFO flwr 2024-09-11 14:36:36,416 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:36:36,416 | server.py:113 | [ROUND 2]
+dv - | CRITICAL flwr 2024-09-11 14:36:36,416 | dvsaa_afl.py:165 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:36:36,416 | dvsaa_afl.py:172 | CID_LIST ['-8436087556188368828', '-8383300546810563384', '6353338650756950788', '6157875264657505846', '-26452188051120014', '620791357467477587', '-5387429926769416009', '5655459354597078678', '9196959352112104664', '-3806269977869485570']
+dv - | ERROR flwr 2024-09-11 14:36:36,416 | dvsaa_afl.py:177 | FIT: GOOD CID LIST['-3806269977869485570', '620791357467477587', '-8436087556188368828', '6157875264657505846', '-26452188051120014']
+dv - | ERROR flwr 2024-09-11 14:36:36,416 | dvsaa_afl.py:179 | sample size 5
+dv - | INFO flwr 2024-09-11 14:36:36,416 | server.py:226 | configure_fit: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:36:44,472 | server.py:240 | aggregate_fit: received 5 results and 0 failures
+dv - | ERROR flwr 2024-09-11 14:36:44,472 | dvsaa_afl.py:121 | EVAL: GOOD CID LIST['620791357467477587', '9196959352112104664', '6353338650756950788', '5655459354597078678', '-5387429926769416009']
+dv - | ERROR flwr 2024-09-11 14:36:44,472 | dvsaa_afl.py:122 | sample size 5
+dv - | INFO flwr 2024-09-11 14:36:44,472 | server.py:178 | configure_evaluate: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:36:45,492 | server.py:192 | aggregate_evaluate: received 5 results and 0 failures
+dv - | INFO flwr 2024-09-11 14:36:45,492 | server.py:496 | 
+dv - | INFO flwr 2024-09-11 14:36:45,492 | server.py:497 | [SUMMARY]
+dv - | INFO flwr 2024-09-11 14:36:45,492 | server.py:498 | Run finished 2 round(s) in 35.11s
+dv - | INFO flwr 2024-09-11 14:36:45,492 | server.py:500 | 	History (loss, distributed):
+dv - | INFO flwr 2024-09-11 14:36:45,492 | server.py:500 | 		round 1: 73.64180837737189
+dv - | INFO flwr 2024-09-11 14:36:45,492 | server.py:500 | 		round 2: 73.60379967689514
+dv - | INFO flwr 2024-09-11 14:36:45,492 | server.py:500 | 	History (metrics, distributed, evaluate):
+dv - | INFO flwr 2024-09-11 14:36:45,492 | server.py:500 | 	{'accuracy': [(1, 0.10477777777777778), (2, 0.1328)], 'count': [(1, 9), (2, 5)]}
+dv - | INFO flwr 2024-09-11 14:36:45,492 | server.py:501 | 
+dv - | DEBUG flwr 2024-09-11 14:36:45,492 | run_serverapp.py:90 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:36:45,492 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:36:45,492 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-11 14:36:46,277 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-11 14:36:46,826 | raybackend.py:184 | Terminated RayBackend
+dv - | DEBUG flwr 2024-09-11 14:36:46,841 | run_simulation.py:452 | Stopping Simulation Engine now.
+dv - | CRITICAL flwr 2024-09-11 14:39:59,062 | server_app.py:65 | running in fedcustom
+dv - | CRITICAL flwr 2024-09-11 14:39:59,062 | server_app.py:66 | min num clients 2
+dv - | CRITICAL flwr 2024-09-11 14:39:59,062 | server_app.py:67 | num server rounds 2
+dv - | CRITICAL flwr 2024-09-11 14:39:59,062 | server_app.py:68 | num local epochs 1
+dv - | INFO flwr 2024-09-11 14:39:59,062 | app.py:74 | Starting Flower ServerApp, config: num_rounds=2, no round_timeout
+dv - | INFO flwr 2024-09-11 14:39:59,062 | app.py:79 | 
+dv - | INFO flwr 2024-09-11 14:39:59,062 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-09-11 14:39:59,062 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-09-11 14:39:59,062 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-09-11 14:39:59,062 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-09-11 14:39:59,062 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:39:59,062 | server.py:113 | [ROUND 1]
+dv - | CRITICAL flwr 2024-09-11 14:39:59,062 | dvsaa_afl.py:165 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:39:59,062 | dvsaa_afl.py:172 | CID_LIST ['-2530371288234985597', '107874184888372644', '4578610007694197271', '-358929281810094608', '-3931928237785557260', '1827675711314081592', '-5409481834961310149', '8043959188863545018', '-5937854502878647199', '-7133034525435394816']
+dv - | ERROR flwr 2024-09-11 14:39:59,073 | dvsaa_afl.py:177 | FIT: GOOD CID LIST['-358929281810094608', '-7133034525435394816', '107874184888372644', '-5937854502878647199', '-3931928237785557260', '4578610007694197271', '-2530371288234985597', '8043959188863545018', '1827675711314081592']
+dv - | ERROR flwr 2024-09-11 14:39:59,073 | dvsaa_afl.py:179 | sample size 9
+dv - | INFO flwr 2024-09-11 14:39:59,073 | server.py:226 | configure_fit: strategy sampled 9 clients (out of 10)
+dv - | DEBUG flwr 2024-09-11 14:40:01,812 | raybackend.py:136 | Constructed ActorPool with: 4 actors
+dv - | DEBUG flwr 2024-09-11 14:40:01,812 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-09-11 14:40:23,917 | server.py:240 | aggregate_fit: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:40:23,917 | fedavg.py:252 | No fit_metrics_aggregation_fn provided
+dv - | ERROR flwr 2024-09-11 14:40:23,917 | dvsaa_afl.py:121 | EVAL: GOOD CID LIST['1827675711314081592', '-5409481834961310149', '4578610007694197271', '107874184888372644', '-2530371288234985597', '-5937854502878647199', '-3931928237785557260', '8043959188863545018', '-358929281810094608']
+dv - | ERROR flwr 2024-09-11 14:40:23,917 | dvsaa_afl.py:122 | sample size 9
+dv - | INFO flwr 2024-09-11 14:40:23,917 | server.py:178 | configure_evaluate: strategy sampled 9 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:40:25,958 | server.py:192 | aggregate_evaluate: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:40:25,958 | fedavg.py:283 | No evaluate_metrics_aggregation_fn provided
+dv - | INFO flwr 2024-09-11 14:40:25,958 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:40:25,958 | server.py:113 | [ROUND 2]
+dv - | CRITICAL flwr 2024-09-11 14:40:25,958 | dvsaa_afl.py:165 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:40:25,958 | dvsaa_afl.py:172 | CID_LIST ['-2530371288234985597', '107874184888372644', '4578610007694197271', '-358929281810094608', '-3931928237785557260', '1827675711314081592', '-5409481834961310149', '8043959188863545018', '-5937854502878647199', '-7133034525435394816']
+dv - | ERROR flwr 2024-09-11 14:40:25,958 | dvsaa_afl.py:177 | FIT: GOOD CID LIST['107874184888372644', '-5409481834961310149', '-358929281810094608', '-5937854502878647199', '4578610007694197271']
+dv - | ERROR flwr 2024-09-11 14:40:25,958 | dvsaa_afl.py:179 | sample size 5
+dv - | INFO flwr 2024-09-11 14:40:25,958 | server.py:226 | configure_fit: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:40:34,023 | server.py:240 | aggregate_fit: received 5 results and 0 failures
+dv - | ERROR flwr 2024-09-11 14:40:34,023 | dvsaa_afl.py:121 | EVAL: GOOD CID LIST['8043959188863545018', '-2530371288234985597', '-3931928237785557260', '1827675711314081592', '-5409481834961310149']
+dv - | ERROR flwr 2024-09-11 14:40:34,023 | dvsaa_afl.py:122 | sample size 5
+dv - | INFO flwr 2024-09-11 14:40:34,023 | server.py:178 | configure_evaluate: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:40:35,043 | server.py:192 | aggregate_evaluate: received 5 results and 0 failures
+dv - | INFO flwr 2024-09-11 14:40:35,043 | server.py:496 | 
+dv - | INFO flwr 2024-09-11 14:40:35,043 | server.py:497 | [SUMMARY]
+dv - | INFO flwr 2024-09-11 14:40:35,043 | server.py:498 | Run finished 2 round(s) in 35.97s
+dv - | INFO flwr 2024-09-11 14:40:35,043 | server.py:500 | 	History (loss, distributed):
+dv - | INFO flwr 2024-09-11 14:40:35,043 | server.py:500 | 		round 1: 73.69458378685846
+dv - | INFO flwr 2024-09-11 14:40:35,043 | server.py:500 | 		round 2: 73.68201971054077
+dv - | INFO flwr 2024-09-11 14:40:35,043 | server.py:500 | 	History (metrics, distributed, evaluate):
+dv - | INFO flwr 2024-09-11 14:40:35,043 | server.py:500 | 	{'accuracy': [(1, 0.09966666666666667), (2, 0.0974)], 'count': [(1, 9), (2, 5)]}
+dv - | INFO flwr 2024-09-11 14:40:35,043 | server.py:501 | 
+dv - | DEBUG flwr 2024-09-11 14:40:35,043 | run_serverapp.py:90 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:40:35,043 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:40:35,043 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-11 14:40:35,906 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-11 14:40:36,471 | raybackend.py:184 | Terminated RayBackend
+dv - | DEBUG flwr 2024-09-11 14:40:36,471 | run_simulation.py:452 | Stopping Simulation Engine now.
+dv - | CRITICAL flwr 2024-09-11 14:41:15,947 | server_app.py:65 | running in fedcustom
+dv - | CRITICAL flwr 2024-09-11 14:41:15,948 | server_app.py:66 | min num clients 2
+dv - | CRITICAL flwr 2024-09-11 14:41:15,948 | server_app.py:67 | num server rounds 2
+dv - | CRITICAL flwr 2024-09-11 14:41:15,948 | server_app.py:68 | num local epochs 1
+dv - | INFO flwr 2024-09-11 14:41:15,948 | app.py:74 | Starting Flower ServerApp, config: num_rounds=2, no round_timeout
+dv - | INFO flwr 2024-09-11 14:41:15,949 | app.py:79 | 
+dv - | INFO flwr 2024-09-11 14:41:15,949 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-09-11 14:41:15,950 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-09-11 14:41:15,950 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-09-11 14:41:15,950 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-09-11 14:41:15,950 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:41:15,950 | server.py:113 | [ROUND 1]
+dv - | CRITICAL flwr 2024-09-11 14:41:15,950 | dvsaa_afl.py:165 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:41:15,950 | dvsaa_afl.py:172 | CID_LIST ['-6146095842276280796', '2471040460641426499', '2114923630993991788', '-8812764161543182511', '4679450797314343309', '2737517336353619921', '6929146835935002452', '8580131596206140246', '1602424514506664889', '-1733619971718832353']
+dv - | ERROR flwr 2024-09-11 14:41:15,951 | dvsaa_afl.py:177 | FIT: GOOD CID LIST['-8812764161543182511', '8580131596206140246', '2114923630993991788', '-1733619971718832353', '2471040460641426499', '-6146095842276280796', '1602424514506664889', '2737517336353619921', '6929146835935002452']
+dv - | ERROR flwr 2024-09-11 14:41:15,951 | dvsaa_afl.py:179 | sample size 9
+dv - | INFO flwr 2024-09-11 14:41:15,951 | server.py:226 | configure_fit: strategy sampled 9 clients (out of 10)
+dv - | DEBUG flwr 2024-09-11 14:41:19,104 | raybackend.py:136 | Constructed ActorPool with: 4 actors
+dv - | DEBUG flwr 2024-09-11 14:41:19,104 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-09-11 14:41:45,287 | server.py:240 | aggregate_fit: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:41:45,287 | fedavg.py:252 | No fit_metrics_aggregation_fn provided
+dv - | ERROR flwr 2024-09-11 14:41:45,287 | dvsaa_afl.py:121 | EVAL: GOOD CID LIST['-8812764161543182511', '6929146835935002452', '8580131596206140246', '-1733619971718832353', '2471040460641426499', '2114923630993991788', '-6146095842276280796', '2737517336353619921', '4679450797314343309']
+dv - | ERROR flwr 2024-09-11 14:41:45,287 | dvsaa_afl.py:122 | sample size 9
+dv - | INFO flwr 2024-09-11 14:41:45,287 | server.py:178 | configure_evaluate: strategy sampled 9 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:41:47,310 | server.py:192 | aggregate_evaluate: received 9 results and 0 failures
+dv - | WARNING flwr 2024-09-11 14:41:47,310 | fedavg.py:283 | No evaluate_metrics_aggregation_fn provided
+dv - | INFO flwr 2024-09-11 14:41:47,310 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 14:41:47,310 | server.py:113 | [ROUND 2]
+dv - | CRITICAL flwr 2024-09-11 14:41:47,310 | dvsaa_afl.py:165 | total num of rounds 2
+dv - | ERROR flwr 2024-09-11 14:41:47,310 | dvsaa_afl.py:172 | CID_LIST ['-6146095842276280796', '2471040460641426499', '2114923630993991788', '-8812764161543182511', '4679450797314343309', '2737517336353619921', '6929146835935002452', '8580131596206140246', '1602424514506664889', '-1733619971718832353']
+dv - | ERROR flwr 2024-09-11 14:41:47,310 | dvsaa_afl.py:177 | FIT: GOOD CID LIST['-6146095842276280796', '-8812764161543182511', '1602424514506664889', '2737517336353619921', '2471040460641426499']
+dv - | ERROR flwr 2024-09-11 14:41:47,313 | dvsaa_afl.py:179 | sample size 5
+dv - | INFO flwr 2024-09-11 14:41:47,313 | server.py:226 | configure_fit: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:41:56,388 | server.py:240 | aggregate_fit: received 5 results and 0 failures
+dv - | ERROR flwr 2024-09-11 14:41:56,388 | dvsaa_afl.py:121 | EVAL: GOOD CID LIST['-6146095842276280796', '2471040460641426499', '2114923630993991788', '1602424514506664889', '4679450797314343309']
+dv - | ERROR flwr 2024-09-11 14:41:56,388 | dvsaa_afl.py:122 | sample size 5
+dv - | INFO flwr 2024-09-11 14:41:56,388 | server.py:178 | configure_evaluate: strategy sampled 5 clients (out of 10)
+dv - | INFO flwr 2024-09-11 14:41:57,410 | server.py:192 | aggregate_evaluate: received 5 results and 0 failures
+dv - | INFO flwr 2024-09-11 14:41:57,411 | server.py:496 | 
+dv - | INFO flwr 2024-09-11 14:41:57,411 | server.py:497 | [SUMMARY]
+dv - | INFO flwr 2024-09-11 14:41:57,411 | server.py:498 | Run finished 2 round(s) in 41.46s
+dv - | INFO flwr 2024-09-11 14:41:57,411 | server.py:500 | 	History (loss, distributed):
+dv - | INFO flwr 2024-09-11 14:41:57,411 | server.py:500 | 		round 1: 73.67386685477362
+dv - | INFO flwr 2024-09-11 14:41:57,411 | server.py:500 | 		round 2: 73.6153356552124
+dv - | INFO flwr 2024-09-11 14:41:57,411 | server.py:500 | 	History (metrics, distributed, evaluate):
+dv - | INFO flwr 2024-09-11 14:41:57,412 | server.py:500 | 	{'accuracy': [(1, 0.099), (2, 0.1142)], 'count': [(1, 9), (2, 5)]}
+dv - | INFO flwr 2024-09-11 14:41:57,412 | server.py:501 | 
+dv - | DEBUG flwr 2024-09-11 14:41:57,414 | run_serverapp.py:90 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:41:57,414 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 14:41:57,415 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-11 14:41:58,218 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-11 14:41:58,862 | raybackend.py:184 | Terminated RayBackend
+dv - | DEBUG flwr 2024-09-11 14:41:58,862 | run_simulation.py:452 | Stopping Simulation Engine now.
