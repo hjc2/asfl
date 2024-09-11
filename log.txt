@@ -628,3 +628,69 @@ dv - | ERROR flwr 2024-09-11 16:27:45,837 | dvsaa_afl.py:180 | sample size 3
 dv - | INFO flwr 2024-09-11 16:27:45,837 | server.py:226 | configure_fit: strategy sampled 3 clients (out of 4)
 dv - | DEBUG flwr 2024-09-11 16:27:48,556 | raybackend.py:136 | Constructed ActorPool with: 4 actors
 dv - | DEBUG flwr 2024-09-11 16:27:48,556 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-09-11 16:28:11,766 | server.py:240 | aggregate_fit: received 3 results and 0 failures
+dv - | ERROR flwr 2024-09-11 16:28:11,767 | run_simulation.py:344 | ServerApp thread raised an exception: unsupported operand type(s) for +: 'int' and 'FitRes'
+dv - | ERROR flwr 2024-09-11 16:28:11,769 | run_simulation.py:345 | Traceback (most recent call last):
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\simulation\run_simulation.py", line 336, in server_th_with_start_checks
+    run_server_app(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\run_serverapp.py", line 88, in run
+    server_app(driver=driver, context=context)
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server_app.py", line 120, in __call__
+    start_driver(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\compat\app.py", line 87, in start_driver
+    hist = run_fl(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 492, in run_fl
+    hist, elapsed_time = server.fit(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 115, in fit
+    res_fit = self.fit_round(
+  File "C:\Users\hughj\Documents\GitHub\asfl\env\lib\site-packages\flwr\server\server.py", line 251, in fit_round
+    ] = self.strategy.aggregate_fit(server_round, results, failures)
+  File "C:\Users\hughj\Documents\GitHub\asfl\asfl\dvsaa_afl.py", line 206, in aggregate_fit
+    aggregated_ndarrays = adaptive_agg_fit(results)
+  File "C:\Users\hughj\Documents\GitHub\asfl\asfl\agg.py", line 62, in adaptive_agg_fit
+    num_examples_total = sum(num_examples for (_, num_examples) in results)
+TypeError: unsupported operand type(s) for +: 'int' and 'FitRes'
+
+dv - | DEBUG flwr 2024-09-11 16:28:11,770 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 16:28:11,770 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-11 16:28:12,523 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-11 16:28:13,300 | raybackend.py:184 | Terminated RayBackend
+dv - | CRITICAL flwr 2024-09-11 16:30:26,306 | server_app.py:66 | running in fedcustom
+dv - | CRITICAL flwr 2024-09-11 16:30:26,306 | server_app.py:67 | min num clients 2
+dv - | CRITICAL flwr 2024-09-11 16:30:26,306 | server_app.py:68 | num server rounds 1
+dv - | CRITICAL flwr 2024-09-11 16:30:26,306 | server_app.py:69 | num local epochs 2
+dv - | INFO flwr 2024-09-11 16:30:26,306 | app.py:74 | Starting Flower ServerApp, config: num_rounds=1, no round_timeout
+dv - | INFO flwr 2024-09-11 16:30:26,307 | app.py:79 | 
+dv - | INFO flwr 2024-09-11 16:30:26,308 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-09-11 16:30:26,308 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-09-11 16:30:26,308 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-09-11 16:30:26,308 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-09-11 16:30:26,308 | server.py:112 | 
+dv - | INFO flwr 2024-09-11 16:30:26,308 | server.py:113 | [ROUND 1]
+dv - | CRITICAL flwr 2024-09-11 16:30:26,308 | dvsaa_afl.py:166 | total num of rounds 1
+dv - | ERROR flwr 2024-09-11 16:30:26,308 | dvsaa_afl.py:173 | CID_LIST ['7899423774329561629', '1456493593807193361', '3325182077827170003', '72078783529836135']
+dv - | ERROR flwr 2024-09-11 16:30:26,309 | dvsaa_afl.py:178 | FIT: GOOD CID LIST['1456493593807193361', '72078783529836135', '3325182077827170003']
+dv - | ERROR flwr 2024-09-11 16:30:26,309 | dvsaa_afl.py:180 | sample size 3
+dv - | INFO flwr 2024-09-11 16:30:26,309 | server.py:226 | configure_fit: strategy sampled 3 clients (out of 4)
+dv - | DEBUG flwr 2024-09-11 16:30:29,095 | raybackend.py:136 | Constructed ActorPool with: 4 actors
+dv - | DEBUG flwr 2024-09-11 16:30:29,095 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-09-11 16:30:57,400 | server.py:240 | aggregate_fit: received 3 results and 0 failures
+dv - | WARNING flwr 2024-09-11 16:30:57,410 | dvsaa_afl.py:221 | No fit_metrics_aggregation_fn provided
+dv - | ERROR flwr 2024-09-11 16:30:57,411 | dvsaa_afl.py:122 | EVAL: GOOD CID LIST['7899423774329561629', '1456493593807193361', '3325182077827170003']
+dv - | ERROR flwr 2024-09-11 16:30:57,411 | dvsaa_afl.py:123 | sample size 3
+dv - | INFO flwr 2024-09-11 16:30:57,411 | server.py:178 | configure_evaluate: strategy sampled 3 clients (out of 4)
+dv - | INFO flwr 2024-09-11 16:30:59,446 | server.py:192 | aggregate_evaluate: received 3 results and 0 failures
+dv - | INFO flwr 2024-09-11 16:30:59,446 | server.py:496 | 
+dv - | INFO flwr 2024-09-11 16:30:59,447 | server.py:497 | [SUMMARY]
+dv - | INFO flwr 2024-09-11 16:30:59,447 | server.py:498 | Run finished 1 round(s) in 33.14s
+dv - | INFO flwr 2024-09-11 16:30:59,447 | server.py:500 | 	History (loss, distributed):
+dv - | INFO flwr 2024-09-11 16:30:59,447 | server.py:500 | 		round 1: 180.8211920261383
+dv - | INFO flwr 2024-09-11 16:30:59,448 | server.py:500 | 	History (metrics, distributed, evaluate):
+dv - | INFO flwr 2024-09-11 16:30:59,448 | server.py:500 | 	{'accuracy': [(1, 0.1896)], 'count': [(1, 3)]}
+dv - | INFO flwr 2024-09-11 16:30:59,448 | server.py:501 | 
+dv - | DEBUG flwr 2024-09-11 16:30:59,451 | run_serverapp.py:90 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 16:30:59,451 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-09-11 16:30:59,451 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-09-11 16:31:00,440 | ray_actor.py:450 | Terminated 4 actors
+dv - | DEBUG flwr 2024-09-11 16:31:01,339 | raybackend.py:184 | Terminated RayBackend
+dv - | DEBUG flwr 2024-09-11 16:31:01,340 | run_simulation.py:452 | Stopping Simulation Engine now.

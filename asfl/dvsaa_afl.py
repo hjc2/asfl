@@ -202,11 +202,17 @@ class FedCustom(FedAvg):
         if not self.accept_failures and failures:
             return None, {}
 
+        # Convert results
+        weights_results = [
+            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
+            for _, fit_res in results
+        ]
+
         # my custom aggregation function
-        aggregated_ndarrays = adaptive_agg_fit(results)
+        aggregated_ndarrays = adaptive_agg_fit(weights_results)
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
-
+        
         metrics_aggregated = {}
         if self.fit_metrics_aggregation_fn:
             fit_metrics = [(res.num_examples, res.metrics) for _, res in results]
