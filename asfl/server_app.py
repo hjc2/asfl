@@ -60,6 +60,7 @@ def server_fn(context: Context):
             fraction_evaluate=1.0,
             min_available_clients=2,
             initial_parameters=parameters,
+            num_rounds=num_rounds,
         )
 
     log(CRITICAL, "running in " + strat_mode)
@@ -77,7 +78,7 @@ def client_manager_fn(context: Context):
 
 
 
-# flwr_logger.configure(identifier="dv -", filename="log.txt")
+flwr_logger.configure(identifier="dv -", filename="log.txt")
 
 # Create ServerApp
 app = ServerApp(server_fn=server_fn)

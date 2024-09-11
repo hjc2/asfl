@@ -4,9 +4,12 @@ from flwr.server.client_proxy import ClientProxy
 from flwr.common import (
     EvaluateRes,
     Scalar,
+    NDArrays,
 )
 from logging import WARNING
 from flwr.common.logger import log
+from functools import reduce
+import numpy as np
 
 from flwr.server.strategy.aggregate import aggregate, aggregate_inplace, weighted_loss_avg
 
@@ -14,8 +17,8 @@ def adaptive_agg(results: List[Tuple[int, float]]) -> float:
     """Aggregate evaluation results obtained from multiple clients."""
     num_total_evaluation_examples = sum(num_examples for (num_examples, _) in results)
     weighted_losses = [num_examples * loss for num_examples, loss in results]
-    # return sum(weighted_losses) / num_total_evaluation_examples
-    return 1.0
+    return sum(weighted_losses) / num_total_evaluation_examples
+    # return 1.0
 
 
 def adapt_aggregate_evaluate(
@@ -51,3 +54,21 @@ def adapt_aggregate_evaluate(
     metrics_aggregated["count"] = len(results)
 
     return loss_aggregated, metrics_aggregated
+
+
+def adaptive_agg_fit(results: List[Tuple[NDArrays, int]]) -> NDArrays:
+    """Compute weighted average."""
+    # Calculate the total number of examples used during training
+    num_examples_total = sum(num_examples for (_, num_examples) in results)
+
+    # Create a list of weights, each multiplied by the related number of examples
+    weighted_weights = [
+        [layer * num_examples for layer in weights] for weights, num_examples in results
+    ]
+
+    # Compute average weights of each layer
+    weights_prime: NDArrays = [
+        reduce(np.add, layer_updates) / num_examples_total
+        for layer_updates in zip(*weighted_weights)
+    ]
+    return weights_prime

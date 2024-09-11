@@ -54,4 +54,22 @@ class CustomCriterion(Criterion):
         return client.cid in self.includeList
 
 class FederalAvg(FedCustom):
+    def aggregate_evaluate(
+        self,
+        server_round: int,
+        results: List[Tuple[ClientProxy, EvaluateRes]],
+        failures: List[Union[Tuple[ClientProxy, EvaluateRes], BaseException]],
+    ) -> Tuple[Optional[float], Dict[str, Scalar]]:
+        """Aggregate evaluation losses using weighted average."""
+        if not results:
+            return None, {}
+
+        aggregated_loss, aggregated_metrics = adapt_aggregate_evaluate(self, server_round, results, failures)
     
+        # ACCURACY CALCULATIONS
+        accuracies = [r.metrics["accuracy"] * r.num_examples for _, r in results]
+        examples = [r.num_examples for _, r in results]
+        aggregated_accuracy = sum(accuracies) / sum(examples)
+
+        # Return information back
+        return aggregated_loss, {"accuracy": aggregated_accuracy, "count": len(results)}

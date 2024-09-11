@@ -47,8 +47,6 @@ class FlowerClient(NumPyClient):
     def evaluate(self, parameters, config):
         set_weights(self.net, parameters)
         loss, accuracy = test(self.net, self.valloader)
-        # flwr_logger.configure(identifier="cl: " + str(self.node_id) + " - ", filename="log.txt")
-        # log(CRITICAL, f"Node ID: {self.node_id}, Evaluation results - Loss: {loss}, Accuracy: {accuracy}")
         
         return loss, len(self.valloader.dataset), {"accuracy": accuracy}
 

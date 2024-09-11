@@ -9,7 +9,7 @@ import np as np
 
 from .poisson import vehicles_in_round
 
-from .agg import adapt_aggregate_evaluate
+from .agg import adapt_aggregate_evaluate, adaptive_agg_fit
 
 from typing import Union, Callable, Dict, List, Optional, Tuple
 
@@ -30,7 +30,7 @@ from flwr.server.client_proxy import ClientProxy
 from flwr.server.criterion import Criterion
 
 from flwr.server.client_proxy import ClientProxy
-from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
+from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg, aggregate_inplace
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 import random
@@ -189,6 +189,32 @@ class FedCustom(FedAvg):
 
         # Return client/config pairs
         return [(client, fit_ins) for client in clients]
+    
+    def aggregate_fit(
+        self,
+        server_round: int,
+        results: List[Tuple[ClientProxy, FitRes]],
+        failures: List[Union[Tuple[ClientProxy, FitRes], BaseException]],
+    ) -> Tuple[Optional[Parameters], Dict[str, Scalar]]:
+        """Aggregate fit results using weighted average."""
+        if not results:
+            return None, {}
+        if not self.accept_failures and failures:
+            return None, {}
+
+        # my custom aggregation function
+        aggregated_ndarrays = adaptive_agg_fit(results)
+
+        parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
+
+        metrics_aggregated = {}
+        if self.fit_metrics_aggregation_fn:
+            fit_metrics = [(res.num_examples, res.metrics) for _, res in results]
+            metrics_aggregated = self.fit_metrics_aggregation_fn(fit_metrics)
+        elif server_round == 1:  # Only log this warning once
+            log(WARNING, "No fit_metrics_aggregation_fn provided")
+        
+        return parameters_aggregated, metrics_aggregated
 
     def aggregate_evaluate(
         self,
@@ -202,11 +228,5 @@ class FedCustom(FedAvg):
 
         aggregated_loss, aggregated_metrics = adapt_aggregate_evaluate(self, server_round, results, failures)
 
-
-        # print("Round ", server_round, " aggregated accuracy: ", aggregated_accuracy)
-        # print(f"Round {server_round:3} aggregated accuracy: {aggregated_accuracy:.6f} num vehicles {len(results)}")
-
-        # Return information back
-        # return aggregated_loss, {"accuracy": aggregated_accuracy, "count": len(results)}
         return aggregated_loss, aggregated_metrics
 
