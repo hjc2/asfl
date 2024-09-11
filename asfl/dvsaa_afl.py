@@ -187,3 +187,26 @@ class FedCustom(FedAvg):
         # Return client/config pairs
         return [(client, fit_ins) for client in clients]
 
+    def aggregate_evaluate(
+        self,
+        server_round: int,
+        results: List[Tuple[ClientProxy, EvaluateRes]],
+        failures: List[Union[Tuple[ClientProxy, EvaluateRes], BaseException]],
+    ) -> Tuple[Optional[float], Dict[str, Scalar]]:
+        """Aggregate evaluation losses using weighted average."""
+        if not results:
+            return None, {}
+        # Do not aggregate if there are failures and failures are not accepted
+
+        aggregated_loss, aggregated_metrics = super().aggregate_evaluate(server_round, results, failures)
+        
+        # Weigh accuracy of each client by number of examples used
+        accuracies = [r.metrics["accuracy"] * r.num_examples for _, r in results]
+        examples = [r.num_examples for _, r in results]
+
+        # Aggregate and print custom metric
+        aggregated_accuracy = sum(accuracies) / sum(examples)
+        print(f"Round {server_round} accuracy aggregated from client results: {aggregated_accuracy}")
+
+        # Return aggregated loss and metrics (i.e., aggregated accuracy)
+        return aggregated_loss, {"accuracy": aggregated_accuracy}

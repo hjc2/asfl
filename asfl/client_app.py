@@ -50,7 +50,6 @@ class FlowerClient(NumPyClient):
         # flwr_logger.configure(identifier="cl: " + str(self.node_id) + " - ", filename="log.txt")
         log(CRITICAL, f"Node ID: {self.node_id}, Evaluation results - Loss: {loss}, Accuracy: {accuracy}")
         
-
         return loss, len(self.valloader.dataset), {"accuracy": accuracy}
 
 

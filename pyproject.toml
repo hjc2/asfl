@@ -25,12 +25,12 @@ serverapp = "asfl.server_app:app"
 clientapp = "asfl.client_app:app"
 
 [tool.flwr.app.config]
-num-server-rounds = 20
+num-server-rounds = 10
 local-epochs = 1
-strat-mode = "fedavg"
+strat-mode = "fedcustom"
 
 [tool.flwr.federations]
 default = "local-simulation"
 
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 100
+options.num-supernodes = 10
