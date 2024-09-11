@@ -31,7 +31,7 @@ from flwr.server.criterion import Criterion
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
 from flwr.common.logger import log
-from logging import WARNING, INFO, DEBUG, CRITICAL
+from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 import random
 
 WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW = """
@@ -113,26 +113,24 @@ class FedCustom(FedAvg):
             client_manager.num_available()
         )
 
-        log(CRITICAL, "min num clients " + str(min_num_clients))
-
         clients = client_manager.all()
         
-        log(CRITICAL, "clients" + str(clients))
+        # log(CRITICAL, "clients" + str(clients))
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))
+
         
         CID_LIST = []
 
         for x in clients:
-            # print(clients[x].cid)
             CID_LIST.append(x)
 
-        log(CRITICAL, "CID_LIST " + str(CID_LIST))
+        log(ERROR, "CID_LIST " + str(CID_LIST))
         
         GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
 
         sample_size = len(GOOD_CID_LIST)
 
-        log(CRITICAL, "sample size " + str(sample_size))
+        log(DEBUG, "sample size " + str(sample_size))
         
         custom = CustomCriterion(GOOD_CID_LIST)
 
@@ -141,8 +139,6 @@ class FedCustom(FedAvg):
             min_num_clients=min_num_clients,
             criterion=custom, # Pass custom criterion here
         )
-
-        log(CRITICAL, "total num of rounds " + str(self.num_rounds))
 
         # Return client/config pairs
         return [(client, fit_ins) for client in clients]

@@ -59,7 +59,10 @@ def server_fn(context: Context):
         )
 
     log(CRITICAL, "running in " + strat_mode)
-    
+
+    # ADD MIN AVAILABLE CLIENTS
+    log(CRITICAL, "min num clients " + str(2))
+
     config = ServerConfig(num_rounds=num_rounds)
     return ServerAppComponents(strategy=strategy, config=config)
 

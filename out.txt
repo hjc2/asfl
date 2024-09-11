@@ -1,0 +1,24 @@
+cl - | CRITICAL flwr 2024-09-11 11:44:48,537 | server_app.py:61 | running in fedcustom
+dv - | CRITICAL flwr 2024-09-11 11:44:48,537 | server_app.py:61 | running in fedcustom
+cl - | CRITICAL flwr 2024-09-11 11:44:48,537 | server_app.py:64 | min num clients 2
+dv - | CRITICAL flwr 2024-09-11 11:44:48,537 | server_app.py:64 | min num clients 2
+cl - | CRITICAL flwr 2024-09-11 11:44:48,550 | dvsaa_afl.py:119 | total num of rounds 2
+dv - | CRITICAL flwr 2024-09-11 11:44:48,550 | dvsaa_afl.py:119 | total num of rounds 2
+cl - | CRITICAL flwr 2024-09-11 11:44:48,550 | dvsaa_afl.py:128 | CID_LIST ['8768235942409932262', '-6992761894726590712']
+dv - | CRITICAL flwr 2024-09-11 11:44:48,550 | dvsaa_afl.py:128 | CID_LIST ['8768235942409932262', '-6992761894726590712']
+cl - | CRITICAL flwr 2024-09-11 11:44:48,550 | dvsaa_afl.py:134 | sample size 2
+dv - | CRITICAL flwr 2024-09-11 11:44:48,550 | dvsaa_afl.py:134 | sample size 2
+cl - | CRITICAL flwr 2024-09-11 11:45:24,535 | client_app.py:51 | Node ID: 8768235942409932262
+cl - | CRITICAL flwr 2024-09-11 11:45:24,535 | client_app.py:52 | Evaluation results - Loss: 360.9777834415436, Accuracy: 0.138
+cl - | CRITICAL flwr 2024-09-11 11:45:24,584 | client_app.py:51 | Node ID: -6992761894726590712
+cl - | CRITICAL flwr 2024-09-11 11:45:24,584 | client_app.py:52 | Evaluation results - Loss: 361.16725492477417, Accuracy: 0.1286
+cl - | CRITICAL flwr 2024-09-11 11:45:24,747 | dvsaa_afl.py:119 | total num of rounds 2
+dv - | CRITICAL flwr 2024-09-11 11:45:24,747 | dvsaa_afl.py:119 | total num of rounds 2
+cl - | CRITICAL flwr 2024-09-11 11:45:24,747 | dvsaa_afl.py:128 | CID_LIST ['8768235942409932262', '-6992761894726590712']
+dv - | CRITICAL flwr 2024-09-11 11:45:24,747 | dvsaa_afl.py:128 | CID_LIST ['8768235942409932262', '-6992761894726590712']
+cl - | CRITICAL flwr 2024-09-11 11:45:24,748 | dvsaa_afl.py:134 | sample size 2
+dv - | CRITICAL flwr 2024-09-11 11:45:24,748 | dvsaa_afl.py:134 | sample size 2
+cl - | CRITICAL flwr 2024-09-11 11:46:10,286 | client_app.py:51 | Node ID: 8768235942409932262
+cl - | CRITICAL flwr 2024-09-11 11:46:10,286 | client_app.py:52 | Evaluation results - Loss: 356.09167742729187, Accuracy: 0.1736
+cl - | CRITICAL flwr 2024-09-11 11:46:10,543 | client_app.py:51 | Node ID: -6992761894726590712
+cl - | CRITICAL flwr 2024-09-11 11:46:10,543 | client_app.py:52 | Evaluation results - Loss: 356.56549644470215, Accuracy: 0.1778
