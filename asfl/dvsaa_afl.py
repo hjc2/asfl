@@ -9,6 +9,7 @@ import np as np
 
 from .poisson import vehicles_in_round
 
+from .agg import adapt_aggregate_evaluate
 
 from typing import Union, Callable, Dict, List, Optional, Tuple
 
@@ -198,19 +199,14 @@ class FedCustom(FedAvg):
         """Aggregate evaluation losses using weighted average."""
         if not results:
             return None, {}
-        # Do not aggregate if there are failures and failures are not accepted
 
-        aggregated_loss, aggregated_metrics = super().aggregate_evaluate(server_round, results, failures)
-        
-        # Weigh accuracy of each client by number of examples used
-        accuracies = [r.metrics["accuracy"] * r.num_examples for _, r in results]
-        examples = [r.num_examples for _, r in results]
+        aggregated_loss, aggregated_metrics = adapt_aggregate_evaluate(self, server_round, results, failures)
 
-        # Aggregate and print custom metric
-        aggregated_accuracy = sum(accuracies) / sum(examples)
 
         # print("Round ", server_round, " aggregated accuracy: ", aggregated_accuracy)
         # print(f"Round {server_round:3} aggregated accuracy: {aggregated_accuracy:.6f} num vehicles {len(results)}")
 
-        # Return aggregated loss and metrics (i.e., aggregated accuracy)
-        return aggregated_loss, {"accuracy": aggregated_accuracy, "count": len(results)}
+        # Return information back
+        # return aggregated_loss, {"accuracy": aggregated_accuracy, "count": len(results)}
+        return aggregated_loss, aggregated_metrics
+

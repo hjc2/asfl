@@ -77,7 +77,7 @@ def client_manager_fn(context: Context):
 
 
 
-flwr_logger.configure(identifier="dv -", filename="log.txt")
+# flwr_logger.configure(identifier="dv -", filename="log.txt")
 
 # Create ServerApp
 app = ServerApp(server_fn=server_fn)
