@@ -1,29 +1,16 @@
-
-cid_ll = [
-    (1, ['1', '2', '3', '4', '5', '6', '7']),
-    (2, ['1', '2', '3', '4', '5', '6']),
-    (3, ['1','2','3']),
-    (4, ['4', '5', '6']),
-    (5, ['7'])
-]
-cid_ll = [
-    (1, ['1', '2', '3', '4', '5', '6', '7']),
-]
+import time
 
 
-def track_node_appearances(data):
-    last_appearance = {}
-    appearance_count = {}
-    current_round = 0
+from asfl.strats.fed_agg import track_node_appearances
 
-    for round_id, node_list in data[:-1]:
-        current_round = round_id
-        for node_id in node_list:
-            if node_id in last_appearance:
-                appearance_count[node_id] = appearance_count.get(node_id, 0) + 1
-            last_appearance[node_id] = current_round  # Store the previous round
-
-    return last_appearance
+cid_ll = [(0, ['75744919492954628', '57869586514424358', '8272597682639902532', '4908314910669370472', '8636614506533686220', '4128981469624187696', '-6869719340790076042', '-8045332791758092262']), 
+          (1, ['4128981469624187696', '75744919492954628', '8272597682639902532', '8636614506533686220', '-6869719340790076042', '4908314910669370472'])]
 
 
+cid_ll = [(0, ['1', '2', '3', '4']), (1, ['1', '2', '3'])]
+
+print(time.time())
 print(track_node_appearances(cid_ll))
+print(time.time())
+
+# print("This should be fast?")

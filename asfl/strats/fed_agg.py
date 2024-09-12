@@ -45,29 +45,26 @@ than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 
 def track_node_appearances(data):
     last_appearance = {}
-    appearance_count = {}
-    current_round = 0
 
     for round_id, node_list in data[:-1]:
-        current_round = round_id
         for node_id in node_list:
-            if node_id in last_appearance:
-                appearance_count[node_id] = appearance_count.get(node_id, 0) + 1
-            last_appearance[node_id] = current_round  # Store the previous round
+            last_appearance[node_id] = round_id
+    return last_appearance
+
 
 # FOR EACH OF THE MODELS
 def adaptive_agg_fit(results: List[Tuple[NDArrays, int]]) -> NDArrays:
     
     """Compute weighted average."""
     # Calculate the total number of examples used during training
-    num_examples_total = sum(num_examples for (_, num_examples) in results)
+    num_examples_total = sum(num_examples for (_, num_examples, _ ) in results)
 
-    for _, num_examples in results:
+    for _, num_examples, _ in results:
         log(WARNING, f"num_examples_total: {num_examples}")
 
     # Create a list of weights, each multiplied by the related number of examples
     weighted_weights = [
-        [layer * num_examples for layer in weights] for weights, num_examples in results
+        [layer * num_examples for layer in weights] for weights, num_examples, _ in results
     ]
 
     # Compute average weights of each layer
@@ -104,12 +101,12 @@ class FedAgg(FedCustom):
 
         # Convert results
         weights_results = [
-            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples, client.cid, last_appearance) for client, fit_res in results
+            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples, client.cid) for client, fit_res in results
         ]
 
         # my custom aggregation function
 
-        aggregated_ndarrays = adaptive_agg_fit(weights_results, last)
+        aggregated_ndarrays = adaptive_agg_fit(weights_results)
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
         

@@ -34,4 +34,4 @@ file-writing = false
 default = "local-simulation"
 
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 8
+options.num-supernodes = 4

@@ -180,7 +180,7 @@ class FedCustom(FedAvg):
         GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
 
         if(self.cid_ll == [] and server_round == 1):
-            self.append((0, CID_LIST))
+            self.cid_ll.append((0, CID_LIST))
             
         self.cid_ll.append((server_round, GOOD_CID_LIST))
 
