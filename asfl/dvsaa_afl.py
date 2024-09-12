@@ -201,6 +201,8 @@ class FedCustom(FedAvg):
             return None, {}
         if not self.accept_failures and failures:
             return None, {}
+        
+        # log(CRITICAL, results[0])
 
         # Convert results
         weights_results = [

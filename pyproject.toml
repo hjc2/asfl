@@ -25,7 +25,7 @@ serverapp = "asfl.server_app:app"
 clientapp = "asfl.client_app:app"
 
 [tool.flwr.app.config]
-num-server-rounds = 1
+num-server-rounds = 3
 local-epochs = 2
 strat-mode = "fedcustom"
 

@@ -58,6 +58,7 @@ def adapt_aggregate_evaluate(
 
 # FOR EACH OF THE MODELS
 def adaptive_agg_fit(results: List[Tuple[NDArrays, int]]) -> NDArrays:
+    
     """Compute weighted average."""
     # Calculate the total number of examples used during training
     num_examples_total = sum(num_examples for (_, num_examples) in results)
