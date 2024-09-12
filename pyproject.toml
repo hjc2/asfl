@@ -28,6 +28,7 @@ clientapp = "asfl.client_app:app"
 num-server-rounds = 1
 local-epochs = 1
 strat-mode = "fedcustom"
+file-writing = false
 
 [tool.flwr.federations]
 default = "local-simulation"

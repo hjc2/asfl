@@ -13,7 +13,7 @@ from flwr.server.strategy import Strategy
 
 # from .strats.dvsaa_afl import FedCustom
 from .strats.federal_avg import FederalAvg
-from .strats.federal_agg import FedAgg
+from .strats.fed_agg import FedAgg
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -43,10 +43,12 @@ parameters = ndarrays_to_parameters(ndarrays)
 
 
 def server_fn(context: Context):
+
     # Read from config
     num_rounds = context.run_config["num-server-rounds"]
     strat_mode = context.run_config["strat-mode"]
     local_epochs = context.run_config["local-epochs"]
+    file_writing = context.run_config["file-writing"]
 
     # Define strategy
 
@@ -68,7 +70,10 @@ def server_fn(context: Context):
             initial_parameters=parameters,
             num_rounds=num_rounds,
         )
+    if(file_writing):
+        flwr_logger.configure(identifier="dv -", filename="log.txt")
 
+    log(CRITICAL, "file writing: " + str(file_writing))
     log(CRITICAL, "running in " + strat_mode)
     log(CRITICAL, "min num clients " + str(2))
     log(CRITICAL, "num server rounds " + str(num_rounds))
@@ -81,10 +86,7 @@ def server_fn(context: Context):
 def client_manager_fn(context: Context):
     return None
 
-
-
-
-flwr_logger.configure(identifier="dv -", filename="log.txt")
+if(contex)
 
 # Create ServerApp
 app = ServerApp(server_fn=server_fn)

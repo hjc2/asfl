@@ -9,7 +9,7 @@ import np as np
 
 from ..poisson import vehicles_in_round
 
-from ..agg_eval import adapt_aggregate_evaluate
+from .agg_eval import adapt_aggregate_evaluate
 from ..adaptive_agg import adaptive_agg_fit
 
 from typing import Union, Callable, Dict, List, Optional, Tuple

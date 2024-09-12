@@ -9,8 +9,6 @@ from flwr.server.strategy import Strategy
 
 import np as np
 
-from ..adaptive_agg import adaptive_agg_fit
-
 from typing import Union, Callable, Dict, List, Optional, Tuple
 
 from flwr.common import (
@@ -35,6 +33,7 @@ from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 import random
 from .logging_afl import CustomCriterion, FedCustom
 
+from functools import reduce
 
 
 WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW = """
@@ -43,6 +42,25 @@ Setting `min_available_clients` lower than `min_fit_clients` or
 connected to the server. `min_available_clients` must be set to a value larger
 than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 """
+
+# FOR EACH OF THE MODELS
+def adaptive_agg_fit(results: List[Tuple[NDArrays, int]]) -> NDArrays:
+    
+    """Compute weighted average."""
+    # Calculate the total number of examples used during training
+    num_examples_total = sum(num_examples for (_, num_examples) in results)
+
+    # Create a list of weights, each multiplied by the related number of examples
+    weighted_weights = [
+        [layer * num_examples for layer in weights] for weights, num_examples in results
+    ]
+
+    # Compute average weights of each layer
+    weights_prime: NDArrays = [
+        reduce(np.add, layer_updates) / num_examples_total
+        for layer_updates in zip(*weighted_weights)
+    ]
+    return weights_prime
 
 class FedAgg(FedCustom):
     # aggregates the training results
