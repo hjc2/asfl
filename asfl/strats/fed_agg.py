@@ -53,7 +53,7 @@ def track_node_appearances(data):
 
 
 # FOR EACH OF THE MODELS
-def adaptive_agg_fit(results: List[Tuple[NDArrays, int]]) -> NDArrays:
+def adaptive_agg_fit(results: List[Tuple[NDArrays, int]], last_appearance) -> NDArrays:
     
     """Compute weighted average."""
     # Calculate the total number of examples used during training
@@ -106,7 +106,7 @@ class FedAgg(FedCustom):
 
         # my custom aggregation function
 
-        aggregated_ndarrays = adaptive_agg_fit(weights_results)
+        aggregated_ndarrays = adaptive_agg_fit(weights_results, last_appearance)
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
         
