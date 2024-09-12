@@ -43,6 +43,18 @@ connected to the server. `min_available_clients` must be set to a value larger
 than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 """
 
+def track_node_appearances(data):
+    last_appearance = {}
+    appearance_count = {}
+    current_round = 0
+
+    for round_id, node_list in data[:-1]:
+        current_round = round_id
+        for node_id in node_list:
+            if node_id in last_appearance:
+                appearance_count[node_id] = appearance_count.get(node_id, 0) + 1
+            last_appearance[node_id] = current_round  # Store the previous round
+
 # FOR EACH OF THE MODELS
 def adaptive_agg_fit(results: List[Tuple[NDArrays, int]]) -> NDArrays:
     
@@ -81,16 +93,23 @@ class FedAgg(FedCustom):
         if not self.accept_failures and failures:
             return None, {}
         
-        # log(CRITICAL, results[0])
+        # for client, _ in results:
+            # log(WARNING, f"Client: {client.node_id}")
+        
+        log(CRITICAL, f"cid_ll: {self.cid_ll}")
+
+        last_appearance = track_node_appearances(self.cid_ll)
+
+        log(CRITICAL, f"last_appearance: {last_appearance}")
 
         # Convert results
         weights_results = [
-            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
-            for _, fit_res in results
+            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples, client.cid, last_appearance) for client, fit_res in results
         ]
 
         # my custom aggregation function
-        aggregated_ndarrays = adaptive_agg_fit(weights_results)
+
+        aggregated_ndarrays = adaptive_agg_fit(weights_results, last)
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
         

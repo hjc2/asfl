@@ -76,6 +76,7 @@ class FedCustom(FedAvg):
         evaluate_metrics_aggregation_fn: Optional[MetricsAggregationFn] = None,
         inplace: bool = True,
         num_rounds: int = 1,
+        cid_ll: List[Tuple[int, List[int]]] = []
     ) -> None:
         super().__init__()
 
@@ -98,7 +99,10 @@ class FedCustom(FedAvg):
         self.fit_metrics_aggregation_fn = fit_metrics_aggregation_fn
         self.evaluate_metrics_aggregation_fn = evaluate_metrics_aggregation_fn
         self.inplace = inplace
-        self.num_rounds = num_rounds  
+        self.num_rounds = num_rounds # for poisson
+        self.cid_ll = cid_ll # tracks the rounds and the clients selected
+                            # used for tracking how long since it was included
+
 
     # 
     def configure_evaluate(
@@ -175,7 +179,13 @@ class FedCustom(FedAvg):
         random.seed = server_round
         GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
 
+        if(self.cid_ll == [] and server_round == 1):
+            self.append((0, CID_LIST))
+            
+        self.cid_ll.append((server_round, GOOD_CID_LIST))
+
         sample_size = len(GOOD_CID_LIST)
+
         log(ERROR, "FIT: GOOD CID LIST" + str(GOOD_CID_LIST))
 
         log(ERROR, "sample size " + str(sample_size))
