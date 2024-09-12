@@ -50,6 +50,9 @@ def adaptive_agg_fit(results: List[Tuple[NDArrays, int]]) -> NDArrays:
     # Calculate the total number of examples used during training
     num_examples_total = sum(num_examples for (_, num_examples) in results)
 
+    for _, num_examples in results:
+        log(WARNING, f"num_examples_total: {num_examples}")
+
     # Create a list of weights, each multiplied by the related number of examples
     weighted_weights = [
         [layer * num_examples for layer in weights] for weights, num_examples in results

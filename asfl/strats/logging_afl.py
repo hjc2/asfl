@@ -50,9 +50,6 @@ class CustomCriterion(Criterion):
         self.includeList = includeList
 
     def select(self, client: ClientProxy) -> bool:
-        # print("client: ", client)
-        # print("cluent.cid: ", client.cid)
-        # print("exclude list: ", self.includeList)
         return client.cid in self.includeList
 
 class FedCustom(FedAvg):
