@@ -5,7 +5,7 @@ from flwr.server.strategy import FedAvg
 from asfl.task import Net, get_weights
 from flwr.server.strategy import Strategy
 
-import np as np
+import numpy as np
 
 from ..poisson import vehicles_in_round
 
