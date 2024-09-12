@@ -13,7 +13,10 @@ from .agg_eval import adapt_aggregate_evaluate
 
 from typing import Union, Callable, Dict, List, Optional, Tuple
 
-# THE CUSTOM STRATEGY FOR 
+# THE CUSTOM STRATEGY FOR ADDING FUNCTIONALITY SUCH AS
+# - multiples in the network
+# - accuracy logging, aggregation evaluation
+
 from flwr.common import (
     EvaluateIns,
     EvaluateRes,
