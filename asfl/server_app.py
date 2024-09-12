@@ -70,7 +70,7 @@ def server_fn(context: Context):
             initial_parameters=parameters,
             num_rounds=num_rounds,
         )
-    if(file_writing):
+    if file_writing:
         flwr_logger.configure(identifier="dv -", filename="log.txt")
 
     log(CRITICAL, "file writing: " + str(file_writing))
@@ -85,8 +85,6 @@ def server_fn(context: Context):
 
 def client_manager_fn(context: Context):
     return None
-
-if(contex)
 
 # Create ServerApp
 app = ServerApp(server_fn=server_fn)
