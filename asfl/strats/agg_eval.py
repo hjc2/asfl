@@ -8,12 +8,9 @@ from flwr.common import (
 )
 from logging import WARNING
 from flwr.common.logger import log
-from functools import reduce
-import numpy as np
 
-from flwr.server.strategy.aggregate import aggregate, aggregate_inplace, weighted_loss_avg
 
-def adaptive_agg(results: List[Tuple[int, float]]) -> float:
+def weighted_avg(results: List[Tuple[int, float]]) -> float:
     """Aggregate evaluation results obtained from multiple clients."""
     num_total_evaluation_examples = sum(num_examples for (num_examples, _) in results)
     weighted_losses = [num_examples * loss for num_examples, loss in results]
@@ -35,7 +32,7 @@ def adapt_aggregate_evaluate(
         return None, {}
 
     # Aggregate loss
-    loss_aggregated = adaptive_agg(
+    loss_aggregated = weighted_avg(
         [
             (evaluate_res.num_examples, evaluate_res.loss)
             for _, evaluate_res in results

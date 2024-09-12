@@ -10,7 +10,6 @@ import np as np
 from ..poisson import vehicles_in_round
 
 from .agg_eval import adapt_aggregate_evaluate
-from ..adaptive_agg import adaptive_agg_fit
 
 from typing import Union, Callable, Dict, List, Optional, Tuple
 
@@ -191,44 +190,6 @@ class FedCustom(FedAvg):
 
         # Return client/config pairs
         return [(client, fit_ins) for client in clients]
-    
-    # aggregates the training results
-    # where the algo runs
-    # "aggregate_fit is responsible for aggregating the results returned by the clients that were selected and asked to train in configure_fit."
-    def aggregate_fit(
-        self,
-        server_round: int,
-        results: List[Tuple[ClientProxy, FitRes]],
-        failures: List[Union[Tuple[ClientProxy, FitRes], BaseException]],
-    ) -> Tuple[Optional[Parameters], Dict[str, Scalar]]:
-        """Aggregate fit results using weighted average."""
-        if not results:
-            return None, {}
-        if not self.accept_failures and failures:
-            return None, {}
-        
-        # log(CRITICAL, results[0])
-
-        # Convert results
-        weights_results = [
-            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
-            for _, fit_res in results
-        ]
-
-        # my custom aggregation function
-        aggregated_ndarrays = adaptive_agg_fit(weights_results)
-
-        parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
-        
-        metrics_aggregated = {}
-        if self.fit_metrics_aggregation_fn:
-            fit_metrics = [(res.num_examples, res.metrics) for _, res in results]
-            metrics_aggregated = self.fit_metrics_aggregation_fn(fit_metrics)
-        elif server_round == 1:  # Only log this warning once
-            log(WARNING, "No fit_metrics_aggregation_fn provided")
-        
-        return parameters_aggregated, metrics_aggregated
-
 
     # returns the accuracy and count, etc
     def aggregate_evaluate(
