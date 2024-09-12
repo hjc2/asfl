@@ -9,7 +9,8 @@ import np as np
 
 from .poisson import vehicles_in_round
 
-from .agg import adapt_aggregate_evaluate, adaptive_agg_fit
+from .agg_eval import adapt_aggregate_evaluate
+from .adaptive_agg import adaptive_agg_fit
 
 from typing import Union, Callable, Dict, List, Optional, Tuple
 
@@ -99,6 +100,7 @@ class FedCustom(FedAvg):
         self.inplace = inplace
         self.num_rounds = num_rounds  
 
+    # 
     def configure_evaluate(
             self, server_round: int, parameters: Parameters, client_manager: ClientManager
         ) -> List[Tuple[ClientProxy, EvaluateIns]]:
@@ -140,7 +142,6 @@ class FedCustom(FedAvg):
             min_num_clients=min_num_clients,
             criterion=custom, # Pass custom criterion here
         )
-
 
         # Return client/config pairs
         return [(client, evaluate_ins) for client in clients]
@@ -190,6 +191,9 @@ class FedCustom(FedAvg):
         # Return client/config pairs
         return [(client, fit_ins) for client in clients]
     
+    # aggregates the training results
+    # where the algo runs
+    # "aggregate_fit is responsible for aggregating the results returned by the clients that were selected and asked to train in configure_fit."
     def aggregate_fit(
         self,
         server_round: int,
@@ -224,6 +228,8 @@ class FedCustom(FedAvg):
         
         return parameters_aggregated, metrics_aggregated
 
+
+    # returns the accuracy and count, etc
     def aggregate_evaluate(
         self,
         server_round: int,
@@ -237,4 +243,7 @@ class FedCustom(FedAvg):
         aggregated_loss, aggregated_metrics = adapt_aggregate_evaluate(self, server_round, results, failures)
 
         return aggregated_loss, aggregated_metrics
+
+    def evaluate(self, server_round: int, parameters: Parameters) -> Tuple[float | Dict[str, bool | bytes | float | int | str]] | None:
+        return super().evaluate(server_round, parameters)
 
