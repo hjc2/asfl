@@ -166,6 +166,8 @@ class FedCustom(FedAvg):
         )
 
         clients = client_manager.all()
+
+        log(CRITICAL, "num of clients in manager " + str(clients))
         
         # log(CRITICAL, "clients" + str(clients))
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))
@@ -180,7 +182,7 @@ class FedCustom(FedAvg):
 
         log(CRITICAL, "CID_LIST LEN " + str(len(CID_LIST)))
         log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round)))
-        
+
         GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
 
         if(self.cid_ll == [] and server_round == 1):
