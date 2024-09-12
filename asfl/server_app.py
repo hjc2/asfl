@@ -1,13 +1,19 @@
 """asfl: A Flower / PyTorch app."""
 
+### SPAWNS THE SERVER APP
+
+### CREATES THE SERVER_FN, GRABS FROM THE CONFIGS, RUNS THE SERVER APP
+
 from flwr.common import Context, ndarrays_to_parameters
 from flwr.server import ServerApp, ServerAppComponents, ServerConfig
 from flwr.server.strategy import FedAvg
 from asfl.task import Net, get_weights
 from flwr.server.strategy import Strategy
 
-from .dvsaa_afl import FedCustom
-from .federal_avg import FederalAvg
+
+# from .strats.dvsaa_afl import FedCustom
+from .strats.federal_avg import FederalAvg
+from .strats.federal_agg import FedAgg
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -47,7 +53,7 @@ def server_fn(context: Context):
     strategy = None
 
     if strat_mode == 'fedcustom':
-        strategy = FedCustom(
+        strategy = FedAgg(
             fraction_fit=1.0,
             fraction_evaluate=1.0,
             min_available_clients=2,

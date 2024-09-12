@@ -1,9 +1,10 @@
 
 import numpy as np
 
-# np.random.seed(0)
+# THIS FILE DETERMINES HOW MANY VEHICLES ARE INCLUDED IN THE TRAINING ROUND
 
 def vehicles_in_round(num_rounds, num_vehicles, round):
+    '''Determines the # of vehicles in the round'''
     np.random.seed(0)
 
     s = np.random.poisson(num_vehicles / 2, num_rounds)
