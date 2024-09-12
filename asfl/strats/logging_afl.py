@@ -177,6 +177,10 @@ class FedCustom(FedAvg):
 
         log(ERROR, "CID_LIST " + str(CID_LIST))
         random.seed = server_round
+
+        log(CRITICAL, "CID_LIST LEN " + str(len(CID_LIST)))
+        log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round)))
+        
         GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
 
         if(self.cid_ll == [] and server_round == 1):
