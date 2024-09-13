@@ -168,7 +168,7 @@ class FedCustom(FedAvg):
 
         clients = client_manager.all()
 
-        log(CRITICAL, "num of clients in manager " + str(clients))
+        # log(CRITICAL, "num of clients in manager " + str(clients))
         
         # log(CRITICAL, "clients" + str(clients))
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))
