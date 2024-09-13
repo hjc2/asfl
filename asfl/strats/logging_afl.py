@@ -102,53 +102,7 @@ class FedCustom(FedAvg):
         self.num_rounds = num_rounds # for poisson
         self.cid_ll = cid_ll # tracks the rounds and the clients selected
                             # used for tracking how long since it was included
-
-
-    # 
-    def configure_evaluate(
-            self, server_round: int, parameters: Parameters, client_manager: ClientManager
-        ) -> List[Tuple[ClientProxy, EvaluateIns]]:
-        """Configure the next round of evaluation."""
-        # Do not configure federated evaluation if fraction eval is 0.
-        if self.fraction_evaluate == 0.0:
-            return []
-        
-        # log(CRITICAL, "num of clients in manager " + str(client_manager.num_available()))
-
-        CID_LIST = []
-
-        clients = client_manager.all()
-
-        for x in clients:
-            CID_LIST.append(x)
-        random.seed = server_round
-        GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
-        sample_size = len(GOOD_CID_LIST)
-
-        log(ERROR, "EVAL: GOOD CID LIST" + str(GOOD_CID_LIST))
-        log(ERROR, "sample size " + str(sample_size))
-
-        # Parameters and config
-        config = {}
-        if self.on_evaluate_config_fn is not None:
-            # Custom evaluation config function provided
-            config = self.on_evaluate_config_fn(server_round)
-        evaluate_ins = EvaluateIns(parameters, config)
-
-        custom = CustomCriterion(GOOD_CID_LIST)
-
-        _, min_num_clients = self.num_fit_clients(
-            client_manager.num_available()
-        )
-
-        clients = client_manager.sample(
-            num_clients=sample_size,
-            min_num_clients=min_num_clients,
-            criterion=custom, # Pass custom criterion here
-        )
-
-        # Return client/config pairs
-        return [(client, evaluate_ins) for client in clients]
+        self.good_cid_list = []
 
     def configure_fit(
         self, server_round: int, parameters: Parameters, client_manager: ClientManager
@@ -168,9 +122,6 @@ class FedCustom(FedAvg):
 
         clients = client_manager.all()
 
-        # log(CRITICAL, "num of clients in manager " + str(clients))
-        
-        # log(CRITICAL, "clients" + str(clients))
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))
 
         CID_LIST = []
@@ -184,20 +135,20 @@ class FedCustom(FedAvg):
         log(CRITICAL, "CID_LIST LEN " + str(len(CID_LIST)))
         log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round)))
 
-        GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
-
+        self.good_cid_list = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
+        
         if(self.cid_ll == [] and server_round == 1):
             self.cid_ll.append((0, CID_LIST))
             
-        self.cid_ll.append((server_round, GOOD_CID_LIST))
+        self.cid_ll.append((server_round, self.good_cid_list))
 
-        sample_size = len(GOOD_CID_LIST)
+        sample_size = len(self.good_cid_list)
 
-        log(ERROR, "FIT: GOOD CID LIST" + str(GOOD_CID_LIST))
+        log(ERROR, "FIT: GOOD CID LIST" + str(self.good_cid_list))
 
         log(ERROR, "sample size " + str(sample_size))
         
-        custom = CustomCriterion(GOOD_CID_LIST)
+        custom = CustomCriterion(self.good_cid_list)
 
         clients = client_manager.sample(
             num_clients=sample_size,
@@ -207,6 +158,36 @@ class FedCustom(FedAvg):
 
         # Return client/config pairs
         return [(client, fit_ins) for client in clients]
+    
+    def configure_evaluate(
+            self, server_round: int, parameters: Parameters, client_manager: ClientManager
+        ) -> List[Tuple[ClientProxy, EvaluateIns]]:
+        """Configure the next round of evaluation."""
+        # Do not configure federated evaluation if fraction eval is 0.
+        if self.fraction_evaluate == 0.0:
+            return []
+
+        # Parameters and config
+        config = {}
+        if self.on_evaluate_config_fn is not None:
+            # Custom evaluation config function provided
+            config = self.on_evaluate_config_fn(server_round)
+        evaluate_ins = EvaluateIns(parameters, config)
+
+        custom = CustomCriterion(self.good_cid_list)
+
+        _, min_num_clients = self.num_fit_clients(
+            client_manager.num_available()
+        )
+        log(ERROR, f"EVAL: good_cid_list {self.good_cid_list}")
+        clients = client_manager.sample(
+            num_clients=len(self.good_cid_list),
+            min_num_clients=min_num_clients,
+            criterion=custom, # Pass custom criterion here
+        )
+
+        # Return client/config pairs
+        return [(client, evaluate_ins) for client in clients]
 
     # returns the accuracy and count, etc
     def aggregate_evaluate(
