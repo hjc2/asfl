@@ -45,15 +45,24 @@ than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 
 def track_node_appearances(data):
     last_appearance = {}
-
+    appearance_info = {}
     for round_id, node_list in data[:-1]:
         for node_id in node_list:
             last_appearance[node_id] = round_id
     return last_appearance
 
+def track_node_frequency(data):
+    appearance_info = {}
+    for _, node_list in data[:-1]:
+        for node_id in node_list:
+            if node_id in appearance_info:
+                appearance_info[node_id] = appearance_info[node_id] + 1
+            else:
+                appearance_info[node_id] = 1
+    return appearance_info
 
 # FOR EACH OF THE MODELS
-def adaptive_agg_fit(results: List[Tuple[NDArrays, int]], last_appearance) -> NDArrays:
+def adaptive_agg_fit(results: List[Tuple[NDArrays, int]], last_appearance, freq_appearance, server_round) -> NDArrays:
     
     """Compute weighted average."""
     # Calculate the total number of examples used during training
@@ -62,13 +71,12 @@ def adaptive_agg_fit(results: List[Tuple[NDArrays, int]], last_appearance) -> ND
     for _, num_examples, cid in results:
         log(WARNING, f"client: {cid} num_examples: {num_examples}")
 
-    # log(CRITICAL, f"last appearance {last_appearance}")
+    log(DEBUG, f"last appearance {last_appearance}")
+    for _, _, cid in results:
+        log(DEBUG, f"val: {last_appearance[cid]} round: {server_round}")
 
-    # Create a list of weights, each multiplied by the related number of examples
     weighted_weights = [
-        # [layer * (last_appearance[cid] + 1) for layer in weights] for weights, num_examples, cid in results
-        [layer * num_examples * (last_appearance[cid] + 1) for layer in weights] for weights, num_examples, cid in results
-
+        [layer * num_examples * (server_round - int(last_appearance[cid]) * (freq_appearance[cid])) for layer in weights] for weights, num_examples, cid in results
     ]
 
     # Compute average weights of each layer
@@ -95,13 +103,8 @@ class FedAgg(FedCustom):
             return None, {}
         
         # for client, _ in results:
-            # log(WARNING, f"Client: {client.node_id}")
-        
-        # log(CRITICAL, f"cid_ll: {self.cid_ll}")
-
-        last_appearance = track_node_appearances(self.cid_ll)
-
-        log(CRITICAL, f"last_appearance: {last_appearance}")
+            # log(DEBUG, f"Client: {client.node_id}")
+        # log(DEBUG, f"cid_ll: {self.cid_ll}")
 
         # Convert results
         weights_results = [
@@ -109,8 +112,12 @@ class FedAgg(FedCustom):
         ]
 
         # my custom aggregation function
+        last_appearance = track_node_appearances(self.cid_ll) # RETURNS A DICT OF [NODE ID] -> [LAST ROUND IT WAS SEEN (0 IF NEVER OR ROUND 1)]
+        log(DEBUG, f"last_appearance: {last_appearance}")
+        freq_appearance = track_node_frequency(self.cid_ll) # RETURNS A COUNT OF HOW MANY ROUNDS IT WAS A PART OF
+        aggregated_ndarrays = adaptive_agg_fit(weights_results, last_appearance, freq_appearance, server_round)
 
-        aggregated_ndarrays = adaptive_agg_fit(weights_results, last_appearance)
+        # resume other code
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
         
