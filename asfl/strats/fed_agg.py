@@ -45,7 +45,6 @@ than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 
 def track_node_appearances(data):
     last_appearance = {}
-    appearance_info = {}
     for round_id, node_list in data[:-1]:
         for node_id in node_list:
             last_appearance[node_id] = round_id
@@ -53,7 +52,7 @@ def track_node_appearances(data):
 
 def track_node_frequency(data):
     appearance_info = {}
-    for _, node_list in data[:-1]:
+    for _, node_list in data:
         for node_id in node_list:
             if node_id in appearance_info:
                 appearance_info[node_id] = appearance_info[node_id] + 1
@@ -69,14 +68,14 @@ def adaptive_agg_fit(results: List[Tuple[NDArrays, int]], last_appearance, freq_
     num_examples_total = sum(num_examples for (_, num_examples, _ ) in results)
 
     for _, num_examples, cid in results:
-        log(WARNING, f"client: {cid} num_examples: {num_examples}")
+        log(DEBUG, f"client: {cid} num_examples: {num_examples}")
 
     log(DEBUG, f"last appearance {last_appearance}")
     for _, _, cid in results:
         log(DEBUG, f"val: {last_appearance[cid]} round: {server_round}")
 
     weighted_weights = [
-        [layer * num_examples * (server_round - int(last_appearance[cid]) * (freq_appearance[cid])) for layer in weights] for weights, num_examples, cid in results
+        [layer * num_examples for layer in weights] for weights, num_examples, cid in results
     ]
 
     # Compute average weights of each layer
@@ -122,10 +121,5 @@ class FedAgg(FedCustom):
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
         
         metrics_aggregated = {}
-        if self.fit_metrics_aggregation_fn:
-            fit_metrics = [(res.num_examples, res.metrics) for _, res in results]
-            metrics_aggregated = self.fit_metrics_aggregation_fn(fit_metrics)
-        elif server_round == 1:  # Only log this warning once
-            log(WARNING, "No fit_metrics_aggregation_fn provided")
         
         return parameters_aggregated, metrics_aggregated
