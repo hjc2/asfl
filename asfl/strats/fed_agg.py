@@ -71,8 +71,8 @@ def adaptive_agg_fit(results: List[Tuple[NDArrays, int]], last_appearance, freq_
         log(DEBUG, f"client: {cid} num_examples: {num_examples}")
 
     log(DEBUG, f"last appearance {last_appearance}")
-    for _, _, cid in results:
-        log(DEBUG, f"val: {last_appearance[cid]} round: {server_round}")
+    # for _, _, cid in results:
+        # log(DEBUG, f"val: {last_appearance[cid]} round: {server_round}")
 
     weighted_weights = [
         [layer * num_examples for layer in weights] for weights, num_examples, cid in results

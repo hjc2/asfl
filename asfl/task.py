@@ -15,7 +15,9 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from torchvision.transforms import Compose, Normalize, ToTensor
 from flwr_datasets import FederatedDataset
-from flwr_datasets.partitioner import IidPartitioner, ExponentialPartitioner
+from flwr_datasets.partitioner import IidPartitioner, ExponentialPartitioner, DirichletPartitioner
+from flwr.common.logger import log
+from logging import CRITICAL
 
 
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -50,13 +52,15 @@ def load_data(partition_id: int, num_partitions: int):
     # Only initialize `FederatedDataset` once
     global fds
     if fds is None:
-        partitioner = IidPartitioner(num_partitions=num_partitions)
+        partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5, min_partition_size=10,self_balancing=True, seed=42)
+
         fds = FederatedDataset(
             dataset="uoft-cs/cifar10",
             partitioners={"train": partitioner},
         )
 
     partition = fds.load_partition(partition_id)
+
     # Divide data on each node: 80% train, 20% test
     partition_train_test = partition.train_test_split(test_size=0.2, seed=42)
 
