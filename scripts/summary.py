@@ -5,6 +5,7 @@ import sys
 import re
 
 import ast
+import csv
 
 
 def process_large_file(input_filename, output_filename):
@@ -50,7 +51,47 @@ def load_dict_from_txt(filename):
     
     return data_dict
 
+def merge_nested_dict(nested_dict):
+    result = {}
     
+    # Get all unique keys (e.g., 1, 2, 3, 4, 5)
+    all_keys = set()
+    for field_data in nested_dict.values():
+        all_keys.update(dict(field_data).keys())
+    
+    # Merge the data
+    for key in all_keys:
+        result[key] = {}
+        for field, data in nested_dict.items():
+            dict_data = dict(data)
+            if key in dict_data:
+                result[key][field] = dict_data[key]
+    
+    return result
+
+def write_dict_to_csv(data, filename='output.csv'):
+    if not data:
+        raise ValueError("The input dictionary is empty")
+
+    # Dynamically get all unique keys (column names)
+    fieldnames = set()
+    for values in data.values():
+        fieldnames.update(values.keys())
+    
+    # Ensure 'name' is the first column
+    fieldnames = ['Xround'] + sorted(list(fieldnames))
+
+    with open(filename, mode='w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        
+        # Write the header
+        writer.writeheader()
+        
+        # Write the data
+        for key, values in data.items():
+            row = {'round': key}  # Start with the 'name' column
+            row.update(values)  # Add all other columns
+            writer.writerow(row)
 
 def main():
     if len(sys.argv) != 3:
@@ -60,14 +101,16 @@ def main():
     input_file = sys.argv[1]
     output_file = sys.argv[2]
 
-    process_large_file(input_file, output_file)
+    if('.' in output_file):
+        output_file = output_file.split('.')[0]
 
-    dictionary = load_dict_from_txt(output_file)
-    # print(dictionary['accuracy'][0])
 
-    print(dictionary)
-    # for x in dictionary:
-    #     print(dictionary[x])
+    process_large_file(input_file, output_file + '.txt')
+
+    dictionary = load_dict_from_txt(output_file + '.txt')
+    merged_dict = merge_nested_dict(dictionary)
+
+    write_dict_to_csv(merged_dict, output_file + '.csv')
 
 if __name__ == "__main__":
     main()
