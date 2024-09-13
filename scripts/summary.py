@@ -94,16 +94,16 @@ def write_dict_to_csv(data, filename='output.csv'):
             writer.writerow(row)
 
 def main():
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 2:
         print("Usage: python script.py <input_file> <output_file>")
         sys.exit(1)
 
     input_file = sys.argv[1]
-    output_file = sys.argv[2]
+    # output_file = sys.argv[2]
+    output_file = input_file.split('.')[0] + "-out"
 
-    if('.' in output_file):
-        output_file = output_file.split('.')[0]
-
+    # if('.' in output_file):
+    #     output_file = output_file.split('.')[0]
 
     process_large_file(input_file, output_file + '.txt')
 

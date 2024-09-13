@@ -60,6 +60,45 @@ def track_node_frequency(data):
                 appearance_info[node_id] = 1
     return appearance_info
 
+def adaptive_in_place(results: List[Tuple[ClientProxy, FitRes]], freq_appearance: Dict, server_round) -> NDArrays:
+    """Compute in-place weighted average."""
+    # Count total examples
+    num_examples_total = sum(fit_res.num_examples for (_, fit_res) in results)
+    log(ERROR, f"num_examples_total : {num_examples_total}")
+
+    # Compute scaling factors for each result
+    combined_factors = [
+        ((fit_res.num_examples / num_examples_total) + ((((freq_appearance[client_proxy.cid] - 1) / server_round)) / len(results))) / 2 for client_proxy, fit_res in results
+    ]
+
+    freq_factors = [
+        (((freq_appearance[client_proxy.cid] - 1) / server_round)) / len(results) for client_proxy, fit_res in results
+    ]
+
+    scaling_factors = [
+        (fit_res.num_examples / num_examples_total) for _, fit_res in results
+    ]
+
+    
+
+    for x, y, z in zip(scaling_factors, freq_factors, combined_factors):
+        log(WARNING, f"scaling: {x} freq: {y} combined: {z}")
+
+    # Let's do in-place aggregation
+    # Get first result, then add up each other
+    params = [
+        scaling_factors[0] * x for x in parameters_to_ndarrays(results[0][1].parameters)
+    ]
+
+    for i, (_, fit_res) in enumerate(results[1:]):
+        res = (
+            scaling_factors[i + 1] * x
+            for x in parameters_to_ndarrays(fit_res.parameters)
+        )
+        params = [reduce(np.add, layer_updates) for layer_updates in zip(params, res)]
+
+    return params
+
 # FOR EACH OF THE MODELS
 def adaptive_agg_fit(results: List[Tuple[NDArrays, int]], last_appearance, freq_appearance, server_round) -> NDArrays:
     
@@ -104,17 +143,21 @@ class FedAgg(FedCustom):
         # for client, _ in results:
             # log(DEBUG, f"Client: {client.node_id}")
         # log(DEBUG, f"cid_ll: {self.cid_ll}")
-
-        # Convert results
-        weights_results = [
-            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples, client.cid) for client, fit_res in results
-        ]
-
-        # my custom aggregation function
-        last_appearance = track_node_appearances(self.cid_ll) # RETURNS A DICT OF [NODE ID] -> [LAST ROUND IT WAS SEEN (0 IF NEVER OR ROUND 1)]
-        log(DEBUG, f"last_appearance: {last_appearance}")
         freq_appearance = track_node_frequency(self.cid_ll) # RETURNS A COUNT OF HOW MANY ROUNDS IT WAS A PART OF
-        aggregated_ndarrays = adaptive_agg_fit(weights_results, last_appearance, freq_appearance, server_round)
+
+        if self.inplace:
+            if(server_round == 1): # log only first time
+                log(CRITICAL, "in place!")
+            aggregated_ndarrays = adaptive_in_place(results, freq_appearance, server_round)
+        else:
+            # Convert results
+            weights_results = [
+                (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples, client.cid) for client, fit_res in results
+            ]
+            # my custom aggregation function
+            last_appearance = track_node_appearances(self.cid_ll) # RETURNS A DICT OF [NODE ID] -> [LAST ROUND IT WAS SEEN (0 IF NEVER OR ROUND 1)]
+            log(DEBUG, f"last_appearance: {last_appearance}")
+            aggregated_ndarrays = adaptive_agg_fit(weights_results, last_appearance, freq_appearance, server_round)
 
         # resume other code
 
