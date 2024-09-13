@@ -62,9 +62,13 @@ def adaptive_agg_fit(results: List[Tuple[NDArrays, int]], last_appearance) -> ND
     for _, num_examples, cid in results:
         log(WARNING, f"client: {cid} num_examples: {num_examples}")
 
+    # log(CRITICAL, f"last appearance {last_appearance}")
+
     # Create a list of weights, each multiplied by the related number of examples
     weighted_weights = [
-        [layer * num_examples for layer in weights] for weights, num_examples, _ in results
+        # [layer * (last_appearance[cid] + 1) for layer in weights] for weights, num_examples, cid in results
+        [layer * num_examples * (last_appearance[cid] + 1) for layer in weights] for weights, num_examples, cid in results
+
     ]
 
     # Compute average weights of each layer
@@ -93,7 +97,7 @@ class FedAgg(FedCustom):
         # for client, _ in results:
             # log(WARNING, f"Client: {client.node_id}")
         
-        log(CRITICAL, f"cid_ll: {self.cid_ll}")
+        # log(CRITICAL, f"cid_ll: {self.cid_ll}")
 
         last_appearance = track_node_appearances(self.cid_ll)
 
