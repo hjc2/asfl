@@ -79,7 +79,7 @@ def write_dict_to_csv(data, filename='output.csv'):
         fieldnames.update(values.keys())
     
     # Ensure 'name' is the first column
-    fieldnames = ['Xround'] + sorted(list(fieldnames))
+    fieldnames = ['round'] + sorted(list(fieldnames))
 
     with open(filename, mode='w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
