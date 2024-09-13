@@ -7,7 +7,7 @@ from flwr.server.strategy import Strategy
 
 ### THIS IS FED AVG, BUT IT HAS DIFFERENT 
 
-import np as np
+import numpy as np
 
 from typing import Union, Callable, Dict, List, Optional, Tuple
 
@@ -43,19 +43,32 @@ connected to the server. `min_available_clients` must be set to a value larger
 than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 """
 
+def track_node_appearances(data):
+    last_appearance = {}
+
+    for round_id, node_list in data[:-1]:
+        for node_id in node_list:
+            last_appearance[node_id] = round_id
+    return last_appearance
+
+
 # FOR EACH OF THE MODELS
-def adaptive_agg_fit(results: List[Tuple[NDArrays, int]]) -> NDArrays:
+def adaptive_agg_fit(results: List[Tuple[NDArrays, int]], last_appearance) -> NDArrays:
     
     """Compute weighted average."""
     # Calculate the total number of examples used during training
-    num_examples_total = sum(num_examples for (_, num_examples) in results)
+    num_examples_total = sum(num_examples for (_, num_examples, _ ) in results)
 
-    for _, num_examples in results:
-        log(WARNING, f"num_examples_total: {num_examples}")
+    for _, num_examples, cid in results:
+        log(WARNING, f"client: {cid} num_examples: {num_examples}")
+
+    # log(CRITICAL, f"last appearance {last_appearance}")
 
     # Create a list of weights, each multiplied by the related number of examples
     weighted_weights = [
-        [layer * num_examples for layer in weights] for weights, num_examples in results
+        # [layer * (last_appearance[cid] + 1) for layer in weights] for weights, num_examples, cid in results
+        [layer * num_examples * (last_appearance[cid] + 1) for layer in weights] for weights, num_examples, cid in results
+
     ]
 
     # Compute average weights of each layer
@@ -81,16 +94,23 @@ class FedAgg(FedCustom):
         if not self.accept_failures and failures:
             return None, {}
         
-        # log(CRITICAL, results[0])
+        # for client, _ in results:
+            # log(WARNING, f"Client: {client.node_id}")
+        
+        # log(CRITICAL, f"cid_ll: {self.cid_ll}")
+
+        last_appearance = track_node_appearances(self.cid_ll)
+
+        log(CRITICAL, f"last_appearance: {last_appearance}")
 
         # Convert results
         weights_results = [
-            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
-            for _, fit_res in results
+            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples, client.cid) for client, fit_res in results
         ]
 
         # my custom aggregation function
-        aggregated_ndarrays = adaptive_agg_fit(weights_results)
+
+        aggregated_ndarrays = adaptive_agg_fit(weights_results, last_appearance)
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
         

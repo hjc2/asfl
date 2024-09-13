@@ -7,7 +7,7 @@ from flwr.server.strategy import Strategy
 
 ### THIS IS FED AVG, BUT IT HAS DIFFERENT 
 
-import np as np
+import numpy as np
 
 from typing import Union, Callable, Dict, List, Optional, Tuple
 

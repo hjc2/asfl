@@ -5,7 +5,7 @@ from flwr.server.strategy import FedAvg
 from asfl.task import Net, get_weights
 from flwr.server.strategy import Strategy
 
-import np as np
+import numpy as np
 
 from ..poisson import vehicles_in_round
 
@@ -76,6 +76,7 @@ class FedCustom(FedAvg):
         evaluate_metrics_aggregation_fn: Optional[MetricsAggregationFn] = None,
         inplace: bool = True,
         num_rounds: int = 1,
+        cid_ll: List[Tuple[int, List[int]]] = []
     ) -> None:
         super().__init__()
 
@@ -98,7 +99,10 @@ class FedCustom(FedAvg):
         self.fit_metrics_aggregation_fn = fit_metrics_aggregation_fn
         self.evaluate_metrics_aggregation_fn = evaluate_metrics_aggregation_fn
         self.inplace = inplace
-        self.num_rounds = num_rounds  
+        self.num_rounds = num_rounds # for poisson
+        self.cid_ll = cid_ll # tracks the rounds and the clients selected
+                            # used for tracking how long since it was included
+
 
     # 
     def configure_evaluate(
@@ -151,6 +155,7 @@ class FedCustom(FedAvg):
     ) -> List[Tuple[ClientProxy, FitIns]]:
         """Configure the next round of training."""
         config = {}
+
         if self.on_fit_config_fn is not None:
             # Custom fit config function provided
             config = self.on_fit_config_fn(server_round)
@@ -162,6 +167,8 @@ class FedCustom(FedAvg):
         )
 
         clients = client_manager.all()
+
+        # log(CRITICAL, "num of clients in manager " + str(clients))
         
         # log(CRITICAL, "clients" + str(clients))
         log(CRITICAL, "total num of rounds " + str(self.num_rounds))
@@ -173,9 +180,19 @@ class FedCustom(FedAvg):
 
         log(ERROR, "CID_LIST " + str(CID_LIST))
         random.seed = server_round
+
+        log(CRITICAL, "CID_LIST LEN " + str(len(CID_LIST)))
+        log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round)))
+
         GOOD_CID_LIST = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
 
+        if(self.cid_ll == [] and server_round == 1):
+            self.cid_ll.append((0, CID_LIST))
+            
+        self.cid_ll.append((server_round, GOOD_CID_LIST))
+
         sample_size = len(GOOD_CID_LIST)
+
         log(ERROR, "FIT: GOOD CID LIST" + str(GOOD_CID_LIST))
 
         log(ERROR, "sample size " + str(sample_size))
