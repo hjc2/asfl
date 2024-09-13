@@ -42,6 +42,23 @@ Setting `min_available_clients` lower than `min_fit_clients` or
 connected to the server. `min_available_clients` must be set to a value larger
 than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 """
+def average_lists(*lists):
+    if not lists:
+        raise ValueError("At least one list must be provided.")
+    
+    list_lengths = [len(lst) for lst in lists]
+    if len(set(list_lengths)) != 1:
+        raise ValueError("All lists must have the same length.")
+    
+    num_lists = len(lists)
+    list_length = len(lists[0])
+    
+    averages = [0.0] * list_length
+    
+    for i in range(list_length):
+        total = sum(lst[i] for lst in lists)
+        averages[i] = total / num_lists
+    return averages
 
 def track_node_appearances(data):
     last_appearance = {}
@@ -79,16 +96,18 @@ def adaptive_in_place(results: List[Tuple[ClientProxy, FitRes]], freq_appearance
         (fit_res.num_examples / num_examples_total) for _, fit_res in results
     ]
 
-    
+    eval_factors = average_lists(freq_factors, scaling_factors)
 
-    for x, y, z in zip(scaling_factors, freq_factors, combined_factors):
-        log(WARNING, f"scaling: {x} freq: {y} combined: {z}")
+    for x, y, z, q in zip(scaling_factors, freq_factors, combined_factors, eval_factors):
+        log(WARNING, f"scaling: {x} freq: {y} combined: {z} eval: {q}")
 
     # Let's do in-place aggregation
     # Get first result, then add up each other
     params = [
-        scaling_factors[0] * x for x in parameters_to_ndarrays(results[0][1].parameters)
+        eval_factors[0] * x for x in parameters_to_ndarrays(results[0][1].parameters)
     ]
+
+    log(WARNING, f"params: {params}")
 
     for i, (_, fit_res) in enumerate(results[1:]):
         res = (
