@@ -53,6 +53,7 @@ cover/
 
 scripts/*.csv
 scripts/*.txt
+test.py
 
 # Translations
 *.mo
