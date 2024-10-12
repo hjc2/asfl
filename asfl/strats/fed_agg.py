@@ -23,7 +23,7 @@ from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 from .fed_custom import FedCustom
-from .dat import average_lists, track_node_frequency, track_node_appearances
+from .dat import average_lists, track_node_frequency, track_node_appearances, advlog
 
 from functools import reduce
 
@@ -39,7 +39,7 @@ def adaptive_in_place(results: List[Tuple[ClientProxy, FitRes]], freq_appearance
     """Compute in-place weighted average."""
     # Count total examples
     num_examples_total = sum(fit_res.num_examples for (_, fit_res) in results)
-    log(ERROR, f"num_examples_total : {num_examples_total}")
+    advlog(log(ERROR, f"num_examples_total : {num_examples_total}"))
 
     # Compute scaling factors for each result
     combined_factors = [
@@ -57,7 +57,7 @@ def adaptive_in_place(results: List[Tuple[ClientProxy, FitRes]], freq_appearance
     eval_factors = average_lists(freq_factors, scaling_factors)
 
     for x, y, z, q in zip(scaling_factors, freq_factors, combined_factors, eval_factors):
-        log(WARNING, f"scaling: {x} freq: {y} combined: {z} eval: {q}")
+        advlog(log(WARNING, f"scaling: {x} freq: {y} combined: {z} eval: {q}"))
 
     # Let's do in-place aggregation
     # Get first result, then add up each other
@@ -65,7 +65,7 @@ def adaptive_in_place(results: List[Tuple[ClientProxy, FitRes]], freq_appearance
         eval_factors[0] * x for x in parameters_to_ndarrays(results[0][1].parameters)
     ]
 
-    log(WARNING, f"params: {params}")
+    advlog(log(WARNING, f"params: {params}"))
 
     for i, (_, fit_res) in enumerate(results[1:]):
         res = (
@@ -84,9 +84,9 @@ def adaptive_agg_fit(results: List[Tuple[NDArrays, int]], last_appearance, freq_
     num_examples_total = sum(num_examples for (_, num_examples, _ ) in results)
 
     for _, num_examples, cid in results:
-        log(DEBUG, f"client: {cid} num_examples: {num_examples}")
+        advlog(log(DEBUG, f"client: {cid} num_examples: {num_examples}"))
 
-    log(DEBUG, f"last appearance {last_appearance}")
+    advlog(log(DEBUG, f"last appearance {last_appearance}"))
     # for _, _, cid in results:
         # log(DEBUG, f"val: {last_appearance[cid]} round: {server_round}")
 
@@ -116,10 +116,7 @@ class FedAgg(FedCustom):
             return None, {}
         if not self.accept_failures and failures:
             return None, {}
-        
-        # for client, _ in results:
-            # log(DEBUG, f"Client: {client.node_id}")
-        # log(DEBUG, f"cid_ll: {self.cid_ll}")
+    
         freq_appearance = track_node_frequency(self.cid_ll) # RETURNS A COUNT OF HOW MANY ROUNDS IT WAS A PART OF
 
         if self.inplace:
@@ -133,7 +130,7 @@ class FedAgg(FedCustom):
             ]
             # my custom aggregation function
             last_appearance = track_node_appearances(self.cid_ll) # RETURNS A DICT OF [NODE ID] -> [LAST ROUND IT WAS SEEN (0 IF NEVER OR ROUND 1)]
-            log(DEBUG, f"last_appearance: {last_appearance}")
+            advlog(log(DEBUG, f"last_appearance: {last_appearance}"))
             aggregated_ndarrays = adaptive_agg_fit(weights_results, last_appearance, freq_appearance, server_round)
 
         # resume other code

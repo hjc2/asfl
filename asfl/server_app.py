@@ -18,7 +18,6 @@ from .strats.fed_agg import FedAgg
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
 from flwr.common.logger import log
-import logging
 import flwr.common.logger as flwr_logger
 
 from flwr.common import (
@@ -61,7 +60,8 @@ def server_fn(context: Context):
             min_available_clients=2,
             initial_parameters=parameters,
             num_rounds=num_rounds,
-            inplace=inplace_setter
+            inplace=inplace_setter,
+            advanced_logging=False
         )
     elif strat_mode == 'fedavg':
         strategy = FederalAvg(
@@ -70,7 +70,8 @@ def server_fn(context: Context):
             min_available_clients=2,
             initial_parameters=parameters,
             num_rounds=num_rounds,
-            inplace=inplace_setter
+            inplace=inplace_setter,
+            advanced_logging=False
         )
     if file_writing:
         flwr_logger.configure(identifier="dv -", filename="log.txt")

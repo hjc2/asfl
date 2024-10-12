@@ -24,7 +24,3 @@ def old_in_round(num_rounds, num_vehicles, round):
 
     return min(a, num_vehicles)
 
-# for i in range(1,6):
-#     print (vehicles_in_round(5, 5, i))
-
-# print(vehicles_in_round(8, 8, 2))
