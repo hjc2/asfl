@@ -1,34 +1,15 @@
-
-from flwr.common import Context, ndarrays_to_parameters
-from flwr.server import ServerApp, ServerAppComponents, ServerConfig
-from flwr.server.strategy import FedAvg
-from asfl.task import Net, get_weights
-from flwr.server.strategy import Strategy
-
-### THIS IS FED AVG, BUT IT HAS DIFFERENT 
-
-import numpy as np
+### FED AVG + VEHICLE SELECTION
 
 from typing import Union, Callable, Dict, List, Optional, Tuple
-
 from flwr.common import (
-    EvaluateIns,
-    EvaluateRes,
-    FitIns,
-    FitRes,
     NDArrays,
     MetricsAggregationFn,
     Parameters,
     Scalar,
-    ndarrays_to_parameters,
-    parameters_to_ndarrays,
 )
-
-
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
-
-from .logging_afl import FedCustom
+from .fed_custom import FedCustom
 
 WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW = """
 Setting `min_available_clients` lower than `min_fit_clients` or
@@ -36,8 +17,6 @@ Setting `min_available_clients` lower than `min_fit_clients` or
 connected to the server. `min_available_clients` must be set to a value larger
 than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 """
-
-
 class FederalAvg(FedCustom):
     
     def __init__(

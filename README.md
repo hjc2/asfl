@@ -13,6 +13,19 @@ source venv/Scripts/activate
 pip install .
 ```
 
+## Setup the toml configuration
+
+```toml
+[tool.flwr.app.config]
+num-server-rounds = 100 # number of server rounds
+local-epochs = 3 # number of local epochs for each client
+strat-mode = "fedcustom" # fedcustom or fedavg
+inplace = true
+file-writing = true
+```
+
+
+
 ## Run (Simulation Engine)
 
 In the `asfl` directory, use `flwr run` to run a local simulation:

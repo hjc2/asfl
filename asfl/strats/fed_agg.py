@@ -1,9 +1,5 @@
 
-from flwr.common import Context, ndarrays_to_parameters
-from flwr.server import ServerApp, ServerAppComponents, ServerConfig
-from flwr.server.strategy import FedAvg
-from asfl.task import Net, get_weights
-from flwr.server.strategy import Strategy
+from flwr.common import ndarrays_to_parameters
 
 ### THIS IS FED AVG, BUT IT HAS DIFFERENT 
 
@@ -12,12 +8,8 @@ import numpy as np
 from typing import Union, Callable, Dict, List, Optional, Tuple
 
 from flwr.common import (
-    EvaluateIns,
-    EvaluateRes,
-    FitIns,
     FitRes,
     NDArrays,
-    MetricsAggregationFn,
     Parameters,
     Scalar,
     ndarrays_to_parameters,
@@ -30,8 +22,8 @@ from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
-import random
-from .logging_afl import CustomCriterion, FedCustom
+from .fed_custom import FedCustom
+from .dat import average_lists, track_node_frequency, track_node_appearances
 
 from functools import reduce
 
@@ -42,40 +34,6 @@ Setting `min_available_clients` lower than `min_fit_clients` or
 connected to the server. `min_available_clients` must be set to a value larger
 than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 """
-def average_lists(*lists):
-    if not lists:
-        raise ValueError("At least one list must be provided.")
-    
-    list_lengths = [len(lst) for lst in lists]
-    if len(set(list_lengths)) != 1:
-        raise ValueError("All lists must have the same length.")
-    
-    num_lists = len(lists)
-    list_length = len(lists[0])
-    
-    averages = [0.0] * list_length
-    
-    for i in range(list_length):
-        total = sum(lst[i] for lst in lists)
-        averages[i] = total / num_lists
-    return averages
-
-def track_node_appearances(data):
-    last_appearance = {}
-    for round_id, node_list in data[:-1]:
-        for node_id in node_list:
-            last_appearance[node_id] = round_id
-    return last_appearance
-
-def track_node_frequency(data):
-    appearance_info = {}
-    for _, node_list in data:
-        for node_id in node_list:
-            if node_id in appearance_info:
-                appearance_info[node_id] = appearance_info[node_id] + 1
-            else:
-                appearance_info[node_id] = 1
-    return appearance_info
 
 def adaptive_in_place(results: List[Tuple[ClientProxy, FitRes]], freq_appearance: Dict, server_round) -> NDArrays:
     """Compute in-place weighted average."""

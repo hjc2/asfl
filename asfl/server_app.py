@@ -54,7 +54,7 @@ def server_fn(context: Context):
 
     strategy = None
 
-    if strat_mode == 'fedcustom':
+    if strat_mode == 'fed_agg':
         strategy = FedAgg(
             fraction_fit=1.0,
             fraction_evaluate=1.0,
