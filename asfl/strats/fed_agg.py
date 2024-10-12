@@ -35,11 +35,11 @@ connected to the server. `min_available_clients` must be set to a value larger
 than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
 """
 
-def adaptive_in_place(results: List[Tuple[ClientProxy, FitRes]], freq_appearance: Dict, server_round) -> NDArrays:
+def adaptive_in_place(self, results: List[Tuple[ClientProxy, FitRes]], freq_appearance: Dict, server_round) -> NDArrays:
     """Compute in-place weighted average."""
     # Count total examples
     num_examples_total = sum(fit_res.num_examples for (_, fit_res) in results)
-    advlog(log(ERROR, f"num_examples_total : {num_examples_total}"))
+    advlog(self.advanced_logging, log(ERROR, f"num_examples_total : {num_examples_total}"))
 
     # Compute scaling factors for each result
     combined_factors = [
@@ -57,7 +57,7 @@ def adaptive_in_place(results: List[Tuple[ClientProxy, FitRes]], freq_appearance
     eval_factors = average_lists(freq_factors, scaling_factors)
 
     for x, y, z, q in zip(scaling_factors, freq_factors, combined_factors, eval_factors):
-        advlog(log(WARNING, f"scaling: {x} freq: {y} combined: {z} eval: {q}"))
+        advlog(self.advanced_logging, log(WARNING, f"scaling: {x} freq: {y} combined: {z} eval: {q}"))
 
     # Let's do in-place aggregation
     # Get first result, then add up each other
@@ -65,7 +65,7 @@ def adaptive_in_place(results: List[Tuple[ClientProxy, FitRes]], freq_appearance
         eval_factors[0] * x for x in parameters_to_ndarrays(results[0][1].parameters)
     ]
 
-    advlog(log(WARNING, f"params: {params}"))
+    advlog(self.advanced_logging, log(WARNING, f"params: {params}"))
 
     for i, (_, fit_res) in enumerate(results[1:]):
         res = (
@@ -77,16 +77,16 @@ def adaptive_in_place(results: List[Tuple[ClientProxy, FitRes]], freq_appearance
     return params
 
 # FOR EACH OF THE MODELS
-def adaptive_agg_fit(results: List[Tuple[NDArrays, int]], last_appearance, freq_appearance, server_round) -> NDArrays:
+def adaptive_agg_fit(self, results: List[Tuple[NDArrays, int]], last_appearance, freq_appearance, server_round) -> NDArrays:
     
     """Compute weighted average."""
     # Calculate the total number of examples used during training
     num_examples_total = sum(num_examples for (_, num_examples, _ ) in results)
 
     for _, num_examples, cid in results:
-        advlog(log(DEBUG, f"client: {cid} num_examples: {num_examples}"))
+        advlog(self.advanced_logging, log(DEBUG, f"client: {cid} num_examples: {num_examples}"))
 
-    advlog(log(DEBUG, f"last appearance {last_appearance}"))
+    advlog(self.advanced_logging, log(DEBUG, f"last appearance {last_appearance}"))
     # for _, _, cid in results:
         # log(DEBUG, f"val: {last_appearance[cid]} round: {server_round}")
 
@@ -122,7 +122,7 @@ class FedAgg(FedCustom):
         if self.inplace:
             if(server_round == 1): # log only first time
                 log(CRITICAL, "in place!")
-            aggregated_ndarrays = adaptive_in_place(results, freq_appearance, server_round)
+            aggregated_ndarrays = adaptive_in_place(self, results, freq_appearance, server_round)
         else:
             # Convert results
             weights_results = [
@@ -130,7 +130,7 @@ class FedAgg(FedCustom):
             ]
             # my custom aggregation function
             last_appearance = track_node_appearances(self.cid_ll) # RETURNS A DICT OF [NODE ID] -> [LAST ROUND IT WAS SEEN (0 IF NEVER OR ROUND 1)]
-            advlog(log(DEBUG, f"last_appearance: {last_appearance}"))
+            advlog(self.advanced_logging, log(DEBUG, f"last_appearance: {last_appearance}"))
             aggregated_ndarrays = adaptive_agg_fit(weights_results, last_appearance, freq_appearance, server_round)
 
         # resume other code

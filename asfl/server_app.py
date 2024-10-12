@@ -49,6 +49,8 @@ def server_fn(context: Context):
     local_epochs = context.run_config["local-epochs"]
     file_writing = context.run_config["file-writing"]
     inplace_setter = context.run_config["inplace"]
+    adv_log_setter = context.run_config["adv-logs"]
+
     # Define strategy
 
     strategy = None
@@ -61,7 +63,7 @@ def server_fn(context: Context):
             initial_parameters=parameters,
             num_rounds=num_rounds,
             inplace=inplace_setter,
-            advanced_logging=False
+            advanced_logging=adv_log_setter
         )
     elif strat_mode == 'fedavg':
         strategy = FederalAvg(
@@ -71,7 +73,7 @@ def server_fn(context: Context):
             initial_parameters=parameters,
             num_rounds=num_rounds,
             inplace=inplace_setter,
-            advanced_logging=False
+            advanced_logging=adv_log_setter
         )
     if file_writing:
         flwr_logger.configure(identifier="dv -", filename="log.txt")
