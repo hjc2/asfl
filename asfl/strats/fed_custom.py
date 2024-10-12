@@ -105,7 +105,7 @@ class FedCustom(FedAvg):
         inplace: bool = True,
         num_rounds: int = 1,
         cid_ll: List[Tuple[int, List[int]]] = [],
-        advanced_logging: bool = False
+        adv_log: bool = False
     ) -> None:
         super().__init__()
 
@@ -132,7 +132,7 @@ class FedCustom(FedAvg):
         self.cid_ll = cid_ll # tracks the rounds and the clients selected
                             # used for tracking how long since it was included
         self.good_cid_list = []
-        self.advanced_logging = advanced_logging
+        self.adv_log = adv_log
 
     def configure_fit(
         self, server_round: int, parameters: Parameters, client_manager: ClientManager
@@ -152,17 +152,17 @@ class FedCustom(FedAvg):
 
         clients = client_manager.all()
         
-        advlog(self.advanced_logging, log(CRITICAL, "total num of rounds " + str(self.num_rounds)))
+        advlog(self.adv_log, lambda: log(CRITICAL, "total num of rounds " + str(self.num_rounds)))
         CID_LIST = []
 
         for x in clients:
             CID_LIST.append(x)
 
-        advlog(self.advanced_logging, log(ERROR, "CID_LIST " + str(CID_LIST)))
+        advlog(self.adv_log, lambda: log(ERROR, "CID_LIST " + str(CID_LIST)))
         random.seed = server_round
 
-        advlog(self.advanced_logging, log(CRITICAL, "CID_LIST LEN " + str(len(CID_LIST))))
-        advlog(self.advanced_logging, log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round))))
+        advlog(self.adv_log, lambda: log(CRITICAL, "CID_LIST LEN " + str(len(CID_LIST))))
+        advlog(self.adv_log, lambda: log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round))))
 
         self.good_cid_list = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
         
@@ -173,9 +173,9 @@ class FedCustom(FedAvg):
 
         sample_size = len(self.good_cid_list)
 
-        advlog(self.advanced_logging, log(ERROR, "FIT: GOOD CID LIST" + str(self.good_cid_list)))
+        advlog(self.adv_log, lambda: log(ERROR, "FIT: GOOD CID LIST" + str(self.good_cid_list)))
 
-        advlog(self.advanced_logging, log(ERROR, "sample size " + str(sample_size)))
+        advlog(self.adv_log, lambda: log(ERROR, "sample size " + str(sample_size)))
         
         custom = CustomCriterion(self.good_cid_list)
 
@@ -208,7 +208,7 @@ class FedCustom(FedAvg):
         _, min_num_clients = self.num_fit_clients(
             client_manager.num_available()
         )
-        advlog(self.advanced_logging, log(ERROR, f"EVAL: good_cid_list {self.good_cid_list}"))
+        advlog(self.adv_log, lambda: log(ERROR, f"EVAL: good_cid_list {self.good_cid_list}"))
         clients = client_manager.sample(
             num_clients=len(self.good_cid_list),
             min_num_clients=min_num_clients,

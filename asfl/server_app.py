@@ -63,7 +63,7 @@ def server_fn(context: Context):
             initial_parameters=parameters,
             num_rounds=num_rounds,
             inplace=inplace_setter,
-            advanced_logging=adv_log_setter
+            adv_log=adv_log_setter
         )
     elif strat_mode == 'fedavg':
         strategy = FederalAvg(
@@ -73,7 +73,7 @@ def server_fn(context: Context):
             initial_parameters=parameters,
             num_rounds=num_rounds,
             inplace=inplace_setter,
-            advanced_logging=adv_log_setter
+            adv_log=adv_log_setter
         )
     if file_writing:
         flwr_logger.configure(identifier="dv -", filename="log.txt")
@@ -83,6 +83,7 @@ def server_fn(context: Context):
     log(CRITICAL, "min num clients " + str(2))
     log(CRITICAL, "num server rounds " + str(num_rounds))
     log(CRITICAL, "num local epochs " + str(local_epochs))
+    log(CRITICAL, "advanced logging " + str(adv_log_setter))
 
 
     config = ServerConfig(num_rounds=num_rounds)

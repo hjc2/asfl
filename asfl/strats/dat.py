@@ -38,6 +38,6 @@ def track_node_frequency(data):
                 appearance_info[node_id] = 1
     return appearance_info
 
-def advlog(advanced_logging, func):
-    if(advanced_logging):
+def advlog(adv_log, func):
+    if(adv_log):
         return func()
