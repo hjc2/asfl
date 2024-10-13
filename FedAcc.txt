@@ -1,0 +1,35 @@
+dv - | INFO flwr 2024-10-13 18:42:55,685 | server_app.py:85 | file writing: True
+dv - | INFO flwr 2024-10-13 18:42:55,685 | server_app.py:86 | running in fed_acc
+dv - | INFO flwr 2024-10-13 18:42:55,685 | server_app.py:87 | min num clients 2
+dv - | INFO flwr 2024-10-13 18:42:55,686 | server_app.py:88 | num server rounds 1
+dv - | INFO flwr 2024-10-13 18:42:55,686 | server_app.py:89 | config num local epochs 1
+dv - | INFO flwr 2024-10-13 18:42:55,686 | server_app.py:90 | advanced logging False
+dv - | INFO flwr 2024-10-13 18:42:55,686 | app.py:74 | Starting Flower ServerApp, config: num_rounds=1, no round_timeout
+dv - | INFO flwr 2024-10-13 18:42:55,687 | app.py:79 | 
+dv - | INFO flwr 2024-10-13 18:42:55,688 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-10-13 18:42:55,688 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-10-13 18:42:55,688 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-10-13 18:42:55,688 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-10-13 18:42:55,688 | server.py:112 | 
+dv - | INFO flwr 2024-10-13 18:42:55,689 | server.py:113 | [ROUND 1]
+dv - | INFO flwr 2024-10-13 18:42:55,690 | server.py:226 | configure_fit: strategy sampled 9 clients (out of 10)
+dv - | DEBUG flwr 2024-10-13 18:43:05,669 | raybackend.py:141 | Constructed ActorPool with: 6 actors
+dv - | DEBUG flwr 2024-10-13 18:43:05,669 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-10-13 18:43:42,651 | server.py:240 | aggregate_fit: received 9 results and 0 failures
+dv - | INFO flwr 2024-10-13 18:43:42,658 | server.py:178 | configure_evaluate: strategy sampled 9 clients (out of 10)
+dv - | INFO flwr 2024-10-13 18:43:44,670 | server.py:192 | aggregate_evaluate: received 9 results and 0 failures
+dv - | INFO flwr 2024-10-13 18:43:44,670 | fed_custom.py:236 | aggregated accuracy: 0.11138183083884441
+dv - | INFO flwr 2024-10-13 18:43:44,671 | server.py:496 | 
+dv - | INFO flwr 2024-10-13 18:43:44,671 | server.py:497 | [SUMMARY]
+dv - | INFO flwr 2024-10-13 18:43:44,671 | server.py:498 | Run finished 1 round(s) in 48.98s
+dv - | INFO flwr 2024-10-13 18:43:44,671 | server.py:500 | 	History (loss, distributed):
+dv - | INFO flwr 2024-10-13 18:43:44,672 | server.py:500 | 		round 1: 82.02833958255233
+dv - | INFO flwr 2024-10-13 18:43:44,672 | server.py:500 | 	History (metrics, distributed, evaluate):
+dv - | INFO flwr 2024-10-13 18:43:44,672 | server.py:500 | 	{'accuracy': [(1, 0.11138183083884441)], 'count': [(1, 9)]}
+dv - | INFO flwr 2024-10-13 18:43:44,672 | server.py:501 | 
+dv - | DEBUG flwr 2024-10-13 18:43:44,675 | run_serverapp.py:90 | ServerApp finished running.
+dv - | DEBUG flwr 2024-10-13 18:43:44,675 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-10-13 18:43:44,675 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-10-13 18:43:45,605 | ray_actor.py:450 | Terminated 6 actors
+dv - | DEBUG flwr 2024-10-13 18:43:46,412 | raybackend.py:193 | Terminated RayBackend
+dv - | DEBUG flwr 2024-10-13 18:43:46,412 | run_simulation.py:455 | Stopping Simulation Engine now.

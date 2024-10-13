@@ -12,6 +12,7 @@ from asfl.task import Net, get_weights
 from .strats.federal_avg import FederalAvg
 from .strats.fed_agg import FedAgg
 from .strats.fed_acc import FedAcc
+from .strats.fed_loss import FedLoss
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -31,6 +32,32 @@ from typing import Dict, List, Optional, Tuple
 ndarrays = get_weights(Net())
 parameters = ndarrays_to_parameters(ndarrays)
 
+def create_strategy(strat_mode, parameters, num_rounds, inplace_setter, adv_log_setter, fit_config):
+    """Factory function to create the appropriate strategy based on the strat_mode."""
+    
+    strategies = {
+        'fedavg': FederalAvg,
+        'fed_agg': FedAgg,
+        'fed_acc': FedAcc,
+        'fed_loss': FedLoss
+    }
+
+    if strat_mode not in strategies:
+        raise ValueError(f"Unknown strategy mode: {strat_mode}")
+
+    strategy_class = strategies[strat_mode]
+    
+    # Create the strategy instance
+    return strategy_class(
+        fraction_fit=1.0,
+        fraction_evaluate=1.0,
+        min_available_clients=2,
+        initial_parameters=parameters,
+        num_rounds=num_rounds,
+        inplace=inplace_setter,
+        adv_log=adv_log_setter,
+        on_fit_config_fn=fit_config,
+    )
 
 def server_fn(context: Context):
 
@@ -51,44 +78,8 @@ def server_fn(context: Context):
             "local_epochs": context.run_config["local-epochs"]
         }
         return config
-    
-    strategy = None
 
-    if strat_mode == 'fedavg':
-        strategy = FederalAvg(
-            fraction_fit=1.0,
-            fraction_evaluate=1.0,
-            min_available_clients=2,
-            initial_parameters=parameters,
-            num_rounds=num_rounds,
-            inplace=inplace_setter,
-            adv_log=adv_log_setter,
-            on_fit_config_fn=fit_config,
-        )
-    elif strat_mode == 'fed_agg':
-        strategy = FedAgg(
-            fraction_fit=1.0,
-            fraction_evaluate=1.0,
-            min_available_clients=2,
-            initial_parameters=parameters,
-            num_rounds=num_rounds,
-            inplace=inplace_setter,
-            adv_log=adv_log_setter,
-            on_fit_config_fn=fit_config,
-        )
-    elif strat_mode == 'fed_acc':
-        strategy = FedAcc(
-            fraction_fit=1.0,
-            fraction_evaluate=1.0,
-            min_available_clients=2,
-            initial_parameters=parameters,
-            num_rounds=num_rounds,
-            inplace=inplace_setter,
-            adv_log=adv_log_setter,
-            on_fit_config_fn=fit_config,
-        )
-    else:
-        log(CRITICAL, "NO MATCHING STRATEGY FOUND")
+    strategy = create_strategy(strat_mode, parameters, num_rounds, inplace_setter, adv_log_setter, fit_config)
 
     if file_writing:
         flwr_logger.configure(identifier="dv -", filename=log_file_path)
