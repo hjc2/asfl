@@ -16,23 +16,15 @@ from flwr.common import (
     parameters_to_ndarrays,
 )
 from flwr.server.client_proxy import ClientProxy
-from flwr.server.criterion import Criterion
 
 from flwr.server.client_proxy import ClientProxy
+from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 from .fed_custom import FedCustom
 from .dat import average_lists, track_node_frequency, track_node_appearances, advlog
 
 from functools import reduce
-
-
-WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW = """
-Setting `min_available_clients` lower than `min_fit_clients` or
-`min_evaluate_clients` can cause the server to fail when there are too few clients
-connected to the server. `min_available_clients` must be set to a value larger
-than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
-"""
 
 def adaptive_in_place(self, results: List[Tuple[ClientProxy, FitRes]], freq_appearance: Dict, server_round) -> NDArrays:
     """Compute in-place weighted average."""
@@ -75,32 +67,8 @@ def adaptive_in_place(self, results: List[Tuple[ClientProxy, FitRes]], freq_appe
 
     return params
 
-# FOR EACH OF THE MODELS
-def adaptive_agg_fit(self, results: List[Tuple[NDArrays, int]], last_appearance, freq_appearance, server_round) -> NDArrays:
-    
-    """Compute weighted average."""
-    # Calculate the total number of examples used during training
-    num_examples_total = sum(num_examples for (_, num_examples, _ ) in results)
 
-    for _, num_examples, cid in results:
-        advlog(self.adv_log, lambda: log(DEBUG, f"client: {cid} num_examples: {num_examples}"))
-
-    advlog(self.adv_log, lambda: log(DEBUG, f"last appearance {last_appearance}"))
-    # for _, _, cid in results:
-        # log(DEBUG, f"val: {last_appearance[cid]} round: {server_round}")
-
-    weighted_weights = [
-        [layer * num_examples for layer in weights] for weights, num_examples, cid in results
-    ]
-
-    # Compute average weights of each layer
-    weights_prime: NDArrays = [
-        reduce(np.add, layer_updates) / num_examples_total
-        for layer_updates in zip(*weighted_weights)
-    ]
-    return weights_prime
-
-class FedAgg(FedCustom):
+class FedWide(FedCustom):
     # aggregates the training results
     # where the algo runs
     # "aggregate_fit is responsible for aggregating the results returned by the clients that were selected and asked to train in configure_fit."
@@ -118,21 +86,8 @@ class FedAgg(FedCustom):
     
         freq_appearance = track_node_frequency(self.cid_ll) # RETURNS A COUNT OF HOW MANY ROUNDS IT WAS A PART OF
 
-        if self.inplace:
-            if(server_round == 1): # log only first time
-                log(INFO, "in place!")
-            aggregated_ndarrays = adaptive_in_place(self, results, freq_appearance, server_round)
-        else:
-            # Convert results
-            weights_results = [
-                (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples, client.cid) for client, fit_res in results
-            ]
-            # my custom aggregation function
-            last_appearance = track_node_appearances(self.cid_ll) # RETURNS A DICT OF [NODE ID] -> [LAST ROUND IT WAS SEEN (0 IF NEVER OR ROUND 1)]
-            advlog(self.adv_log, lambda: log(DEBUG, f"last_appearance: {last_appearance}"))
-            aggregated_ndarrays = adaptive_agg_fit(weights_results, last_appearance, freq_appearance, server_round)
 
-        # resume other code
+        aggregated_ndarrays = adaptive_in_place(self, results, freq_appearance, server_round)
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
         

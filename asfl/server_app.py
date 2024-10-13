@@ -11,7 +11,7 @@ from asfl.task import Net, get_weights
 # from .strats.dvsaa_afl import FedCustom
 from .strats.federal_avg import FederalAvg
 from .strats.fed_agg import FedAgg
-# from .strats.fed_wide import FedWide
+from .strats.fed_wide import FedWide
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -47,11 +47,8 @@ def server_fn(context: Context):
     def fit_config(server_round: int):
         config = {
             "server_round": server_round,  # The current round of federated learning
-            # "local_epochs": 1 if server_round < 2 else 2,
             "local_epochs": context.run_config["local-epochs"]
         }
-
-        # log(INFO, f"number of epochs this round {config['local_epochs']}")
         return config
     
     strategy = None
@@ -69,6 +66,17 @@ def server_fn(context: Context):
         )
     elif strat_mode == 'fed_agg':
         strategy = FedAgg(
+            fraction_fit=1.0,
+            fraction_evaluate=1.0,
+            min_available_clients=2,
+            initial_parameters=parameters,
+            num_rounds=num_rounds,
+            inplace=inplace_setter,
+            adv_log=adv_log_setter,
+            on_fit_config_fn=fit_config,
+        )
+    elif strat_mode == 'fed_wide':
+        strategy = FedWide(
             fraction_fit=1.0,
             fraction_evaluate=1.0,
             min_available_clients=2,
