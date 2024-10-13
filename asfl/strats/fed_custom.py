@@ -17,6 +17,15 @@ from flwr.common import (
     Parameters,
     Scalar,
 )
+from asfl.task import (
+    Net,
+    DEVICE,
+    load_data,
+    get_weights,
+    set_weights,
+    train,
+    test,
+)
 from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.criterion import Criterion
@@ -233,6 +242,10 @@ class FedCustom(FedAvg):
 
         return aggregated_loss, aggregated_metrics
 
-    def evaluate(self, server_round: int, parameters: Parameters) -> Tuple[float | Dict[str, bool | bytes | float | int | str]] | None:
-        return super().evaluate(server_round, parameters)
+    # def evaluate(self, server_round: int, parameters: Parameters) -> Tuple[float | Dict[str, bool | bytes | float | int | str]] | None:
+    #     # return super().evaluate(server_round, parameters)
+    #     set_weights(self.net, parameters)
+    #     loss, accuracy = test(self.net, self.valloader)
+    #     log(CRITICAL, "fed custom eval ran! " + str(accuracy))
 
+    #     return loss, len(self.valloader.dataset), {"accuracy": accuracy}

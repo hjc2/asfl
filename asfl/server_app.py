@@ -6,14 +6,12 @@
 
 from flwr.common import Context, ndarrays_to_parameters
 from flwr.server import ServerApp, ServerAppComponents, ServerConfig
-from flwr.server.strategy import FedAvg
 from asfl.task import Net, get_weights
-from flwr.server.strategy import Strategy
-
 
 # from .strats.dvsaa_afl import FedCustom
 from .strats.federal_avg import FederalAvg
 from .strats.fed_agg import FedAgg
+from .strats.fed_wide import FedWide
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -21,14 +19,7 @@ from flwr.common.logger import log
 import flwr.common.logger as flwr_logger
 
 from flwr.common import (
-    EvaluateIns,
-    EvaluateRes,
-    FitIns,
-    FitRes,
-    Parameters,
-    Scalar,
     ndarrays_to_parameters,
-    parameters_to_ndarrays,
 )
 from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
@@ -55,17 +46,7 @@ def server_fn(context: Context):
 
     strategy = None
 
-    if strat_mode == 'fed_agg':
-        strategy = FedAgg(
-            fraction_fit=1.0,
-            fraction_evaluate=1.0,
-            min_available_clients=2,
-            initial_parameters=parameters,
-            num_rounds=num_rounds,
-            inplace=inplace_setter,
-            adv_log=adv_log_setter
-        )
-    elif strat_mode == 'fedavg':
+    if strat_mode == 'fedavg':
         strategy = FederalAvg(
             fraction_fit=1.0,
             fraction_evaluate=1.0,
@@ -75,6 +56,29 @@ def server_fn(context: Context):
             inplace=inplace_setter,
             adv_log=adv_log_setter
         )
+    elif strat_mode == 'fed_agg':
+        strategy = FedAgg(
+            fraction_fit=1.0,
+            fraction_evaluate=1.0,
+            min_available_clients=2,
+            initial_parameters=parameters,
+            num_rounds=num_rounds,
+            inplace=inplace_setter,
+            adv_log=adv_log_setter
+        )
+    elif strat_mode == 'fed_wide':
+        strategy = FedWide(
+            fraction_fit=1.0,
+            fraction_evaluate=1.0,
+            min_available_clients=2,
+            initial_parameters=parameters,
+            num_rounds=num_rounds,
+            inplace=inplace_setter,
+            adv_log=adv_log_setter
+        )
+    else:
+        log(CRITICAL, "NO MATCHING STRATEGY FOUND")
+        
     if file_writing:
         flwr_logger.configure(identifier="dv -", filename="log.txt")
 

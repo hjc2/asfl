@@ -54,11 +54,6 @@ class FlowerClient(NumPyClient):
 
 ### DEFINES AND SPAWNS THE CLIENTS INITIALLY
 def client_fn(context: Context):
-    # Load model and data
-    # log(CRITICAL, str(context.node_id))
-    # log(CRITICAL, str(context.node_config ))
-    # log(CRITICAL, str(context.run_config))
-
     net = Net().to(DEVICE)
 
     node_id = context.node_id
