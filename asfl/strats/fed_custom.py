@@ -16,6 +16,7 @@ from flwr.common import (
     MetricsAggregationFn,
     Parameters,
     Scalar,
+    parameters_to_ndarrays,
 )
 from asfl.task import (
     Net,
@@ -25,6 +26,7 @@ from asfl.task import (
     set_weights,
     train,
     test,
+
 )
 from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
@@ -242,10 +244,28 @@ class FedCustom(FedAvg):
 
         return aggregated_loss, aggregated_metrics
 
-    # def evaluate(self, server_round: int, parameters: Parameters) -> Tuple[float | Dict[str, bool | bytes | float | int | str]] | None:
-    #     # return super().evaluate(server_round, parameters)
-    #     set_weights(self.net, parameters)
-    #     loss, accuracy = test(self.net, self.valloader)
-    #     log(CRITICAL, "fed custom eval ran! " + str(accuracy))
+    def custom_eval(self, server_round, parameters, scalars):
+        set_weights(self.net, parameters)
+        loss, accuracy = test(self.net, self.valloader)
+        
+        return loss, len(self.valloader.dataset), {"accuracy": accuracy}
+    
+        # return (15,{"central_acc": 0.501})
+        
+    
+    def evaluate(
+        self, server_round: int, parameters: Parameters
+    ) -> Optional[Tuple[float, Dict[str, Scalar]]]:
+        # forces centralized evaluation!
 
-    #     return loss, len(self.valloader.dataset), {"accuracy": accuracy}
+        self.evaluate_fn = self.custom_eval
+
+        parameters_ndarrays = parameters_to_ndarrays(parameters)
+        eval_res = self.evaluate_fn(server_round, parameters_ndarrays, {})
+
+        if eval_res is None:
+            return None
+        loss, metrics = eval_res
+        log(CRITICAL, "eval found global" + str(loss))
+
+        return loss, metrics
