@@ -39,7 +39,7 @@ class FlowerClient(NumPyClient):
             self.net,
             self.trainloader,
             self.valloader,
-            config["local_epochs"], # uses updated number of local epochs
+            self.local_epochs,
             DEVICE,
         )
 

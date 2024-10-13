@@ -44,11 +44,11 @@ def server_fn(context: Context):
 
     # Define strategy
 
-    def fit_config(server_round: int, local_epochs: int):
+    def fit_config(server_round: int):
         config = {
             "server_round": server_round,  # The current round of federated learning
             # "local_epochs": 1 if server_round < 2 else 2,
-            "local_epochs": local_epochs
+            "local_epochs": context.run_config["local-epochs"]
         }
 
         # log(INFO, f"number of epochs this round {config['local_epochs']}")

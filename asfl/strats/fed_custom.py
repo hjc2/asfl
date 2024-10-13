@@ -114,8 +114,7 @@ class FedCustom(FedAvg):
         if self.on_fit_config_fn is not None:
             # Custom fit config function provided
             config = self.on_fit_config_fn(server_round)
-            config = self.on_fit_config_fn(server_round)
-            
+        
 
         # log(CRITICAL, config.)
         fit_ins = FitIns(parameters, config)
