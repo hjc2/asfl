@@ -41,13 +41,23 @@ class FedLoss(FedCustom):
 
         metrics_list = [(client_proxy.cid, fit_res.metrics) for client_proxy, fit_res in results]
 
-        #Accuracy based weighting
+        # Assuming a small constant to avoid division by zero
+        epsilon = 1e-6
+
+        # Inverse of loss based weighting
         weights_results = [
-            (parameters_to_ndarrays(fit_res.parameters), fit_res.metrics['loss'])
+            (parameters_to_ndarrays(fit_res.parameters), 1 / (fit_res.metrics['loss'] + epsilon))
             for _, fit_res in results
         ]
 
-        aggregated_ndarrays = aggregate(weights_results)
+        # Normalize the weights so they sum to 1
+        total_weight = sum(weight for _, weight in weights_results)
+
+        normalized_weights_results = [
+            (params, weight / total_weight) for params, weight in weights_results
+        ]
+
+        aggregated_ndarrays = aggregate(normalized_weights_results)
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
 
