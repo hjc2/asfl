@@ -32,7 +32,6 @@ from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.criterion import Criterion
 
-from flwr.server.client_proxy import ClientProxy
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 from .dat import advlog
@@ -235,6 +234,5 @@ class FedCustom(FedAvg):
         # metrics_aggregated["all-acc"] = results
 
         log(INFO, "aggregated accuracy: " + str(aggregated_accuracy))
-
 
         return loss_aggregated, metrics_aggregated
