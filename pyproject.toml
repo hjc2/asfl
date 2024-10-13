@@ -25,11 +25,11 @@ serverapp = "asfl.server_app:app"
 clientapp = "asfl.client_app:app"
 
 [tool.flwr.app.config]
-num-server-rounds = 1
-local-epochs = 2
+num-server-rounds = 3
+local-epochs = 1
 strat-mode = "fed_agg" # valid choices: "fedavg", fed_agg", "fed_wide"
 inplace = true
-file-writing = true
+file-writing = false
 adv-logs = false
 
 [tool.flwr.federations]

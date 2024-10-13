@@ -51,46 +51,6 @@ class CustomCriterion(Criterion):
 
     def select(self, client: ClientProxy) -> bool:
         return client.cid in self.includeList
-    
-def adapt_aggregate_evaluate(
-    self,
-    server_round: int,
-    results: List[Tuple[ClientProxy, EvaluateRes]],
-    failures: List[Union[Tuple[ClientProxy, EvaluateRes], BaseException]],
-) -> Tuple[Optional[float], Dict[str, Scalar]]:
-    def weighted_avg(results: List[Tuple[int, float]]) -> float:
-        """Aggregate evaluation results obtained from multiple clients."""
-        num_total_evaluation_examples = sum(num_examples for (num_examples, _) in results)
-        weighted_losses = [num_examples * loss for num_examples, loss in results]
-        return sum(weighted_losses) / num_total_evaluation_examples
-
-    """Aggregate evaluation losses using weighted average."""
-    if not results:
-        return None, {}
-    # Do not aggregate if there are failures and failures are not accepted
-    if not self.accept_failures and failures:
-        return None, {}
-
-    # Aggregate loss
-    loss_aggregated = weighted_avg(
-        [
-            (evaluate_res.num_examples, evaluate_res.loss)
-            for _, evaluate_res in results
-        ]
-    )
-
-    metrics_aggregated = {}
-        
-    # ACCURACY CALCULATIONS
-    accuracies = [r.metrics["accuracy"] * r.num_examples for _, r in results]
-    examples = [r.num_examples for _, r in results]
-    aggregated_accuracy = sum(accuracies) / sum(examples)
-
-    metrics_aggregated["accuracy"] = aggregated_accuracy
-    metrics_aggregated["count"] = len(results)
-
-    return loss_aggregated, metrics_aggregated
-
 
 class FedCustom(FedAvg):
     def __init__(
@@ -154,6 +114,10 @@ class FedCustom(FedAvg):
         if self.on_fit_config_fn is not None:
             # Custom fit config function provided
             config = self.on_fit_config_fn(server_round)
+            config = self.on_fit_config_fn(server_round)
+            
+
+        # log(CRITICAL, config.)
         fit_ins = FitIns(parameters, config)
 
         # Sample clients
@@ -240,32 +204,38 @@ class FedCustom(FedAvg):
         if not results:
             return None, {}
 
-        aggregated_loss, aggregated_metrics = adapt_aggregate_evaluate(self, server_round, results, failures)
+        def weighted_avg(results: List[Tuple[int, float]]) -> float:
+            """Aggregate evaluation results obtained from multiple clients."""
+            num_total_evaluation_examples = sum(num_examples for (num_examples, _) in results)
+            weighted_losses = [num_examples * loss for num_examples, loss in results]
+            return sum(weighted_losses) / num_total_evaluation_examples
 
-        return aggregated_loss, aggregated_metrics
+        """Aggregate evaluation losses using weighted average."""
+        if not results:
+            return None, {}
+        # Do not aggregate if there are failures and failures are not accepted
+        if not self.accept_failures and failures:
+            return None, {}
 
-    def custom_eval(self, server_round, parameters, scalars):
-        set_weights(self.net, parameters)
-        loss, accuracy = test(self.net, self.valloader)
-        
-        return loss, len(self.valloader.dataset), {"accuracy": accuracy}
-    
-        # return (15,{"central_acc": 0.501})
-        
-    
-    def evaluate(
-        self, server_round: int, parameters: Parameters
-    ) -> Optional[Tuple[float, Dict[str, Scalar]]]:
-        # forces centralized evaluation!
+        # Aggregate loss
+        loss_aggregated = weighted_avg(
+            [
+                (evaluate_res.num_examples, evaluate_res.loss)
+                for _, evaluate_res in results
+            ]
+        )
+        metrics_aggregated = {}
+            
+        # ACCURACY CALCULATIONS
+        accuracies = [r.metrics["accuracy"] * r.num_examples for _, r in results]
+        examples = [r.num_examples for _, r in results]
+        aggregated_accuracy = sum(accuracies) / sum(examples)
 
-        self.evaluate_fn = self.custom_eval
+        metrics_aggregated["accuracy"] = aggregated_accuracy
+        metrics_aggregated["count"] = len(results)
+        # metrics_aggregated["all-acc"] = results
 
-        parameters_ndarrays = parameters_to_ndarrays(parameters)
-        eval_res = self.evaluate_fn(server_round, parameters_ndarrays, {})
+        log(INFO, "aggregated accuracy: " + str(aggregated_accuracy))
 
-        if eval_res is None:
-            return None
-        loss, metrics = eval_res
-        log(CRITICAL, "eval found global" + str(loss))
 
-        return loss, metrics
+        return loss_aggregated, metrics_aggregated

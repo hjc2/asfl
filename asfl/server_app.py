@@ -11,7 +11,7 @@ from asfl.task import Net, get_weights
 # from .strats.dvsaa_afl import FedCustom
 from .strats.federal_avg import FederalAvg
 from .strats.fed_agg import FedAgg
-from .strats.fed_wide import FedWide
+# from .strats.fed_wide import FedWide
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -44,6 +44,16 @@ def server_fn(context: Context):
 
     # Define strategy
 
+    def fit_config(server_round: int, local_epochs: int):
+        config = {
+            "server_round": server_round,  # The current round of federated learning
+            # "local_epochs": 1 if server_round < 2 else 2,
+            "local_epochs": local_epochs
+        }
+
+        # log(INFO, f"number of epochs this round {config['local_epochs']}")
+        return config
+    
     strategy = None
 
     if strat_mode == 'fedavg':
@@ -54,7 +64,8 @@ def server_fn(context: Context):
             initial_parameters=parameters,
             num_rounds=num_rounds,
             inplace=inplace_setter,
-            adv_log=adv_log_setter
+            adv_log=adv_log_setter,
+            on_fit_config_fn=fit_config,
         )
     elif strat_mode == 'fed_agg':
         strategy = FedAgg(
@@ -64,30 +75,21 @@ def server_fn(context: Context):
             initial_parameters=parameters,
             num_rounds=num_rounds,
             inplace=inplace_setter,
-            adv_log=adv_log_setter
-        )
-    elif strat_mode == 'fed_wide':
-        strategy = FedWide(
-            fraction_fit=1.0,
-            fraction_evaluate=1.0,
-            min_available_clients=2,
-            initial_parameters=parameters,
-            num_rounds=num_rounds,
-            inplace=inplace_setter,
-            adv_log=adv_log_setter
+            adv_log=adv_log_setter,
+            on_fit_config_fn=fit_config,
         )
     else:
         log(CRITICAL, "NO MATCHING STRATEGY FOUND")
-        
+
     if file_writing:
         flwr_logger.configure(identifier="dv -", filename="log.txt")
 
-    log(CRITICAL, "file writing: " + str(file_writing))
-    log(CRITICAL, "running in " + strat_mode)
-    log(CRITICAL, "min num clients " + str(2))
-    log(CRITICAL, "num server rounds " + str(num_rounds))
-    log(CRITICAL, "num local epochs " + str(local_epochs))
-    log(CRITICAL, "advanced logging " + str(adv_log_setter))
+    log(INFO, "file writing: " + str(file_writing))
+    log(INFO, "running in " + strat_mode)
+    log(INFO, "min num clients " + str(2))
+    log(INFO, "num server rounds " + str(num_rounds))
+    log(INFO, "config num local epochs " + str(local_epochs))
+    log(INFO, "advanced logging " + str(adv_log_setter))
 
 
     config = ServerConfig(num_rounds=num_rounds)

@@ -121,7 +121,7 @@ class FedAgg(FedCustom):
 
         if self.inplace:
             if(server_round == 1): # log only first time
-                log(CRITICAL, "in place!")
+                log(INFO, "in place!")
             aggregated_ndarrays = adaptive_in_place(self, results, freq_appearance, server_round)
         else:
             # Convert results
