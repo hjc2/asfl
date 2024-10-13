@@ -19,7 +19,6 @@ from flwr.server.client_proxy import ClientProxy
 from flwr.server.criterion import Criterion
 
 from flwr.server.client_proxy import ClientProxy
-from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 from .fed_custom import FedCustom

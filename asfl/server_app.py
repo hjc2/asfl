@@ -11,7 +11,7 @@ from asfl.task import Net, get_weights
 # from .strats.dvsaa_afl import FedCustom
 from .strats.federal_avg import FederalAvg
 from .strats.fed_agg import FedAgg
-# from .strats.fed_wide import FedWide
+from .strats.fed_acc import FedAcc
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -41,17 +41,15 @@ def server_fn(context: Context):
     file_writing = context.run_config["file-writing"]
     inplace_setter = context.run_config["inplace"]
     adv_log_setter = context.run_config["adv-logs"]
+    log_file_path = context.run_config["log-path"]
 
     # Define strategy
 
     def fit_config(server_round: int):
         config = {
             "server_round": server_round,  # The current round of federated learning
-            # "local_epochs": 1 if server_round < 2 else 2,
             "local_epochs": context.run_config["local-epochs"]
         }
-
-        # log(INFO, f"number of epochs this round {config['local_epochs']}")
         return config
     
     strategy = None
@@ -78,11 +76,22 @@ def server_fn(context: Context):
             adv_log=adv_log_setter,
             on_fit_config_fn=fit_config,
         )
+    elif strat_mode == 'fed_acc':
+        strategy = FedAcc(
+            fraction_fit=1.0,
+            fraction_evaluate=1.0,
+            min_available_clients=2,
+            initial_parameters=parameters,
+            num_rounds=num_rounds,
+            inplace=inplace_setter,
+            adv_log=adv_log_setter,
+            on_fit_config_fn=fit_config,
+        )
     else:
         log(CRITICAL, "NO MATCHING STRATEGY FOUND")
 
     if file_writing:
-        flwr_logger.configure(identifier="dv -", filename="log.txt")
+        flwr_logger.configure(identifier="dv -", filename=log_file_path)
 
     log(INFO, "file writing: " + str(file_writing))
     log(INFO, "running in " + strat_mode)
