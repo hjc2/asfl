@@ -78,6 +78,38 @@ def load_data(partition_id: int, num_partitions: int):
     testloader = DataLoader(partition_train_test["test"], batch_size=32)
     return trainloader, testloader
 
+def load_all_test_data(num_partitions: int):
+    """Load all test data from CIFAR10 for centralized evaluation."""
+    global fds
+    if fds is None:
+        partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5, min_partition_size=10, self_balancing=True, seed=42)
+
+        fds = FederatedDataset(
+            dataset="uoft-cs/cifar10",
+            partitioners={"train": partitioner},
+        )
+
+    # Load the entire dataset
+    full_partition = fds.load_partition(0)  # Load the first partition, you can adjust if needed
+
+    # Use only the test data
+    test_data = full_partition.get_test_data()  # Adjust this based on how the test data is accessed
+
+    pytorch_transforms = Compose(
+        [ToTensor(), Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]
+    )
+
+    def apply_transforms(batch):
+        """Apply transforms to the test dataset."""
+        batch["img"] = [pytorch_transforms(img) for img in batch["img"]]
+        return batch
+
+    # Create a DataLoader for the entire test dataset
+    testloader = DataLoader(test_data.with_transform(apply_transforms), batch_size=32)
+
+    return testloader
+
+
 
 def train(net, trainloader, valloader, epochs, device):
     """Train the model on the training set."""

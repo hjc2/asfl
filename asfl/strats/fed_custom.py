@@ -26,7 +26,7 @@ from asfl.task import (
     set_weights,
     train,
     test,
-
+    load_all_test_data
 )
 from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
