@@ -7,6 +7,14 @@ from matplotlib import colormaps
 
 import sys
 
+def round_to_nearest_5_or_10(n):
+    nearest_5 = round(n / 5) * 5
+    nearest_10 = round(n / 10) * 10
+    if abs(n - nearest_5) <= abs(n - nearest_10):
+        return nearest_5
+    else:
+        return nearest_10
+
 def main():
     if len(sys.argv) != 2:
         print("Usage: python script.py <input_file>")
@@ -68,10 +76,17 @@ def main():
     plt.title('Accuracy by Round - ' + dir)
     plt.xlabel('Round')
     plt.ylabel('Accuracy')
-    plt.xticks(all_rounds)  # Set x-ticks to be the round numbers
+    
+    # adding x-ticks
+    round_mod = round_to_nearest_5_or_10(len(all_rounds) / 10)
+    ticks = [round for round in all_rounds if round % round_mod == 0]
+    if 1 not in ticks:
+        print(ticks)
+        ticks = [1] + ticks
+    plt.xticks(ticks)  # Set x-ticks to be the round numbers
+
     plt.legend()  # Show legend
     plt.grid()
-
 
     # Add YAML configuration information to the plot
     config_text = (f"Num Server Rounds: {num_server_rounds}\n"
