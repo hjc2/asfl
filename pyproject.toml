@@ -27,11 +27,11 @@ clientapp = "asfl.client_app:app"
 [tool.flwr.app.config]
 num-server-rounds = 200
 local-epochs = 1
-strat-mode = "fed_fuzz" # valid choices: "fedavg", fed_agg", "fed_acc", "fed_loss", "fed_fuzz"
+strat-mode = "fedavg" # valid choices: "fedavg", fed_agg", "fed_acc", "fed_loss", "fed_fuzz"
 inplace = true
 file-writing = true
 adv-logs = false
-log-path = "FedFuzz.txt"
+log-path = "FedAvg.txt"
 
 [tool.flwr.federations]
 default = "local-simulation"

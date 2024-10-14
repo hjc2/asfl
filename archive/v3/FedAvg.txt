@@ -1,0 +1,2027 @@
+dv - | INFO flwr 2024-10-14 00:48:47,547 | server_app.py:86 | file writing: True
+dv - | INFO flwr 2024-10-14 00:48:47,548 | server_app.py:87 | running in fedavg
+dv - | INFO flwr 2024-10-14 00:48:47,548 | server_app.py:88 | min num clients 2
+dv - | INFO flwr 2024-10-14 00:48:47,549 | server_app.py:89 | num server rounds 200
+dv - | INFO flwr 2024-10-14 00:48:47,549 | server_app.py:90 | config num local epochs 1
+dv - | INFO flwr 2024-10-14 00:48:47,549 | server_app.py:91 | advanced logging False
+dv - | INFO flwr 2024-10-14 00:48:47,550 | app.py:74 | Starting Flower ServerApp, config: num_rounds=200, no round_timeout
+dv - | INFO flwr 2024-10-14 00:48:47,554 | app.py:79 | 
+dv - | INFO flwr 2024-10-14 00:48:47,556 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-10-14 00:48:47,556 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-10-14 00:48:47,556 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-10-14 00:48:47,557 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-10-14 00:48:47,557 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:48:47,557 | server.py:113 | [ROUND 1]
+dv - | INFO flwr 2024-10-14 00:48:47,558 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | DEBUG flwr 2024-10-14 00:48:56,298 | raybackend.py:141 | Constructed ActorPool with: 6 actors
+dv - | DEBUG flwr 2024-10-14 00:48:56,298 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-10-14 00:49:23,350 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | WARNING flwr 2024-10-14 00:49:23,395 | federal_avg.py:56 | No fit_metrics_aggregation_fn provided
+dv - | INFO flwr 2024-10-14 00:49:23,395 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:49:27,417 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:49:27,417 | fed_custom.py:236 | aggregated accuracy: 0.11417866298560442
+dv - | INFO flwr 2024-10-14 00:49:27,417 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:49:27,417 | server.py:113 | [ROUND 2]
+dv - | INFO flwr 2024-10-14 00:49:27,417 | server.py:226 | configure_fit: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:49:45,484 | server.py:240 | aggregate_fit: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:49:45,528 | server.py:178 | configure_evaluate: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:49:49,550 | server.py:192 | aggregate_evaluate: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:49:49,552 | fed_custom.py:236 | aggregated accuracy: 0.1021555763823805
+dv - | INFO flwr 2024-10-14 00:49:49,552 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:49:49,552 | server.py:113 | [ROUND 3]
+dv - | INFO flwr 2024-10-14 00:49:49,552 | server.py:226 | configure_fit: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:49:58,599 | server.py:240 | aggregate_fit: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:49:58,642 | server.py:178 | configure_evaluate: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:50:01,677 | server.py:192 | aggregate_evaluate: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:50:01,677 | fed_custom.py:236 | aggregated accuracy: 0.08874065089953508
+dv - | INFO flwr 2024-10-14 00:50:01,677 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:50:01,677 | server.py:113 | [ROUND 4]
+dv - | INFO flwr 2024-10-14 00:50:01,680 | server.py:226 | configure_fit: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:50:11,735 | server.py:240 | aggregate_fit: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:50:11,773 | server.py:178 | configure_evaluate: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:50:15,787 | server.py:192 | aggregate_evaluate: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:50:15,787 | fed_custom.py:236 | aggregated accuracy: 0.11593908629441624
+dv - | INFO flwr 2024-10-14 00:50:15,787 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:50:15,787 | server.py:113 | [ROUND 5]
+dv - | INFO flwr 2024-10-14 00:50:15,787 | server.py:226 | configure_fit: strategy sampled 69 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:50:29,849 | server.py:240 | aggregate_fit: received 69 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:50:29,904 | server.py:178 | configure_evaluate: strategy sampled 69 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:50:34,926 | server.py:192 | aggregate_evaluate: received 69 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:50:34,927 | fed_custom.py:236 | aggregated accuracy: 0.09943936264384774
+dv - | INFO flwr 2024-10-14 00:50:34,927 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:50:34,927 | server.py:113 | [ROUND 6]
+dv - | INFO flwr 2024-10-14 00:50:34,928 | server.py:226 | configure_fit: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:50:44,964 | server.py:240 | aggregate_fit: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:50:45,004 | server.py:178 | configure_evaluate: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:50:49,033 | server.py:192 | aggregate_evaluate: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:50:49,034 | fed_custom.py:236 | aggregated accuracy: 0.10895576504713561
+dv - | INFO flwr 2024-10-14 00:50:49,035 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:50:49,035 | server.py:113 | [ROUND 7]
+dv - | INFO flwr 2024-10-14 00:50:49,036 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:50:57,084 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:50:57,121 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:51:01,134 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:51:01,135 | fed_custom.py:236 | aggregated accuracy: 0.08845491097070649
+dv - | INFO flwr 2024-10-14 00:51:01,136 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:51:01,136 | server.py:113 | [ROUND 8]
+dv - | INFO flwr 2024-10-14 00:51:01,137 | server.py:226 | configure_fit: strategy sampled 37 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:51:08,188 | server.py:240 | aggregate_fit: received 37 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:51:08,217 | server.py:178 | configure_evaluate: strategy sampled 37 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:51:11,232 | server.py:192 | aggregate_evaluate: received 37 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:51:11,233 | fed_custom.py:236 | aggregated accuracy: 0.068574374838876
+dv - | INFO flwr 2024-10-14 00:51:11,233 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:51:11,233 | server.py:113 | [ROUND 9]
+dv - | INFO flwr 2024-10-14 00:51:11,233 | server.py:226 | configure_fit: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:51:19,289 | server.py:240 | aggregate_fit: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:51:19,330 | server.py:178 | configure_evaluate: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:51:23,341 | server.py:192 | aggregate_evaluate: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:51:23,342 | fed_custom.py:236 | aggregated accuracy: 0.11886503067484662
+dv - | INFO flwr 2024-10-14 00:51:23,343 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:51:23,343 | server.py:113 | [ROUND 10]
+dv - | INFO flwr 2024-10-14 00:51:23,344 | server.py:226 | configure_fit: strategy sampled 40 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:51:29,562 | server.py:240 | aggregate_fit: received 40 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:51:29,589 | server.py:178 | configure_evaluate: strategy sampled 40 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:51:32,609 | server.py:192 | aggregate_evaluate: received 40 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:51:32,610 | fed_custom.py:236 | aggregated accuracy: 0.10584810796507012
+dv - | INFO flwr 2024-10-14 00:51:32,611 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:51:32,611 | server.py:113 | [ROUND 11]
+dv - | INFO flwr 2024-10-14 00:51:32,612 | server.py:226 | configure_fit: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:51:42,657 | server.py:240 | aggregate_fit: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:51:42,692 | server.py:178 | configure_evaluate: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:51:46,706 | server.py:192 | aggregate_evaluate: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:51:46,707 | fed_custom.py:236 | aggregated accuracy: 0.11361836896278701
+dv - | INFO flwr 2024-10-14 00:51:46,707 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:51:46,708 | server.py:113 | [ROUND 12]
+dv - | INFO flwr 2024-10-14 00:51:46,708 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:51:53,754 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:51:53,810 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:51:56,877 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:51:56,878 | fed_custom.py:236 | aggregated accuracy: 0.121131741821397
+dv - | INFO flwr 2024-10-14 00:51:56,879 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:51:56,879 | server.py:113 | [ROUND 13]
+dv - | INFO flwr 2024-10-14 00:51:56,880 | server.py:226 | configure_fit: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:52:05,917 | server.py:240 | aggregate_fit: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:52:05,964 | server.py:178 | configure_evaluate: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:52:09,977 | server.py:192 | aggregate_evaluate: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:52:09,978 | fed_custom.py:236 | aggregated accuracy: 0.0875131164742917
+dv - | INFO flwr 2024-10-14 00:52:09,978 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:52:09,979 | server.py:113 | [ROUND 14]
+dv - | INFO flwr 2024-10-14 00:52:09,979 | server.py:226 | configure_fit: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:52:20,028 | server.py:240 | aggregate_fit: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:52:20,071 | server.py:178 | configure_evaluate: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:52:24,085 | server.py:192 | aggregate_evaluate: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:52:24,086 | fed_custom.py:236 | aggregated accuracy: 0.09626110307787647
+dv - | INFO flwr 2024-10-14 00:52:24,086 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:52:24,087 | server.py:113 | [ROUND 15]
+dv - | INFO flwr 2024-10-14 00:52:24,087 | server.py:226 | configure_fit: strategy sampled 65 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:52:34,144 | server.py:240 | aggregate_fit: received 65 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:52:34,192 | server.py:178 | configure_evaluate: strategy sampled 65 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:52:39,206 | server.py:192 | aggregate_evaluate: received 65 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:52:39,207 | fed_custom.py:236 | aggregated accuracy: 0.10862429125634139
+dv - | INFO flwr 2024-10-14 00:52:39,207 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:52:39,208 | server.py:113 | [ROUND 16]
+dv - | INFO flwr 2024-10-14 00:52:39,208 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:52:47,240 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:52:47,275 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:52:50,316 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:52:50,317 | fed_custom.py:236 | aggregated accuracy: 0.09489817342011338
+dv - | INFO flwr 2024-10-14 00:52:50,317 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:52:50,319 | server.py:113 | [ROUND 17]
+dv - | INFO flwr 2024-10-14 00:52:50,320 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:52:59,369 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:52:59,414 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:53:03,432 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:53:03,433 | fed_custom.py:236 | aggregated accuracy: 0.12905464006938422
+dv - | INFO flwr 2024-10-14 00:53:03,433 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:53:03,434 | server.py:113 | [ROUND 18]
+dv - | INFO flwr 2024-10-14 00:53:03,434 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:53:11,483 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:53:11,523 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:53:15,541 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:53:15,541 | fed_custom.py:236 | aggregated accuracy: 0.11330423230214462
+dv - | INFO flwr 2024-10-14 00:53:15,542 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:53:15,542 | server.py:113 | [ROUND 19]
+dv - | INFO flwr 2024-10-14 00:53:15,543 | server.py:226 | configure_fit: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:53:21,579 | server.py:240 | aggregate_fit: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:53:21,617 | server.py:178 | configure_evaluate: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:53:24,644 | server.py:192 | aggregate_evaluate: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:53:24,645 | fed_custom.py:236 | aggregated accuracy: 0.1324200913242009
+dv - | INFO flwr 2024-10-14 00:53:24,646 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:53:24,646 | server.py:113 | [ROUND 20]
+dv - | INFO flwr 2024-10-14 00:53:24,647 | server.py:226 | configure_fit: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:53:31,681 | server.py:240 | aggregate_fit: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:53:31,716 | server.py:178 | configure_evaluate: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:53:34,745 | server.py:192 | aggregate_evaluate: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:53:34,746 | fed_custom.py:236 | aggregated accuracy: 0.11531728665207877
+dv - | INFO flwr 2024-10-14 00:53:34,746 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:53:34,747 | server.py:113 | [ROUND 21]
+dv - | INFO flwr 2024-10-14 00:53:34,747 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:53:44,798 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:53:44,848 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:53:48,864 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:53:48,864 | fed_custom.py:236 | aggregated accuracy: 0.14490758946126622
+dv - | INFO flwr 2024-10-14 00:53:48,865 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:53:48,865 | server.py:113 | [ROUND 22]
+dv - | INFO flwr 2024-10-14 00:53:48,866 | server.py:226 | configure_fit: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:53:55,895 | server.py:240 | aggregate_fit: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:53:55,933 | server.py:178 | configure_evaluate: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:53:58,970 | server.py:192 | aggregate_evaluate: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:53:58,970 | fed_custom.py:236 | aggregated accuracy: 0.14191343963553532
+dv - | INFO flwr 2024-10-14 00:53:58,971 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:53:58,971 | server.py:113 | [ROUND 23]
+dv - | INFO flwr 2024-10-14 00:53:58,972 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:54:07,013 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:54:07,055 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:54:11,073 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:54:11,074 | fed_custom.py:236 | aggregated accuracy: 0.15049915238274628
+dv - | INFO flwr 2024-10-14 00:54:11,074 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:54:11,075 | server.py:113 | [ROUND 24]
+dv - | INFO flwr 2024-10-14 00:54:11,076 | server.py:226 | configure_fit: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:54:20,097 | server.py:240 | aggregate_fit: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:54:20,133 | server.py:178 | configure_evaluate: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:54:24,147 | server.py:192 | aggregate_evaluate: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:54:24,148 | fed_custom.py:236 | aggregated accuracy: 0.12698412698412698
+dv - | INFO flwr 2024-10-14 00:54:24,149 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:54:24,149 | server.py:113 | [ROUND 25]
+dv - | INFO flwr 2024-10-14 00:54:24,150 | server.py:226 | configure_fit: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:54:31,185 | server.py:240 | aggregate_fit: received 42 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:54:31,218 | server.py:178 | configure_evaluate: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:54:34,242 | server.py:192 | aggregate_evaluate: received 42 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:54:34,243 | fed_custom.py:236 | aggregated accuracy: 0.08875154511742893
+dv - | INFO flwr 2024-10-14 00:54:34,243 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:54:34,244 | server.py:113 | [ROUND 26]
+dv - | INFO flwr 2024-10-14 00:54:34,244 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:54:42,284 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:54:42,326 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:54:46,343 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:54:46,344 | fed_custom.py:236 | aggregated accuracy: 0.10384838522529491
+dv - | INFO flwr 2024-10-14 00:54:46,344 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:54:46,345 | server.py:113 | [ROUND 27]
+dv - | INFO flwr 2024-10-14 00:54:46,345 | server.py:226 | configure_fit: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:54:53,366 | server.py:240 | aggregate_fit: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:54:53,400 | server.py:178 | configure_evaluate: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:54:56,437 | server.py:192 | aggregate_evaluate: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:54:56,437 | fed_custom.py:236 | aggregated accuracy: 0.12488393686165274
+dv - | INFO flwr 2024-10-14 00:54:56,438 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:54:56,438 | server.py:113 | [ROUND 28]
+dv - | INFO flwr 2024-10-14 00:54:56,439 | server.py:226 | configure_fit: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:55:06,472 | server.py:240 | aggregate_fit: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:55:06,516 | server.py:178 | configure_evaluate: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:55:10,540 | server.py:192 | aggregate_evaluate: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:55:10,541 | fed_custom.py:236 | aggregated accuracy: 0.12430613961312027
+dv - | INFO flwr 2024-10-14 00:55:10,541 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:55:10,542 | server.py:113 | [ROUND 29]
+dv - | INFO flwr 2024-10-14 00:55:10,543 | server.py:226 | configure_fit: strategy sampled 58 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:55:19,605 | server.py:240 | aggregate_fit: received 58 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:55:19,649 | server.py:178 | configure_evaluate: strategy sampled 58 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:55:23,673 | server.py:192 | aggregate_evaluate: received 58 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:55:23,674 | fed_custom.py:236 | aggregated accuracy: 0.08897518149586359
+dv - | INFO flwr 2024-10-14 00:55:23,674 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:55:23,675 | server.py:113 | [ROUND 30]
+dv - | INFO flwr 2024-10-14 00:55:23,675 | server.py:226 | configure_fit: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:55:32,725 | server.py:240 | aggregate_fit: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:55:32,768 | server.py:178 | configure_evaluate: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:55:36,787 | server.py:192 | aggregate_evaluate: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:55:36,788 | fed_custom.py:236 | aggregated accuracy: 0.11972987771491148
+dv - | INFO flwr 2024-10-14 00:55:36,788 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:55:36,788 | server.py:113 | [ROUND 31]
+dv - | INFO flwr 2024-10-14 00:55:36,789 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:55:43,839 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:55:43,869 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:55:46,897 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:55:46,899 | fed_custom.py:236 | aggregated accuracy: 0.08465490283672102
+dv - | INFO flwr 2024-10-14 00:55:46,899 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:55:46,900 | server.py:113 | [ROUND 32]
+dv - | INFO flwr 2024-10-14 00:55:46,900 | server.py:226 | configure_fit: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:55:54,155 | server.py:240 | aggregate_fit: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:55:54,188 | server.py:178 | configure_evaluate: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:55:57,233 | server.py:192 | aggregate_evaluate: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:55:57,233 | fed_custom.py:236 | aggregated accuracy: 0.10324349017816355
+dv - | INFO flwr 2024-10-14 00:55:57,234 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:55:57,234 | server.py:113 | [ROUND 33]
+dv - | INFO flwr 2024-10-14 00:55:57,235 | server.py:226 | configure_fit: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:56:05,273 | server.py:240 | aggregate_fit: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:56:05,306 | server.py:178 | configure_evaluate: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:56:08,360 | server.py:192 | aggregate_evaluate: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:56:08,361 | fed_custom.py:236 | aggregated accuracy: 0.13691471571906355
+dv - | INFO flwr 2024-10-14 00:56:08,361 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:56:08,362 | server.py:113 | [ROUND 34]
+dv - | INFO flwr 2024-10-14 00:56:08,362 | server.py:226 | configure_fit: strategy sampled 36 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:56:14,404 | server.py:240 | aggregate_fit: received 36 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:56:14,428 | server.py:178 | configure_evaluate: strategy sampled 36 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:56:17,444 | server.py:192 | aggregate_evaluate: received 36 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:56:17,444 | fed_custom.py:236 | aggregated accuracy: 0.12874335292471312
+dv - | INFO flwr 2024-10-14 00:56:17,445 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:56:17,446 | server.py:113 | [ROUND 35]
+dv - | INFO flwr 2024-10-14 00:56:17,446 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:56:25,490 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:56:25,529 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:56:29,543 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:56:29,544 | fed_custom.py:236 | aggregated accuracy: 0.1379640260237275
+dv - | INFO flwr 2024-10-14 00:56:29,544 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:56:29,544 | server.py:113 | [ROUND 36]
+dv - | INFO flwr 2024-10-14 00:56:29,546 | server.py:226 | configure_fit: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:56:38,585 | server.py:240 | aggregate_fit: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:56:38,621 | server.py:178 | configure_evaluate: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:56:42,634 | server.py:192 | aggregate_evaluate: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:56:42,635 | fed_custom.py:236 | aggregated accuracy: 0.15104166666666666
+dv - | INFO flwr 2024-10-14 00:56:42,635 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:56:42,636 | server.py:113 | [ROUND 37]
+dv - | INFO flwr 2024-10-14 00:56:42,637 | server.py:226 | configure_fit: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:56:50,693 | server.py:240 | aggregate_fit: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:56:50,733 | server.py:178 | configure_evaluate: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:56:54,753 | server.py:192 | aggregate_evaluate: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:56:54,754 | fed_custom.py:236 | aggregated accuracy: 0.14323607427055704
+dv - | INFO flwr 2024-10-14 00:56:54,755 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:56:54,756 | server.py:113 | [ROUND 38]
+dv - | INFO flwr 2024-10-14 00:56:54,756 | server.py:226 | configure_fit: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:57:02,790 | server.py:240 | aggregate_fit: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:57:02,826 | server.py:178 | configure_evaluate: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:57:05,854 | server.py:192 | aggregate_evaluate: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:57:05,855 | fed_custom.py:236 | aggregated accuracy: 0.15673241852487135
+dv - | INFO flwr 2024-10-14 00:57:05,855 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:57:05,855 | server.py:113 | [ROUND 39]
+dv - | INFO flwr 2024-10-14 00:57:05,856 | server.py:226 | configure_fit: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:57:12,894 | server.py:240 | aggregate_fit: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:57:12,925 | server.py:178 | configure_evaluate: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:57:15,953 | server.py:192 | aggregate_evaluate: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:57:15,954 | fed_custom.py:236 | aggregated accuracy: 0.168986568986569
+dv - | INFO flwr 2024-10-14 00:57:15,955 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:57:15,955 | server.py:113 | [ROUND 40]
+dv - | INFO flwr 2024-10-14 00:57:15,956 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:57:23,992 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:57:24,024 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:57:27,059 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:57:27,060 | fed_custom.py:236 | aggregated accuracy: 0.15544354838709679
+dv - | INFO flwr 2024-10-14 00:57:27,061 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:57:27,061 | server.py:113 | [ROUND 41]
+dv - | INFO flwr 2024-10-14 00:57:27,062 | server.py:226 | configure_fit: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:57:36,094 | server.py:240 | aggregate_fit: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:57:36,135 | server.py:178 | configure_evaluate: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:57:40,150 | server.py:192 | aggregate_evaluate: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:57:40,151 | fed_custom.py:236 | aggregated accuracy: 0.16376892877173305
+dv - | INFO flwr 2024-10-14 00:57:40,152 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:57:40,153 | server.py:113 | [ROUND 42]
+dv - | INFO flwr 2024-10-14 00:57:40,153 | server.py:226 | configure_fit: strategy sampled 58 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:57:50,205 | server.py:240 | aggregate_fit: received 58 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:57:50,248 | server.py:178 | configure_evaluate: strategy sampled 58 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:57:54,275 | server.py:192 | aggregate_evaluate: received 58 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:57:54,275 | fed_custom.py:236 | aggregated accuracy: 0.1282051282051282
+dv - | INFO flwr 2024-10-14 00:57:54,276 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:57:54,277 | server.py:113 | [ROUND 43]
+dv - | INFO flwr 2024-10-14 00:57:54,277 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:58:03,543 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:58:03,583 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:58:07,602 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:58:07,603 | fed_custom.py:236 | aggregated accuracy: 0.10009049773755656
+dv - | INFO flwr 2024-10-14 00:58:07,604 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:58:07,604 | server.py:113 | [ROUND 44]
+dv - | INFO flwr 2024-10-14 00:58:07,605 | server.py:226 | configure_fit: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:58:14,643 | server.py:240 | aggregate_fit: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:58:14,678 | server.py:178 | configure_evaluate: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:58:17,705 | server.py:192 | aggregate_evaluate: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:58:17,706 | fed_custom.py:236 | aggregated accuracy: 0.13396911898274297
+dv - | INFO flwr 2024-10-14 00:58:17,707 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:58:17,708 | server.py:113 | [ROUND 45]
+dv - | INFO flwr 2024-10-14 00:58:17,708 | server.py:226 | configure_fit: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:58:25,749 | server.py:240 | aggregate_fit: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:58:25,789 | server.py:178 | configure_evaluate: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:58:29,806 | server.py:192 | aggregate_evaluate: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:58:29,807 | fed_custom.py:236 | aggregated accuracy: 0.10028191703584374
+dv - | INFO flwr 2024-10-14 00:58:29,807 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:58:29,808 | server.py:113 | [ROUND 46]
+dv - | INFO flwr 2024-10-14 00:58:29,808 | server.py:226 | configure_fit: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:58:37,873 | server.py:240 | aggregate_fit: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:58:37,912 | server.py:178 | configure_evaluate: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:58:41,922 | server.py:192 | aggregate_evaluate: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:58:41,923 | fed_custom.py:236 | aggregated accuracy: 0.18131433095803642
+dv - | INFO flwr 2024-10-14 00:58:41,923 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:58:41,923 | server.py:113 | [ROUND 47]
+dv - | INFO flwr 2024-10-14 00:58:41,924 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:58:49,973 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:58:50,021 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:58:54,042 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:58:54,043 | fed_custom.py:236 | aggregated accuracy: 0.1375579598145286
+dv - | INFO flwr 2024-10-14 00:58:54,043 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:58:54,044 | server.py:113 | [ROUND 48]
+dv - | INFO flwr 2024-10-14 00:58:54,044 | server.py:226 | configure_fit: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:59:03,105 | server.py:240 | aggregate_fit: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:59:03,147 | server.py:178 | configure_evaluate: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:59:07,170 | server.py:192 | aggregate_evaluate: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:59:07,171 | fed_custom.py:236 | aggregated accuracy: 0.13134851138353765
+dv - | INFO flwr 2024-10-14 00:59:07,172 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:59:07,172 | server.py:113 | [ROUND 49]
+dv - | INFO flwr 2024-10-14 00:59:07,173 | server.py:226 | configure_fit: strategy sampled 60 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:59:17,195 | server.py:240 | aggregate_fit: received 60 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:59:17,243 | server.py:178 | configure_evaluate: strategy sampled 60 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:59:21,272 | server.py:192 | aggregate_evaluate: received 60 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:59:21,273 | fed_custom.py:236 | aggregated accuracy: 0.16293658867412683
+dv - | INFO flwr 2024-10-14 00:59:21,274 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:59:21,274 | server.py:113 | [ROUND 50]
+dv - | INFO flwr 2024-10-14 00:59:21,275 | server.py:226 | configure_fit: strategy sampled 60 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:59:31,325 | server.py:240 | aggregate_fit: received 60 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:59:31,373 | server.py:178 | configure_evaluate: strategy sampled 60 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:59:35,400 | server.py:192 | aggregate_evaluate: received 60 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:59:35,401 | fed_custom.py:236 | aggregated accuracy: 0.12798053527980535
+dv - | INFO flwr 2024-10-14 00:59:35,402 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:59:35,402 | server.py:113 | [ROUND 51]
+dv - | INFO flwr 2024-10-14 00:59:35,403 | server.py:226 | configure_fit: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:59:44,435 | server.py:240 | aggregate_fit: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:59:44,474 | server.py:178 | configure_evaluate: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:59:48,503 | server.py:192 | aggregate_evaluate: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:59:48,504 | fed_custom.py:236 | aggregated accuracy: 0.13778031166856708
+dv - | INFO flwr 2024-10-14 00:59:48,505 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 00:59:48,505 | server.py:113 | [ROUND 52]
+dv - | INFO flwr 2024-10-14 00:59:48,506 | server.py:226 | configure_fit: strategy sampled 67 clients (out of 100)
+dv - | INFO flwr 2024-10-14 00:59:58,569 | server.py:240 | aggregate_fit: received 67 results and 0 failures
+dv - | INFO flwr 2024-10-14 00:59:58,618 | server.py:178 | configure_evaluate: strategy sampled 67 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:00:03,634 | server.py:192 | aggregate_evaluate: received 67 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:00:03,635 | fed_custom.py:236 | aggregated accuracy: 0.09898242368177614
+dv - | INFO flwr 2024-10-14 01:00:03,636 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:00:03,636 | server.py:113 | [ROUND 53]
+dv - | INFO flwr 2024-10-14 01:00:03,637 | server.py:226 | configure_fit: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:00:11,652 | server.py:240 | aggregate_fit: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:00:11,691 | server.py:178 | configure_evaluate: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:00:14,726 | server.py:192 | aggregate_evaluate: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:00:14,727 | fed_custom.py:236 | aggregated accuracy: 0.13220845792396413
+dv - | INFO flwr 2024-10-14 01:00:14,727 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:00:14,727 | server.py:113 | [ROUND 54]
+dv - | INFO flwr 2024-10-14 01:00:14,728 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:00:23,756 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:00:23,796 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:00:27,813 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:00:27,814 | fed_custom.py:236 | aggregated accuracy: 0.14769520225776106
+dv - | INFO flwr 2024-10-14 01:00:27,814 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:00:27,815 | server.py:113 | [ROUND 55]
+dv - | INFO flwr 2024-10-14 01:00:27,815 | server.py:226 | configure_fit: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:00:35,860 | server.py:240 | aggregate_fit: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:00:35,899 | server.py:178 | configure_evaluate: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:00:39,915 | server.py:192 | aggregate_evaluate: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:00:39,916 | fed_custom.py:236 | aggregated accuracy: 0.15526007039499412
+dv - | INFO flwr 2024-10-14 01:00:39,916 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:00:39,917 | server.py:113 | [ROUND 56]
+dv - | INFO flwr 2024-10-14 01:00:39,917 | server.py:226 | configure_fit: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:00:46,956 | server.py:240 | aggregate_fit: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:00:46,990 | server.py:178 | configure_evaluate: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:00:50,013 | server.py:192 | aggregate_evaluate: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:00:50,014 | fed_custom.py:236 | aggregated accuracy: 0.12213930348258706
+dv - | INFO flwr 2024-10-14 01:00:50,014 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:00:50,015 | server.py:113 | [ROUND 57]
+dv - | INFO flwr 2024-10-14 01:00:50,015 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:00:59,054 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:00:59,091 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:01:03,108 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:01:03,109 | fed_custom.py:236 | aggregated accuracy: 0.12337048932552427
+dv - | INFO flwr 2024-10-14 01:01:03,110 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:01:03,110 | server.py:113 | [ROUND 58]
+dv - | INFO flwr 2024-10-14 01:01:03,111 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:01:12,135 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:01:12,174 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:01:16,188 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:01:16,188 | fed_custom.py:236 | aggregated accuracy: 0.12851782363977485
+dv - | INFO flwr 2024-10-14 01:01:16,189 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:01:16,190 | server.py:113 | [ROUND 59]
+dv - | INFO flwr 2024-10-14 01:01:16,190 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:01:25,215 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:01:25,252 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:01:29,272 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:01:29,273 | fed_custom.py:236 | aggregated accuracy: 0.14841121495327103
+dv - | INFO flwr 2024-10-14 01:01:29,274 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:01:29,274 | server.py:113 | [ROUND 60]
+dv - | INFO flwr 2024-10-14 01:01:29,275 | server.py:226 | configure_fit: strategy sampled 61 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:01:39,341 | server.py:240 | aggregate_fit: received 61 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:01:39,388 | server.py:178 | configure_evaluate: strategy sampled 61 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:01:43,420 | server.py:192 | aggregate_evaluate: received 61 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:01:43,421 | fed_custom.py:236 | aggregated accuracy: 0.10572119258662369
+dv - | INFO flwr 2024-10-14 01:01:43,421 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:01:43,422 | server.py:113 | [ROUND 61]
+dv - | INFO flwr 2024-10-14 01:01:43,422 | server.py:226 | configure_fit: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:01:51,476 | server.py:240 | aggregate_fit: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:01:51,511 | server.py:178 | configure_evaluate: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:01:55,522 | server.py:192 | aggregate_evaluate: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:01:55,523 | fed_custom.py:236 | aggregated accuracy: 0.1106076210092688
+dv - | INFO flwr 2024-10-14 01:01:55,523 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:01:55,523 | server.py:113 | [ROUND 62]
+dv - | INFO flwr 2024-10-14 01:01:55,524 | server.py:226 | configure_fit: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:02:04,575 | server.py:240 | aggregate_fit: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:02:04,615 | server.py:178 | configure_evaluate: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:02:08,639 | server.py:192 | aggregate_evaluate: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:02:08,640 | fed_custom.py:236 | aggregated accuracy: 0.11206317204301075
+dv - | INFO flwr 2024-10-14 01:02:08,641 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:02:08,641 | server.py:113 | [ROUND 63]
+dv - | INFO flwr 2024-10-14 01:02:08,641 | server.py:226 | configure_fit: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:02:15,689 | server.py:240 | aggregate_fit: received 42 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:02:15,719 | server.py:178 | configure_evaluate: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:02:18,751 | server.py:192 | aggregate_evaluate: received 42 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:02:18,752 | fed_custom.py:236 | aggregated accuracy: 0.10964705882352942
+dv - | INFO flwr 2024-10-14 01:02:18,752 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:02:18,753 | server.py:113 | [ROUND 64]
+dv - | INFO flwr 2024-10-14 01:02:18,753 | server.py:226 | configure_fit: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:02:27,959 | server.py:240 | aggregate_fit: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:02:28,001 | server.py:178 | configure_evaluate: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:02:32,023 | server.py:192 | aggregate_evaluate: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:02:32,024 | fed_custom.py:236 | aggregated accuracy: 0.10114644970414201
+dv - | INFO flwr 2024-10-14 01:02:32,025 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:02:32,025 | server.py:113 | [ROUND 65]
+dv - | INFO flwr 2024-10-14 01:02:32,026 | server.py:226 | configure_fit: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:02:40,065 | server.py:240 | aggregate_fit: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:02:40,099 | server.py:178 | configure_evaluate: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:02:43,148 | server.py:192 | aggregate_evaluate: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:02:43,148 | fed_custom.py:236 | aggregated accuracy: 0.09310835535677983
+dv - | INFO flwr 2024-10-14 01:02:43,149 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:02:43,150 | server.py:113 | [ROUND 66]
+dv - | INFO flwr 2024-10-14 01:02:43,150 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:02:51,199 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:02:51,240 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:02:55,259 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:02:55,260 | fed_custom.py:236 | aggregated accuracy: 0.11186244204018547
+dv - | INFO flwr 2024-10-14 01:02:55,260 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:02:55,260 | server.py:113 | [ROUND 67]
+dv - | INFO flwr 2024-10-14 01:02:55,262 | server.py:226 | configure_fit: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:03:04,289 | server.py:240 | aggregate_fit: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:03:04,330 | server.py:178 | configure_evaluate: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:03:08,350 | server.py:192 | aggregate_evaluate: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:03:08,351 | fed_custom.py:236 | aggregated accuracy: 0.14468558708959378
+dv - | INFO flwr 2024-10-14 01:03:08,351 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:03:08,352 | server.py:113 | [ROUND 68]
+dv - | INFO flwr 2024-10-14 01:03:08,352 | server.py:226 | configure_fit: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:03:16,400 | server.py:240 | aggregate_fit: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:03:16,441 | server.py:178 | configure_evaluate: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:03:20,454 | server.py:192 | aggregate_evaluate: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:03:20,455 | fed_custom.py:236 | aggregated accuracy: 0.1313050440352282
+dv - | INFO flwr 2024-10-14 01:03:20,456 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:03:20,456 | server.py:113 | [ROUND 69]
+dv - | INFO flwr 2024-10-14 01:03:20,456 | server.py:226 | configure_fit: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:03:27,492 | server.py:240 | aggregate_fit: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:03:27,527 | server.py:178 | configure_evaluate: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:03:30,558 | server.py:192 | aggregate_evaluate: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:03:30,559 | fed_custom.py:236 | aggregated accuracy: 0.1494833524684271
+dv - | INFO flwr 2024-10-14 01:03:30,559 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:03:30,560 | server.py:113 | [ROUND 70]
+dv - | INFO flwr 2024-10-14 01:03:30,560 | server.py:226 | configure_fit: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:03:39,604 | server.py:240 | aggregate_fit: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:03:39,654 | server.py:178 | configure_evaluate: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:03:43,675 | server.py:192 | aggregate_evaluate: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:03:43,676 | fed_custom.py:236 | aggregated accuracy: 0.11514195583596215
+dv - | INFO flwr 2024-10-14 01:03:43,677 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:03:43,677 | server.py:113 | [ROUND 71]
+dv - | INFO flwr 2024-10-14 01:03:43,678 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:03:51,732 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:03:51,766 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:03:54,806 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:03:54,807 | fed_custom.py:236 | aggregated accuracy: 0.12229004420122079
+dv - | INFO flwr 2024-10-14 01:03:54,807 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:03:54,808 | server.py:113 | [ROUND 72]
+dv - | INFO flwr 2024-10-14 01:03:54,808 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:04:02,864 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:04:02,904 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:04:06,929 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:04:06,930 | fed_custom.py:236 | aggregated accuracy: 0.14694433631763332
+dv - | INFO flwr 2024-10-14 01:04:06,930 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:04:06,931 | server.py:113 | [ROUND 73]
+dv - | INFO flwr 2024-10-14 01:04:06,931 | server.py:226 | configure_fit: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:04:13,959 | server.py:240 | aggregate_fit: received 42 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:04:13,990 | server.py:178 | configure_evaluate: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:04:17,012 | server.py:192 | aggregate_evaluate: received 42 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:04:17,013 | fed_custom.py:236 | aggregated accuracy: 0.11697247706422019
+dv - | INFO flwr 2024-10-14 01:04:17,014 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:04:17,014 | server.py:113 | [ROUND 74]
+dv - | INFO flwr 2024-10-14 01:04:17,015 | server.py:226 | configure_fit: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:04:26,035 | server.py:240 | aggregate_fit: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:04:26,072 | server.py:178 | configure_evaluate: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:04:30,089 | server.py:192 | aggregate_evaluate: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:04:30,090 | fed_custom.py:236 | aggregated accuracy: 0.141224948492227
+dv - | INFO flwr 2024-10-14 01:04:30,090 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:04:30,091 | server.py:113 | [ROUND 75]
+dv - | INFO flwr 2024-10-14 01:04:30,091 | server.py:226 | configure_fit: strategy sampled 63 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:04:40,141 | server.py:240 | aggregate_fit: received 63 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:04:40,190 | server.py:178 | configure_evaluate: strategy sampled 63 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:04:44,225 | server.py:192 | aggregate_evaluate: received 63 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:04:44,226 | fed_custom.py:236 | aggregated accuracy: 0.1609469335875437
+dv - | INFO flwr 2024-10-14 01:04:44,226 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:04:44,226 | server.py:113 | [ROUND 76]
+dv - | INFO flwr 2024-10-14 01:04:44,227 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:04:52,265 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:04:52,302 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:04:56,320 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:04:56,320 | fed_custom.py:236 | aggregated accuracy: 0.1412669500101194
+dv - | INFO flwr 2024-10-14 01:04:56,321 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:04:56,321 | server.py:113 | [ROUND 77]
+dv - | INFO flwr 2024-10-14 01:04:56,322 | server.py:226 | configure_fit: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:05:05,375 | server.py:240 | aggregate_fit: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:05:05,414 | server.py:178 | configure_evaluate: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:05:09,435 | server.py:192 | aggregate_evaluate: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:05:09,436 | fed_custom.py:236 | aggregated accuracy: 0.14686040477426052
+dv - | INFO flwr 2024-10-14 01:05:09,437 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:05:09,437 | server.py:113 | [ROUND 78]
+dv - | INFO flwr 2024-10-14 01:05:09,437 | server.py:226 | configure_fit: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:05:17,490 | server.py:240 | aggregate_fit: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:05:17,529 | server.py:178 | configure_evaluate: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:05:20,564 | server.py:192 | aggregate_evaluate: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:05:20,565 | fed_custom.py:236 | aggregated accuracy: 0.16244849911712772
+dv - | INFO flwr 2024-10-14 01:05:20,565 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:05:20,566 | server.py:113 | [ROUND 79]
+dv - | INFO flwr 2024-10-14 01:05:20,566 | server.py:226 | configure_fit: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:05:29,613 | server.py:240 | aggregate_fit: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:05:29,656 | server.py:178 | configure_evaluate: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:05:33,678 | server.py:192 | aggregate_evaluate: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:05:33,679 | fed_custom.py:236 | aggregated accuracy: 0.117722681359045
+dv - | INFO flwr 2024-10-14 01:05:33,680 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:05:33,680 | server.py:113 | [ROUND 80]
+dv - | INFO flwr 2024-10-14 01:05:33,680 | server.py:226 | configure_fit: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:05:40,726 | server.py:240 | aggregate_fit: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:05:40,759 | server.py:178 | configure_evaluate: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:05:43,793 | server.py:192 | aggregate_evaluate: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:05:43,794 | fed_custom.py:236 | aggregated accuracy: 0.13688212927756654
+dv - | INFO flwr 2024-10-14 01:05:43,794 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:05:43,794 | server.py:113 | [ROUND 81]
+dv - | INFO flwr 2024-10-14 01:05:43,795 | server.py:226 | configure_fit: strategy sampled 35 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:05:49,832 | server.py:240 | aggregate_fit: received 35 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:05:49,863 | server.py:178 | configure_evaluate: strategy sampled 35 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:05:52,873 | server.py:192 | aggregate_evaluate: received 35 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:05:52,874 | fed_custom.py:236 | aggregated accuracy: 0.18199233716475097
+dv - | INFO flwr 2024-10-14 01:05:52,875 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:05:52,875 | server.py:113 | [ROUND 82]
+dv - | INFO flwr 2024-10-14 01:05:52,876 | server.py:226 | configure_fit: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:06:00,909 | server.py:240 | aggregate_fit: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:06:00,942 | server.py:178 | configure_evaluate: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:06:03,977 | server.py:192 | aggregate_evaluate: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:06:03,978 | fed_custom.py:236 | aggregated accuracy: 0.12355707567336469
+dv - | INFO flwr 2024-10-14 01:06:03,979 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:06:03,979 | server.py:113 | [ROUND 83]
+dv - | INFO flwr 2024-10-14 01:06:03,980 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:06:12,028 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:06:12,062 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:06:15,089 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:06:15,090 | fed_custom.py:236 | aggregated accuracy: 0.16965604557923614
+dv - | INFO flwr 2024-10-14 01:06:15,090 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:06:15,091 | server.py:113 | [ROUND 84]
+dv - | INFO flwr 2024-10-14 01:06:15,092 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:06:24,136 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:06:24,175 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:06:28,197 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:06:28,198 | fed_custom.py:236 | aggregated accuracy: 0.132208922742111
+dv - | INFO flwr 2024-10-14 01:06:28,198 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:06:28,199 | server.py:113 | [ROUND 85]
+dv - | INFO flwr 2024-10-14 01:06:28,199 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:06:36,233 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:06:36,267 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:06:40,286 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:06:40,287 | fed_custom.py:236 | aggregated accuracy: 0.14902590881703154
+dv - | INFO flwr 2024-10-14 01:06:40,287 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:06:40,287 | server.py:113 | [ROUND 86]
+dv - | INFO flwr 2024-10-14 01:06:40,288 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:06:49,306 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:06:49,343 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:06:53,362 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:06:53,363 | fed_custom.py:236 | aggregated accuracy: 0.14028910303928835
+dv - | INFO flwr 2024-10-14 01:06:53,364 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:06:53,364 | server.py:113 | [ROUND 87]
+dv - | INFO flwr 2024-10-14 01:06:53,365 | server.py:226 | configure_fit: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:07:01,378 | server.py:240 | aggregate_fit: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:07:01,415 | server.py:178 | configure_evaluate: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:07:04,444 | server.py:192 | aggregate_evaluate: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:07:04,444 | fed_custom.py:236 | aggregated accuracy: 0.14563318777292578
+dv - | INFO flwr 2024-10-14 01:07:04,445 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:07:04,445 | server.py:113 | [ROUND 88]
+dv - | INFO flwr 2024-10-14 01:07:04,446 | server.py:226 | configure_fit: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:07:12,491 | server.py:240 | aggregate_fit: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:07:12,529 | server.py:178 | configure_evaluate: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:07:16,544 | server.py:192 | aggregate_evaluate: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:07:16,544 | fed_custom.py:236 | aggregated accuracy: 0.13464920852061754
+dv - | INFO flwr 2024-10-14 01:07:16,545 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:07:16,545 | server.py:113 | [ROUND 89]
+dv - | INFO flwr 2024-10-14 01:07:16,546 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:07:24,588 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:07:24,636 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:07:28,653 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:07:28,654 | fed_custom.py:236 | aggregated accuracy: 0.1702774610414291
+dv - | INFO flwr 2024-10-14 01:07:28,654 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:07:28,655 | server.py:113 | [ROUND 90]
+dv - | INFO flwr 2024-10-14 01:07:28,655 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:07:35,717 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:07:35,757 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:07:38,794 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:07:38,794 | fed_custom.py:236 | aggregated accuracy: 0.20344022085368443
+dv - | INFO flwr 2024-10-14 01:07:38,794 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:07:38,794 | server.py:113 | [ROUND 91]
+dv - | INFO flwr 2024-10-14 01:07:38,796 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:07:47,854 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:07:47,895 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:07:51,913 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:07:51,914 | fed_custom.py:236 | aggregated accuracy: 0.1672531950361178
+dv - | INFO flwr 2024-10-14 01:07:51,915 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:07:51,915 | server.py:113 | [ROUND 92]
+dv - | INFO flwr 2024-10-14 01:07:51,916 | server.py:226 | configure_fit: strategy sampled 65 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:08:01,953 | server.py:240 | aggregate_fit: received 65 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:08:01,999 | server.py:178 | configure_evaluate: strategy sampled 65 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:08:07,012 | server.py:192 | aggregate_evaluate: received 65 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:08:07,012 | fed_custom.py:236 | aggregated accuracy: 0.15458320025550942
+dv - | INFO flwr 2024-10-14 01:08:07,013 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:08:07,013 | server.py:113 | [ROUND 93]
+dv - | INFO flwr 2024-10-14 01:08:07,014 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:08:14,039 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:08:14,071 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:08:17,100 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:08:17,100 | fed_custom.py:236 | aggregated accuracy: 0.14073894020418085
+dv - | INFO flwr 2024-10-14 01:08:17,101 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:08:17,101 | server.py:113 | [ROUND 94]
+dv - | INFO flwr 2024-10-14 01:08:17,102 | server.py:226 | configure_fit: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:08:25,143 | server.py:240 | aggregate_fit: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:08:25,176 | server.py:178 | configure_evaluate: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:08:29,188 | server.py:192 | aggregate_evaluate: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:08:29,189 | fed_custom.py:236 | aggregated accuracy: 0.19490999379267535
+dv - | INFO flwr 2024-10-14 01:08:29,189 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:08:29,190 | server.py:113 | [ROUND 95]
+dv - | INFO flwr 2024-10-14 01:08:29,190 | server.py:226 | configure_fit: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:08:36,226 | server.py:240 | aggregate_fit: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:08:36,258 | server.py:178 | configure_evaluate: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:08:39,282 | server.py:192 | aggregate_evaluate: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:08:39,283 | fed_custom.py:236 | aggregated accuracy: 0.21719348659003831
+dv - | INFO flwr 2024-10-14 01:08:39,284 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:08:39,284 | server.py:113 | [ROUND 96]
+dv - | INFO flwr 2024-10-14 01:08:39,285 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:08:47,304 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:08:47,340 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:08:50,368 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:08:50,369 | fed_custom.py:236 | aggregated accuracy: 0.1936026936026936
+dv - | INFO flwr 2024-10-14 01:08:50,369 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:08:50,370 | server.py:113 | [ROUND 97]
+dv - | INFO flwr 2024-10-14 01:08:50,370 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:08:57,629 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:08:57,660 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:09:00,687 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:09:00,688 | fed_custom.py:236 | aggregated accuracy: 0.19795221843003413
+dv - | INFO flwr 2024-10-14 01:09:00,689 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:09:00,689 | server.py:113 | [ROUND 98]
+dv - | INFO flwr 2024-10-14 01:09:00,690 | server.py:226 | configure_fit: strategy sampled 59 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:09:10,710 | server.py:240 | aggregate_fit: received 59 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:09:10,754 | server.py:178 | configure_evaluate: strategy sampled 59 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:09:14,792 | server.py:192 | aggregate_evaluate: received 59 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:09:14,793 | fed_custom.py:236 | aggregated accuracy: 0.21253175275190517
+dv - | INFO flwr 2024-10-14 01:09:14,793 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:09:14,794 | server.py:113 | [ROUND 99]
+dv - | INFO flwr 2024-10-14 01:09:14,794 | server.py:226 | configure_fit: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:09:22,836 | server.py:240 | aggregate_fit: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:09:22,876 | server.py:178 | configure_evaluate: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:09:26,890 | server.py:192 | aggregate_evaluate: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:09:26,890 | fed_custom.py:236 | aggregated accuracy: 0.20338653172440638
+dv - | INFO flwr 2024-10-14 01:09:26,891 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:09:26,891 | server.py:113 | [ROUND 100]
+dv - | INFO flwr 2024-10-14 01:09:26,892 | server.py:226 | configure_fit: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:09:35,911 | server.py:240 | aggregate_fit: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:09:35,951 | server.py:178 | configure_evaluate: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:09:39,970 | server.py:192 | aggregate_evaluate: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:09:39,971 | fed_custom.py:236 | aggregated accuracy: 0.1863943096844793
+dv - | INFO flwr 2024-10-14 01:09:39,972 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:09:39,972 | server.py:113 | [ROUND 101]
+dv - | INFO flwr 2024-10-14 01:09:39,973 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:09:48,019 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:09:48,055 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:09:52,069 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:09:52,069 | fed_custom.py:236 | aggregated accuracy: 0.23461068079902161
+dv - | INFO flwr 2024-10-14 01:09:52,070 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:09:52,070 | server.py:113 | [ROUND 102]
+dv - | INFO flwr 2024-10-14 01:09:52,071 | server.py:226 | configure_fit: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:09:59,130 | server.py:240 | aggregate_fit: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:09:59,159 | server.py:178 | configure_evaluate: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:10:02,183 | server.py:192 | aggregate_evaluate: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:10:02,184 | fed_custom.py:236 | aggregated accuracy: 0.20014520813165537
+dv - | INFO flwr 2024-10-14 01:10:02,184 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:10:02,185 | server.py:113 | [ROUND 103]
+dv - | INFO flwr 2024-10-14 01:10:02,185 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:10:10,225 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:10:10,261 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:10:13,306 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:10:13,307 | fed_custom.py:236 | aggregated accuracy: 0.21467556094602788
+dv - | INFO flwr 2024-10-14 01:10:13,308 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:10:13,308 | server.py:113 | [ROUND 104]
+dv - | INFO flwr 2024-10-14 01:10:13,309 | server.py:226 | configure_fit: strategy sampled 56 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:10:22,361 | server.py:240 | aggregate_fit: received 56 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:10:22,405 | server.py:178 | configure_evaluate: strategy sampled 56 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:10:26,427 | server.py:192 | aggregate_evaluate: received 56 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:10:26,428 | fed_custom.py:236 | aggregated accuracy: 0.2615213770127707
+dv - | INFO flwr 2024-10-14 01:10:26,428 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:10:26,429 | server.py:113 | [ROUND 105]
+dv - | INFO flwr 2024-10-14 01:10:26,429 | server.py:226 | configure_fit: strategy sampled 61 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:10:36,475 | server.py:240 | aggregate_fit: received 61 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:10:36,519 | server.py:178 | configure_evaluate: strategy sampled 61 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:10:40,552 | server.py:192 | aggregate_evaluate: received 61 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:10:40,552 | fed_custom.py:236 | aggregated accuracy: 0.21860390133806223
+dv - | INFO flwr 2024-10-14 01:10:40,553 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:10:40,553 | server.py:113 | [ROUND 106]
+dv - | INFO flwr 2024-10-14 01:10:40,553 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:10:48,593 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:10:48,643 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:10:52,658 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:10:52,659 | fed_custom.py:236 | aggregated accuracy: 0.22604790419161677
+dv - | INFO flwr 2024-10-14 01:10:52,660 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:10:52,660 | server.py:113 | [ROUND 107]
+dv - | INFO flwr 2024-10-14 01:10:52,661 | server.py:226 | configure_fit: strategy sampled 69 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:11:02,713 | server.py:240 | aggregate_fit: received 69 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:11:02,785 | server.py:178 | configure_evaluate: strategy sampled 69 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:11:07,803 | server.py:192 | aggregate_evaluate: received 69 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:11:07,804 | fed_custom.py:236 | aggregated accuracy: 0.2408682634730539
+dv - | INFO flwr 2024-10-14 01:11:07,804 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:11:07,805 | server.py:113 | [ROUND 108]
+dv - | INFO flwr 2024-10-14 01:11:07,805 | server.py:226 | configure_fit: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:11:14,855 | server.py:240 | aggregate_fit: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:11:14,895 | server.py:178 | configure_evaluate: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:11:17,932 | server.py:192 | aggregate_evaluate: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:11:17,933 | fed_custom.py:236 | aggregated accuracy: 0.23906833662931223
+dv - | INFO flwr 2024-10-14 01:11:17,934 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:11:17,934 | server.py:113 | [ROUND 109]
+dv - | INFO flwr 2024-10-14 01:11:17,935 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:11:26,989 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:11:27,028 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:11:31,047 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:11:31,048 | fed_custom.py:236 | aggregated accuracy: 0.2474881015335801
+dv - | INFO flwr 2024-10-14 01:11:31,048 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:11:31,049 | server.py:113 | [ROUND 110]
+dv - | INFO flwr 2024-10-14 01:11:31,049 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:11:38,080 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:11:38,112 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:11:41,141 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:11:41,142 | fed_custom.py:236 | aggregated accuracy: 0.23893395133256085
+dv - | INFO flwr 2024-10-14 01:11:41,143 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:11:41,143 | server.py:113 | [ROUND 111]
+dv - | INFO flwr 2024-10-14 01:11:41,144 | server.py:226 | configure_fit: strategy sampled 36 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:11:47,194 | server.py:240 | aggregate_fit: received 36 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:11:47,222 | server.py:178 | configure_evaluate: strategy sampled 36 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:11:50,237 | server.py:192 | aggregate_evaluate: received 36 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:11:50,237 | fed_custom.py:236 | aggregated accuracy: 0.23865500273373427
+dv - | INFO flwr 2024-10-14 01:11:50,238 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:11:50,239 | server.py:113 | [ROUND 112]
+dv - | INFO flwr 2024-10-14 01:11:50,239 | server.py:226 | configure_fit: strategy sampled 64 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:12:00,272 | server.py:240 | aggregate_fit: received 64 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:12:00,321 | server.py:178 | configure_evaluate: strategy sampled 64 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:12:04,351 | server.py:192 | aggregate_evaluate: received 64 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:12:04,352 | fed_custom.py:236 | aggregated accuracy: 0.23312786470681207
+dv - | INFO flwr 2024-10-14 01:12:04,352 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:12:04,353 | server.py:113 | [ROUND 113]
+dv - | INFO flwr 2024-10-14 01:12:04,353 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:12:12,395 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:12:12,439 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:12:16,458 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:12:16,459 | fed_custom.py:236 | aggregated accuracy: 0.2507182532081977
+dv - | INFO flwr 2024-10-14 01:12:16,459 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:12:16,459 | server.py:113 | [ROUND 114]
+dv - | INFO flwr 2024-10-14 01:12:16,460 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:12:23,505 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:12:23,539 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:12:26,572 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:12:26,573 | fed_custom.py:236 | aggregated accuracy: 0.2512774938902466
+dv - | INFO flwr 2024-10-14 01:12:26,574 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:12:26,574 | server.py:113 | [ROUND 115]
+dv - | INFO flwr 2024-10-14 01:12:26,575 | server.py:226 | configure_fit: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:12:34,617 | server.py:240 | aggregate_fit: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:12:34,658 | server.py:178 | configure_evaluate: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:12:38,675 | server.py:192 | aggregate_evaluate: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:12:38,676 | fed_custom.py:236 | aggregated accuracy: 0.2523598535927567
+dv - | INFO flwr 2024-10-14 01:12:38,677 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:12:38,677 | server.py:113 | [ROUND 116]
+dv - | INFO flwr 2024-10-14 01:12:38,678 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:12:45,736 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:12:45,771 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:12:48,798 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:12:48,799 | fed_custom.py:236 | aggregated accuracy: 0.2538394032470382
+dv - | INFO flwr 2024-10-14 01:12:48,800 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:12:48,800 | server.py:113 | [ROUND 117]
+dv - | INFO flwr 2024-10-14 01:12:48,801 | server.py:226 | configure_fit: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:12:56,852 | server.py:240 | aggregate_fit: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:12:56,889 | server.py:178 | configure_evaluate: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:13:00,902 | server.py:192 | aggregate_evaluate: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:13:00,903 | fed_custom.py:236 | aggregated accuracy: 0.2506601665651026
+dv - | INFO flwr 2024-10-14 01:13:00,904 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:13:00,904 | server.py:113 | [ROUND 118]
+dv - | INFO flwr 2024-10-14 01:13:00,905 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:13:08,956 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:13:08,990 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:13:12,143 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:13:12,144 | fed_custom.py:236 | aggregated accuracy: 0.23136842105263158
+dv - | INFO flwr 2024-10-14 01:13:12,144 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:13:12,145 | server.py:113 | [ROUND 119]
+dv - | INFO flwr 2024-10-14 01:13:12,145 | server.py:226 | configure_fit: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:13:21,191 | server.py:240 | aggregate_fit: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:13:21,231 | server.py:178 | configure_evaluate: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:13:25,260 | server.py:192 | aggregate_evaluate: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:13:25,261 | fed_custom.py:236 | aggregated accuracy: 0.25858795097531506
+dv - | INFO flwr 2024-10-14 01:13:25,262 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:13:25,262 | server.py:113 | [ROUND 120]
+dv - | INFO flwr 2024-10-14 01:13:25,263 | server.py:226 | configure_fit: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:13:33,294 | server.py:240 | aggregate_fit: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:13:33,332 | server.py:178 | configure_evaluate: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:13:37,344 | server.py:192 | aggregate_evaluate: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:13:37,345 | fed_custom.py:236 | aggregated accuracy: 0.23089015523678522
+dv - | INFO flwr 2024-10-14 01:13:37,345 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:13:37,346 | server.py:113 | [ROUND 121]
+dv - | INFO flwr 2024-10-14 01:13:37,346 | server.py:226 | configure_fit: strategy sampled 39 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:13:44,366 | server.py:240 | aggregate_fit: received 39 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:13:44,396 | server.py:178 | configure_evaluate: strategy sampled 39 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:13:47,420 | server.py:192 | aggregate_evaluate: received 39 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:13:47,421 | fed_custom.py:236 | aggregated accuracy: 0.25382716049382714
+dv - | INFO flwr 2024-10-14 01:13:47,422 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:13:47,422 | server.py:113 | [ROUND 122]
+dv - | INFO flwr 2024-10-14 01:13:47,423 | server.py:226 | configure_fit: strategy sampled 61 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:13:57,464 | server.py:240 | aggregate_fit: received 61 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:13:57,521 | server.py:178 | configure_evaluate: strategy sampled 61 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:14:01,561 | server.py:192 | aggregate_evaluate: received 61 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:14:01,562 | fed_custom.py:236 | aggregated accuracy: 0.25159332321699546
+dv - | INFO flwr 2024-10-14 01:14:01,563 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:14:01,563 | server.py:113 | [ROUND 123]
+dv - | INFO flwr 2024-10-14 01:14:01,564 | server.py:226 | configure_fit: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:14:09,599 | server.py:240 | aggregate_fit: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:14:09,632 | server.py:178 | configure_evaluate: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:14:12,662 | server.py:192 | aggregate_evaluate: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:14:12,663 | fed_custom.py:236 | aggregated accuracy: 0.2509710832973673
+dv - | INFO flwr 2024-10-14 01:14:12,664 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:14:12,664 | server.py:113 | [ROUND 124]
+dv - | INFO flwr 2024-10-14 01:14:12,664 | server.py:226 | configure_fit: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:14:20,716 | server.py:240 | aggregate_fit: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:14:20,750 | server.py:178 | configure_evaluate: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:14:23,808 | server.py:192 | aggregate_evaluate: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:14:23,809 | fed_custom.py:236 | aggregated accuracy: 0.2580712788259958
+dv - | INFO flwr 2024-10-14 01:14:23,810 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:14:23,810 | server.py:113 | [ROUND 125]
+dv - | INFO flwr 2024-10-14 01:14:23,810 | server.py:226 | configure_fit: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:14:30,845 | server.py:240 | aggregate_fit: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:14:30,878 | server.py:178 | configure_evaluate: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:14:33,901 | server.py:192 | aggregate_evaluate: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:14:33,902 | fed_custom.py:236 | aggregated accuracy: 0.27054455445544556
+dv - | INFO flwr 2024-10-14 01:14:33,902 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:14:33,903 | server.py:113 | [ROUND 126]
+dv - | INFO flwr 2024-10-14 01:14:33,904 | server.py:226 | configure_fit: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:14:42,955 | server.py:240 | aggregate_fit: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:14:42,999 | server.py:178 | configure_evaluate: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:14:47,019 | server.py:192 | aggregate_evaluate: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:14:47,020 | fed_custom.py:236 | aggregated accuracy: 0.24986220834098843
+dv - | INFO flwr 2024-10-14 01:14:47,021 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:14:47,021 | server.py:113 | [ROUND 127]
+dv - | INFO flwr 2024-10-14 01:14:47,022 | server.py:226 | configure_fit: strategy sampled 56 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:14:56,060 | server.py:240 | aggregate_fit: received 56 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:14:56,097 | server.py:178 | configure_evaluate: strategy sampled 56 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:15:00,117 | server.py:192 | aggregate_evaluate: received 56 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:15:00,117 | fed_custom.py:236 | aggregated accuracy: 0.24854121079504013
+dv - | INFO flwr 2024-10-14 01:15:00,118 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:15:00,119 | server.py:113 | [ROUND 128]
+dv - | INFO flwr 2024-10-14 01:15:00,119 | server.py:226 | configure_fit: strategy sampled 38 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:15:07,145 | server.py:240 | aggregate_fit: received 38 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:15:07,175 | server.py:178 | configure_evaluate: strategy sampled 38 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:15:10,191 | server.py:192 | aggregate_evaluate: received 38 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:15:10,192 | fed_custom.py:236 | aggregated accuracy: 0.25754884547069273
+dv - | INFO flwr 2024-10-14 01:15:10,193 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:15:10,194 | server.py:113 | [ROUND 129]
+dv - | INFO flwr 2024-10-14 01:15:10,194 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:15:19,226 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:15:19,267 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:15:23,288 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:15:23,289 | fed_custom.py:236 | aggregated accuracy: 0.2594644506001847
+dv - | INFO flwr 2024-10-14 01:15:23,290 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:15:23,290 | server.py:113 | [ROUND 130]
+dv - | INFO flwr 2024-10-14 01:15:23,291 | server.py:226 | configure_fit: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:15:31,341 | server.py:240 | aggregate_fit: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:15:31,380 | server.py:178 | configure_evaluate: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:15:34,419 | server.py:192 | aggregate_evaluate: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:15:34,420 | fed_custom.py:236 | aggregated accuracy: 0.2745549738219895
+dv - | INFO flwr 2024-10-14 01:15:34,421 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:15:34,421 | server.py:113 | [ROUND 131]
+dv - | INFO flwr 2024-10-14 01:15:34,422 | server.py:226 | configure_fit: strategy sampled 59 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:15:43,470 | server.py:240 | aggregate_fit: received 59 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:15:43,521 | server.py:178 | configure_evaluate: strategy sampled 59 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:15:47,551 | server.py:192 | aggregate_evaluate: received 59 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:15:47,552 | fed_custom.py:236 | aggregated accuracy: 0.25634560430324427
+dv - | INFO flwr 2024-10-14 01:15:47,552 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:15:47,553 | server.py:113 | [ROUND 132]
+dv - | INFO flwr 2024-10-14 01:15:47,553 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:15:54,581 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:15:54,614 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:15:57,661 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:15:57,662 | fed_custom.py:236 | aggregated accuracy: 0.279688972667295
+dv - | INFO flwr 2024-10-14 01:15:57,663 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:15:57,663 | server.py:113 | [ROUND 133]
+dv - | INFO flwr 2024-10-14 01:15:57,664 | server.py:226 | configure_fit: strategy sampled 35 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:16:03,702 | server.py:240 | aggregate_fit: received 35 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:16:03,729 | server.py:178 | configure_evaluate: strategy sampled 35 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:16:06,741 | server.py:192 | aggregate_evaluate: received 35 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:16:06,742 | fed_custom.py:236 | aggregated accuracy: 0.24096385542168675
+dv - | INFO flwr 2024-10-14 01:16:06,743 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:16:06,743 | server.py:113 | [ROUND 134]
+dv - | INFO flwr 2024-10-14 01:16:06,744 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:16:14,790 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:16:14,827 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:16:17,854 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:16:17,855 | fed_custom.py:236 | aggregated accuracy: 0.2637523530642125
+dv - | INFO flwr 2024-10-14 01:16:17,855 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:16:17,856 | server.py:113 | [ROUND 135]
+dv - | INFO flwr 2024-10-14 01:16:17,856 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:16:25,895 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:16:25,937 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:16:29,954 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:16:29,955 | fed_custom.py:236 | aggregated accuracy: 0.28440724158068914
+dv - | INFO flwr 2024-10-14 01:16:29,956 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:16:29,956 | server.py:113 | [ROUND 136]
+dv - | INFO flwr 2024-10-14 01:16:29,957 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:16:36,994 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:16:37,033 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:16:40,073 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:16:40,074 | fed_custom.py:236 | aggregated accuracy: 0.26112956810631227
+dv - | INFO flwr 2024-10-14 01:16:40,075 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:16:40,075 | server.py:113 | [ROUND 137]
+dv - | INFO flwr 2024-10-14 01:16:40,076 | server.py:226 | configure_fit: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:16:47,123 | server.py:240 | aggregate_fit: received 42 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:16:47,154 | server.py:178 | configure_evaluate: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:16:50,174 | server.py:192 | aggregate_evaluate: received 42 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:16:50,174 | fed_custom.py:236 | aggregated accuracy: 0.26922161390145205
+dv - | INFO flwr 2024-10-14 01:16:50,175 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:16:50,175 | server.py:113 | [ROUND 138]
+dv - | INFO flwr 2024-10-14 01:16:50,176 | server.py:226 | configure_fit: strategy sampled 56 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:16:59,220 | server.py:240 | aggregate_fit: received 56 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:16:59,260 | server.py:178 | configure_evaluate: strategy sampled 56 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:17:03,282 | server.py:192 | aggregate_evaluate: received 56 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:17:03,283 | fed_custom.py:236 | aggregated accuracy: 0.2561576354679803
+dv - | INFO flwr 2024-10-14 01:17:03,283 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:17:03,283 | server.py:113 | [ROUND 139]
+dv - | INFO flwr 2024-10-14 01:17:03,284 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:17:10,319 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:17:10,351 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:17:13,378 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:17:13,379 | fed_custom.py:236 | aggregated accuracy: 0.310719131614654
+dv - | INFO flwr 2024-10-14 01:17:13,380 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:17:13,380 | server.py:113 | [ROUND 140]
+dv - | INFO flwr 2024-10-14 01:17:13,381 | server.py:226 | configure_fit: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:17:22,410 | server.py:240 | aggregate_fit: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:17:22,448 | server.py:178 | configure_evaluate: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:17:26,465 | server.py:192 | aggregate_evaluate: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:17:26,466 | fed_custom.py:236 | aggregated accuracy: 0.2876536415336636
+dv - | INFO flwr 2024-10-14 01:17:26,466 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:17:26,467 | server.py:113 | [ROUND 141]
+dv - | INFO flwr 2024-10-14 01:17:26,467 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:17:34,518 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:17:34,552 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:17:37,599 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:17:37,600 | fed_custom.py:236 | aggregated accuracy: 0.27409315303713244
+dv - | INFO flwr 2024-10-14 01:17:37,600 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:17:37,600 | server.py:113 | [ROUND 142]
+dv - | INFO flwr 2024-10-14 01:17:37,601 | server.py:226 | configure_fit: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:17:45,647 | server.py:240 | aggregate_fit: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:17:45,683 | server.py:178 | configure_evaluate: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:17:49,694 | server.py:192 | aggregate_evaluate: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:17:49,695 | fed_custom.py:236 | aggregated accuracy: 0.2624877571008815
+dv - | INFO flwr 2024-10-14 01:17:49,696 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:17:49,696 | server.py:113 | [ROUND 143]
+dv - | INFO flwr 2024-10-14 01:17:49,697 | server.py:226 | configure_fit: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:17:58,744 | server.py:240 | aggregate_fit: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:17:58,784 | server.py:178 | configure_evaluate: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:18:02,811 | server.py:192 | aggregate_evaluate: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:18:02,812 | fed_custom.py:236 | aggregated accuracy: 0.2721656976744186
+dv - | INFO flwr 2024-10-14 01:18:02,812 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:18:02,813 | server.py:113 | [ROUND 144]
+dv - | INFO flwr 2024-10-14 01:18:02,813 | server.py:226 | configure_fit: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:18:10,860 | server.py:240 | aggregate_fit: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:18:10,903 | server.py:178 | configure_evaluate: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:18:14,919 | server.py:192 | aggregate_evaluate: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:18:14,920 | fed_custom.py:236 | aggregated accuracy: 0.2616257088846881
+dv - | INFO flwr 2024-10-14 01:18:14,920 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:18:14,921 | server.py:113 | [ROUND 145]
+dv - | INFO flwr 2024-10-14 01:18:14,921 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:18:23,940 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:18:23,978 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:18:27,996 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:18:27,997 | fed_custom.py:236 | aggregated accuracy: 0.28635766560330267
+dv - | INFO flwr 2024-10-14 01:18:27,998 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:18:27,998 | server.py:113 | [ROUND 146]
+dv - | INFO flwr 2024-10-14 01:18:27,998 | server.py:226 | configure_fit: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:18:36,023 | server.py:240 | aggregate_fit: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:18:36,060 | server.py:178 | configure_evaluate: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:18:39,096 | server.py:192 | aggregate_evaluate: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:18:39,097 | fed_custom.py:236 | aggregated accuracy: 0.28192875760208513
+dv - | INFO flwr 2024-10-14 01:18:39,098 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:18:39,098 | server.py:113 | [ROUND 147]
+dv - | INFO flwr 2024-10-14 01:18:39,099 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:18:47,144 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:18:47,186 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:18:51,201 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:18:51,202 | fed_custom.py:236 | aggregated accuracy: 0.27378602447690487
+dv - | INFO flwr 2024-10-14 01:18:51,202 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:18:51,203 | server.py:113 | [ROUND 148]
+dv - | INFO flwr 2024-10-14 01:18:51,203 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:18:58,258 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:18:58,298 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:19:01,337 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:19:01,337 | fed_custom.py:236 | aggregated accuracy: 0.3106625713032032
+dv - | INFO flwr 2024-10-14 01:19:01,338 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:19:01,338 | server.py:113 | [ROUND 149]
+dv - | INFO flwr 2024-10-14 01:19:01,339 | server.py:226 | configure_fit: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:19:09,368 | server.py:240 | aggregate_fit: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:19:09,401 | server.py:178 | configure_evaluate: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:19:12,433 | server.py:192 | aggregate_evaluate: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:19:12,433 | fed_custom.py:236 | aggregated accuracy: 0.25766222785880366
+dv - | INFO flwr 2024-10-14 01:19:12,434 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:19:12,434 | server.py:113 | [ROUND 150]
+dv - | INFO flwr 2024-10-14 01:19:12,435 | server.py:226 | configure_fit: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:19:19,483 | server.py:240 | aggregate_fit: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:19:19,516 | server.py:178 | configure_evaluate: strategy sampled 43 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:19:22,540 | server.py:192 | aggregate_evaluate: received 43 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:19:22,540 | fed_custom.py:236 | aggregated accuracy: 0.2749258498745152
+dv - | INFO flwr 2024-10-14 01:19:22,541 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:19:22,541 | server.py:113 | [ROUND 151]
+dv - | INFO flwr 2024-10-14 01:19:22,542 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:19:30,589 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:19:30,632 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:19:34,647 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:19:34,648 | fed_custom.py:236 | aggregated accuracy: 0.2781557067271353
+dv - | INFO flwr 2024-10-14 01:19:34,648 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:19:34,649 | server.py:113 | [ROUND 152]
+dv - | INFO flwr 2024-10-14 01:19:34,650 | server.py:226 | configure_fit: strategy sampled 60 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:19:43,918 | server.py:240 | aggregate_fit: received 60 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:19:43,963 | server.py:178 | configure_evaluate: strategy sampled 60 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:19:47,989 | server.py:192 | aggregate_evaluate: received 60 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:19:47,990 | fed_custom.py:236 | aggregated accuracy: 0.2701940620335047
+dv - | INFO flwr 2024-10-14 01:19:47,991 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:19:47,991 | server.py:113 | [ROUND 153]
+dv - | INFO flwr 2024-10-14 01:19:47,991 | server.py:226 | configure_fit: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:19:56,038 | server.py:240 | aggregate_fit: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:19:56,089 | server.py:178 | configure_evaluate: strategy sampled 55 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:20:00,109 | server.py:192 | aggregate_evaluate: received 55 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:20:00,110 | fed_custom.py:236 | aggregated accuracy: 0.2828377869777945
+dv - | INFO flwr 2024-10-14 01:20:00,110 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:20:00,111 | server.py:113 | [ROUND 154]
+dv - | INFO flwr 2024-10-14 01:20:00,111 | server.py:226 | configure_fit: strategy sampled 61 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:20:10,153 | server.py:240 | aggregate_fit: received 61 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:20:10,199 | server.py:178 | configure_evaluate: strategy sampled 61 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:20:14,231 | server.py:192 | aggregate_evaluate: received 61 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:20:14,232 | fed_custom.py:236 | aggregated accuracy: 0.27675334909377464
+dv - | INFO flwr 2024-10-14 01:20:14,233 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:20:14,233 | server.py:113 | [ROUND 155]
+dv - | INFO flwr 2024-10-14 01:20:14,234 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:20:22,284 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:20:22,324 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:20:26,342 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:20:26,343 | fed_custom.py:236 | aggregated accuracy: 0.27498566787693485
+dv - | INFO flwr 2024-10-14 01:20:26,344 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:20:26,344 | server.py:113 | [ROUND 156]
+dv - | INFO flwr 2024-10-14 01:20:26,345 | server.py:226 | configure_fit: strategy sampled 56 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:20:35,376 | server.py:240 | aggregate_fit: received 56 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:20:35,421 | server.py:178 | configure_evaluate: strategy sampled 56 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:20:39,442 | server.py:192 | aggregate_evaluate: received 56 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:20:39,443 | fed_custom.py:236 | aggregated accuracy: 0.28687930409568685
+dv - | INFO flwr 2024-10-14 01:20:39,444 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:20:39,444 | server.py:113 | [ROUND 157]
+dv - | INFO flwr 2024-10-14 01:20:39,444 | server.py:226 | configure_fit: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:20:46,488 | server.py:240 | aggregate_fit: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:20:46,525 | server.py:178 | configure_evaluate: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:20:49,546 | server.py:192 | aggregate_evaluate: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:20:49,547 | fed_custom.py:236 | aggregated accuracy: 0.2891264786169245
+dv - | INFO flwr 2024-10-14 01:20:49,547 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:20:49,548 | server.py:113 | [ROUND 158]
+dv - | INFO flwr 2024-10-14 01:20:49,548 | server.py:226 | configure_fit: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:20:57,593 | server.py:240 | aggregate_fit: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:20:57,635 | server.py:178 | configure_evaluate: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:21:01,646 | server.py:192 | aggregate_evaluate: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:21:01,648 | fed_custom.py:236 | aggregated accuracy: 0.2858960763520679
+dv - | INFO flwr 2024-10-14 01:21:01,648 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:21:01,649 | server.py:113 | [ROUND 159]
+dv - | INFO flwr 2024-10-14 01:21:01,649 | server.py:226 | configure_fit: strategy sampled 59 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:21:10,687 | server.py:240 | aggregate_fit: received 59 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:21:10,730 | server.py:178 | configure_evaluate: strategy sampled 59 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:21:14,755 | server.py:192 | aggregate_evaluate: received 59 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:21:14,756 | fed_custom.py:236 | aggregated accuracy: 0.2801693719124912
+dv - | INFO flwr 2024-10-14 01:21:14,756 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:21:14,757 | server.py:113 | [ROUND 160]
+dv - | INFO flwr 2024-10-14 01:21:14,757 | server.py:226 | configure_fit: strategy sampled 66 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:21:24,808 | server.py:240 | aggregate_fit: received 66 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:21:24,855 | server.py:178 | configure_evaluate: strategy sampled 66 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:21:29,868 | server.py:192 | aggregate_evaluate: received 66 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:21:29,869 | fed_custom.py:236 | aggregated accuracy: 0.28698861888649646
+dv - | INFO flwr 2024-10-14 01:21:29,869 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:21:29,870 | server.py:113 | [ROUND 161]
+dv - | INFO flwr 2024-10-14 01:21:29,870 | server.py:226 | configure_fit: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:21:38,924 | server.py:240 | aggregate_fit: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:21:38,991 | server.py:178 | configure_evaluate: strategy sampled 57 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:21:43,021 | server.py:192 | aggregate_evaluate: received 57 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:21:43,022 | fed_custom.py:236 | aggregated accuracy: 0.2808298755186722
+dv - | INFO flwr 2024-10-14 01:21:43,023 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:21:43,023 | server.py:113 | [ROUND 162]
+dv - | INFO flwr 2024-10-14 01:21:43,024 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:21:51,080 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:21:51,124 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:21:55,142 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:21:55,143 | fed_custom.py:236 | aggregated accuracy: 0.28674378911435616
+dv - | INFO flwr 2024-10-14 01:21:55,144 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:21:55,144 | server.py:113 | [ROUND 163]
+dv - | INFO flwr 2024-10-14 01:21:55,145 | server.py:226 | configure_fit: strategy sampled 36 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:22:01,187 | server.py:240 | aggregate_fit: received 36 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:22:01,212 | server.py:178 | configure_evaluate: strategy sampled 36 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:22:04,229 | server.py:192 | aggregate_evaluate: received 36 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:22:04,230 | fed_custom.py:236 | aggregated accuracy: 0.30515034236379873
+dv - | INFO flwr 2024-10-14 01:22:04,231 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:22:04,231 | server.py:113 | [ROUND 164]
+dv - | INFO flwr 2024-10-14 01:22:04,232 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:22:11,276 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:22:11,312 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:22:14,338 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:22:14,339 | fed_custom.py:236 | aggregated accuracy: 0.2693333333333333
+dv - | INFO flwr 2024-10-14 01:22:14,339 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:22:14,339 | server.py:113 | [ROUND 165]
+dv - | INFO flwr 2024-10-14 01:22:14,340 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:22:22,394 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:22:22,428 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:22:25,456 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:22:25,457 | fed_custom.py:236 | aggregated accuracy: 0.2917743324720069
+dv - | INFO flwr 2024-10-14 01:22:25,457 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:22:25,458 | server.py:113 | [ROUND 166]
+dv - | INFO flwr 2024-10-14 01:22:25,458 | server.py:226 | configure_fit: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:22:33,490 | server.py:240 | aggregate_fit: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:22:33,523 | server.py:178 | configure_evaluate: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:22:36,554 | server.py:192 | aggregate_evaluate: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:22:36,555 | fed_custom.py:236 | aggregated accuracy: 0.2905405405405405
+dv - | INFO flwr 2024-10-14 01:22:36,555 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:22:36,556 | server.py:113 | [ROUND 167]
+dv - | INFO flwr 2024-10-14 01:22:36,556 | server.py:226 | configure_fit: strategy sampled 59 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:22:46,591 | server.py:240 | aggregate_fit: received 59 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:22:46,633 | server.py:178 | configure_evaluate: strategy sampled 59 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:22:50,658 | server.py:192 | aggregate_evaluate: received 59 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:22:50,659 | fed_custom.py:236 | aggregated accuracy: 0.28679671126874096
+dv - | INFO flwr 2024-10-14 01:22:50,660 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:22:50,660 | server.py:113 | [ROUND 168]
+dv - | INFO flwr 2024-10-14 01:22:50,661 | server.py:226 | configure_fit: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:22:58,706 | server.py:240 | aggregate_fit: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:22:58,739 | server.py:178 | configure_evaluate: strategy sampled 46 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:23:01,769 | server.py:192 | aggregate_evaluate: received 46 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:23:01,770 | fed_custom.py:236 | aggregated accuracy: 0.30123561994034936
+dv - | INFO flwr 2024-10-14 01:23:01,770 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:23:01,771 | server.py:113 | [ROUND 169]
+dv - | INFO flwr 2024-10-14 01:23:01,771 | server.py:226 | configure_fit: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:23:09,830 | server.py:240 | aggregate_fit: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:23:09,866 | server.py:178 | configure_evaluate: strategy sampled 52 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:23:13,883 | server.py:192 | aggregate_evaluate: received 52 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:23:13,884 | fed_custom.py:236 | aggregated accuracy: 0.283179012345679
+dv - | INFO flwr 2024-10-14 01:23:13,885 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:23:13,886 | server.py:113 | [ROUND 170]
+dv - | INFO flwr 2024-10-14 01:23:13,886 | server.py:226 | configure_fit: strategy sampled 37 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:23:19,933 | server.py:240 | aggregate_fit: received 37 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:23:19,969 | server.py:178 | configure_evaluate: strategy sampled 37 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:23:22,985 | server.py:192 | aggregate_evaluate: received 37 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:23:22,986 | fed_custom.py:236 | aggregated accuracy: 0.28426137808288837
+dv - | INFO flwr 2024-10-14 01:23:22,986 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:23:22,986 | server.py:113 | [ROUND 171]
+dv - | INFO flwr 2024-10-14 01:23:22,987 | server.py:226 | configure_fit: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:23:30,032 | server.py:240 | aggregate_fit: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:23:30,063 | server.py:178 | configure_evaluate: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:23:33,109 | server.py:192 | aggregate_evaluate: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:23:33,109 | fed_custom.py:236 | aggregated accuracy: 0.3058055805580558
+dv - | INFO flwr 2024-10-14 01:23:33,110 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:23:33,110 | server.py:113 | [ROUND 172]
+dv - | INFO flwr 2024-10-14 01:23:33,111 | server.py:226 | configure_fit: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:23:40,153 | server.py:240 | aggregate_fit: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:23:40,185 | server.py:178 | configure_evaluate: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:23:43,208 | server.py:192 | aggregate_evaluate: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:23:43,209 | fed_custom.py:236 | aggregated accuracy: 0.28746754779324996
+dv - | INFO flwr 2024-10-14 01:23:43,210 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:23:43,210 | server.py:113 | [ROUND 173]
+dv - | INFO flwr 2024-10-14 01:23:43,211 | server.py:226 | configure_fit: strategy sampled 40 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:23:50,249 | server.py:240 | aggregate_fit: received 40 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:23:50,277 | server.py:178 | configure_evaluate: strategy sampled 40 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:23:53,310 | server.py:192 | aggregate_evaluate: received 40 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:23:53,311 | fed_custom.py:236 | aggregated accuracy: 0.3123372010419133
+dv - | INFO flwr 2024-10-14 01:23:53,312 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:23:53,312 | server.py:113 | [ROUND 174]
+dv - | INFO flwr 2024-10-14 01:23:53,313 | server.py:226 | configure_fit: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:24:01,336 | server.py:240 | aggregate_fit: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:24:01,372 | server.py:178 | configure_evaluate: strategy sampled 48 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:24:04,413 | server.py:192 | aggregate_evaluate: received 48 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:24:04,413 | fed_custom.py:236 | aggregated accuracy: 0.3042921204356182
+dv - | INFO flwr 2024-10-14 01:24:04,414 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:24:04,414 | server.py:113 | [ROUND 175]
+dv - | INFO flwr 2024-10-14 01:24:04,415 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:24:13,450 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:24:13,492 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:24:17,509 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:24:17,510 | fed_custom.py:236 | aggregated accuracy: 0.2795031055900621
+dv - | INFO flwr 2024-10-14 01:24:17,511 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:24:17,511 | server.py:113 | [ROUND 176]
+dv - | INFO flwr 2024-10-14 01:24:17,512 | server.py:226 | configure_fit: strategy sampled 56 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:24:26,531 | server.py:240 | aggregate_fit: received 56 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:24:26,577 | server.py:178 | configure_evaluate: strategy sampled 56 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:24:30,607 | server.py:192 | aggregate_evaluate: received 56 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:24:30,608 | fed_custom.py:236 | aggregated accuracy: 0.3050879161990273
+dv - | INFO flwr 2024-10-14 01:24:30,608 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:24:30,609 | server.py:113 | [ROUND 177]
+dv - | INFO flwr 2024-10-14 01:24:30,609 | server.py:226 | configure_fit: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:24:38,646 | server.py:240 | aggregate_fit: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:24:38,681 | server.py:178 | configure_evaluate: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:24:41,718 | server.py:192 | aggregate_evaluate: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:24:41,718 | fed_custom.py:236 | aggregated accuracy: 0.3065584276863918
+dv - | INFO flwr 2024-10-14 01:24:41,719 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:24:41,719 | server.py:113 | [ROUND 178]
+dv - | INFO flwr 2024-10-14 01:24:41,720 | server.py:226 | configure_fit: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:24:48,769 | server.py:240 | aggregate_fit: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:24:48,801 | server.py:178 | configure_evaluate: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:24:51,828 | server.py:192 | aggregate_evaluate: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:24:51,828 | fed_custom.py:236 | aggregated accuracy: 0.31672760511882997
+dv - | INFO flwr 2024-10-14 01:24:51,829 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:24:51,829 | server.py:113 | [ROUND 179]
+dv - | INFO flwr 2024-10-14 01:24:51,830 | server.py:226 | configure_fit: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:24:59,866 | server.py:240 | aggregate_fit: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:24:59,903 | server.py:178 | configure_evaluate: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:25:03,918 | server.py:192 | aggregate_evaluate: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:25:03,919 | fed_custom.py:236 | aggregated accuracy: 0.29539765068361257
+dv - | INFO flwr 2024-10-14 01:25:03,919 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:25:03,919 | server.py:113 | [ROUND 180]
+dv - | INFO flwr 2024-10-14 01:25:03,919 | server.py:226 | configure_fit: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:25:11,971 | server.py:240 | aggregate_fit: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:25:12,013 | server.py:178 | configure_evaluate: strategy sampled 51 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:25:16,028 | server.py:192 | aggregate_evaluate: received 51 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:25:16,029 | fed_custom.py:236 | aggregated accuracy: 0.30021726249259334
+dv - | INFO flwr 2024-10-14 01:25:16,030 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:25:16,030 | server.py:113 | [ROUND 181]
+dv - | INFO flwr 2024-10-14 01:25:16,031 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:25:24,079 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:25:24,128 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:25:28,145 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:25:28,146 | fed_custom.py:236 | aggregated accuracy: 0.3071496663489037
+dv - | INFO flwr 2024-10-14 01:25:28,146 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:25:28,146 | server.py:113 | [ROUND 182]
+dv - | INFO flwr 2024-10-14 01:25:28,147 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:25:36,195 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:25:36,238 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:25:39,269 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:25:39,269 | fed_custom.py:236 | aggregated accuracy: 0.2948533934795981
+dv - | INFO flwr 2024-10-14 01:25:39,270 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:25:39,270 | server.py:113 | [ROUND 183]
+dv - | INFO flwr 2024-10-14 01:25:39,271 | server.py:226 | configure_fit: strategy sampled 63 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:25:49,312 | server.py:240 | aggregate_fit: received 63 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:25:49,356 | server.py:178 | configure_evaluate: strategy sampled 63 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:25:53,387 | server.py:192 | aggregate_evaluate: received 63 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:25:53,388 | fed_custom.py:236 | aggregated accuracy: 0.30282725935610394
+dv - | INFO flwr 2024-10-14 01:25:53,388 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:25:53,389 | server.py:113 | [ROUND 184]
+dv - | INFO flwr 2024-10-14 01:25:53,389 | server.py:226 | configure_fit: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:26:00,427 | server.py:240 | aggregate_fit: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:26:00,459 | server.py:178 | configure_evaluate: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:26:03,487 | server.py:192 | aggregate_evaluate: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:26:03,488 | fed_custom.py:236 | aggregated accuracy: 0.31715063520871145
+dv - | INFO flwr 2024-10-14 01:26:03,488 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:26:03,489 | server.py:113 | [ROUND 185]
+dv - | INFO flwr 2024-10-14 01:26:03,489 | server.py:226 | configure_fit: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:26:10,525 | server.py:240 | aggregate_fit: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:26:10,559 | server.py:178 | configure_evaluate: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:26:13,597 | server.py:192 | aggregate_evaluate: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:26:13,597 | fed_custom.py:236 | aggregated accuracy: 0.3052434456928839
+dv - | INFO flwr 2024-10-14 01:26:13,598 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:26:13,598 | server.py:113 | [ROUND 186]
+dv - | INFO flwr 2024-10-14 01:26:13,599 | server.py:226 | configure_fit: strategy sampled 66 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:26:24,649 | server.py:240 | aggregate_fit: received 66 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:26:24,697 | server.py:178 | configure_evaluate: strategy sampled 66 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:26:29,712 | server.py:192 | aggregate_evaluate: received 66 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:26:29,712 | fed_custom.py:236 | aggregated accuracy: 0.29899607158446095
+dv - | INFO flwr 2024-10-14 01:26:29,713 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:26:29,713 | server.py:113 | [ROUND 187]
+dv - | INFO flwr 2024-10-14 01:26:29,714 | server.py:226 | configure_fit: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:26:38,764 | server.py:240 | aggregate_fit: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:26:38,807 | server.py:178 | configure_evaluate: strategy sampled 54 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:26:42,826 | server.py:192 | aggregate_evaluate: received 54 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:26:42,827 | fed_custom.py:236 | aggregated accuracy: 0.30119835449830085
+dv - | INFO flwr 2024-10-14 01:26:42,827 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:26:42,828 | server.py:113 | [ROUND 188]
+dv - | INFO flwr 2024-10-14 01:26:42,829 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:26:49,860 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:26:49,895 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:26:52,930 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:26:52,930 | fed_custom.py:236 | aggregated accuracy: 0.29372791519434627
+dv - | INFO flwr 2024-10-14 01:26:52,932 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:26:52,932 | server.py:113 | [ROUND 189]
+dv - | INFO flwr 2024-10-14 01:26:52,932 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:27:00,983 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:27:01,021 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:27:04,059 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:27:04,060 | fed_custom.py:236 | aggregated accuracy: 0.28190091001011125
+dv - | INFO flwr 2024-10-14 01:27:04,061 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:27:04,061 | server.py:113 | [ROUND 190]
+dv - | INFO flwr 2024-10-14 01:27:04,062 | server.py:226 | configure_fit: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:27:11,124 | server.py:240 | aggregate_fit: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:27:11,157 | server.py:178 | configure_evaluate: strategy sampled 44 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:27:14,186 | server.py:192 | aggregate_evaluate: received 44 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:27:14,186 | fed_custom.py:236 | aggregated accuracy: 0.30757097791798105
+dv - | INFO flwr 2024-10-14 01:27:14,187 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:27:14,187 | server.py:113 | [ROUND 191]
+dv - | INFO flwr 2024-10-14 01:27:14,187 | server.py:226 | configure_fit: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:27:22,235 | server.py:240 | aggregate_fit: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:27:22,269 | server.py:178 | configure_evaluate: strategy sampled 49 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:27:26,282 | server.py:192 | aggregate_evaluate: received 49 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:27:26,283 | fed_custom.py:236 | aggregated accuracy: 0.3025176233635448
+dv - | INFO flwr 2024-10-14 01:27:26,283 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:27:26,284 | server.py:113 | [ROUND 192]
+dv - | INFO flwr 2024-10-14 01:27:26,284 | server.py:226 | configure_fit: strategy sampled 58 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:27:35,337 | server.py:240 | aggregate_fit: received 58 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:27:35,383 | server.py:178 | configure_evaluate: strategy sampled 58 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:27:39,410 | server.py:192 | aggregate_evaluate: received 58 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:27:39,411 | fed_custom.py:236 | aggregated accuracy: 0.3078982597054886
+dv - | INFO flwr 2024-10-14 01:27:39,412 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:27:39,412 | server.py:113 | [ROUND 193]
+dv - | INFO flwr 2024-10-14 01:27:39,413 | server.py:226 | configure_fit: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:27:47,444 | server.py:240 | aggregate_fit: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:27:47,483 | server.py:178 | configure_evaluate: strategy sampled 50 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:27:51,496 | server.py:192 | aggregate_evaluate: received 50 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:27:51,496 | fed_custom.py:236 | aggregated accuracy: 0.30794430794430794
+dv - | INFO flwr 2024-10-14 01:27:51,497 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:27:51,498 | server.py:113 | [ROUND 194]
+dv - | INFO flwr 2024-10-14 01:27:51,498 | server.py:226 | configure_fit: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:27:59,543 | server.py:240 | aggregate_fit: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:27:59,583 | server.py:178 | configure_evaluate: strategy sampled 53 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:28:03,600 | server.py:192 | aggregate_evaluate: received 53 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:28:03,601 | fed_custom.py:236 | aggregated accuracy: 0.30709426627793973
+dv - | INFO flwr 2024-10-14 01:28:03,601 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:28:03,602 | server.py:113 | [ROUND 195]
+dv - | INFO flwr 2024-10-14 01:28:03,602 | server.py:226 | configure_fit: strategy sampled 64 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:28:13,670 | server.py:240 | aggregate_fit: received 64 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:28:13,715 | server.py:178 | configure_evaluate: strategy sampled 64 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:28:17,747 | server.py:192 | aggregate_evaluate: received 64 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:28:17,748 | fed_custom.py:236 | aggregated accuracy: 0.2999532783055599
+dv - | INFO flwr 2024-10-14 01:28:17,748 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:28:17,748 | server.py:113 | [ROUND 196]
+dv - | INFO flwr 2024-10-14 01:28:17,749 | server.py:226 | configure_fit: strategy sampled 37 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:28:24,772 | server.py:240 | aggregate_fit: received 37 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:28:24,800 | server.py:178 | configure_evaluate: strategy sampled 37 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:28:27,817 | server.py:192 | aggregate_evaluate: received 37 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:28:27,818 | fed_custom.py:236 | aggregated accuracy: 0.3158287705326033
+dv - | INFO flwr 2024-10-14 01:28:27,818 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:28:27,819 | server.py:113 | [ROUND 197]
+dv - | INFO flwr 2024-10-14 01:28:27,819 | server.py:226 | configure_fit: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:28:34,839 | server.py:240 | aggregate_fit: received 42 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:28:34,870 | server.py:178 | configure_evaluate: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:28:37,896 | server.py:192 | aggregate_evaluate: received 42 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:28:37,897 | fed_custom.py:236 | aggregated accuracy: 0.3255702280912365
+dv - | INFO flwr 2024-10-14 01:28:37,897 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:28:37,898 | server.py:113 | [ROUND 198]
+dv - | INFO flwr 2024-10-14 01:28:37,898 | server.py:226 | configure_fit: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:28:43,949 | server.py:240 | aggregate_fit: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:28:43,978 | server.py:178 | configure_evaluate: strategy sampled 41 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:28:47,000 | server.py:192 | aggregate_evaluate: received 41 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:28:47,001 | fed_custom.py:236 | aggregated accuracy: 0.32575757575757575
+dv - | INFO flwr 2024-10-14 01:28:47,001 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:28:47,002 | server.py:113 | [ROUND 199]
+dv - | INFO flwr 2024-10-14 01:28:47,002 | server.py:226 | configure_fit: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:28:55,050 | server.py:240 | aggregate_fit: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:28:55,087 | server.py:178 | configure_evaluate: strategy sampled 47 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:28:58,122 | server.py:192 | aggregate_evaluate: received 47 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:28:58,123 | fed_custom.py:236 | aggregated accuracy: 0.31973795435333896
+dv - | INFO flwr 2024-10-14 01:28:58,123 | server.py:112 | 
+dv - | INFO flwr 2024-10-14 01:28:58,124 | server.py:113 | [ROUND 200]
+dv - | INFO flwr 2024-10-14 01:28:58,124 | server.py:226 | configure_fit: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:29:05,169 | server.py:240 | aggregate_fit: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:29:05,204 | server.py:178 | configure_evaluate: strategy sampled 45 clients (out of 100)
+dv - | INFO flwr 2024-10-14 01:29:08,245 | server.py:192 | aggregate_evaluate: received 45 results and 0 failures
+dv - | INFO flwr 2024-10-14 01:29:08,246 | fed_custom.py:236 | aggregated accuracy: 0.3340630472854641
+dv - | INFO flwr 2024-10-14 01:29:08,247 | server.py:496 | 
+dv - | INFO flwr 2024-10-14 01:29:08,247 | server.py:497 | [SUMMARY]
+dv - | INFO flwr 2024-10-14 01:29:08,247 | server.py:498 | Run finished 200 round(s) in 2420.69s
+dv - | INFO flwr 2024-10-14 01:29:08,250 | server.py:500 | 	History (loss, distributed):
+dv - | INFO flwr 2024-10-14 01:29:08,251 | server.py:500 | 		round 1: 9.193315047762658
+dv - | INFO flwr 2024-10-14 01:29:08,251 | server.py:500 | 		round 2: 9.206736785804656
+dv - | INFO flwr 2024-10-14 01:29:08,252 | server.py:500 | 		round 3: 9.293362292805801
+dv - | INFO flwr 2024-10-14 01:29:08,252 | server.py:500 | 		round 4: 9.056893334412937
+dv - | INFO flwr 2024-10-14 01:29:08,252 | server.py:500 | 		round 5: 8.867794050548449
+dv - | INFO flwr 2024-10-14 01:29:08,253 | server.py:500 | 		round 6: 8.655774983614576
+dv - | INFO flwr 2024-10-14 01:29:08,253 | server.py:500 | 		round 7: 9.451924329969861
+dv - | INFO flwr 2024-10-14 01:29:08,253 | server.py:500 | 		round 8: 9.56566909546396
+dv - | INFO flwr 2024-10-14 01:29:08,254 | server.py:500 | 		round 9: 9.703423840685124
+dv - | INFO flwr 2024-10-14 01:29:08,254 | server.py:500 | 		round 10: 8.65819712365295
+dv - | INFO flwr 2024-10-14 01:29:08,255 | server.py:500 | 		round 11: 9.50292588115588
+dv - | INFO flwr 2024-10-14 01:29:08,255 | server.py:500 | 		round 12: 9.513803510672219
+dv - | INFO flwr 2024-10-14 01:29:08,255 | server.py:500 | 		round 13: 8.888495506394698
+dv - | INFO flwr 2024-10-14 01:29:08,255 | server.py:500 | 		round 14: 8.580069319962027
+dv - | INFO flwr 2024-10-14 01:29:08,256 | server.py:500 | 		round 15: 9.410803227060342
+dv - | INFO flwr 2024-10-14 01:29:08,256 | server.py:500 | 		round 16: 9.28396506127304
+dv - | INFO flwr 2024-10-14 01:29:08,256 | server.py:500 | 		round 17: 9.829922886672271
+dv - | INFO flwr 2024-10-14 01:29:08,257 | server.py:500 | 		round 18: 8.999433272476326
+dv - | INFO flwr 2024-10-14 01:29:08,257 | server.py:500 | 		round 19: 8.380473132668142
+dv - | INFO flwr 2024-10-14 01:29:08,257 | server.py:500 | 		round 20: 9.133218213818006
+dv - | INFO flwr 2024-10-14 01:29:08,258 | server.py:500 | 		round 21: 9.30273754067933
+dv - | INFO flwr 2024-10-14 01:29:08,258 | server.py:500 | 		round 22: 9.213650014025747
+dv - | INFO flwr 2024-10-14 01:29:08,258 | server.py:500 | 		round 23: 8.935736002008621
+dv - | INFO flwr 2024-10-14 01:29:08,258 | server.py:500 | 		round 24: 10.015848326128582
+dv - | INFO flwr 2024-10-14 01:29:08,259 | server.py:500 | 		round 25: 8.730649905917966
+dv - | INFO flwr 2024-10-14 01:29:08,259 | server.py:500 | 		round 26: 9.217916438160447
+dv - | INFO flwr 2024-10-14 01:29:08,259 | server.py:500 | 		round 27: 9.01865267200169
+dv - | INFO flwr 2024-10-14 01:29:08,260 | server.py:500 | 		round 28: 9.68511157910096
+dv - | INFO flwr 2024-10-14 01:29:08,260 | server.py:500 | 		round 29: 8.98429441299065
+dv - | INFO flwr 2024-10-14 01:29:08,260 | server.py:500 | 		round 30: 8.825323213950455
+dv - | INFO flwr 2024-10-14 01:29:08,261 | server.py:500 | 		round 31: 9.463879780815146
+dv - | INFO flwr 2024-10-14 01:29:08,261 | server.py:500 | 		round 32: 8.579737692186418
+dv - | INFO flwr 2024-10-14 01:29:08,261 | server.py:500 | 		round 33: 9.51210887052343
+dv - | INFO flwr 2024-10-14 01:29:08,262 | server.py:500 | 		round 34: 8.562684719882157
+dv - | INFO flwr 2024-10-14 01:29:08,262 | server.py:500 | 		round 35: 9.178364282451824
+dv - | INFO flwr 2024-10-14 01:29:08,262 | server.py:500 | 		round 36: 9.899784129112959
+dv - | INFO flwr 2024-10-14 01:29:08,262 | server.py:500 | 		round 37: 9.453166299717315
+dv - | INFO flwr 2024-10-14 01:29:08,262 | server.py:500 | 		round 38: 9.459565955615167
+dv - | INFO flwr 2024-10-14 01:29:08,263 | server.py:500 | 		round 39: 8.913604922055907
+dv - | INFO flwr 2024-10-14 01:29:08,263 | server.py:500 | 		round 40: 10.091492522387735
+dv - | INFO flwr 2024-10-14 01:29:08,263 | server.py:500 | 		round 41: 9.434777591000719
+dv - | INFO flwr 2024-10-14 01:29:08,263 | server.py:500 | 		round 42: 9.659933241435684
+dv - | INFO flwr 2024-10-14 01:29:08,263 | server.py:500 | 		round 43: 9.027048059653373
+dv - | INFO flwr 2024-10-14 01:29:08,264 | server.py:500 | 		round 44: 8.89683013715926
+dv - | INFO flwr 2024-10-14 01:29:08,264 | server.py:500 | 		round 45: 8.559013350039685
+dv - | INFO flwr 2024-10-14 01:29:08,264 | server.py:500 | 		round 46: 9.645680538124257
+dv - | INFO flwr 2024-10-14 01:29:08,264 | server.py:500 | 		round 47: 8.649997636744928
+dv - | INFO flwr 2024-10-14 01:29:08,265 | server.py:500 | 		round 48: 9.320323905301803
+dv - | INFO flwr 2024-10-14 01:29:08,265 | server.py:500 | 		round 49: 8.949190585441047
+dv - | INFO flwr 2024-10-14 01:29:08,265 | server.py:500 | 		round 50: 9.473033595607228
+dv - | INFO flwr 2024-10-14 01:29:08,265 | server.py:500 | 		round 51: 9.037776355052891
+dv - | INFO flwr 2024-10-14 01:29:08,265 | server.py:500 | 		round 52: 8.67297349606919
+dv - | INFO flwr 2024-10-14 01:29:08,265 | server.py:500 | 		round 53: 9.015580177663585
+dv - | INFO flwr 2024-10-14 01:29:08,265 | server.py:500 | 		round 54: 9.263340055864035
+dv - | INFO flwr 2024-10-14 01:29:08,267 | server.py:500 | 		round 55: 9.278219387314028
+dv - | INFO flwr 2024-10-14 01:29:08,267 | server.py:500 | 		round 56: 8.888519643373158
+dv - | INFO flwr 2024-10-14 01:29:08,267 | server.py:500 | 		round 57: 9.693465999229947
+dv - | INFO flwr 2024-10-14 01:29:08,267 | server.py:500 | 		round 58: 9.663205956920674
+dv - | INFO flwr 2024-10-14 01:29:08,267 | server.py:500 | 		round 59: 9.318979913363947
+dv - | INFO flwr 2024-10-14 01:29:08,268 | server.py:500 | 		round 60: 9.431753484094267
+dv - | INFO flwr 2024-10-14 01:29:08,268 | server.py:500 | 		round 61: 9.07764759515513
+dv - | INFO flwr 2024-10-14 01:29:08,268 | server.py:500 | 		round 62: 9.575872042086175
+dv - | INFO flwr 2024-10-14 01:29:08,268 | server.py:500 | 		round 63: 9.373544980441823
+dv - | INFO flwr 2024-10-14 01:29:08,269 | server.py:500 | 		round 64: 8.584765004600294
+dv - | INFO flwr 2024-10-14 01:29:08,269 | server.py:500 | 		round 65: 9.188641337123094
+dv - | INFO flwr 2024-10-14 01:29:08,269 | server.py:500 | 		round 66: 8.684622764126779
+dv - | INFO flwr 2024-10-14 01:29:08,269 | server.py:500 | 		round 67: 9.154012740553918
+dv - | INFO flwr 2024-10-14 01:29:08,269 | server.py:500 | 		round 68: 9.226501496674253
+dv - | INFO flwr 2024-10-14 01:29:08,269 | server.py:500 | 		round 69: 9.403796159851565
+dv - | INFO flwr 2024-10-14 01:29:08,270 | server.py:500 | 		round 70: 8.90070781158724
+dv - | INFO flwr 2024-10-14 01:29:08,270 | server.py:500 | 		round 71: 9.347856729313138
+dv - | INFO flwr 2024-10-14 01:29:08,270 | server.py:500 | 		round 72: 8.570589344433747
+dv - | INFO flwr 2024-10-14 01:29:08,270 | server.py:500 | 		round 73: 9.060925301007174
+dv - | INFO flwr 2024-10-14 01:29:08,270 | server.py:500 | 		round 74: 9.3372475382406
+dv - | INFO flwr 2024-10-14 01:29:08,270 | server.py:500 | 		round 75: 9.08096926553991
+dv - | INFO flwr 2024-10-14 01:29:08,271 | server.py:500 | 		round 76: 8.800543804348203
+dv - | INFO flwr 2024-10-14 01:29:08,271 | server.py:500 | 		round 77: 9.567509859207489
+dv - | INFO flwr 2024-10-14 01:29:08,271 | server.py:500 | 		round 78: 9.666250101322985
+dv - | INFO flwr 2024-10-14 01:29:08,271 | server.py:500 | 		round 79: 8.844051788923826
+dv - | INFO flwr 2024-10-14 01:29:08,271 | server.py:500 | 		round 80: 9.025564849896602
+dv - | INFO flwr 2024-10-14 01:29:08,272 | server.py:500 | 		round 81: 9.166038488389106
+dv - | INFO flwr 2024-10-14 01:29:08,272 | server.py:500 | 		round 82: 8.931304609434072
+dv - | INFO flwr 2024-10-14 01:29:08,272 | server.py:500 | 		round 83: 9.046912825693685
+dv - | INFO flwr 2024-10-14 01:29:08,272 | server.py:500 | 		round 84: 9.043545523587456
+dv - | INFO flwr 2024-10-14 01:29:08,273 | server.py:500 | 		round 85: 8.519630495432654
+dv - | INFO flwr 2024-10-14 01:29:08,273 | server.py:500 | 		round 86: 9.134095823084362
+dv - | INFO flwr 2024-10-14 01:29:08,273 | server.py:500 | 		round 87: 9.159544376150489
+dv - | INFO flwr 2024-10-14 01:29:08,273 | server.py:500 | 		round 88: 8.684154708426936
+dv - | INFO flwr 2024-10-14 01:29:08,274 | server.py:500 | 		round 89: 8.698872623630278
+dv - | INFO flwr 2024-10-14 01:29:08,274 | server.py:500 | 		round 90: 9.173890325060619
+dv - | INFO flwr 2024-10-14 01:29:08,274 | server.py:500 | 		round 91: 9.111854282302488
+dv - | INFO flwr 2024-10-14 01:29:08,275 | server.py:500 | 		round 92: 8.484351767057506
+dv - | INFO flwr 2024-10-14 01:29:08,275 | server.py:500 | 		round 93: 8.091264089566733
+dv - | INFO flwr 2024-10-14 01:29:08,275 | server.py:500 | 		round 94: 8.371820948273406
+dv - | INFO flwr 2024-10-14 01:29:08,275 | server.py:500 | 		round 95: 8.494701511158796
+dv - | INFO flwr 2024-10-14 01:29:08,276 | server.py:500 | 		round 96: 8.74128374783479
+dv - | INFO flwr 2024-10-14 01:29:08,276 | server.py:500 | 		round 97: 8.229306898833135
+dv - | INFO flwr 2024-10-14 01:29:08,276 | server.py:500 | 		round 98: 8.638491670041645
+dv - | INFO flwr 2024-10-14 01:29:08,276 | server.py:500 | 		round 99: 8.824457095958417
+dv - | INFO flwr 2024-10-14 01:29:08,277 | server.py:500 | 		round 100: 8.581379968711719
+dv - | INFO flwr 2024-10-14 01:29:08,277 | server.py:500 | 		round 101: 7.937518276271167
+dv - | INFO flwr 2024-10-14 01:29:08,277 | server.py:500 | 		round 102: 8.338536294074396
+dv - | INFO flwr 2024-10-14 01:29:08,278 | server.py:500 | 		round 103: 8.982366105583381
+dv - | INFO flwr 2024-10-14 01:29:08,278 | server.py:500 | 		round 104: 8.04788136720525
+dv - | INFO flwr 2024-10-14 01:29:08,278 | server.py:500 | 		round 105: 8.659563680262444
+dv - | INFO flwr 2024-10-14 01:29:08,278 | server.py:500 | 		round 106: 8.925403833768504
+dv - | INFO flwr 2024-10-14 01:29:08,278 | server.py:500 | 		round 107: 7.888333142660335
+dv - | INFO flwr 2024-10-14 01:29:08,278 | server.py:500 | 		round 108: 9.112592682658224
+dv - | INFO flwr 2024-10-14 01:29:08,279 | server.py:500 | 		round 109: 8.83829246808376
+dv - | INFO flwr 2024-10-14 01:29:08,279 | server.py:500 | 		round 110: 8.174500912282863
+dv - | INFO flwr 2024-10-14 01:29:08,279 | server.py:500 | 		round 111: 8.845926220818514
+dv - | INFO flwr 2024-10-14 01:29:08,279 | server.py:500 | 		round 112: 8.338832656862763
+dv - | INFO flwr 2024-10-14 01:29:08,280 | server.py:500 | 		round 113: 8.332135505476256
+dv - | INFO flwr 2024-10-14 01:29:08,280 | server.py:500 | 		round 114: 8.465124128077248
+dv - | INFO flwr 2024-10-14 01:29:08,280 | server.py:500 | 		round 115: 8.162073012721995
+dv - | INFO flwr 2024-10-14 01:29:08,280 | server.py:500 | 		round 116: 7.900144398447818
+dv - | INFO flwr 2024-10-14 01:29:08,280 | server.py:500 | 		round 117: 8.057844007351813
+dv - | INFO flwr 2024-10-14 01:29:08,281 | server.py:500 | 		round 118: 8.250054432116057
+dv - | INFO flwr 2024-10-14 01:29:08,281 | server.py:500 | 		round 119: 8.560758656815874
+dv - | INFO flwr 2024-10-14 01:29:08,281 | server.py:500 | 		round 120: 8.192632646241153
+dv - | INFO flwr 2024-10-14 01:29:08,281 | server.py:500 | 		round 121: 8.633090916651266
+dv - | INFO flwr 2024-10-14 01:29:08,282 | server.py:500 | 		round 122: 8.962920303464117
+dv - | INFO flwr 2024-10-14 01:29:08,282 | server.py:500 | 		round 123: 8.121636079723176
+dv - | INFO flwr 2024-10-14 01:29:08,282 | server.py:500 | 		round 124: 8.460189119150053
+dv - | INFO flwr 2024-10-14 01:29:08,282 | server.py:500 | 		round 125: 8.239074902929882
+dv - | INFO flwr 2024-10-14 01:29:08,283 | server.py:500 | 		round 126: 8.014652341708265
+dv - | INFO flwr 2024-10-14 01:29:08,283 | server.py:500 | 		round 127: 8.140307968394065
+dv - | INFO flwr 2024-10-14 01:29:08,283 | server.py:500 | 		round 128: 8.678516393353933
+dv - | INFO flwr 2024-10-14 01:29:08,283 | server.py:500 | 		round 129: 8.028178700251592
+dv - | INFO flwr 2024-10-14 01:29:08,283 | server.py:500 | 		round 130: 7.970843748846604
+dv - | INFO flwr 2024-10-14 01:29:08,284 | server.py:500 | 		round 131: 8.402350832963515
+dv - | INFO flwr 2024-10-14 01:29:08,284 | server.py:500 | 		round 132: 7.652573941593233
+dv - | INFO flwr 2024-10-14 01:29:08,284 | server.py:500 | 		round 133: 8.465796404474087
+dv - | INFO flwr 2024-10-14 01:29:08,284 | server.py:500 | 		round 134: 8.975228991600241
+dv - | INFO flwr 2024-10-14 01:29:08,284 | server.py:500 | 		round 135: 7.514406347729619
+dv - | INFO flwr 2024-10-14 01:29:08,285 | server.py:500 | 		round 136: 8.26765972583133
+dv - | INFO flwr 2024-10-14 01:29:08,285 | server.py:500 | 		round 137: 7.926297686577297
+dv - | INFO flwr 2024-10-14 01:29:08,285 | server.py:500 | 		round 138: 8.155311442486926
+dv - | INFO flwr 2024-10-14 01:29:08,285 | server.py:500 | 		round 139: 7.831754970906386
+dv - | INFO flwr 2024-10-14 01:29:08,285 | server.py:500 | 		round 140: 8.529448737225124
+dv - | INFO flwr 2024-10-14 01:29:08,286 | server.py:500 | 		round 141: 7.783261562115288
+dv - | INFO flwr 2024-10-14 01:29:08,286 | server.py:500 | 		round 142: 8.508860152638741
+dv - | INFO flwr 2024-10-14 01:29:08,286 | server.py:500 | 		round 143: 7.798809205441801
+dv - | INFO flwr 2024-10-14 01:29:08,286 | server.py:500 | 		round 144: 8.14561382696624
+dv - | INFO flwr 2024-10-14 01:29:08,286 | server.py:500 | 		round 145: 7.772649451343668
+dv - | INFO flwr 2024-10-14 01:29:08,287 | server.py:500 | 		round 146: 7.568098649680356
+dv - | INFO flwr 2024-10-14 01:29:08,287 | server.py:500 | 		round 147: 7.75879963054706
+dv - | INFO flwr 2024-10-14 01:29:08,287 | server.py:500 | 		round 148: 7.790915504706016
+dv - | INFO flwr 2024-10-14 01:29:08,287 | server.py:500 | 		round 149: 8.048482646702258
+dv - | INFO flwr 2024-10-14 01:29:08,287 | server.py:500 | 		round 150: 7.8180685205707645
+dv - | INFO flwr 2024-10-14 01:29:08,288 | server.py:500 | 		round 151: 8.451310021491638
+dv - | INFO flwr 2024-10-14 01:29:08,288 | server.py:500 | 		round 152: 8.287358638658553
+dv - | INFO flwr 2024-10-14 01:29:08,288 | server.py:500 | 		round 153: 7.688892164937437
+dv - | INFO flwr 2024-10-14 01:29:08,288 | server.py:500 | 		round 154: 8.213871702892373
+dv - | INFO flwr 2024-10-14 01:29:08,289 | server.py:500 | 		round 155: 7.996896499296276
+dv - | INFO flwr 2024-10-14 01:29:08,289 | server.py:500 | 		round 156: 7.860087518525236
+dv - | INFO flwr 2024-10-14 01:29:08,289 | server.py:500 | 		round 157: 8.250028311772386
+dv - | INFO flwr 2024-10-14 01:29:08,289 | server.py:500 | 		round 158: 7.417418033295446
+dv - | INFO flwr 2024-10-14 01:29:08,290 | server.py:500 | 		round 159: 7.521480664221771
+dv - | INFO flwr 2024-10-14 01:29:08,290 | server.py:500 | 		round 160: 7.693199205512232
+dv - | INFO flwr 2024-10-14 01:29:08,290 | server.py:500 | 		round 161: 8.075004458308715
+dv - | INFO flwr 2024-10-14 01:29:08,290 | server.py:500 | 		round 162: 7.865946282975117
+dv - | INFO flwr 2024-10-14 01:29:08,290 | server.py:500 | 		round 163: 7.528441310993579
+dv - | INFO flwr 2024-10-14 01:29:08,291 | server.py:500 | 		round 164: 8.27149287896686
+dv - | INFO flwr 2024-10-14 01:29:08,291 | server.py:500 | 		round 165: 7.609287006602423
+dv - | INFO flwr 2024-10-14 01:29:08,291 | server.py:500 | 		round 166: 8.262140196320173
+dv - | INFO flwr 2024-10-14 01:29:08,291 | server.py:500 | 		round 167: 8.113807100356443
+dv - | INFO flwr 2024-10-14 01:29:08,292 | server.py:500 | 		round 168: 8.251161758499446
+dv - | INFO flwr 2024-10-14 01:29:08,292 | server.py:500 | 		round 169: 7.702396403791176
+dv - | INFO flwr 2024-10-14 01:29:08,292 | server.py:500 | 		round 170: 7.870148226531626
+dv - | INFO flwr 2024-10-14 01:29:08,292 | server.py:500 | 		round 171: 7.5699916677792585
+dv - | INFO flwr 2024-10-14 01:29:08,293 | server.py:500 | 		round 172: 7.797110548974884
+dv - | INFO flwr 2024-10-14 01:29:08,293 | server.py:500 | 		round 173: 7.823133137958354
+dv - | INFO flwr 2024-10-14 01:29:08,293 | server.py:500 | 		round 174: 7.389304648523985
+dv - | INFO flwr 2024-10-14 01:29:08,293 | server.py:500 | 		round 175: 8.010664801666701
+dv - | INFO flwr 2024-10-14 01:29:08,294 | server.py:500 | 		round 176: 7.24570789394689
+dv - | INFO flwr 2024-10-14 01:29:08,294 | server.py:500 | 		round 177: 8.0219398336109
+dv - | INFO flwr 2024-10-14 01:29:08,294 | server.py:500 | 		round 178: 7.347731003350488
+dv - | INFO flwr 2024-10-14 01:29:08,294 | server.py:500 | 		round 179: 8.292869188733674
+dv - | INFO flwr 2024-10-14 01:29:08,294 | server.py:500 | 		round 180: 7.754971046233964
+dv - | INFO flwr 2024-10-14 01:29:08,295 | server.py:500 | 		round 181: 7.189079465766085
+dv - | INFO flwr 2024-10-14 01:29:08,295 | server.py:500 | 		round 182: 7.651206412886361
+dv - | INFO flwr 2024-10-14 01:29:08,295 | server.py:500 | 		round 183: 7.185465327449281
+dv - | INFO flwr 2024-10-14 01:29:08,295 | server.py:500 | 		round 184: 7.789911809477096
+dv - | INFO flwr 2024-10-14 01:29:08,296 | server.py:500 | 		round 185: 7.107171273633336
+dv - | INFO flwr 2024-10-14 01:29:08,296 | server.py:500 | 		round 186: 8.087483116811356
+dv - | INFO flwr 2024-10-14 01:29:08,296 | server.py:500 | 		round 187: 7.761063327646025
+dv - | INFO flwr 2024-10-14 01:29:08,296 | server.py:500 | 		round 188: 7.635523786972352
+dv - | INFO flwr 2024-10-14 01:29:08,296 | server.py:500 | 		round 189: 8.173117473875186
+dv - | INFO flwr 2024-10-14 01:29:08,296 | server.py:500 | 		round 190: 7.78449027814431
+dv - | INFO flwr 2024-10-14 01:29:08,297 | server.py:500 | 		round 191: 7.744790457190584
+dv - | INFO flwr 2024-10-14 01:29:08,297 | server.py:500 | 		round 192: 7.971698333799759
+dv - | INFO flwr 2024-10-14 01:29:08,297 | server.py:500 | 		round 193: 7.218369920804401
+dv - | INFO flwr 2024-10-14 01:29:08,297 | server.py:500 | 		round 194: 7.205039806708882
+dv - | INFO flwr 2024-10-14 01:29:08,297 | server.py:500 | 		round 195: 7.72249448037634
+dv - | INFO flwr 2024-10-14 01:29:08,297 | server.py:500 | 		round 196: 8.452105388586768
+dv - | INFO flwr 2024-10-14 01:29:08,297 | server.py:500 | 		round 197: 7.386689610183597
+dv - | INFO flwr 2024-10-14 01:29:08,298 | server.py:500 | 		round 198: 6.921014258947492
+dv - | INFO flwr 2024-10-14 01:29:08,298 | server.py:500 | 		round 199: 7.792978804114504
+dv - | INFO flwr 2024-10-14 01:29:08,298 | server.py:500 | 		round 200: 7.328690868673517
+dv - | INFO flwr 2024-10-14 01:29:08,298 | server.py:500 | 	History (metrics, distributed, evaluate):
+dv - | INFO flwr 2024-10-14 01:29:08,298 | server.py:500 | 	{'accuracy': [(1, 0.11417866298560442),
+dv - | INFO flwr 2024-10-14 01:29:08,298 | server.py:500 | 	              (2, 0.1021555763823805),
+dv - | INFO flwr 2024-10-14 01:29:08,298 | server.py:500 | 	              (3, 0.08874065089953508),
+dv - | INFO flwr 2024-10-14 01:29:08,299 | server.py:500 | 	              (4, 0.11593908629441624),
+dv - | INFO flwr 2024-10-14 01:29:08,299 | server.py:500 | 	              (5, 0.09943936264384774),
+dv - | INFO flwr 2024-10-14 01:29:08,299 | server.py:500 | 	              (6, 0.10895576504713561),
+dv - | INFO flwr 2024-10-14 01:29:08,299 | server.py:500 | 	              (7, 0.08845491097070649),
+dv - | INFO flwr 2024-10-14 01:29:08,299 | server.py:500 | 	              (8, 0.068574374838876),
+dv - | INFO flwr 2024-10-14 01:29:08,300 | server.py:500 | 	              (9, 0.11886503067484662),
+dv - | INFO flwr 2024-10-14 01:29:08,300 | server.py:500 | 	              (10, 0.10584810796507012),
+dv - | INFO flwr 2024-10-14 01:29:08,300 | server.py:500 | 	              (11, 0.11361836896278701),
+dv - | INFO flwr 2024-10-14 01:29:08,300 | server.py:500 | 	              (12, 0.121131741821397),
+dv - | INFO flwr 2024-10-14 01:29:08,301 | server.py:500 | 	              (13, 0.0875131164742917),
+dv - | INFO flwr 2024-10-14 01:29:08,301 | server.py:500 | 	              (14, 0.09626110307787647),
+dv - | INFO flwr 2024-10-14 01:29:08,301 | server.py:500 | 	              (15, 0.10862429125634139),
+dv - | INFO flwr 2024-10-14 01:29:08,301 | server.py:500 | 	              (16, 0.09489817342011338),
+dv - | INFO flwr 2024-10-14 01:29:08,301 | server.py:500 | 	              (17, 0.12905464006938422),
+dv - | INFO flwr 2024-10-14 01:29:08,302 | server.py:500 | 	              (18, 0.11330423230214462),
+dv - | INFO flwr 2024-10-14 01:29:08,302 | server.py:500 | 	              (19, 0.1324200913242009),
+dv - | INFO flwr 2024-10-14 01:29:08,302 | server.py:500 | 	              (20, 0.11531728665207877),
+dv - | INFO flwr 2024-10-14 01:29:08,302 | server.py:500 | 	              (21, 0.14490758946126622),
+dv - | INFO flwr 2024-10-14 01:29:08,302 | server.py:500 | 	              (22, 0.14191343963553532),
+dv - | INFO flwr 2024-10-14 01:29:08,303 | server.py:500 | 	              (23, 0.15049915238274628),
+dv - | INFO flwr 2024-10-14 01:29:08,303 | server.py:500 | 	              (24, 0.12698412698412698),
+dv - | INFO flwr 2024-10-14 01:29:08,303 | server.py:500 | 	              (25, 0.08875154511742893),
+dv - | INFO flwr 2024-10-14 01:29:08,303 | server.py:500 | 	              (26, 0.10384838522529491),
+dv - | INFO flwr 2024-10-14 01:29:08,303 | server.py:500 | 	              (27, 0.12488393686165274),
+dv - | INFO flwr 2024-10-14 01:29:08,303 | server.py:500 | 	              (28, 0.12430613961312027),
+dv - | INFO flwr 2024-10-14 01:29:08,303 | server.py:500 | 	              (29, 0.08897518149586359),
+dv - | INFO flwr 2024-10-14 01:29:08,304 | server.py:500 | 	              (30, 0.11972987771491148),
+dv - | INFO flwr 2024-10-14 01:29:08,304 | server.py:500 | 	              (31, 0.08465490283672102),
+dv - | INFO flwr 2024-10-14 01:29:08,304 | server.py:500 | 	              (32, 0.10324349017816355),
+dv - | INFO flwr 2024-10-14 01:29:08,304 | server.py:500 | 	              (33, 0.13691471571906355),
+dv - | INFO flwr 2024-10-14 01:29:08,304 | server.py:500 | 	              (34, 0.12874335292471312),
+dv - | INFO flwr 2024-10-14 01:29:08,304 | server.py:500 | 	              (35, 0.1379640260237275),
+dv - | INFO flwr 2024-10-14 01:29:08,304 | server.py:500 | 	              (36, 0.15104166666666666),
+dv - | INFO flwr 2024-10-14 01:29:08,305 | server.py:500 | 	              (37, 0.14323607427055704),
+dv - | INFO flwr 2024-10-14 01:29:08,305 | server.py:500 | 	              (38, 0.15673241852487135),
+dv - | INFO flwr 2024-10-14 01:29:08,305 | server.py:500 | 	              (39, 0.168986568986569),
+dv - | INFO flwr 2024-10-14 01:29:08,305 | server.py:500 | 	              (40, 0.15544354838709679),
+dv - | INFO flwr 2024-10-14 01:29:08,305 | server.py:500 | 	              (41, 0.16376892877173305),
+dv - | INFO flwr 2024-10-14 01:29:08,305 | server.py:500 | 	              (42, 0.1282051282051282),
+dv - | INFO flwr 2024-10-14 01:29:08,305 | server.py:500 | 	              (43, 0.10009049773755656),
+dv - | INFO flwr 2024-10-14 01:29:08,306 | server.py:500 | 	              (44, 0.13396911898274297),
+dv - | INFO flwr 2024-10-14 01:29:08,306 | server.py:500 | 	              (45, 0.10028191703584374),
+dv - | INFO flwr 2024-10-14 01:29:08,306 | server.py:500 | 	              (46, 0.18131433095803642),
+dv - | INFO flwr 2024-10-14 01:29:08,306 | server.py:500 | 	              (47, 0.1375579598145286),
+dv - | INFO flwr 2024-10-14 01:29:08,306 | server.py:500 | 	              (48, 0.13134851138353765),
+dv - | INFO flwr 2024-10-14 01:29:08,306 | server.py:500 | 	              (49, 0.16293658867412683),
+dv - | INFO flwr 2024-10-14 01:29:08,307 | server.py:500 | 	              (50, 0.12798053527980535),
+dv - | INFO flwr 2024-10-14 01:29:08,307 | server.py:500 | 	              (51, 0.13778031166856708),
+dv - | INFO flwr 2024-10-14 01:29:08,307 | server.py:500 | 	              (52, 0.09898242368177614),
+dv - | INFO flwr 2024-10-14 01:29:08,307 | server.py:500 | 	              (53, 0.13220845792396413),
+dv - | INFO flwr 2024-10-14 01:29:08,307 | server.py:500 | 	              (54, 0.14769520225776106),
+dv - | INFO flwr 2024-10-14 01:29:08,308 | server.py:500 | 	              (55, 0.15526007039499412),
+dv - | INFO flwr 2024-10-14 01:29:08,308 | server.py:500 | 	              (56, 0.12213930348258706),
+dv - | INFO flwr 2024-10-14 01:29:08,308 | server.py:500 | 	              (57, 0.12337048932552427),
+dv - | INFO flwr 2024-10-14 01:29:08,309 | server.py:500 | 	              (58, 0.12851782363977485),
+dv - | INFO flwr 2024-10-14 01:29:08,309 | server.py:500 | 	              (59, 0.14841121495327103),
+dv - | INFO flwr 2024-10-14 01:29:08,309 | server.py:500 | 	              (60, 0.10572119258662369),
+dv - | INFO flwr 2024-10-14 01:29:08,310 | server.py:500 | 	              (61, 0.1106076210092688),
+dv - | INFO flwr 2024-10-14 01:29:08,310 | server.py:500 | 	              (62, 0.11206317204301075),
+dv - | INFO flwr 2024-10-14 01:29:08,310 | server.py:500 | 	              (63, 0.10964705882352942),
+dv - | INFO flwr 2024-10-14 01:29:08,310 | server.py:500 | 	              (64, 0.10114644970414201),
+dv - | INFO flwr 2024-10-14 01:29:08,311 | server.py:500 | 	              (65, 0.09310835535677983),
+dv - | INFO flwr 2024-10-14 01:29:08,311 | server.py:500 | 	              (66, 0.11186244204018547),
+dv - | INFO flwr 2024-10-14 01:29:08,311 | server.py:500 | 	              (67, 0.14468558708959378),
+dv - | INFO flwr 2024-10-14 01:29:08,311 | server.py:500 | 	              (68, 0.1313050440352282),
+dv - | INFO flwr 2024-10-14 01:29:08,311 | server.py:500 | 	              (69, 0.1494833524684271),
+dv - | INFO flwr 2024-10-14 01:29:08,312 | server.py:500 | 	              (70, 0.11514195583596215),
+dv - | INFO flwr 2024-10-14 01:29:08,312 | server.py:500 | 	              (71, 0.12229004420122079),
+dv - | INFO flwr 2024-10-14 01:29:08,312 | server.py:500 | 	              (72, 0.14694433631763332),
+dv - | INFO flwr 2024-10-14 01:29:08,312 | server.py:500 | 	              (73, 0.11697247706422019),
+dv - | INFO flwr 2024-10-14 01:29:08,312 | server.py:500 | 	              (74, 0.141224948492227),
+dv - | INFO flwr 2024-10-14 01:29:08,313 | server.py:500 | 	              (75, 0.1609469335875437),
+dv - | INFO flwr 2024-10-14 01:29:08,313 | server.py:500 | 	              (76, 0.1412669500101194),
+dv - | INFO flwr 2024-10-14 01:29:08,313 | server.py:500 | 	              (77, 0.14686040477426052),
+dv - | INFO flwr 2024-10-14 01:29:08,313 | server.py:500 | 	              (78, 0.16244849911712772),
+dv - | INFO flwr 2024-10-14 01:29:08,313 | server.py:500 | 	              (79, 0.117722681359045),
+dv - | INFO flwr 2024-10-14 01:29:08,314 | server.py:500 | 	              (80, 0.13688212927756654),
+dv - | INFO flwr 2024-10-14 01:29:08,314 | server.py:500 | 	              (81, 0.18199233716475097),
+dv - | INFO flwr 2024-10-14 01:29:08,314 | server.py:500 | 	              (82, 0.12355707567336469),
+dv - | INFO flwr 2024-10-14 01:29:08,315 | server.py:500 | 	              (83, 0.16965604557923614),
+dv - | INFO flwr 2024-10-14 01:29:08,315 | server.py:500 | 	              (84, 0.132208922742111),
+dv - | INFO flwr 2024-10-14 01:29:08,315 | server.py:500 | 	              (85, 0.14902590881703154),
+dv - | INFO flwr 2024-10-14 01:29:08,315 | server.py:500 | 	              (86, 0.14028910303928835),
+dv - | INFO flwr 2024-10-14 01:29:08,315 | server.py:500 | 	              (87, 0.14563318777292578),
+dv - | INFO flwr 2024-10-14 01:29:08,316 | server.py:500 | 	              (88, 0.13464920852061754),
+dv - | INFO flwr 2024-10-14 01:29:08,316 | server.py:500 | 	              (89, 0.1702774610414291),
+dv - | INFO flwr 2024-10-14 01:29:08,316 | server.py:500 | 	              (90, 0.20344022085368443),
+dv - | INFO flwr 2024-10-14 01:29:08,317 | server.py:500 | 	              (91, 0.1672531950361178),
+dv - | INFO flwr 2024-10-14 01:29:08,317 | server.py:500 | 	              (92, 0.15458320025550942),
+dv - | INFO flwr 2024-10-14 01:29:08,317 | server.py:500 | 	              (93, 0.14073894020418085),
+dv - | INFO flwr 2024-10-14 01:29:08,317 | server.py:500 | 	              (94, 0.19490999379267535),
+dv - | INFO flwr 2024-10-14 01:29:08,317 | server.py:500 | 	              (95, 0.21719348659003831),
+dv - | INFO flwr 2024-10-14 01:29:08,318 | server.py:500 | 	              (96, 0.1936026936026936),
+dv - | INFO flwr 2024-10-14 01:29:08,318 | server.py:500 | 	              (97, 0.19795221843003413),
+dv - | INFO flwr 2024-10-14 01:29:08,318 | server.py:500 | 	              (98, 0.21253175275190517),
+dv - | INFO flwr 2024-10-14 01:29:08,318 | server.py:500 | 	              (99, 0.20338653172440638),
+dv - | INFO flwr 2024-10-14 01:29:08,318 | server.py:500 | 	              (100, 0.1863943096844793),
+dv - | INFO flwr 2024-10-14 01:29:08,318 | server.py:500 | 	              (101, 0.23461068079902161),
+dv - | INFO flwr 2024-10-14 01:29:08,319 | server.py:500 | 	              (102, 0.20014520813165537),
+dv - | INFO flwr 2024-10-14 01:29:08,319 | server.py:500 | 	              (103, 0.21467556094602788),
+dv - | INFO flwr 2024-10-14 01:29:08,319 | server.py:500 | 	              (104, 0.2615213770127707),
+dv - | INFO flwr 2024-10-14 01:29:08,319 | server.py:500 | 	              (105, 0.21860390133806223),
+dv - | INFO flwr 2024-10-14 01:29:08,319 | server.py:500 | 	              (106, 0.22604790419161677),
+dv - | INFO flwr 2024-10-14 01:29:08,319 | server.py:500 | 	              (107, 0.2408682634730539),
+dv - | INFO flwr 2024-10-14 01:29:08,319 | server.py:500 | 	              (108, 0.23906833662931223),
+dv - | INFO flwr 2024-10-14 01:29:08,320 | server.py:500 | 	              (109, 0.2474881015335801),
+dv - | INFO flwr 2024-10-14 01:29:08,320 | server.py:500 | 	              (110, 0.23893395133256085),
+dv - | INFO flwr 2024-10-14 01:29:08,320 | server.py:500 | 	              (111, 0.23865500273373427),
+dv - | INFO flwr 2024-10-14 01:29:08,320 | server.py:500 | 	              (112, 0.23312786470681207),
+dv - | INFO flwr 2024-10-14 01:29:08,321 | server.py:500 | 	              (113, 0.2507182532081977),
+dv - | INFO flwr 2024-10-14 01:29:08,321 | server.py:500 | 	              (114, 0.2512774938902466),
+dv - | INFO flwr 2024-10-14 01:29:08,321 | server.py:500 | 	              (115, 0.2523598535927567),
+dv - | INFO flwr 2024-10-14 01:29:08,321 | server.py:500 | 	              (116, 0.2538394032470382),
+dv - | INFO flwr 2024-10-14 01:29:08,322 | server.py:500 | 	              (117, 0.2506601665651026),
+dv - | INFO flwr 2024-10-14 01:29:08,322 | server.py:500 | 	              (118, 0.23136842105263158),
+dv - | INFO flwr 2024-10-14 01:29:08,322 | server.py:500 | 	              (119, 0.25858795097531506),
+dv - | INFO flwr 2024-10-14 01:29:08,322 | server.py:500 | 	              (120, 0.23089015523678522),
+dv - | INFO flwr 2024-10-14 01:29:08,323 | server.py:500 | 	              (121, 0.25382716049382714),
+dv - | INFO flwr 2024-10-14 01:29:08,323 | server.py:500 | 	              (122, 0.25159332321699546),
+dv - | INFO flwr 2024-10-14 01:29:08,323 | server.py:500 | 	              (123, 0.2509710832973673),
+dv - | INFO flwr 2024-10-14 01:29:08,323 | server.py:500 | 	              (124, 0.2580712788259958),
+dv - | INFO flwr 2024-10-14 01:29:08,323 | server.py:500 | 	              (125, 0.27054455445544556),
+dv - | INFO flwr 2024-10-14 01:29:08,324 | server.py:500 | 	              (126, 0.24986220834098843),
+dv - | INFO flwr 2024-10-14 01:29:08,324 | server.py:500 | 	              (127, 0.24854121079504013),
+dv - | INFO flwr 2024-10-14 01:29:08,324 | server.py:500 | 	              (128, 0.25754884547069273),
+dv - | INFO flwr 2024-10-14 01:29:08,325 | server.py:500 | 	              (129, 0.2594644506001847),
+dv - | INFO flwr 2024-10-14 01:29:08,325 | server.py:500 | 	              (130, 0.2745549738219895),
+dv - | INFO flwr 2024-10-14 01:29:08,325 | server.py:500 | 	              (131, 0.25634560430324427),
+dv - | INFO flwr 2024-10-14 01:29:08,325 | server.py:500 | 	              (132, 0.279688972667295),
+dv - | INFO flwr 2024-10-14 01:29:08,325 | server.py:500 | 	              (133, 0.24096385542168675),
+dv - | INFO flwr 2024-10-14 01:29:08,326 | server.py:500 | 	              (134, 0.2637523530642125),
+dv - | INFO flwr 2024-10-14 01:29:08,326 | server.py:500 | 	              (135, 0.28440724158068914),
+dv - | INFO flwr 2024-10-14 01:29:08,326 | server.py:500 | 	              (136, 0.26112956810631227),
+dv - | INFO flwr 2024-10-14 01:29:08,326 | server.py:500 | 	              (137, 0.26922161390145205),
+dv - | INFO flwr 2024-10-14 01:29:08,326 | server.py:500 | 	              (138, 0.2561576354679803),
+dv - | INFO flwr 2024-10-14 01:29:08,326 | server.py:500 | 	              (139, 0.310719131614654),
+dv - | INFO flwr 2024-10-14 01:29:08,327 | server.py:500 | 	              (140, 0.2876536415336636),
+dv - | INFO flwr 2024-10-14 01:29:08,327 | server.py:500 | 	              (141, 0.27409315303713244),
+dv - | INFO flwr 2024-10-14 01:29:08,327 | server.py:500 | 	              (142, 0.2624877571008815),
+dv - | INFO flwr 2024-10-14 01:29:08,327 | server.py:500 | 	              (143, 0.2721656976744186),
+dv - | INFO flwr 2024-10-14 01:29:08,328 | server.py:500 | 	              (144, 0.2616257088846881),
+dv - | INFO flwr 2024-10-14 01:29:08,328 | server.py:500 | 	              (145, 0.28635766560330267),
+dv - | INFO flwr 2024-10-14 01:29:08,328 | server.py:500 | 	              (146, 0.28192875760208513),
+dv - | INFO flwr 2024-10-14 01:29:08,328 | server.py:500 | 	              (147, 0.27378602447690487),
+dv - | INFO flwr 2024-10-14 01:29:08,329 | server.py:500 | 	              (148, 0.3106625713032032),
+dv - | INFO flwr 2024-10-14 01:29:08,329 | server.py:500 | 	              (149, 0.25766222785880366),
+dv - | INFO flwr 2024-10-14 01:29:08,329 | server.py:500 | 	              (150, 0.2749258498745152),
+dv - | INFO flwr 2024-10-14 01:29:08,329 | server.py:500 | 	              (151, 0.2781557067271353),
+dv - | INFO flwr 2024-10-14 01:29:08,329 | server.py:500 | 	              (152, 0.2701940620335047),
+dv - | INFO flwr 2024-10-14 01:29:08,330 | server.py:500 | 	              (153, 0.2828377869777945),
+dv - | INFO flwr 2024-10-14 01:29:08,330 | server.py:500 | 	              (154, 0.27675334909377464),
+dv - | INFO flwr 2024-10-14 01:29:08,330 | server.py:500 | 	              (155, 0.27498566787693485),
+dv - | INFO flwr 2024-10-14 01:29:08,330 | server.py:500 | 	              (156, 0.28687930409568685),
+dv - | INFO flwr 2024-10-14 01:29:08,330 | server.py:500 | 	              (157, 0.2891264786169245),
+dv - | INFO flwr 2024-10-14 01:29:08,330 | server.py:500 | 	              (158, 0.2858960763520679),
+dv - | INFO flwr 2024-10-14 01:29:08,331 | server.py:500 | 	              (159, 0.2801693719124912),
+dv - | INFO flwr 2024-10-14 01:29:08,331 | server.py:500 | 	              (160, 0.28698861888649646),
+dv - | INFO flwr 2024-10-14 01:29:08,331 | server.py:500 | 	              (161, 0.2808298755186722),
+dv - | INFO flwr 2024-10-14 01:29:08,331 | server.py:500 | 	              (162, 0.28674378911435616),
+dv - | INFO flwr 2024-10-14 01:29:08,331 | server.py:500 | 	              (163, 0.30515034236379873),
+dv - | INFO flwr 2024-10-14 01:29:08,331 | server.py:500 | 	              (164, 0.2693333333333333),
+dv - | INFO flwr 2024-10-14 01:29:08,331 | server.py:500 | 	              (165, 0.2917743324720069),
+dv - | INFO flwr 2024-10-14 01:29:08,332 | server.py:500 | 	              (166, 0.2905405405405405),
+dv - | INFO flwr 2024-10-14 01:29:08,332 | server.py:500 | 	              (167, 0.28679671126874096),
+dv - | INFO flwr 2024-10-14 01:29:08,332 | server.py:500 | 	              (168, 0.30123561994034936),
+dv - | INFO flwr 2024-10-14 01:29:08,332 | server.py:500 | 	              (169, 0.283179012345679),
+dv - | INFO flwr 2024-10-14 01:29:08,332 | server.py:500 | 	              (170, 0.28426137808288837),
+dv - | INFO flwr 2024-10-14 01:29:08,332 | server.py:500 | 	              (171, 0.3058055805580558),
+dv - | INFO flwr 2024-10-14 01:29:08,333 | server.py:500 | 	              (172, 0.28746754779324996),
+dv - | INFO flwr 2024-10-14 01:29:08,333 | server.py:500 | 	              (173, 0.3123372010419133),
+dv - | INFO flwr 2024-10-14 01:29:08,333 | server.py:500 | 	              (174, 0.3042921204356182),
+dv - | INFO flwr 2024-10-14 01:29:08,333 | server.py:500 | 	              (175, 0.2795031055900621),
+dv - | INFO flwr 2024-10-14 01:29:08,334 | server.py:500 | 	              (176, 0.3050879161990273),
+dv - | INFO flwr 2024-10-14 01:29:08,334 | server.py:500 | 	              (177, 0.3065584276863918),
+dv - | INFO flwr 2024-10-14 01:29:08,334 | server.py:500 | 	              (178, 0.31672760511882997),
+dv - | INFO flwr 2024-10-14 01:29:08,334 | server.py:500 | 	              (179, 0.29539765068361257),
+dv - | INFO flwr 2024-10-14 01:29:08,334 | server.py:500 | 	              (180, 0.30021726249259334),
+dv - | INFO flwr 2024-10-14 01:29:08,334 | server.py:500 | 	              (181, 0.3071496663489037),
+dv - | INFO flwr 2024-10-14 01:29:08,335 | server.py:500 | 	              (182, 0.2948533934795981),
+dv - | INFO flwr 2024-10-14 01:29:08,335 | server.py:500 | 	              (183, 0.30282725935610394),
+dv - | INFO flwr 2024-10-14 01:29:08,335 | server.py:500 | 	              (184, 0.31715063520871145),
+dv - | INFO flwr 2024-10-14 01:29:08,336 | server.py:500 | 	              (185, 0.3052434456928839),
+dv - | INFO flwr 2024-10-14 01:29:08,336 | server.py:500 | 	              (186, 0.29899607158446095),
+dv - | INFO flwr 2024-10-14 01:29:08,336 | server.py:500 | 	              (187, 0.30119835449830085),
+dv - | INFO flwr 2024-10-14 01:29:08,336 | server.py:500 | 	              (188, 0.29372791519434627),
+dv - | INFO flwr 2024-10-14 01:29:08,337 | server.py:500 | 	              (189, 0.28190091001011125),
+dv - | INFO flwr 2024-10-14 01:29:08,337 | server.py:500 | 	              (190, 0.30757097791798105),
+dv - | INFO flwr 2024-10-14 01:29:08,337 | server.py:500 | 	              (191, 0.3025176233635448),
+dv - | INFO flwr 2024-10-14 01:29:08,338 | server.py:500 | 	              (192, 0.3078982597054886),
+dv - | INFO flwr 2024-10-14 01:29:08,338 | server.py:500 | 	              (193, 0.30794430794430794),
+dv - | INFO flwr 2024-10-14 01:29:08,338 | server.py:500 | 	              (194, 0.30709426627793973),
+dv - | INFO flwr 2024-10-14 01:29:08,339 | server.py:500 | 	              (195, 0.2999532783055599),
+dv - | INFO flwr 2024-10-14 01:29:08,339 | server.py:500 | 	              (196, 0.3158287705326033),
+dv - | INFO flwr 2024-10-14 01:29:08,339 | server.py:500 | 	              (197, 0.3255702280912365),
+dv - | INFO flwr 2024-10-14 01:29:08,340 | server.py:500 | 	              (198, 0.32575757575757575),
+dv - | INFO flwr 2024-10-14 01:29:08,340 | server.py:500 | 	              (199, 0.31973795435333896),
+dv - | INFO flwr 2024-10-14 01:29:08,340 | server.py:500 | 	              (200, 0.3340630472854641)],
+dv - | INFO flwr 2024-10-14 01:29:08,341 | server.py:500 | 	 'count': [(1, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,341 | server.py:500 | 	           (2, 52),
+dv - | INFO flwr 2024-10-14 01:29:08,341 | server.py:500 | 	           (3, 48),
+dv - | INFO flwr 2024-10-14 01:29:08,341 | server.py:500 | 	           (4, 49),
+dv - | INFO flwr 2024-10-14 01:29:08,342 | server.py:500 | 	           (5, 69),
+dv - | INFO flwr 2024-10-14 01:29:08,342 | server.py:500 | 	           (6, 57),
+dv - | INFO flwr 2024-10-14 01:29:08,342 | server.py:500 | 	           (7, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,342 | server.py:500 | 	           (8, 37),
+dv - | INFO flwr 2024-10-14 01:29:08,343 | server.py:500 | 	           (9, 49),
+dv - | INFO flwr 2024-10-14 01:29:08,343 | server.py:500 | 	           (10, 40),
+dv - | INFO flwr 2024-10-14 01:29:08,343 | server.py:500 | 	           (11, 50),
+dv - | INFO flwr 2024-10-14 01:29:08,344 | server.py:500 | 	           (12, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,344 | server.py:500 | 	           (13, 49),
+dv - | INFO flwr 2024-10-14 01:29:08,345 | server.py:500 | 	           (14, 52),
+dv - | INFO flwr 2024-10-14 01:29:08,345 | server.py:500 | 	           (15, 65),
+dv - | INFO flwr 2024-10-14 01:29:08,346 | server.py:500 | 	           (16, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,346 | server.py:500 | 	           (17, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,346 | server.py:500 | 	           (18, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,347 | server.py:500 | 	           (19, 43),
+dv - | INFO flwr 2024-10-14 01:29:08,347 | server.py:500 | 	           (20, 46),
+dv - | INFO flwr 2024-10-14 01:29:08,347 | server.py:500 | 	           (21, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,347 | server.py:500 | 	           (22, 43),
+dv - | INFO flwr 2024-10-14 01:29:08,348 | server.py:500 | 	           (23, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,348 | server.py:500 | 	           (24, 49),
+dv - | INFO flwr 2024-10-14 01:29:08,348 | server.py:500 | 	           (25, 42),
+dv - | INFO flwr 2024-10-14 01:29:08,348 | server.py:500 | 	           (26, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,348 | server.py:500 | 	           (27, 43),
+dv - | INFO flwr 2024-10-14 01:29:08,349 | server.py:500 | 	           (28, 57),
+dv - | INFO flwr 2024-10-14 01:29:08,349 | server.py:500 | 	           (29, 58),
+dv - | INFO flwr 2024-10-14 01:29:08,349 | server.py:500 | 	           (30, 55),
+dv - | INFO flwr 2024-10-14 01:29:08,350 | server.py:500 | 	           (31, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,350 | server.py:500 | 	           (32, 46),
+dv - | INFO flwr 2024-10-14 01:29:08,350 | server.py:500 | 	           (33, 46),
+dv - | INFO flwr 2024-10-14 01:29:08,350 | server.py:500 | 	           (34, 36),
+dv - | INFO flwr 2024-10-14 01:29:08,351 | server.py:500 | 	           (35, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,351 | server.py:500 | 	           (36, 50),
+dv - | INFO flwr 2024-10-14 01:29:08,351 | server.py:500 | 	           (37, 52),
+dv - | INFO flwr 2024-10-14 01:29:08,352 | server.py:500 | 	           (38, 46),
+dv - | INFO flwr 2024-10-14 01:29:08,352 | server.py:500 | 	           (39, 41),
+dv - | INFO flwr 2024-10-14 01:29:08,352 | server.py:500 | 	           (40, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,352 | server.py:500 | 	           (41, 52),
+dv - | INFO flwr 2024-10-14 01:29:08,353 | server.py:500 | 	           (42, 58),
+dv - | INFO flwr 2024-10-14 01:29:08,353 | server.py:500 | 	           (43, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,353 | server.py:500 | 	           (44, 44),
+dv - | INFO flwr 2024-10-14 01:29:08,353 | server.py:500 | 	           (45, 52),
+dv - | INFO flwr 2024-10-14 01:29:08,353 | server.py:500 | 	           (46, 49),
+dv - | INFO flwr 2024-10-14 01:29:08,353 | server.py:500 | 	           (47, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,354 | server.py:500 | 	           (48, 57),
+dv - | INFO flwr 2024-10-14 01:29:08,354 | server.py:500 | 	           (49, 60),
+dv - | INFO flwr 2024-10-14 01:29:08,354 | server.py:500 | 	           (50, 60),
+dv - | INFO flwr 2024-10-14 01:29:08,354 | server.py:500 | 	           (51, 55),
+dv - | INFO flwr 2024-10-14 01:29:08,354 | server.py:500 | 	           (52, 67),
+dv - | INFO flwr 2024-10-14 01:29:08,355 | server.py:500 | 	           (53, 48),
+dv - | INFO flwr 2024-10-14 01:29:08,355 | server.py:500 | 	           (54, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,355 | server.py:500 | 	           (55, 52),
+dv - | INFO flwr 2024-10-14 01:29:08,355 | server.py:500 | 	           (56, 41),
+dv - | INFO flwr 2024-10-14 01:29:08,355 | server.py:500 | 	           (57, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,355 | server.py:500 | 	           (58, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,356 | server.py:500 | 	           (59, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,356 | server.py:500 | 	           (60, 61),
+dv - | INFO flwr 2024-10-14 01:29:08,356 | server.py:500 | 	           (61, 49),
+dv - | INFO flwr 2024-10-14 01:29:08,356 | server.py:500 | 	           (62, 57),
+dv - | INFO flwr 2024-10-14 01:29:08,357 | server.py:500 | 	           (63, 42),
+dv - | INFO flwr 2024-10-14 01:29:08,357 | server.py:500 | 	           (64, 57),
+dv - | INFO flwr 2024-10-14 01:29:08,357 | server.py:500 | 	           (65, 48),
+dv - | INFO flwr 2024-10-14 01:29:08,357 | server.py:500 | 	           (66, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,358 | server.py:500 | 	           (67, 55),
+dv - | INFO flwr 2024-10-14 01:29:08,358 | server.py:500 | 	           (68, 50),
+dv - | INFO flwr 2024-10-14 01:29:08,358 | server.py:500 | 	           (69, 43),
+dv - | INFO flwr 2024-10-14 01:29:08,358 | server.py:500 | 	           (70, 57),
+dv - | INFO flwr 2024-10-14 01:29:08,358 | server.py:500 | 	           (71, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,359 | server.py:500 | 	           (72, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,359 | server.py:500 | 	           (73, 42),
+dv - | INFO flwr 2024-10-14 01:29:08,359 | server.py:500 | 	           (74, 52),
+dv - | INFO flwr 2024-10-14 01:29:08,359 | server.py:500 | 	           (75, 63),
+dv - | INFO flwr 2024-10-14 01:29:08,359 | server.py:500 | 	           (76, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,360 | server.py:500 | 	           (77, 55),
+dv - | INFO flwr 2024-10-14 01:29:08,360 | server.py:500 | 	           (78, 48),
+dv - | INFO flwr 2024-10-14 01:29:08,360 | server.py:500 | 	           (79, 55),
+dv - | INFO flwr 2024-10-14 01:29:08,360 | server.py:500 | 	           (80, 44),
+dv - | INFO flwr 2024-10-14 01:29:08,360 | server.py:500 | 	           (81, 35),
+dv - | INFO flwr 2024-10-14 01:29:08,360 | server.py:500 | 	           (82, 46),
+dv - | INFO flwr 2024-10-14 01:29:08,360 | server.py:500 | 	           (83, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,361 | server.py:500 | 	           (84, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,361 | server.py:500 | 	           (85, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,361 | server.py:500 | 	           (86, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,361 | server.py:500 | 	           (87, 46),
+dv - | INFO flwr 2024-10-14 01:29:08,362 | server.py:500 | 	           (88, 52),
+dv - | INFO flwr 2024-10-14 01:29:08,362 | server.py:500 | 	           (89, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,362 | server.py:500 | 	           (90, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,362 | server.py:500 | 	           (91, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,363 | server.py:500 | 	           (92, 65),
+dv - | INFO flwr 2024-10-14 01:29:08,363 | server.py:500 | 	           (93, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,363 | server.py:500 | 	           (94, 50),
+dv - | INFO flwr 2024-10-14 01:29:08,363 | server.py:500 | 	           (95, 43),
+dv - | INFO flwr 2024-10-14 01:29:08,364 | server.py:500 | 	           (96, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,364 | server.py:500 | 	           (97, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,364 | server.py:500 | 	           (98, 59),
+dv - | INFO flwr 2024-10-14 01:29:08,364 | server.py:500 | 	           (99, 50),
+dv - | INFO flwr 2024-10-14 01:29:08,365 | server.py:500 | 	           (100, 55),
+dv - | INFO flwr 2024-10-14 01:29:08,365 | server.py:500 | 	           (101, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,365 | server.py:500 | 	           (102, 41),
+dv - | INFO flwr 2024-10-14 01:29:08,365 | server.py:500 | 	           (103, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,365 | server.py:500 | 	           (104, 56),
+dv - | INFO flwr 2024-10-14 01:29:08,366 | server.py:500 | 	           (105, 61),
+dv - | INFO flwr 2024-10-14 01:29:08,366 | server.py:500 | 	           (106, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,366 | server.py:500 | 	           (107, 69),
+dv - | INFO flwr 2024-10-14 01:29:08,366 | server.py:500 | 	           (108, 44),
+dv - | INFO flwr 2024-10-14 01:29:08,366 | server.py:500 | 	           (109, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,366 | server.py:500 | 	           (110, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,367 | server.py:500 | 	           (111, 36),
+dv - | INFO flwr 2024-10-14 01:29:08,367 | server.py:500 | 	           (112, 64),
+dv - | INFO flwr 2024-10-14 01:29:08,367 | server.py:500 | 	           (113, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,367 | server.py:500 | 	           (114, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,367 | server.py:500 | 	           (115, 52),
+dv - | INFO flwr 2024-10-14 01:29:08,367 | server.py:500 | 	           (116, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,368 | server.py:500 | 	           (117, 50),
+dv - | INFO flwr 2024-10-14 01:29:08,368 | server.py:500 | 	           (118, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,368 | server.py:500 | 	           (119, 57),
+dv - | INFO flwr 2024-10-14 01:29:08,368 | server.py:500 | 	           (120, 50),
+dv - | INFO flwr 2024-10-14 01:29:08,368 | server.py:500 | 	           (121, 39),
+dv - | INFO flwr 2024-10-14 01:29:08,368 | server.py:500 | 	           (122, 61),
+dv - | INFO flwr 2024-10-14 01:29:08,369 | server.py:500 | 	           (123, 46),
+dv - | INFO flwr 2024-10-14 01:29:08,369 | server.py:500 | 	           (124, 48),
+dv - | INFO flwr 2024-10-14 01:29:08,369 | server.py:500 | 	           (125, 41),
+dv - | INFO flwr 2024-10-14 01:29:08,369 | server.py:500 | 	           (126, 55),
+dv - | INFO flwr 2024-10-14 01:29:08,369 | server.py:500 | 	           (127, 56),
+dv - | INFO flwr 2024-10-14 01:29:08,369 | server.py:500 | 	           (128, 38),
+dv - | INFO flwr 2024-10-14 01:29:08,370 | server.py:500 | 	           (129, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,370 | server.py:500 | 	           (130, 48),
+dv - | INFO flwr 2024-10-14 01:29:08,370 | server.py:500 | 	           (131, 59),
+dv - | INFO flwr 2024-10-14 01:29:08,370 | server.py:500 | 	           (132, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,371 | server.py:500 | 	           (133, 35),
+dv - | INFO flwr 2024-10-14 01:29:08,371 | server.py:500 | 	           (134, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,371 | server.py:500 | 	           (135, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,371 | server.py:500 | 	           (136, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,371 | server.py:500 | 	           (137, 42),
+dv - | INFO flwr 2024-10-14 01:29:08,372 | server.py:500 | 	           (138, 56),
+dv - | INFO flwr 2024-10-14 01:29:08,372 | server.py:500 | 	           (139, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,372 | server.py:500 | 	           (140, 52),
+dv - | INFO flwr 2024-10-14 01:29:08,372 | server.py:500 | 	           (141, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,373 | server.py:500 | 	           (142, 49),
+dv - | INFO flwr 2024-10-14 01:29:08,373 | server.py:500 | 	           (143, 57),
+dv - | INFO flwr 2024-10-14 01:29:08,373 | server.py:500 | 	           (144, 50),
+dv - | INFO flwr 2024-10-14 01:29:08,373 | server.py:500 | 	           (145, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,373 | server.py:500 | 	           (146, 48),
+dv - | INFO flwr 2024-10-14 01:29:08,374 | server.py:500 | 	           (147, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,374 | server.py:500 | 	           (148, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,374 | server.py:500 | 	           (149, 48),
+dv - | INFO flwr 2024-10-14 01:29:08,374 | server.py:500 | 	           (150, 43),
+dv - | INFO flwr 2024-10-14 01:29:08,374 | server.py:500 | 	           (151, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,374 | server.py:500 | 	           (152, 60),
+dv - | INFO flwr 2024-10-14 01:29:08,374 | server.py:500 | 	           (153, 55),
+dv - | INFO flwr 2024-10-14 01:29:08,375 | server.py:500 | 	           (154, 61),
+dv - | INFO flwr 2024-10-14 01:29:08,375 | server.py:500 | 	           (155, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,375 | server.py:500 | 	           (156, 56),
+dv - | INFO flwr 2024-10-14 01:29:08,375 | server.py:500 | 	           (157, 44),
+dv - | INFO flwr 2024-10-14 01:29:08,375 | server.py:500 | 	           (158, 49),
+dv - | INFO flwr 2024-10-14 01:29:08,375 | server.py:500 | 	           (159, 59),
+dv - | INFO flwr 2024-10-14 01:29:08,375 | server.py:500 | 	           (160, 66),
+dv - | INFO flwr 2024-10-14 01:29:08,376 | server.py:500 | 	           (161, 57),
+dv - | INFO flwr 2024-10-14 01:29:08,376 | server.py:500 | 	           (162, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,376 | server.py:500 | 	           (163, 36),
+dv - | INFO flwr 2024-10-14 01:29:08,376 | server.py:500 | 	           (164, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,376 | server.py:500 | 	           (165, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,377 | server.py:500 | 	           (166, 48),
+dv - | INFO flwr 2024-10-14 01:29:08,377 | server.py:500 | 	           (167, 59),
+dv - | INFO flwr 2024-10-14 01:29:08,377 | server.py:500 | 	           (168, 46),
+dv - | INFO flwr 2024-10-14 01:29:08,377 | server.py:500 | 	           (169, 52),
+dv - | INFO flwr 2024-10-14 01:29:08,378 | server.py:500 | 	           (170, 37),
+dv - | INFO flwr 2024-10-14 01:29:08,378 | server.py:500 | 	           (171, 44),
+dv - | INFO flwr 2024-10-14 01:29:08,378 | server.py:500 | 	           (172, 41),
+dv - | INFO flwr 2024-10-14 01:29:08,378 | server.py:500 | 	           (173, 40),
+dv - | INFO flwr 2024-10-14 01:29:08,379 | server.py:500 | 	           (174, 48),
+dv - | INFO flwr 2024-10-14 01:29:08,379 | server.py:500 | 	           (175, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,379 | server.py:500 | 	           (176, 56),
+dv - | INFO flwr 2024-10-14 01:29:08,380 | server.py:500 | 	           (177, 44),
+dv - | INFO flwr 2024-10-14 01:29:08,380 | server.py:500 | 	           (178, 44),
+dv - | INFO flwr 2024-10-14 01:29:08,380 | server.py:500 | 	           (179, 50),
+dv - | INFO flwr 2024-10-14 01:29:08,380 | server.py:500 | 	           (180, 51),
+dv - | INFO flwr 2024-10-14 01:29:08,380 | server.py:500 | 	           (181, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,380 | server.py:500 | 	           (182, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,381 | server.py:500 | 	           (183, 63),
+dv - | INFO flwr 2024-10-14 01:29:08,381 | server.py:500 | 	           (184, 44),
+dv - | INFO flwr 2024-10-14 01:29:08,381 | server.py:500 | 	           (185, 44),
+dv - | INFO flwr 2024-10-14 01:29:08,381 | server.py:500 | 	           (186, 66),
+dv - | INFO flwr 2024-10-14 01:29:08,381 | server.py:500 | 	           (187, 54),
+dv - | INFO flwr 2024-10-14 01:29:08,382 | server.py:500 | 	           (188, 45),
+dv - | INFO flwr 2024-10-14 01:29:08,382 | server.py:500 | 	           (189, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,382 | server.py:500 | 	           (190, 44),
+dv - | INFO flwr 2024-10-14 01:29:08,382 | server.py:500 | 	           (191, 49),
+dv - | INFO flwr 2024-10-14 01:29:08,382 | server.py:500 | 	           (192, 58),
+dv - | INFO flwr 2024-10-14 01:29:08,383 | server.py:500 | 	           (193, 50),
+dv - | INFO flwr 2024-10-14 01:29:08,383 | server.py:500 | 	           (194, 53),
+dv - | INFO flwr 2024-10-14 01:29:08,383 | server.py:500 | 	           (195, 64),
+dv - | INFO flwr 2024-10-14 01:29:08,383 | server.py:500 | 	           (196, 37),
+dv - | INFO flwr 2024-10-14 01:29:08,384 | server.py:500 | 	           (197, 42),
+dv - | INFO flwr 2024-10-14 01:29:08,384 | server.py:500 | 	           (198, 41),
+dv - | INFO flwr 2024-10-14 01:29:08,384 | server.py:500 | 	           (199, 47),
+dv - | INFO flwr 2024-10-14 01:29:08,384 | server.py:500 | 	           (200, 45)]}
+dv - | INFO flwr 2024-10-14 01:29:08,384 | server.py:501 | 
+dv - | DEBUG flwr 2024-10-14 01:29:08,394 | run_serverapp.py:90 | ServerApp finished running.
+dv - | DEBUG flwr 2024-10-14 01:29:08,394 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-10-14 01:29:08,394 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-10-14 01:29:08,529 | ray_actor.py:450 | Terminated 6 actors
+dv - | DEBUG flwr 2024-10-14 01:29:10,496 | raybackend.py:193 | Terminated RayBackend
+dv - | DEBUG flwr 2024-10-14 01:29:10,497 | run_simulation.py:455 | Stopping Simulation Engine now.
