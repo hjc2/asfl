@@ -3,13 +3,10 @@ from flwr.common import ndarrays_to_parameters
 
 ### THIS IS FED AVG, BUT IT HAS DIFFERENT 
 
-import numpy as np
-
-from typing import Union, Callable, Dict, List, Optional, Tuple
+from typing import Union, Dict, List, Optional, Tuple
 
 from flwr.common import (
     FitRes,
-    NDArrays,
     Parameters,
     Scalar,
     ndarrays_to_parameters,
@@ -17,15 +14,8 @@ from flwr.common import (
 )
 from flwr.server.client_proxy import ClientProxy
 
-from flwr.server.client_proxy import ClientProxy
-from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
-from flwr.common.logger import log
-from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 from .fed_custom import FedCustom
-from .dat import average_lists, track_node_frequency, track_node_appearances, advlog
-
-from functools import reduce
-
+from .dat import aggregate
 
 class FedAcc(FedCustom):
     def aggregate_fit(

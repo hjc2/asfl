@@ -13,6 +13,7 @@ from .strats.federal_avg import FederalAvg
 from .strats.fed_agg import FedAgg
 from .strats.fed_acc import FedAcc
 from .strats.fed_loss import FedLoss
+from .strats.fed_fuzz import FedFuzz
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -22,10 +23,7 @@ import flwr.common.logger as flwr_logger
 from flwr.common import (
     ndarrays_to_parameters,
 )
-from flwr.server.client_manager import ClientManager
-from flwr.server.client_proxy import ClientProxy
-from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
-from typing import Dict, List, Optional, Tuple
+
 
 
 # Initialize model parameters
@@ -39,7 +37,8 @@ def create_strategy(strat_mode, parameters, num_rounds, inplace_setter, adv_log_
         'fedavg': FederalAvg,
         'fed_agg': FedAgg,
         'fed_acc': FedAcc,
-        'fed_loss': FedLoss
+        'fed_loss': FedLoss,
+        'fed_fuzz': FedFuzz,
     }
 
     if strat_mode not in strategies:
