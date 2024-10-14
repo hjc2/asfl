@@ -2,6 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sys
 import yaml
+import os
+import glob
 
 def round_to_nearest_5_or_10(n):
     nearest_5 = round(n / 5) * 5
@@ -12,14 +14,13 @@ def round_to_nearest_5_or_10(n):
         return nearest_10
 
 def main():
-    if len(sys.argv) != 4:
-        print("Usage: python script.py <input_file1> <input_file2> <config_file>")
-        print("Example: python plot.py file1.csv file2.csv config.yaml")
+    if len(sys.argv) != 3:
+        print("Usage: python script.py <FileName> <Directory>")
         sys.exit(1)
 
-    file1 = sys.argv[1]
-    file2 = sys.argv[2]
-    config_file = sys.argv[3]
+    directory = sys.argv[2]
+    reference_file = directory + sys.argv[1]
+    config_file = directory + 'i.yaml'
 
     # Load YAML configuration
     with open(config_file, 'r') as file:
@@ -30,50 +31,60 @@ def main():
     local_epochs = config['server_configuration']['local_epochs']
     num_supernodes = config['server_configuration']['num_supernodes']
 
-    # Load the CSV data into DataFrames
-    data1 = pd.read_csv(file1)
-    data2 = pd.read_csv(file2)
+    reference_data = pd.read_csv(reference_file)
+    csv_files = glob.glob(os.path.join(directory, '*.csv'))
 
-    # Ensure both DataFrames have the same number of rounds
-    min_rounds = min(len(data1), len(data2))
-    data1 = data1.head(min_rounds)
-    data2 = data2.head(min_rounds)
+    fig, ax = plt.subplots(figsize=(12, 8))
 
-    # Calculate the difference in accuracy
-    accuracy_diff = data2['accuracy'] - data1['accuracy']
+    # Plot the accuracy difference for each CSV file
+    for csv_file in csv_files:
+        data = pd.read_csv(csv_file)
+        
+        print(csv_file)
+        print(reference_file)
+        if os.path.normpath(csv_file) == os.path.normpath(reference_file):
+            continue            
+            print("activated")
+            print(csv_file)
+            continue
 
-    # Create a plot
-    fig, ax = plt.subplots(figsize=(10, 6))
+        # Ensure both DataFrames have the same number of rounds
+        min_rounds = min(len(reference_data), len(data))
+        reference_data_trimmed = reference_data.head(min_rounds)
+        data_trimmed = data.head(min_rounds)
 
-    # Plot the accuracy difference
-    ax.plot(data1['round'], accuracy_diff, linestyle='-', label='Accuracy Difference')
+        # Calculate the difference in accuracy
+        accuracy_diff = data_trimmed['accuracy'] - reference_data_trimmed['accuracy']
+
+        # Plot the accuracy difference
+        ax.plot(data_trimmed['round'], accuracy_diff, linestyle='-', label=os.path.basename(csv_file))
 
     # Adding title and labels
-    ax.set_title('Accuracy Difference by Round')
+    ax.set_title('Accuracy Difference by Round : ' + directory)
     ax.set_xlabel('Round')
     ax.set_ylabel('Accuracy Difference')
     
     # Adding x-ticks
-    round_mod = round_to_nearest_5_or_10(len(data1['round']) / 10)
-    ticks = [round for round in data1['round'] if round % round_mod == 0]
+    round_mod = round_to_nearest_5_or_10(len(reference_data['round']) / 10)
+    ticks = [round for round in reference_data['round'] if round % round_mod == 0]
     if 1 not in ticks:
         ticks = [1] + ticks
     ax.set_xticks(ticks)
 
     # Set y-axis limits to be symmetrical around zero with a small buffer
-    y_max = max(abs(accuracy_diff.min() - 0.02), abs(accuracy_diff.max() + 0.02))
+    y_max = max(abs(ax.get_ylim()[0] - 0.02), abs(ax.get_ylim()[1] + 0.02))
     ax.set_ylim(-y_max, y_max)
 
     # Add a horizontal line at y=0
     ax.axhline(y=0, color='r', linestyle='-')
 
     # Add labels for each dataset
-    ax.text(0.02, 0.98, f"{file2} higher", transform=ax.transAxes, 
+    ax.text(0.02, 0.98, "Other CSV files higher", transform=ax.transAxes, 
             verticalalignment='top', fontweight='bold')
-    ax.text(0.02, 0.02, f"{file1} higher", transform=ax.transAxes, 
+    ax.text(0.02, 0.02, f"{os.path.basename(reference_file)} higher", transform=ax.transAxes, 
             verticalalignment='bottom', fontweight='bold')
 
-    ax.legend()
+    ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
     ax.grid(True)
 
     # Add YAML configuration information to the plot
