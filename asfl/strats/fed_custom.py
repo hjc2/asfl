@@ -18,16 +18,7 @@ from flwr.common import (
     Scalar,
     parameters_to_ndarrays,
 )
-from asfl.task import (
-    Net,
-    DEVICE,
-    load_data,
-    get_weights,
-    set_weights,
-    train,
-    test,
-    load_all_test_data
-)
+
 from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.criterion import Criterion

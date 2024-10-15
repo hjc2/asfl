@@ -12,7 +12,8 @@ from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 from .fed_custom import FedCustom
 from flwr.server.client_proxy import ClientProxy
-from flwr.server.strategy.aggregate import aggregate, aggregate_inplace
+from flwr.server.strategy.aggregate import aggregate_inplace
+from .dat import aggregate
 
 WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW = """
 Setting `min_available_clients` lower than `min_fit_clients` or
