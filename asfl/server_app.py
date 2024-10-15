@@ -14,6 +14,7 @@ from .strats.fed_agg import FedAgg
 from .strats.fed_acc import FedAcc
 from .strats.fed_loss import FedLoss
 from .strats.fed_fuzz import FedFuzz
+from .strats.fed_equal import FedEqual
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -30,7 +31,7 @@ from flwr.common import (
 ndarrays = get_weights(Net())
 parameters = ndarrays_to_parameters(ndarrays)
 
-def create_strategy(strat_mode, parameters, num_rounds, inplace_setter, adv_log_setter, fit_config):
+def create_strategy(strat_mode, parameters, set_num_rounds, inplace_setter, adv_log_setter, fit_config):
     """Factory function to create the appropriate strategy based on the strat_mode."""
     
     strategies = {
@@ -39,6 +40,7 @@ def create_strategy(strat_mode, parameters, num_rounds, inplace_setter, adv_log_
         'fed_acc': FedAcc,
         'fed_loss': FedLoss,
         'fed_fuzz': FedFuzz,
+        'fed_equal': FedEqual,
     }
 
     if strat_mode not in strategies:
@@ -52,7 +54,7 @@ def create_strategy(strat_mode, parameters, num_rounds, inplace_setter, adv_log_
         fraction_evaluate=1.0,
         min_available_clients=2,
         initial_parameters=parameters,
-        num_rounds=num_rounds,
+        num_rounds=set_num_rounds,
         inplace=inplace_setter,
         adv_log=adv_log_setter,
         on_fit_config_fn=fit_config,

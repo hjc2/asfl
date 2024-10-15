@@ -8,7 +8,7 @@ from flwr.common import (
     Scalar,
 )
 from flwr.server.client_proxy import ClientProxy
-from flwr.server.strategy.aggregate import aggregate
+from .dat import aggregate
 from .fed_custom import FedCustom
 
 class FedFuzz(FedCustom):
