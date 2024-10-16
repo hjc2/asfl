@@ -35,11 +35,11 @@ class FedGrad(FedCustom):
         # structure [(CID, {accuracy, loss})]
         # metrics_list = [(client_proxy.cid, fit_res.metrics) for client_proxy, fit_res in results]
 
-        metrics_list = [(fit_res.parameters, client_proxy.get_parameters) for client_proxy, fit_res in results]
+        metrics_list = [(fit_res.parameters, client_proxy.get_parameters()) for client_proxy, fit_res in results]
 
         for a,b in metrics_list:
             log(INFO, f"metrics_list: {a}, {b}")
-            log(INFO, f"metrics_list: {a == b}")
+            log(INFO, f"output: {a == b}")
 
 
         #Accuracy based weighting
