@@ -79,4 +79,4 @@ Plotting
 
 ![screenshot](.github/Figure_1.svg)
 ![screenshot](.github/Figure_2.svg)
-
+![screenshot](.github/Figure_3.svg)
