@@ -94,6 +94,7 @@ class FedCustom(FedAvg):
                             # used for tracking how long since it was included
         self.good_cid_list = []
         self.adv_log = adv_log
+        self._parameter_history: NDArrays = []
 
     def configure_fit(
         self, server_round: int, parameters: Parameters, client_manager: ClientManager
