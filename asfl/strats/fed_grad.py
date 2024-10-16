@@ -100,8 +100,8 @@ class FedGrad(FedCustom):
 
             compared_results = [
                 self.compare_parameters(parameters_to_ndarrays(fit_res.parameters), history_ndarrays)
-                  for _, fit_res in results
-                ]
+                for _, fit_res in results
+            ]
 
             weights_results = [
                 (parameters_to_ndarrays(fit_res.parameters), compared_res['layer_cosine_similarity'])
