@@ -17,8 +17,73 @@ from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 from .fed_custom import FedCustom
 from .dat import aggregate
+import numpy as np
+from typing import List, Dict, Union
+from scipy.spatial.distance import cosine
 
 class FedGrad(FedCustom):
+
+
+    def compare_parameters(params1: List[np.ndarray], params2: List[np.ndarray]) -> Dict[str, Union[float, List[float]]]:
+        """
+        Compare two sets of parameters (NDArrays) and return various similarity metrics.
+        
+        Args:
+        params1 (List[np.ndarray]): First set of parameters
+        params2 (List[np.ndarray]): Second set of parameters
+        
+        Returns:
+        Dict[str, Union[float, List[float]]]: Dictionary containing similarity metrics
+        """
+        if len(params1) != len(params2):
+            raise ValueError("The two parameter sets must have the same number of arrays")
+        
+        results = {}
+        
+        # Flatten and concatenate all arrays
+        flat_params1 = np.concatenate([arr.flatten() for arr in params1])
+        flat_params2 = np.concatenate([arr.flatten() for arr in params2])
+        
+        # Cosine similarity
+        cos_sim = 1 - cosine(flat_params1, flat_params2)
+        results['cosine_similarity'] = cos_sim
+        
+        # Euclidean distance
+        eucl_dist = np.linalg.norm(flat_params1 - flat_params2)
+        results['euclidean_distance'] = eucl_dist
+        
+        # Normalized Euclidean distance (to account for different scales)
+        norm_eucl_dist = eucl_dist / (np.linalg.norm(flat_params1) + np.linalg.norm(flat_params2))
+        results['normalized_euclidean_distance'] = norm_eucl_dist
+        
+        # Element-wise absolute difference
+        abs_diff = np.abs(flat_params1 - flat_params2)
+        results['mean_absolute_difference'] = np.mean(abs_diff)
+        results['max_absolute_difference'] = np.max(abs_diff)
+        
+        # Layer-wise comparisons
+        layer_cos_sim = []
+        layer_eucl_dist = []
+        layer_mean_abs_diff = []
+        for arr1, arr2 in zip(params1, params2):
+            flat1 = arr1.flatten()
+            flat2 = arr2.flatten()
+            layer_cos_sim.append(1 - cosine(flat1, flat2))
+            layer_eucl_dist.append(np.linalg.norm(flat1 - flat2))
+            layer_mean_abs_diff.append(np.mean(np.abs(flat1 - flat2)))
+        
+        results['layer_cosine_similarity'] = layer_cos_sim
+        results['layer_euclidean_distance'] = layer_eucl_dist
+        results['layer_mean_absolute_difference'] = layer_mean_abs_diff
+        
+        return results
+
+    # Example usage:
+    # params1 = [np.array([[1, 2], [3, 4]]), np.array([5, 6])]
+    # params2 = [np.array([[1.1, 2.1], [3.1, 4.1]]), np.array([5.1, 6.1])]
+    # similarity_metrics = compare_parameters(params1, params2)
+    # print(similarity_metrics)
+
     def aggregate_fit(
         self,
         server_round: int,
@@ -32,25 +97,29 @@ class FedGrad(FedCustom):
         if not self.accept_failures and failures:
             return None, {}
 
-        # structure [(CID, {accuracy, loss})]
-        # metrics_list = [(client_proxy.cid, fit_res.metrics) for client_proxy, fit_res in results]
+        metrics_list = [fit_res.parameters for _, fit_res in results]
 
-        metrics_list = [(fit_res.parameters, client_proxy.get_parameters()) for client_proxy, fit_res in results]
+        if self.parameter_history is not None:
+            history_ndarrays = parameters_to_ndarrays(self.parameter_history)
 
-        for a,b in metrics_list:
-            log(INFO, f"metrics_list: {a}, {b}")
-            log(INFO, f"output: {a == b}")
+            compared_results = [
+                self.compare_parameters(parameters_to_ndarrays(fit_res.parameters), history_ndarrays)
+                  for _, fit_res in results
+                ]
 
 
-        #Accuracy based weighting
-        weights_results = [
-            (parameters_to_ndarrays(fit_res.parameters), fit_res.metrics['accuracy'])
-            for _, fit_res in results
-        ]
+        else:
+            #Num Examples for First
+            weights_results = [
+                (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
+                for _, fit_res in results
+            ]
 
         aggregated_ndarrays = aggregate(weights_results)
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
+
+        self.parameter_history = parameters_aggregated # set the parameter history to the aggregated parameters of this round
 
         metrics_aggregated = []
         
