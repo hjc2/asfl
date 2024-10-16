@@ -23,10 +23,9 @@ from scipy.spatial.distance import cosine
 
 class FedGrad(FedCustom):
 
-
     def compare_parameters(params1: List[np.ndarray], params2: List[np.ndarray]) -> Dict[str, Union[float, List[float]]]:
         """
-        Compare two sets of parameters (NDArrays) and return various similarity metrics.
+        Compare two sets of parameters (Lists of NumPy arrays) and return various similarity metrics.
         
         Args:
         params1 (List[np.ndarray]): First set of parameters
@@ -46,20 +45,20 @@ class FedGrad(FedCustom):
         
         # Cosine similarity
         cos_sim = 1 - cosine(flat_params1, flat_params2)
-        results['cosine_similarity'] = cos_sim
+        results['cosine_similarity'] = float(cos_sim)  # Convert to float to ensure JSON serializable
         
         # Euclidean distance
-        eucl_dist = np.linalg.norm(flat_params1 - flat_params2)
+        eucl_dist = float(np.linalg.norm(flat_params1 - flat_params2))
         results['euclidean_distance'] = eucl_dist
         
         # Normalized Euclidean distance (to account for different scales)
         norm_eucl_dist = eucl_dist / (np.linalg.norm(flat_params1) + np.linalg.norm(flat_params2))
-        results['normalized_euclidean_distance'] = norm_eucl_dist
+        results['normalized_euclidean_distance'] = float(norm_eucl_dist)
         
         # Element-wise absolute difference
         abs_diff = np.abs(flat_params1 - flat_params2)
-        results['mean_absolute_difference'] = np.mean(abs_diff)
-        results['max_absolute_difference'] = np.max(abs_diff)
+        results['mean_absolute_difference'] = float(np.mean(abs_diff))
+        results['max_absolute_difference'] = float(np.max(abs_diff))
         
         # Layer-wise comparisons
         layer_cos_sim = []
@@ -68,9 +67,9 @@ class FedGrad(FedCustom):
         for arr1, arr2 in zip(params1, params2):
             flat1 = arr1.flatten()
             flat2 = arr2.flatten()
-            layer_cos_sim.append(1 - cosine(flat1, flat2))
-            layer_eucl_dist.append(np.linalg.norm(flat1 - flat2))
-            layer_mean_abs_diff.append(np.mean(np.abs(flat1 - flat2)))
+            layer_cos_sim.append(float(1 - cosine(flat1, flat2)))
+            layer_eucl_dist.append(float(np.linalg.norm(flat1 - flat2)))
+            layer_mean_abs_diff.append(float(np.mean(np.abs(flat1 - flat2))))
         
         results['layer_cosine_similarity'] = layer_cos_sim
         results['layer_euclidean_distance'] = layer_eucl_dist
