@@ -6,7 +6,8 @@ from flwr.common import (
 from typing import Dict, List, Optional, Tuple
 from functools import reduce
 import numpy as np
-
+from flwr.common.logger import log
+from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 def aggregate(results: List[Tuple[NDArrays, int]]) -> NDArrays:
     """Compute weighted average."""
     # Calculate the total number of examples used during training
