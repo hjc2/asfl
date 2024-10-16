@@ -33,6 +33,8 @@ def compare_parameters(params1: List[np.ndarray], params2: List[np.ndarray]) -> 
     Dict[str, Union[float, List[float]]]: Dictionary containing similarity metrics
     """
     if len(params1) != len(params2):
+        log(INFO, "params1: " + str(len(params1)))
+        log(INFO, "params2: " + str(len(params2)))
         raise ValueError("The two parameter sets must have the same number of arrays")
     
     results = {}
