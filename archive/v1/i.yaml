@@ -2,3 +2,4 @@ server_configuration:
   num_server_rounds: 30
   local_epochs: 1
   num_supernodes: 10
+  partition: "dirichlet"

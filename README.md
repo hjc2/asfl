@@ -58,6 +58,7 @@ server_configuration:
   num_server_rounds: 800
   local_epochs: 1
   num_supernodes: 50
+	partition: "dirichlet"
 ```
 
 Change the outputs to CSV
