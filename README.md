@@ -39,3 +39,7 @@ Advanced simulation
 ```bash
 flower-simulation --app . --num-supernodes 200 --run-config 'num-server-rounds=400 strat-mode="fed_fuzz"'
 ```
+
+## Fun Simulation Results
+
+![screenshot](.github/Figure_1.svg)
