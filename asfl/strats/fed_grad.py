@@ -107,6 +107,7 @@ class FedGrad(FedCustom):
             for _, weight in weights_results:
                 log(INFO, "cosine similarity: " + str(weight))
         else:
+            log(CRITICAL, "empty parameter history")
             #Num Examples for First
             weights_results = [
                 (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
