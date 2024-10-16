@@ -7,6 +7,8 @@ import re
 import ast
 import csv
 
+import os
+
 
 def process_large_file(input_filename, output_filename):
     """
@@ -34,6 +36,17 @@ def process_large_file(input_filename, output_filename):
                 cleaned_line = pattern.sub('', line)
 
                 outfile.write(cleaned_line)
+
+def delete_file(file_path):
+    try:
+        os.remove(file_path)
+        print(f"File {file_path} deleted successfully")
+    except FileNotFoundError:
+        print(f"File {file_path} not found")
+    except PermissionError:
+        print(f"Permission denied: unable to delete {file_path}")
+    except Exception as e:
+        print(f"Error occurred while deleting file {file_path}: {e}")
 
 def load_dict_from_txt(filename):
     """
@@ -107,6 +120,8 @@ def main():
     merged_dict = merge_nested_dict(dictionary)
 
     write_dict_to_csv(merged_dict, output_file + '.csv')
+
+    delete_file(output_file + '.txt')
 
 if __name__ == "__main__":
     main()
