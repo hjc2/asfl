@@ -43,3 +43,5 @@ flower-simulation --app . --num-supernodes 200 --run-config 'num-server-rounds=4
 ## Fun Simulation Results
 
 ![screenshot](.github/Figure_1.svg)
+![screenshot](.github/Figure_2.svg)
+
