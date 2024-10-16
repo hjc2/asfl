@@ -90,15 +90,13 @@ class FedGrad(FedCustom):
         if not self.accept_failures and failures:
             return None, {}
 
-        metrics_list = [fit_res.parameters for _, fit_res in results]
-
         weights_results = []
 
         if self.parameter_history is not []:
             log(CRITICAL, "aggregating parameters")
             log(INFO, "aggregating parameters")
 
-            history_ndarrays = parameters_to_ndarrays(self.parameter_history)
+            history_ndarrays = self.parameter_history
 
             compared_results = [
                 self.compare_parameters(parameters_to_ndarrays(fit_res.parameters), history_ndarrays)
