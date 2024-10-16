@@ -51,13 +51,21 @@ def load_data(partition_id: int, num_partitions: int):
     """Load partition CIFAR10 data."""
     # Only initialize `FederatedDataset` once
     global fds
-    if fds is None:
-        partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5, min_partition_size=10,self_balancing=True, seed=42)
+    # if fds is None:
+    #     partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5, min_partition_size=10,self_balancing=True, seed=42)
 
+    #     fds = FederatedDataset(
+    #         dataset="uoft-cs/cifar10",
+    #         partitioners={"train": partitioner},
+    #     )
+
+    if fds is None:
+        partitioner = IidPartitioner(num_partitions=num_partitions)
         fds = FederatedDataset(
             dataset="uoft-cs/cifar10",
             partitioners={"train": partitioner},
         )
+
 
     partition = fds.load_partition(partition_id)
 
