@@ -78,12 +78,6 @@ class FedGrad(FedCustom):
         
         return results
 
-    # Example usage:
-    # params1 = [np.array([[1, 2], [3, 4]]), np.array([5, 6])]
-    # params2 = [np.array([[1.1, 2.1], [3.1, 4.1]]), np.array([5.1, 6.1])]
-    # similarity_metrics = compare_parameters(params1, params2)
-    # print(similarity_metrics)
-
     def aggregate_fit(
         self,
         server_round: int,
@@ -107,6 +101,10 @@ class FedGrad(FedCustom):
                   for _, fit_res in results
                 ]
 
+            weights_results = [
+                (parameters_to_ndarrays(fit_res.parameters), compared_res['layer_cosine_similarity'])
+                for compared_res, (_, fit_res) in zip(compared_results, results)
+            ]
 
         else:
             #Num Examples for First
