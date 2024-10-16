@@ -17,6 +17,8 @@ from torchvision.transforms import Compose, Normalize, ToTensor
 from flwr_datasets import FederatedDataset
 from flwr_datasets.partitioner import IidPartitioner, ExponentialPartitioner, DirichletPartitioner
 from flwr.common.logger import log
+from flwr.common import Context
+
 from logging import CRITICAL
 
 
@@ -47,25 +49,27 @@ class Net(nn.Module):
 fds = None  # Cache FederatedDataset
 
 
-def load_data(partition_id: int, num_partitions: int):
+def load_data(node_config, partition_id: int, num_partitions: int):
     """Load partition CIFAR10 data."""
     # Only initialize `FederatedDataset` once
     global fds
-    # if fds is None:
-    #     partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5, min_partition_size=10,self_balancing=True, seed=42)
-
-    #     fds = FederatedDataset(
-    #         dataset="uoft-cs/cifar10",
-    #         partitioners={"train": partitioner},
-    #     )
-
     if fds is None:
-        partitioner = IidPartitioner(num_partitions=num_partitions)
-        fds = FederatedDataset(
-            dataset="uoft-cs/cifar10",
-            partitioners={"train": partitioner},
-        )
+        if node_config["partition"] == "dirichlet":
+            partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5, min_partition_size=10,self_balancing=True, seed=42)
 
+            fds = FederatedDataset(
+                dataset="uoft-cs/cifar10",
+                partitioners={"train": partitioner},
+            )
+
+        if node_config["partition"] == "iid":
+            partitioner = IidPartitioner(num_partitions=num_partitions)
+            fds = FederatedDataset(
+                dataset="uoft-cs/cifar10",
+                partitioners={"train": partitioner},
+            )
+        else:
+            raise ValueError("Invalid partitioner")
 
     partition = fds.load_partition(partition_id)
 
@@ -169,5 +173,3 @@ def set_weights(net, parameters):
     params_dict = zip(net.state_dict().keys(), parameters)
     state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
     net.load_state_dict(state_dict, strict=True)
-
-

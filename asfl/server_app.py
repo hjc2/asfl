@@ -91,6 +91,7 @@ def server_fn(context: Context):
     log(INFO, "num server rounds " + str(num_rounds))
     log(INFO, "config num local epochs " + str(local_epochs))
     log(INFO, "advanced logging " + str(adv_log_setter))
+    log(INFO, "partition: " + context.run_config["partition"])
 
 
     config = ServerConfig(num_rounds=num_rounds)
