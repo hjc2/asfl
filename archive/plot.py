@@ -81,7 +81,7 @@ def main():
     round_mod = round_to_nearest_5_or_10(len(all_rounds) / 10)
     ticks = [round for round in all_rounds if round % round_mod == 0]
     if 1 not in ticks:
-        print(ticks)
+        # print(ticks)
         ticks = [1] + ticks
     plt.xticks(ticks)  # Set x-ticks to be the round numbers
 
