@@ -99,7 +99,7 @@ class FedGrad(FedCustom):
             history_ndarrays = self.parameter_history
 
             compared_results = [
-                self.compare_parameters(parameters_to_ndarrays(fit_res.parameters), history_ndarrays)
+                compare_parameters(parameters_to_ndarrays(fit_res.parameters), history_ndarrays)
                 for _, fit_res in results
             ]
 
