@@ -69,7 +69,7 @@ def server_fn(context: Context):
     file_writing = context.run_config["file-writing"]
     inplace_setter = context.run_config["inplace"]
     adv_log_setter = context.run_config["adv-logs"]
-    log_file_path = context.run_config["log-path"]
+    log_file_path = strat_mode + ".txt"
 
     # Define strategy
 
