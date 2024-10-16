@@ -117,7 +117,7 @@ class FedGrad(FedCustom):
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
 
-        self.parameter_history = parameters_aggregated # set the parameter history to the aggregated parameters of this round
+        self.parameter_history = aggregated_ndarrays # set the parameter history to the aggregated parameters of this round
 
         metrics_aggregated = []
         
