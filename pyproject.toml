@@ -31,7 +31,7 @@ inplace = true
 file-writing = true
 adv-logs = false
 log-path = "FedEqualLarge.txt"
-custom-list = "shouldnt be here"
+partition = "iid"
 
 [tool.flwr.federations]
 default = "local-simulation"
