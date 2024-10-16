@@ -37,4 +37,4 @@ partition = "iid"
 default = "local-simulation"
 
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 2
+options.num-supernodes = 6
