@@ -34,6 +34,7 @@ def main():
     num_server_rounds = config['server_configuration']['num_server_rounds']
     local_epochs = config['server_configuration']['local_epochs']
     num_supernodes = config['server_configuration']['num_supernodes']
+    partitioner = config['server_configuration']['partition']
 
     csv_directory = dir + '*.csv'
     csv_files = glob.glob(csv_directory)
@@ -61,7 +62,8 @@ def main():
             x_smooth, y_smooth = create_spline(x, y)
             plt.plot(x_smooth, y_smooth, linestyle='-', label=f"{label} - {col} (Spline)")
 
-    plt.title('Accuracy by Round with Spline Interpolation - ' + dir)
+    plt.title(f"Partitioner: {partitioner}", fontsize=16)
+    plt.suptitle('Accuracy by Round - ' + dir, fontsize=24, y=1.0)
     plt.xlabel('Round')
     plt.ylabel('Accuracy')
     
