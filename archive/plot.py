@@ -40,6 +40,7 @@ def main():
     num_server_rounds = config['server_configuration']['num_server_rounds']
     local_epochs = config['server_configuration']['local_epochs']
     num_supernodes = config['server_configuration']['num_supernodes']
+    partitioner = config['server_configuration']['partition']
 
     # Directory containing your CSV files (change this as needed)
     csv_directory = dir + '*.csv'  # Use a wildcard to match all CSV files
@@ -73,7 +74,8 @@ def main():
             plt.plot(data['round'], data[col], marker='o', linestyle='-', label=f"{label} - {col}")
 
     # Adding title and labels after all plots
-    plt.title('Accuracy by Round - ' + dir)
+    plt.title(f"Partitioner: {partitioner}", fontsize=16)
+    plt.suptitle('Accuracy by Round - ' + dir, fontsize=24, y=1.0)
     plt.xlabel('Round')
     plt.ylabel('Accuracy')
     

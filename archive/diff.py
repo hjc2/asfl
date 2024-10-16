@@ -19,6 +19,7 @@ def main():
         sys.exit(1)
 
     directory = sys.argv[2]
+    dir = sys.argv[2]
     reference_file = directory + sys.argv[1]
     config_file = directory + 'i.yaml'
 
@@ -30,6 +31,7 @@ def main():
     num_server_rounds = config['server_configuration']['num_server_rounds']
     local_epochs = config['server_configuration']['local_epochs']
     num_supernodes = config['server_configuration']['num_supernodes']
+    partitioner = config['server_configuration']['partition']
 
     reference_data = pd.read_csv(reference_file)
     csv_files = glob.glob(os.path.join(directory, '*.csv'))
@@ -60,7 +62,9 @@ def main():
         ax.plot(data_trimmed['round'], accuracy_diff, linestyle='-', label=os.path.basename(csv_file))
 
     # Adding title and labels
-    ax.set_title('Accuracy Difference by Round : ' + directory)
+    # ax.set_title('Accuracy Difference by Round : ' + directory)
+    plt.title(f"Partitioner: {partitioner}", fontsize=16)
+    plt.suptitle('Accuracy by Round - ' + dir, fontsize=24, y=1.0)
     ax.set_xlabel('Round')
     ax.set_ylabel('Accuracy Difference')
     
