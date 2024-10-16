@@ -94,7 +94,7 @@ class FedGrad(FedCustom):
 
         weights_results = []
 
-        if self.parameter_history is not []:
+        if np.size(self.parameter_history):
             log(CRITICAL, "aggregating parameters")
             log(INFO, "aggregating parameters")
             log(INFO, "parameter history: " + str(self.parameter_history))
