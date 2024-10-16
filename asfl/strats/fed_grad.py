@@ -97,7 +97,7 @@ class FedGrad(FedCustom):
         if self.parameter_history is not []:
             log(CRITICAL, "aggregating parameters")
             log(INFO, "aggregating parameters")
-
+            log(INFO, "parameter history: " + str(self.parameter_history))
             history_ndarrays = self.parameter_history
 
             compared_results = [
