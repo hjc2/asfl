@@ -104,7 +104,8 @@ class FedGrad(FedCustom):
                 (parameters_to_ndarrays(fit_res.parameters), compared_res['layer_cosine_similarity'])
                 for compared_res, (_, fit_res) in zip(compared_results, results)
             ]
-
+            for _, weight in weights_results:
+                log(INFO, "cosine similarity: " + str(weight))
         else:
             #Num Examples for First
             weights_results = [
