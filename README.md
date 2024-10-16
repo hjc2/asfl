@@ -2,15 +2,18 @@
 
 
 ## create and activate venv
-
 ```bash
-source venv/Scripts/activate
+python -m venv venv
+
+source venv/bin/activate # linux
+# OR 
+source venv/Scripts/activate # windows
 ```
 
 ## Install dependencies
 
 ```bash
-pip install .
+pip install . --no-cache-dir
 ```
 
 ## Setup the toml configuration
@@ -22,6 +25,9 @@ local-epochs = 3 # number of local epochs for each client
 strat-mode = "fedcustom" # fedcustom or fedavg
 inplace = true
 file-writing = true
+
+[tool.flwr.federations.local-simulation]
+options.num-supernodes = 2 # number of vehicles
 ```
 
 
