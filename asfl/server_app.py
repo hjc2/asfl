@@ -35,8 +35,8 @@ def create_strategy(strat_mode, parameters, set_num_rounds, inplace_setter, adv_
     """Factory function to create the appropriate strategy based on the strat_mode."""
     
     strategies = {
-        'fedavg': FederalAvg,
-        'fed_agg': FedAgg,
+        'fed_avg': FederalAvg,
+        # 'fed_agg': FedAgg,
         'fed_acc': FedAcc,
         'fed_loss': FedLoss,
         'fed_fuzz': FedFuzz,
