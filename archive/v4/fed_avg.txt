@@ -1,5 +1,5 @@
 dv - | INFO flwr 2024-10-16 00:10:25,426 | server_app.py:88 | file writing: True
-dv - | INFO flwr 2024-10-16 00:10:25,426 | server_app.py:89 | running in fedavg
+dv - | INFO flwr 2024-10-16 00:10:25,426 | server_app.py:89 | running in fed_avg
 dv - | INFO flwr 2024-10-16 00:10:25,426 | server_app.py:90 | min num clients 2
 dv - | INFO flwr 2024-10-16 00:10:25,426 | server_app.py:91 | num server rounds 400
 dv - | INFO flwr 2024-10-16 00:10:25,426 | server_app.py:92 | config num local epochs 1
