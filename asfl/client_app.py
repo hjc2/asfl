@@ -7,6 +7,7 @@ import time
 from logging import INFO, DEBUG, CRITICAL
 from flwr.common.logger import log
 import flwr.common.logger as flwr_logger
+import numpy as np
 
 from asfl.task import (
     Net,
@@ -45,16 +46,27 @@ class FlowerClient(NumPyClient):
 
         loss, accuracy = test(self.net, self.valloader)
 
-        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy, "dataset": self.trainloader.dataset}
+        countLabels = self.get_label_distribution()
 
+        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy, "num_labels": countLabels}
+
+    def get_label_distribution(self):
+        """Return dictionary of label counts in training set"""
+        label_counts = {}
+        
+        for _, labels in self.trainloader:
+            for label in labels.numpy():
+                label = int(label)
+                label_counts[label] = label_counts.get(label, 0) + 1
+                
+        return label_counts
+    
     # RETURNS THE TEST RESULTS AND ACCURACY
     def evaluate(self, parameters, config):
         set_weights(self.net, parameters)
         loss, accuracy = test(self.net, self.valloader)
 
         num_samples = len(self.valloader.dataset)
-
-        log(DEBUG, self.valloader.dataset)
         
         return loss, num_samples, {"loss": loss, "accuracy": accuracy}
 
