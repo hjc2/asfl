@@ -45,7 +45,7 @@ class FlowerClient(NumPyClient):
 
         loss, accuracy = test(self.net, self.valloader)
 
-        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy}
+        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy, "dataset": self.trainloader.dataset}
 
     # RETURNS THE TEST RESULTS AND ACCURACY
     def evaluate(self, parameters, config):
@@ -56,7 +56,7 @@ class FlowerClient(NumPyClient):
 
         log(DEBUG, self.valloader.dataset)
         
-        return loss, num_samples, {"loss": loss, "accuracy": accuracy, "dataset": self.valloader.dataset}
+        return loss, num_samples, {"loss": loss, "accuracy": accuracy}
 
 ### DEFINES AND SPAWNS THE CLIENTS INITIALLY
 def client_fn(context: Context):
@@ -65,7 +65,7 @@ def client_fn(context: Context):
     node_id = context.node_id
     partition_id = context.node_config["partition-id"]
     num_partitions = context.node_config["num-partitions"]
-    trainloader, valloader = load_data(context.run_config, partition_id, num_partitions, )
+    trainloader, valloader = load_data(context.run_config, partition_id, num_partitions)
     local_epochs = context.run_config["local-epochs"]
 
     # Return Client instance
