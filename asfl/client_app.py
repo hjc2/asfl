@@ -56,7 +56,7 @@ class FlowerClient(NumPyClient):
 
         log(DEBUG, self.valloader.dataset)
         
-        return loss, num_samples, {"loss": loss, "accuracy": accuracy}
+        return loss, num_samples, {"loss": loss, "accuracy": accuracy, "dataset": self.valloader.dataset}
 
 ### DEFINES AND SPAWNS THE CLIENTS INITIALLY
 def client_fn(context: Context):
