@@ -15,6 +15,7 @@ from .strats.fed_acc import FedAcc
 from .strats.fed_loss import FedLoss
 from .strats.fed_fuzz import FedFuzz
 from .strats.fed_equal import FedEqual
+from .strats.fed_variance import FedVariance
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -41,6 +42,7 @@ def create_strategy(strat_mode, parameters, set_num_rounds, inplace_setter, adv_
         'fed_loss': FedLoss,
         'fed_fuzz': FedFuzz,
         'fed_equal': FedEqual,
+        'fed_variance': FedVariance,
     }
 
     if strat_mode not in strategies:

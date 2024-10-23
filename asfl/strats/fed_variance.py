@@ -1,8 +1,5 @@
 
 from flwr.common import ndarrays_to_parameters
-
-### THIS IS FED AVG, BUT IT HAS DIFFERENT 
-
 from typing import Union, Dict, List, Optional, Tuple
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
@@ -19,23 +16,23 @@ from flwr.server.client_proxy import ClientProxy
 from .fed_custom import FedCustom
 from .dat import aggregate
 
-class FedAcc(FedCustom):
+class FedVariance(FedCustom):
     def aggregate_fit(
         self,
         server_round: int,
         results: List[Tuple[ClientProxy, FitRes]],
         failures: List[Union[Tuple[ClientProxy, FitRes], BaseException]],
     ) -> Tuple[Optional[Parameters], Dict[str, Scalar]]:
-        """Aggregate fit results using weighted average."""
+        """Aggregate fit results using weighted average of label variance."""
         if not results:
             return None, {}
         # Do not aggregate if there are failures and failures are not accepted
         if not self.accept_failures and failures:
             return None, {}
 
-        #Accuracy based weighting
+        #Label Variance based weighting
         weights_results = [
-            (parameters_to_ndarrays(fit_res.parameters), fit_res.metrics['accuracy'])
+            (parameters_to_ndarrays(fit_res.parameters), fit_res.metrics['labels'])
             for _, fit_res in results
         ]
             

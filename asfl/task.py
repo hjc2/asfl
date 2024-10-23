@@ -50,24 +50,12 @@ fds = None  # Cache FederatedDataset
 
 
 def load_data(node_config, partition_id: int, num_partitions: int):
-    """Load partition CIFAR10 data and calculate label variance.
-    
-    Returns:
-        tuple: (trainloader, testloader, label_variance)
-        where label_variance is the variance of label distribution in the training set
-    """
+    """Load partition CIFAR10 data."""
     # Only initialize `FederatedDataset` once
     global fds
     if fds is None:
         if node_config["partition"] == "dirichlet":
-            partitioner = DirichletPartitioner(
-                num_partitions=num_partitions, 
-                partition_by="label", 
-                alpha=0.5, 
-                min_partition_size=10,
-                self_balancing=True, 
-                seed=42
-            )
+            partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5, min_partition_size=10,self_balancing=True, seed=42)
 
             fds = FederatedDataset(
                 dataset="uoft-cs/cifar10",
@@ -88,23 +76,6 @@ def load_data(node_config, partition_id: int, num_partitions: int):
     # Divide data on each node: 80% train, 20% test
     partition_train_test = partition.train_test_split(test_size=0.2, seed=42)
 
-    # Calculate label variance for the training set
-    train_labels = partition_train_test["train"]["label"]
-    
-    # Count frequency of each label
-    label_counts = {}
-    total_samples = len(train_labels)
-    
-    for label in train_labels:
-        label_counts[label] = label_counts.get(label, 0) + 1
-    
-    # Convert counts to proportions
-    label_proportions = {k: v/total_samples for k, v in label_counts.items()}
-    
-    # Calculate variance
-    mean_proportion = 1.0 / len(label_counts)  # Expected mean for balanced distribution
-    label_variance = sum((p - mean_proportion) ** 2 for p in label_proportions.values()) / len(label_counts)
-
     pytorch_transforms = Compose(
         [ToTensor(), Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]
     )
@@ -117,41 +88,7 @@ def load_data(node_config, partition_id: int, num_partitions: int):
     partition_train_test = partition_train_test.with_transform(apply_transforms)
     trainloader = DataLoader(partition_train_test["train"], batch_size=32, shuffle=True)
     testloader = DataLoader(partition_train_test["test"], batch_size=32)
-    
-    return trainloader, testloader, label_variance
-
-def load_all_test_data(num_partitions: int):
-    """Load all test data from CIFAR10 for centralized evaluation."""
-    global fds
-    if fds is None:
-        partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5, min_partition_size=10, self_balancing=True, seed=42)
-
-        fds = FederatedDataset(
-            dataset="uoft-cs/cifar10",
-            partitioners={"train": partitioner},
-        )
-
-    # Load the entire dataset
-    full_partition = fds.load_partition(0)  # Load the first partition, you can adjust if needed
-
-    # Use only the test data
-    test_data = full_partition.get_test_data()  # Adjust this based on how the test data is accessed
-
-    pytorch_transforms = Compose(
-        [ToTensor(), Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]
-    )
-
-    def apply_transforms(batch):
-        """Apply transforms to the test dataset."""
-        batch["img"] = [pytorch_transforms(img) for img in batch["img"]]
-        return batch
-
-    # Create a DataLoader for the entire test dataset
-    testloader = DataLoader(test_data.with_transform(apply_transforms), batch_size=32)
-
-    return testloader
-
-
+    return trainloader, testloader
 
 def train(net, trainloader, valloader, epochs, device):
     """Train the model on the training set."""
