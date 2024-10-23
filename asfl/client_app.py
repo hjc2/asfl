@@ -3,8 +3,10 @@
 import random
 from flwr.client import NumPyClient, ClientApp
 from flwr.common import Context
+from collections import Counter
+
 import time
-from logging import INFO, DEBUG, CRITICAL
+from logging import INFO, DEBUG, CRITICAL, WARNING
 from flwr.common.logger import log
 import flwr.common.logger as flwr_logger
 import numpy as np
@@ -26,22 +28,13 @@ from asfl.task import (
 # Define Flower Client and client_fn
 class FlowerClient(NumPyClient):
 
-    def __init__(self, net, trainloader, valloader, local_epochs, node_id):
+    def __init__(self, net, trainloader, valloader, local_epochs, node_id, label_variance):
         self.net = net
         self.trainloader = trainloader
         self.valloader = valloader
         self.local_epochs = local_epochs
         self.node_id = node_id
-
-    def get_label_distribution(self):
-        """Return dictionary of label counts in training set"""
-        label_counts = {}
-        
-        for _, labels in self.trainloader:
-            for label in labels:
-                label_counts[label] = label_counts.get(label, 0) + 1
-                
-        return label_counts
+        self.label_variance = label_variance
 
     # TRAINS THE CLIENT LOCALLY
     def fit(self, parameters, config):
@@ -56,10 +49,7 @@ class FlowerClient(NumPyClient):
 
         loss, accuracy = test(self.net, self.valloader)
 
-        countLabels = self.get_label_distribution()
-        log(INFO, "counted labels: " + str(countLabels))
-
-        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy, "labels": len(countLabels)}
+        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy, "labels": self.label_variance}
     
     # RETURNS THE TEST RESULTS AND ACCURACY
     def evaluate(self, parameters, config):
@@ -77,11 +67,12 @@ def client_fn(context: Context):
     node_id = context.node_id
     partition_id = context.node_config["partition-id"]
     num_partitions = context.node_config["num-partitions"]
-    trainloader, valloader = load_data(context.run_config, partition_id, num_partitions)
+    trainloader, valloader, labels = load_data(context.run_config, partition_id, num_partitions)
     local_epochs = context.run_config["local-epochs"]
 
+
     # Return Client instance
-    return FlowerClient(net, trainloader, valloader, local_epochs, node_id).to_client()
+    return FlowerClient(net, trainloader, valloader, local_epochs, node_id, labels).to_client()
 
 
 # Flower ClientApp
