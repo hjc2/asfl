@@ -25,7 +25,7 @@ from flwr.common import (
     ndarrays_to_parameters,
 )
 
-
+RAY_DEDUP_LOGS=0
 
 # Initialize model parameters
 ndarrays = get_weights(Net())

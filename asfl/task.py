@@ -54,6 +54,7 @@ def load_data(node_config, partition_id: int, num_partitions: int):
     # Only initialize `FederatedDataset` once
     global fds
     if fds is None:
+        print(node_config["partition"])
         if node_config["partition"] == "dirichlet":
             partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5, min_partition_size=10,self_balancing=True, seed=42)
 
@@ -62,14 +63,14 @@ def load_data(node_config, partition_id: int, num_partitions: int):
                 partitioners={"train": partitioner},
             )
 
-        if node_config["partition"] == "iid":
+        elif node_config["partition"] == "iid":
             partitioner = IidPartitioner(num_partitions=num_partitions)
             fds = FederatedDataset(
                 dataset="uoft-cs/cifar10",
                 partitioners={"train": partitioner},
             )
         else:
-            raise ValueError("Invalid partitioner")
+            raise ValueError("Invalid partitioner: " + node_config["partition"] + " : " + str(node_config["partition"] == "dirichlet"))
 
     partition = fds.load_partition(partition_id)
 

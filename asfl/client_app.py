@@ -59,7 +59,7 @@ class FlowerClient(NumPyClient):
         countLabels = self.get_label_distribution()
         log(INFO, "counted labels: " + str(countLabels))
 
-        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy, "labels": 5}
+        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy, "labels": len(countLabels)}
     
     # RETURNS THE TEST RESULTS AND ACCURACY
     def evaluate(self, parameters, config):
