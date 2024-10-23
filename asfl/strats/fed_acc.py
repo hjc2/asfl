@@ -42,9 +42,6 @@ class FedAcc(FedCustom):
             for _, fit_res in results
         ]
 
-        for _, fit_res in results:
-            log(DEBUG, str(fit_res.metrics['dataset']))
-
         aggregated_ndarrays = aggregate(weights_results)
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)

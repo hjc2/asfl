@@ -33,6 +33,16 @@ class FlowerClient(NumPyClient):
         self.local_epochs = local_epochs
         self.node_id = node_id
 
+    def get_label_distribution(self):
+        """Return dictionary of label counts in training set"""
+        label_counts = {}
+        
+        for _, labels in self.trainloader:
+            for label in labels:
+                label_counts[label] = label_counts.get(label, 0) + 1
+                
+        return label_counts
+
     # TRAINS THE CLIENT LOCALLY
     def fit(self, parameters, config):
         set_weights(self.net, parameters)
@@ -47,19 +57,9 @@ class FlowerClient(NumPyClient):
         loss, accuracy = test(self.net, self.valloader)
 
         countLabels = self.get_label_distribution()
+        log(INFO, "counted labels: " + str(countLabels))
 
-        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy, "num_labels": countLabels}
-
-    def get_label_distribution(self):
-        """Return dictionary of label counts in training set"""
-        label_counts = {}
-        
-        for _, labels in self.trainloader:
-            for label in labels.numpy():
-                label = int(label)
-                label_counts[label] = label_counts.get(label, 0) + 1
-                
-        return label_counts
+        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy}
     
     # RETURNS THE TEST RESULTS AND ACCURACY
     def evaluate(self, parameters, config):
