@@ -43,7 +43,7 @@ flwr run
 Advanced simulation
 
 ```bash
-flower-simulation --app . --num-supernodes 200 --run-config 'num-server-rounds=400 strat-mode="fed_fuzz"'
+flower-simulation --app . --num-supernodes 50 --run-config 'num-server-rounds=800 strat-mode="fed_variance" local-epochs=1'
 ```
 
 ## Current strategies
@@ -51,6 +51,8 @@ flower-simulation --app . --num-supernodes 200 --run-config 'num-server-rounds=4
 * `fed_acc` weighted avg on the accuracy self reported by the client
 * `fed_loss` weighted avg on the inverse loss self reported by the client
 * `fed_equal` weighted avg, weights all clients equally
+* `fed_variance` weighted avg on the label variance
+* `fed_freq` weighted avg on the inverse number of training rounds included
 * `fed_fuzz` fuzz logic adaptive aggregation, loss and accuracy
 * `federal_avg` fed avg baseline
 
