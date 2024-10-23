@@ -4,6 +4,8 @@ from flwr.common import ndarrays_to_parameters
 ### THIS IS FED AVG, BUT IT HAS DIFFERENT 
 
 from typing import Union, Dict, List, Optional, Tuple
+from flwr.common.logger import log
+from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 
 from flwr.common import (
     FitRes,
@@ -41,7 +43,7 @@ class FedAcc(FedCustom):
         ]
 
         for _, fit_res in results:
-            print(fit_res.metrics['dataset'])
+            log(DEBUG, fit_res.metrics)
 
         aggregated_ndarrays = aggregate(weights_results)
 
