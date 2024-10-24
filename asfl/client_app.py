@@ -49,7 +49,7 @@ class FlowerClient(NumPyClient):
 
         loss, accuracy = test(self.net, self.valloader)
 
-        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy, "labels": self.label_variance}
+        return get_weights(self.net), len(self.trainloader.dataset), {"loss": loss, "accuracy": accuracy, "labels": self.label_variance, "num_samples": len(self.trainloader.dataset)}
     
     # RETURNS THE TEST RESULTS AND ACCURACY
     def evaluate(self, parameters, config):
