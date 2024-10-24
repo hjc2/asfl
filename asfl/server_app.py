@@ -33,7 +33,7 @@ RAY_DEDUP_LOGS=0
 ndarrays = get_weights(Net())
 parameters = ndarrays_to_parameters(ndarrays)
 
-def create_strategy(strat_mode, parameters, set_num_rounds, inplace_setter, adv_log_setter, fit_config):
+def create_strategy(strat_mode, parameters, set_num_rounds, inplace_setter, adv_log_setter, fit_config, fraction_setter=2):
     """Factory function to create the appropriate strategy based on the strat_mode."""
     
     strategies = {
@@ -62,6 +62,7 @@ def create_strategy(strat_mode, parameters, set_num_rounds, inplace_setter, adv_
         num_rounds=set_num_rounds,
         inplace=inplace_setter,
         adv_log=adv_log_setter,
+        fraction=fraction_setter,
         on_fit_config_fn=fit_config,
     )
 
@@ -75,6 +76,7 @@ def server_fn(context: Context):
     inplace_setter = context.run_config["inplace"]
     adv_log_setter = context.run_config["adv-logs"]
     log_file_path = strat_mode + ".txt"
+    fraction_setter = context.run_config["fraction"]
 
     # Define strategy
 
@@ -85,7 +87,7 @@ def server_fn(context: Context):
         }
         return config
 
-    strategy = create_strategy(strat_mode, parameters, num_rounds, inplace_setter, adv_log_setter, fit_config)
+    strategy = create_strategy(strat_mode, parameters, num_rounds, inplace_setter, adv_log_setter, fit_config, fraction_setter)
 
     if file_writing:
         flwr_logger.configure(identifier="dv -", filename=log_file_path)

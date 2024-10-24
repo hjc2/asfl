@@ -66,7 +66,8 @@ class FedCustom(FedAvg):
         inplace: bool = True,
         num_rounds: int = 1,
         cid_ll: List[Tuple[int, List[int]]] = [],
-        adv_log: bool = False
+        adv_log: bool = False,
+        fraction = 2
     ) -> None:
         super().__init__()
 
@@ -94,6 +95,8 @@ class FedCustom(FedAvg):
                             # used for tracking how long since it was included
         self.good_cid_list = []
         self.adv_log = adv_log
+        self.fraction = fraction
+
 
     def configure_fit(
         self, server_round: int, parameters: Parameters, client_manager: ClientManager

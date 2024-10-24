@@ -24,17 +24,18 @@ serverapp = "asfl.server_app:app"
 clientapp = "asfl.client_app:app"
 
 [tool.flwr.app.config]
-num-server-rounds = 1
+num-server-rounds = 3
 local-epochs = 1
-strat-mode = "fed_acc" # valid choices: "fed_avg", fed_agg", "fed_acc", "fed_loss", "fed_fuzz"
+strat-mode = "fed_double" # valid choices: "fed_avg", fed_agg", "fed_acc", "fed_loss", "fed_fuzz"
 inplace = true
 file-writing = true
 adv-logs = false
 log-path = "FedEqualLarge.txt"
-partition = "iid" #dirichlet
+partition = "dirichlet" #dirichlet
+fraction = 8
 
 [tool.flwr.federations]
 default = "local-simulation"
 
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 3
+options.num-supernodes = 400
