@@ -21,7 +21,3 @@ def old_in_round(num_rounds, num_vehicles, round):
     a = max((int( (num_vehicles * round) / num_rounds ) + 1), 2)
 
     return min(a, num_vehicles)
-
-
-for x in range(1, 11):
-    print(vehicles_in_round(10, 400, x, 8))
