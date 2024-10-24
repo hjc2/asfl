@@ -131,9 +131,9 @@ class FedCustom(FedAvg):
         random.seed = server_round
 
         advlog(self.adv_log, lambda: log(CRITICAL, "CID_LIST LEN " + str(len(CID_LIST))))
-        advlog(self.adv_log, lambda: log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round))))
+        advlog(self.adv_log, lambda: log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))))
 
-        self.good_cid_list = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
+        self.good_cid_list = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
         
         if(self.cid_ll == [] and server_round == 1):
             self.cid_ll.append((0, CID_LIST))
