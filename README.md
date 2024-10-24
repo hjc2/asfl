@@ -94,4 +94,4 @@ Plotting
 
 ![screenshot](.github/Figure_1.svg)
 ![screenshot](.github/Figure_2.svg)
-![screenshot](.github/Figure_4.svg)
+![screenshot](.github/Figure_5.svg)
