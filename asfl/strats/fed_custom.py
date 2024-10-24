@@ -67,7 +67,7 @@ class FedCustom(FedAvg):
         num_rounds: int = 1,
         cid_ll: List[Tuple[int, List[int]]] = [],
         adv_log: bool = False,
-        fraction = 2
+        fraction: int = 2,
     ) -> None:
         super().__init__()
 
@@ -103,6 +103,8 @@ class FedCustom(FedAvg):
     ) -> List[Tuple[ClientProxy, FitIns]]:
         """Configure the next round of training."""
         config = {}
+
+        log(WARNING, "fraction: " + str(self.fraction))        
 
         if self.on_fit_config_fn is not None:
             # Custom fit config function provided
