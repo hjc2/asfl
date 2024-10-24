@@ -104,7 +104,7 @@ class FedCustom(FedAvg):
         """Configure the next round of training."""
         config = {}
 
-        log(WARNING, "fraction: " + str(self.fraction))        
+        # log(WARNING, "fraction: " + str(self.fraction))        
 
         if self.on_fit_config_fn is not None:
             # Custom fit config function provided
