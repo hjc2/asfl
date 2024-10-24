@@ -8,13 +8,14 @@ from flwr.common import Context, ndarrays_to_parameters
 from flwr.server import ServerApp, ServerAppComponents, ServerConfig
 from asfl.task import Net, get_weights
 
-# from .strats.dvsaa_afl import FedCustom
 from .strats.federal_avg import FederalAvg
-from .strats.fed_agg import FedAgg
 from .strats.fed_acc import FedAcc
 from .strats.fed_loss import FedLoss
 from .strats.fed_fuzz import FedFuzz
 from .strats.fed_equal import FedEqual
+from .strats.fed_variance import FedVariance
+from .strats.fed_freq import FedFreq
+from .strats.fed_double import FedDouble
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -25,7 +26,7 @@ from flwr.common import (
     ndarrays_to_parameters,
 )
 
-
+RAY_DEDUP_LOGS=0
 
 # Initialize model parameters
 ndarrays = get_weights(Net())
@@ -36,11 +37,13 @@ def create_strategy(strat_mode, parameters, set_num_rounds, inplace_setter, adv_
     
     strategies = {
         'fed_avg': FederalAvg,
-        # 'fed_agg': FedAgg,
         'fed_acc': FedAcc,
         'fed_loss': FedLoss,
         'fed_fuzz': FedFuzz,
+        'fed_freq': FedFreq,
         'fed_equal': FedEqual,
+        'fed_variance': FedVariance,
+        'fed_double': FedDouble,
     }
 
     if strat_mode not in strategies:

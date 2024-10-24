@@ -31,10 +31,10 @@ inplace = true
 file-writing = true
 adv-logs = false
 log-path = "FedEqualLarge.txt"
-partition = "iid"
+partition = "iid" #dirichlet
 
 [tool.flwr.federations]
 default = "local-simulation"
 
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 5
+options.num-supernodes = 3

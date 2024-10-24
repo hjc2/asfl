@@ -4,6 +4,8 @@ from flwr.common import ndarrays_to_parameters
 ### THIS IS FED AVG, BUT IT HAS DIFFERENT 
 
 from typing import Union, Dict, List, Optional, Tuple
+from flwr.common.logger import log
+from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 
 from flwr.common import (
     FitRes,
@@ -31,15 +33,12 @@ class FedAcc(FedCustom):
         if not self.accept_failures and failures:
             return None, {}
 
-        # structure [(CID, {accuracy, loss})]
-        metrics_list = [(client_proxy.cid, fit_res.metrics) for client_proxy, fit_res in results]
-
         #Accuracy based weighting
         weights_results = [
             (parameters_to_ndarrays(fit_res.parameters), fit_res.metrics['accuracy'])
             for _, fit_res in results
         ]
-
+            
         aggregated_ndarrays = aggregate(weights_results)
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
