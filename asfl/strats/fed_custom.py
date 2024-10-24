@@ -66,7 +66,8 @@ class FedCustom(FedAvg):
         inplace: bool = True,
         num_rounds: int = 1,
         cid_ll: List[Tuple[int, List[int]]] = [],
-        adv_log: bool = False
+        adv_log: bool = False,
+        fraction: int = 2,
     ) -> None:
         super().__init__()
 
@@ -94,12 +95,16 @@ class FedCustom(FedAvg):
                             # used for tracking how long since it was included
         self.good_cid_list = []
         self.adv_log = adv_log
+        self.fraction = fraction
+
 
     def configure_fit(
         self, server_round: int, parameters: Parameters, client_manager: ClientManager
     ) -> List[Tuple[ClientProxy, FitIns]]:
         """Configure the next round of training."""
         config = {}
+
+        # log(WARNING, "fraction: " + str(self.fraction))        
 
         if self.on_fit_config_fn is not None:
             # Custom fit config function provided
@@ -126,9 +131,9 @@ class FedCustom(FedAvg):
         random.seed = server_round
 
         advlog(self.adv_log, lambda: log(CRITICAL, "CID_LIST LEN " + str(len(CID_LIST))))
-        advlog(self.adv_log, lambda: log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round))))
+        advlog(self.adv_log, lambda: log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))))
 
-        self.good_cid_list = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round))
+        self.good_cid_list = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
         
         if(self.cid_ll == [] and server_round == 1):
             self.cid_ll.append((0, CID_LIST))

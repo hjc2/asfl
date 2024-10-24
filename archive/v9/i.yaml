@@ -1,8 +1,8 @@
 server_configuration:
   num_server_rounds: 800
   local_epochs: 3
-  num_supernodes: 50
+  num_supernodes: 400
   partition: "dirichlet"
-  fraction: 2
+  fraction: 8
 
 # flower-simulation --app . --num-supernodes 50 --run-config 'num-server-rounds=800 strat-mode="fed_double" local-epochs=3 partition="dirichlet"'

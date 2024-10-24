@@ -3,3 +3,4 @@ server_configuration:
   local_epochs: 1
   num_supernodes: 10
   partition: "dirichlet"
+  fraction: 2

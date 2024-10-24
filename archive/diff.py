@@ -32,6 +32,7 @@ def main():
     local_epochs = config['server_configuration']['local_epochs']
     num_supernodes = config['server_configuration']['num_supernodes']
     partitioner = config['server_configuration']['partition']
+    fraction = config['server_configuration']['fraction']
 
     reference_data = pd.read_csv(reference_file)
     csv_files = glob.glob(os.path.join(directory, '*.csv'))
@@ -94,7 +95,8 @@ def main():
     # Add YAML configuration information to the plot
     config_text = (f"Num Server Rounds: {num_server_rounds}\n"
                    f"Local Epochs: {local_epochs}\n"
-                   f"Num Supernodes: {num_supernodes}")
+                   f"Num Supernodes: {num_supernodes}"
+                   f"Fraction: {fraction}")
     ax.text(0.95, 0.05, config_text, transform=ax.transAxes, 
             fontsize=10, verticalalignment='bottom', horizontalalignment='right',
             bbox=dict(boxstyle='round,pad=0.5', edgecolor='black', facecolor='lightgrey'))

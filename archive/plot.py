@@ -41,6 +41,7 @@ def main():
     local_epochs = config['server_configuration']['local_epochs']
     num_supernodes = config['server_configuration']['num_supernodes']
     partitioner = config['server_configuration']['partition']
+    fraction = config['server_configuration']['fraction']
 
     # Directory containing your CSV files (change this as needed)
     csv_directory = dir + '*.csv'  # Use a wildcard to match all CSV files
@@ -93,7 +94,8 @@ def main():
     # Add YAML configuration information to the plot
     config_text = (f"Num Server Rounds: {num_server_rounds}\n"
                 f"Local Epochs: {local_epochs}\n"
-                f"Num Supernodes: {num_supernodes}")
+                f"Num Supernodes: {num_supernodes}"
+                f"Fraction: {fraction}")
     plt.text(0.05, 0.95, config_text, transform=plt.gca().transAxes, 
     fontsize=10, verticalalignment='top', bbox=dict(boxstyle='round,pad=0.5', edgecolor='black', facecolor='lightgrey'))
 
