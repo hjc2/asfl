@@ -3,3 +3,4 @@ server_configuration:
   local_epochs: 1
   num_supernodes: 50
   partition: "iid"
+  fraction: 2
