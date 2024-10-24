@@ -33,7 +33,7 @@ RAY_DEDUP_LOGS=0
 ndarrays = get_weights(Net())
 parameters = ndarrays_to_parameters(ndarrays)
 
-def create_strategy(strat_mode, parameters, set_num_rounds, inplace_setter, adv_log_setter, fit_config, fraction_setter=2):
+def create_strategy(strat_mode, parameters, set_num_rounds, inplace_setter, adv_log_setter, fit_config, fraction_setter):
     """Factory function to create the appropriate strategy based on the strat_mode."""
     
     strategies = {
@@ -99,6 +99,7 @@ def server_fn(context: Context):
     log(INFO, "config num local epochs " + str(local_epochs))
     log(INFO, "advanced logging " + str(adv_log_setter))
     log(INFO, "partition: " + context.run_config["partition"])
+    log(INFO, "fraction: " + str(fraction_setter))
 
 
     config = ServerConfig(num_rounds=num_rounds)
