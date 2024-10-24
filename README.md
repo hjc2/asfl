@@ -44,6 +44,10 @@ Advanced simulation
 
 ```bash
 flower-simulation --app . --num-supernodes 50 --run-config 'num-server-rounds=800 strat-mode="fed_variance" local-epochs=1'
+
+flower-simulation --app . --num-supernodes 200 --run-config 'num-server-rounds=1600 strat-mode="fed_variance" local-epochs=3'
+flower-simulation --app . --num-supernodes 200 --run-config 'num-server-rounds=1600 strat-mode="fed_avg" local-epochs=3'
+
 ```
 
 ## Current strategies
@@ -90,4 +94,4 @@ Plotting
 
 ![screenshot](.github/Figure_1.svg)
 ![screenshot](.github/Figure_2.svg)
-![screenshot](.github/Figure_3.svg)
+![screenshot](.github/Figure_4.svg)

@@ -16,7 +16,7 @@ def aggregate(results: List[Tuple[NDArrays, int]]) -> NDArrays:
     weighted_test = [
         weight for _, weight in results
     ]
-    log(INFO, "weighted test: " + str(weighted_test))
+    # log(INFO, "weighted test: " + str(weighted_test))
 
     # Create a list of weights, each multiplied by the related number of examples
     weighted_weights = [
