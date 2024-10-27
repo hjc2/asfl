@@ -1,0 +1,2 @@
+flower-simulation --app . --num-supernodes 400 --run-config 'num-server-rounds=200 local-epochs=10 partition="dirichlet" fraction=16 strat-mode="fed_avg"'
+
