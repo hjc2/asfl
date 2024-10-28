@@ -150,8 +150,8 @@ class FedCustom(FedAvg):
 
         advlog(self.adv_log, lambda: log(ERROR, "sample size " + str(sample_size)))
         
-        # custom = CustomCriterion(self.good_cid_list)
-        custom = EvalAll()
+        custom = CustomCriterion(self.good_cid_list)
+        # custom = EvalAll()
 
         clients = client_manager.sample(
             num_clients=sample_size,
@@ -177,7 +177,8 @@ class FedCustom(FedAvg):
             config = self.on_evaluate_config_fn(server_round)
         evaluate_ins = EvaluateIns(parameters, config)
 
-        custom = CustomCriterion(self.good_cid_list)
+        # custom = CustomCriterion(self.good_cid_list)
+        custom = EvalAll()
 
         _, min_num_clients = self.num_fit_clients(
             client_manager.num_available()
