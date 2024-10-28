@@ -31,29 +31,6 @@ class FedAdaptive(FedCustom):
         self.client_history = {}
         self.round_metrics = {}
 
-class FedAdaptive(FedCustom):
-    def __init__(
-        self,
-        *args,
-        num_samples_weight: float = 0.3,
-        label_var_weight: float = 0.2,
-        accuracy_weight: float = 0.3,
-        freq_weight: float = 0.2,
-        smoothing_alpha: float = 0.9,  # New parameter for smoothing
-        **kwargs,
-    ):
-        super().__init__(*args, **kwargs)
-        self.metric_weights = {
-            "num_samples": num_samples_weight,
-            "label_var": label_var_weight,
-            "accuracy": accuracy_weight,
-            "freq": freq_weight,
-        }
-        self.client_history = {}
-        self.round_metrics = {}
-        self.smoothing_alpha = smoothing_alpha
-        self.previous_weights = None  # To store previous weights for smoothing
-
     def _normalize_metric(self, values: List[float]) -> List[float]:
         """Normalize values to range [0, 1]."""
         min_val = min(values)
@@ -61,7 +38,6 @@ class FedAdaptive(FedCustom):
         if max_val == min_val:
             return [1.0] * len(values)
         return [(v - min_val) / (max_val - min_val) for v in values]
-
 
     def _calculate_adaptive_weights(
         self,
@@ -99,16 +75,8 @@ class FedAdaptive(FedCustom):
 
         # Normalize final weights
         weights = weights / np.sum(weights)
-
-        # Apply exponential moving average for smoothing
-        if self.previous_weights is not None:
-            weights = self.smoothing_alpha * np.array(self.previous_weights) + (1 - self.smoothing_alpha) * weights
-
-        # Update previous weights
-        self.previous_weights = weights.tolist()
-
         return weights.tolist()
-    
+
     def aggregate_fit(
         self,
         server_round: int,
