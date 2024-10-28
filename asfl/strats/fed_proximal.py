@@ -1,6 +1,9 @@
 from flwr.common import ndarrays_to_parameters
 from typing import Union, Dict, List, Optional, Tuple
 from flwr.common.logger import log
+from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
+import numpy as np
+
 from flwr.common import (
     FitRes,
     Parameters,
