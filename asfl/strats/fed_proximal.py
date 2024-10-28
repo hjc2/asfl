@@ -19,7 +19,7 @@ from flwr.server.client_proxy import ClientProxy
 from .fed_custom import FedCustom
 from .dat import aggregate
 
-class FedAcc(FedCustom):
+class FedProximal(FedCustom):
     def aggregate_fit(
         self,
         server_round: int,
