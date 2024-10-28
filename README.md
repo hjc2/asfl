@@ -16,6 +16,16 @@ source venv/Scripts/activate # windows
 pip install . --no-cache-dir
 ```
 
+## fixing venv
+```bash
+rm -r venv/
+
+# repeat creation of venv
+# repeat install dependencies
+
+pip install ray==2.31.0 # or lowest version available
+```
+
 ## Setup the toml configuration
 
 ```toml

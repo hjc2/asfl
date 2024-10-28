@@ -1,0 +1,6 @@
+server_configuration:
+  num_server_rounds: 1000
+  local_epochs: 10
+  num_supernodes: 400
+  partition: "iid"
+  fraction: 32
