@@ -59,9 +59,9 @@ class ResidualBlock(nn.Module):
         out = F.relu(out)
         return out
 
-class ImprovedNet(nn.Module):
+class Net(nn.Module):
     def __init__(self, num_classes=10):
-        super(ImprovedNet, self).__init__()
+        super(Net, self).__init__()
         self.in_channels = 64
         
         self.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
