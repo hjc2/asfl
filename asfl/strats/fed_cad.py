@@ -9,9 +9,9 @@ from flwr.common import (
 )
 from flwr.server.client_proxy import ClientProxy
 from .dat import aggregate, track_node_frequency
-from .fed_custom import FedCustom
+from .fed_adaptive import FedAdaptive
 
-class FedCad(FedCustom):
+class FedCad(FedAdaptive):
     def __init__(
         self,
         *args,

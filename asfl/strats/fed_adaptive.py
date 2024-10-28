@@ -19,7 +19,6 @@ class FedAdaptive(FedCustom):
         label_var_weight: float = 0.2,
         accuracy_weight: float = 0.3,
         freq_weight: float = 0.2,
-        trim_fraction: float = 0.1,  # Fraction of models to trim
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
@@ -29,9 +28,54 @@ class FedAdaptive(FedCustom):
             "accuracy": accuracy_weight,
             "freq": freq_weight,
         }
-        self.trim_fraction = trim_fraction  # Store the fraction for trimming
         self.client_history = {}
         self.round_metrics = {}
+
+    def _normalize_metric(self, values: List[float]) -> List[float]:
+        """Normalize values to range [0, 1]."""
+        min_val = min(values)
+        max_val = max(values)
+        if max_val == min_val:
+            return [1.0] * len(values)
+        return [(v - min_val) / (max_val - min_val) for v in values]
+
+    def _calculate_adaptive_weights(
+        self,
+        results: List[Tuple[ClientProxy, FitRes]],
+        freq_appearance: Dict[str, int],
+    ) -> List[float]:
+        """Calculate adaptive weights based on multiple metrics."""
+        metrics = {
+            "num_samples": [],
+            "label_var": [],
+            "accuracy": [],
+            "freq": [],
+        }
+
+        # Extract metrics from results
+        for client_proxy, fit_res in results:
+            client_id = client_proxy.cid
+            metrics["num_samples"].append(fit_res.num_examples)
+            metrics["label_var"].append(fit_res.metrics.get("label_variance", 0.0))
+            metrics["accuracy"].append(fit_res.metrics.get("accuracy", 0.0))
+            metrics["freq"].append(freq_appearance.get(client_id, 0))
+
+        # Normalize all metrics
+        normalized_metrics = {
+            k: self._normalize_metric(v) for k, v in metrics.items()
+        }
+
+        # Calculate final weights
+        weights = np.zeros(len(results))
+        for metric_name, norm_values in normalized_metrics.items():
+            if metric_name == "label_var":
+                # Inverse weight for label variance (lower is better)
+                norm_values = [1 - v for v in norm_values]
+            weights += np.array(norm_values) * self.metric_weights[metric_name]
+
+        # Normalize final weights
+        weights = weights / np.sum(weights)
+        return weights.tolist()
 
     def aggregate_fit(
         self,
@@ -39,7 +83,7 @@ class FedAdaptive(FedCustom):
         results: List[Tuple[ClientProxy, FitRes]],
         failures: List[Union[Tuple[ClientProxy, FitRes], BaseException]],
     ) -> Tuple[Optional[Parameters], Dict[str, Scalar]]:
-        """Aggregate model weights using adaptive weighting strategy with trimming of the bottom models."""
+        """Aggregate model weights using adaptive weighting strategy."""
         if not results:
             return None, {}
         if not self.accept_failures and failures:
@@ -59,7 +103,7 @@ class FedAdaptive(FedCustom):
 
         # Aggregate parameters
         aggregated_weights = aggregate(weights_results)
-
+        
         # Convert weights to parameters
         parameters_aggregated = ndarrays_to_parameters(aggregated_weights)
 
