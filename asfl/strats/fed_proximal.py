@@ -1,9 +1,10 @@
+from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
+from flwr.common.logger import log
+
 from flwr.common import ndarrays_to_parameters
+import numpy as np
 from typing import Union, Dict, List, Optional, Tuple
 from flwr.common.logger import log
-from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
-import numpy as np
-
 from flwr.common import (
     FitRes,
     Parameters,
@@ -46,14 +47,14 @@ class FedProximal(FedCustom):
         if total_weight == 0:
             return None, {}
 
-        # Compute the aggregated parameters with proximal adjustment
-        aggregated_ndarrays = []
-        for param_ndarrays, weight, client_params in weights_results:
-            if aggregated_ndarrays == []:
-                aggregated_ndarrays = [np.zeros_like(param) for param in param_ndarrays]
+        # Initialize aggregated_ndarrays for aggregation
+        aggregated_ndarrays = [np.zeros_like(param) for param in weights_results[0][0]]
 
+        # Compute the aggregated parameters with proximal adjustment
+        for param_ndarrays, weight, client_params in weights_results:
+            client_params_ndarrays = parameters_to_ndarrays(client_params)
             for i in range(len(param_ndarrays)):
-                aggregated_ndarrays[i] += (weight / total_weight) * (param_ndarrays[i] - np.array(client_params[i])) + (self.mu * np.array(client_params[i]))
+                aggregated_ndarrays[i] += (weight / total_weight) * (param_ndarrays[i] - client_params_ndarrays[i]) + (self.mu * client_params_ndarrays[i])
 
         parameters_aggregated = ndarrays_to_parameters(aggregated_ndarrays)
 
