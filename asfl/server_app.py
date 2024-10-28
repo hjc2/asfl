@@ -19,7 +19,6 @@ from .strats.fed_double import FedDouble
 from .strats.fed_trust import FedTrust
 from .strats.fed_adaptive import FedAdaptive
 from .strats.fed_trim import FedTrim # trimmed avg
-from .strats.fed_proximal import FedProximal # fed prox
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -51,7 +50,6 @@ def create_strategy(strat_mode, parameters, set_num_rounds, inplace_setter, adv_
         'fed_trust': FedTrust,
         'fed_adaptive': FedAdaptive,
         'fed_trim': FedTrim,
-        'fed_proximal': FedProximal, # FED PROX
     }
 
     if strat_mode not in strategies:
