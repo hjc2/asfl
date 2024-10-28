@@ -105,26 +105,26 @@ class Net(nn.Module):
 
 def load_data(node_config, partition_id: int, num_partitions: int):
     """Load partition CIFAR10 data with augmentation."""
-    global fds
-    if fds is None:
-        if node_config["partition"] == "dirichlet":
-            partitioner = DirichletPartitioner(
-                num_partitions=num_partitions,
-                partition_by="label",
-                alpha=0.5,
-                min_partition_size=10,
-                self_balancing=True,
-                seed=42
-            )
-        elif node_config["partition"] == "iid":
-            partitioner = IidPartitioner(num_partitions=num_partitions)
-        else:
-            raise ValueError(f"Invalid partitioner: {node_config['partition']}")
-            
-        fds = FederatedDataset(
-            dataset="uoft-cs/cifar10",
-            partitioners={"train": partitioner},
+    # Create partitioner for each call
+    if node_config["partition"] == "dirichlet":
+        partitioner = DirichletPartitioner(
+            num_partitions=num_partitions,
+            partition_by="label",
+            alpha=0.5,
+            min_partition_size=10,
+            self_balancing=True,
+            seed=42
         )
+    elif node_config["partition"] == "iid":
+        partitioner = IidPartitioner(num_partitions=num_partitions)
+    else:
+        raise ValueError(f"Invalid partitioner: {node_config['partition']}")
+        
+    # Create new FederatedDataset each time
+    fds = FederatedDataset(
+        dataset="uoft-cs/cifar10",
+        partitioners={"train": partitioner},
+    )
 
     partition = fds.load_partition(partition_id)
     partition_train_test = partition.train_test_split(test_size=0.2, seed=42)
@@ -167,26 +167,24 @@ def load_data(node_config, partition_id: int, num_partitions: int):
     train_data = partition_train_test["train"].with_transform(apply_train_transforms)
     test_data = partition_train_test["test"].with_transform(apply_test_transforms)
     
-    trainloader = DataLoader(train_data, batch_size=128, shuffle=True, num_workers=2, pin_memory=True)
-    testloader = DataLoader(test_data, batch_size=128, num_workers=2, pin_memory=True)
+    # Reduced batch size and removed num_workers/pin_memory
+    trainloader = DataLoader(train_data, batch_size=32, shuffle=True)
+    testloader = DataLoader(test_data, batch_size=32)
     
     return trainloader, testloader, label_variance
 
 def train(net, trainloader, valloader, epochs, device):
-    """Train the model with improved training process."""
+    """Train the model with improved training process but lower memory usage."""
     net.to(device)
     criterion = nn.CrossEntropyLoss().to(device)
     
-    # Cosine annealing learning rate scheduler
     optimizer = torch.optim.AdamW(net.parameters(), lr=0.001, weight_decay=5e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
     
     best_val_acc = 0.0
-    best_state_dict = None
     
     for epoch in range(epochs):
         net.train()
-        running_loss = 0.0
         
         for batch in trainloader:
             images = batch["img"].to(device)
@@ -200,22 +198,18 @@ def train(net, trainloader, valloader, epochs, device):
             torch.nn.utils.clip_grad_norm_(net.parameters(), max_norm=1.0)
             optimizer.step()
             
-            running_loss += loss.item()
+            # Clear some memory
+            del images, labels, outputs, loss
             
         scheduler.step()
         
         # Validation phase
         val_loss, val_acc = test(net, valloader)
         
-        # Save best model
+        # Only save accuracy value, not the whole model
         if val_acc > best_val_acc:
             best_val_acc = val_acc
-            best_state_dict = {k: v.cpu() for k, v in net.state_dict().items()}
 
-    # Restore best model
-    if best_state_dict is not None:
-        net.load_state_dict(best_state_dict)
-    
     train_loss, train_acc = test(net, trainloader)
     val_loss, val_acc = test(net, valloader)
 
