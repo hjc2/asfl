@@ -6,4 +6,4 @@ server_configuration:
   partition: "iid"
   fraction: 16
 
-# # flower-simulation --app . --num-supernodes 100 --run-config 'num-server-rounds=100 local-epochs=10 partition="iid" fraction=16 strat-mode="fed_avg"'
+# # flower-simulation --app . --num-supernodes 100 --run-config 'num-server-rounds=100 local-epochs=10 partition="dirichlet" fraction=32 strat-mode="fed_avg"'
