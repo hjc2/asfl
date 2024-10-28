@@ -33,7 +33,7 @@ file-writing = true
 adv-logs = false
 log-path = "FedEqualLarge.txt"
 partition = "dirichlet" #dirichlet
-fraction = 8
+fraction = 2
 
 [tool.flwr.federations]
 default = "local-simulation"

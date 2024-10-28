@@ -11,7 +11,7 @@ from flwr.server.client_proxy import ClientProxy
 from .dat import aggregate, track_node_frequency
 from .fed_custom import FedCustom
 
-class FedAdaptive(FedCustom):
+class FedCad(FedCustom):
     def __init__(
         self,
         *args,
@@ -48,13 +48,30 @@ class FedAdaptive(FedCustom):
         # Track client frequencies
         freq_appearance = track_node_frequency(self.cid_ll)
 
+        # Sort results by accuracy
+        sorted_results = sorted(
+            results,
+            key=lambda x: x[1].metrics.get("accuracy", 0.0),
+            reverse=True
+        )
+
+        # Calculate the number of models to trim
+        num_to_trim = max(1, int(len(sorted_results) * self.trim_fraction))
+
+        # Filter out the bottom 10% of models
+        trimmed_results = sorted_results[:-num_to_trim]
+
+        # If no clients are left after trimming, return None
+        if not trimmed_results:
+            return None, {}
+
         # Calculate adaptive weights
-        adaptive_weights = self._calculate_adaptive_weights(results, freq_appearance)
+        adaptive_weights = self._calculate_adaptive_weights(trimmed_results, freq_appearance)
 
         # Extract parameters and num_examples
         weights_results = [
             (parameters_to_ndarrays(fit_res.parameters), adaptive_weights[idx])
-            for idx, (_, fit_res) in enumerate(results)
+            for idx, (_, fit_res) in enumerate(trimmed_results)
         ]
 
         # Aggregate parameters
@@ -65,7 +82,7 @@ class FedAdaptive(FedCustom):
 
         # Calculate metrics for monitoring
         metrics = {
-            "num_clients": len(results),
+            "num_clients": len(trimmed_results),
             "avg_weight": float(np.mean(adaptive_weights)),
             "std_weight": float(np.std(adaptive_weights)),
         }

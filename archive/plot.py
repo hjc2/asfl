@@ -72,7 +72,7 @@ def main():
         
         # Plot each relevant column
         for col in columns_to_plot:
-            plt.plot(data['round'], data[col], marker='o', linestyle='-', label=f"{label} - {col}")
+            plt.plot(data['round'], data[col], marker='', linestyle='-', label=f"{label} - {col}")
 
     # Adding title and labels after all plots
     plt.title(f"Partitioner: {partitioner}", fontsize=16)
