@@ -33,6 +33,7 @@ from torchvision.transforms import (
 )
 
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+fds = None  # Cache FederatedDataset
 
 class ResidualBlock(nn.Module):
     def __init__(self, in_channels, out_channels, stride=1):
