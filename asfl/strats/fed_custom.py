@@ -72,6 +72,7 @@ class FedCustom(FedAvg):
         cid_ll: List[Tuple[int, List[int]]] = [],
         adv_log: bool = False,
         fraction: int = 2,
+        smart_selection: bool = True
     ) -> None:
         super().__init__()
 
@@ -99,6 +100,7 @@ class FedCustom(FedAvg):
         self.good_cid_list = []
         self.adv_log = adv_log
         self.fraction = fraction
+        self.smart_selection = smart_selection
 
 
     def configure_fit(
@@ -139,6 +141,21 @@ class FedCustom(FedAvg):
             for client in CID_LIST
         }
 
+        if self.smart_selection:
+            top_weighted_clients = sorted(
+                self.range_cid_list,
+                key=lambda x: weights_dict[x],
+                reverse=True
+            )[:num_in_round]
+            
+            top_weighted_set = set(top_weighted_clients)
+            log(DEBUG, f"SMART sample")
+        else:
+            random.seed(server_round + 500)  # Different seed for this sampling
+            random_selected = random.sample(self.range_cid_list, num_in_round)
+            top_weighted_set = set(random_selected)
+            log(DEBUG, "random sample")
+
         # Extract weights in the same order as range_cid_list
         weights = [weights_dict[client] for client in self.range_cid_list]
         
@@ -155,6 +172,9 @@ class FedCustom(FedAvg):
             weights=normalized_weights,
             k=num_in_round
         )
+
+        self.good_cid_list = list(top_weighted_set.intersection(set(self.good_cid_list)))
+
         sample_size = len(self.good_cid_list)
         self.cid_ll.append((server_round, self.good_cid_list))
         custom = CustomCriterion(self.good_cid_list)
