@@ -96,7 +96,6 @@ class FedCustom(FedAvg):
         self.inplace = inplace
         self.num_rounds = num_rounds # for poisson
         self.cid_ll = cid_ll # tracks the rounds and the clients selected
-                            # used for tracking how long since it was included
         self.good_cid_list = []
         self.adv_log = adv_log
         self.fraction = fraction
@@ -108,50 +107,57 @@ class FedCustom(FedAvg):
         """Configure the next round of training."""
         config = {}
 
-        # log(WARNING, "fraction: " + str(self.fraction))        
-
         if self.on_fit_config_fn is not None:
-            # Custom fit config function provided
             config = self.on_fit_config_fn(server_round)
         
 
-        # log(CRITICAL, config.)
         fit_ins = FitIns(parameters, config)
 
-        # Sample clients
         _, min_num_clients = self.num_fit_clients(
             client_manager.num_available()
         )
 
         clients = client_manager.all()
         
-        advlog(self.adv_log, lambda: log(CRITICAL, "total num of rounds " + str(self.num_rounds)))
         CID_LIST = []
 
         for x in clients:
             CID_LIST.append(x)
-
-        advlog(self.adv_log, lambda: log(ERROR, "CID_LIST " + str(CID_LIST)))
-        random.seed = server_round
-
-        advlog(self.adv_log, lambda: log(CRITICAL, "CID_LIST LEN " + str(len(CID_LIST))))
-        advlog(self.adv_log, lambda: log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))))
-
-        self.good_cid_list = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
-        
         if(self.cid_ll == [] and server_round == 1):
             self.cid_ll.append((0, CID_LIST))
-            
-        self.cid_ll.append((server_round, self.good_cid_list))
 
-        sample_size = len(self.good_cid_list)
+        random.seed = server_round
 
-        advlog(self.adv_log, lambda: log(ERROR, "FIT: GOOD CID LIST" + str(self.good_cid_list)))
+        num_in_round = vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction)
 
-        advlog(self.adv_log, lambda: log(ERROR, "sample size " + str(sample_size)))
+        num_in_range = num_in_round * 1.5
         
+        self.range_cid_list = random.sample(CID_LIST, num_in_range)
+
+        weights_dict = {
+            client: 0.5 + float(hash(client) % 100) / 200  # Weights between 0.5 and 1.0
+            for client in CID_LIST
+        }
+
+        # Extract weights in the same order as range_cid_list
+        weights = [weights_dict[client] for client in self.range_cid_list]
+        
+        # Normalize weights
+        total_weight = sum(weights)
+        normalized_weights = [w/total_weight for w in weights]
+        
+        # Set seed for reproducibility
+        random.seed(server_round + 1000)  # Different seed for second sampling
+        
+        # Weighted sampling without replacement using random.choices
+        self.good_cid_list = random.choices(
+            population=self.range_cid_list,
+            weights=normalized_weights,
+            k=num_in_round
+        )
+        sample_size = len(self.good_cid_list)
+        self.cid_ll.append((server_round, self.good_cid_list))
         custom = CustomCriterion(self.good_cid_list)
-        # custom = EvalAll()
 
         clients = client_manager.sample(
             num_clients=sample_size,
@@ -161,6 +167,7 @@ class FedCustom(FedAvg):
 
         # Return client/config pairs
         return [(client, fit_ins) for client in clients]
+
     
     def configure_evaluate(
             self, server_round: int, parameters: Parameters, client_manager: ClientManager
