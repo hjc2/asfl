@@ -26,7 +26,7 @@ from flwr.server.criterion import Criterion
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 from .dat import advlog
-import random
+import random as rand
 
 WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW = """
 Setting `min_available_clients` lower than `min_fit_clients` or
@@ -128,7 +128,7 @@ class FedCustom(FedAvg):
         if(self.cid_ll == [] and server_round == 1):
             self.cid_ll.append((0, CID_LIST))
 
-        random.seed = server_round
+        rand.seed(server_round)
 
         # Convert to int explicitly
         num_in_round = int(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
@@ -137,7 +137,7 @@ class FedCustom(FedAvg):
         num_in_range = min(int(num_in_round * 1.5), len(CID_LIST))
         
         # Sample with integer value
-        self.range_cid_list = random.sample(CID_LIST, num_in_range)
+        self.range_cid_list = rand.sample(CID_LIST, num_in_range)
 
         # Create weights dictionary
         weights_dict = {
@@ -158,8 +158,8 @@ class FedCustom(FedAvg):
             top_weighted_set = set(top_weighted_clients)
             log(DEBUG, f"SMART sample")
         else:
-            random.seed(server_round + 500)  # Different seed for this sampling
-            random_selected = random.sample(self.range_cid_list, num_in_round)
+            rand.seed(server_round + 500)  # Different seed for this sampling
+            random_selected = rand.sample(self.range_cid_list, num_in_round)
             top_weighted_set = set(random_selected)
             log(DEBUG, "random sample")
 
@@ -171,10 +171,10 @@ class FedCustom(FedAvg):
         normalized_weights = [w/total_weight for w in weights]
         
         # Set seed for reproducibility
-        random.seed(server_round + 1000)  # Different seed for second sampling
+        rand.seed(server_round + 1000)  # Different seed for second sampling
         
         # Weighted sampling with integer k value
-        self.good_cid_list = random.choices(
+        self.good_cid_list = rand.choices(
             population=self.range_cid_list,
             weights=normalized_weights,
             k=int(num_in_round)
