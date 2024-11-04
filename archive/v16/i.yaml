@@ -1,0 +1,10 @@
+# flower-simulation --app . --num-supernodes 100 --run-config 'num-server-rounds=100 local-epochs=10 partition="dirichlet" fraction=32 strat-mode="fed_avg"'
+
+# this one supposedly had all samples in configure (i don't think so)
+
+server_configuration:
+  num_server_rounds: 100
+  local_epochs: 10
+  num_supernodes: 100
+  partition: "dirichlet"
+  fraction: 32

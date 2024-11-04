@@ -1,0 +1,101 @@
+dv - | INFO flwr 2024-10-28 00:18:28,351 | server_app.py:101 | file writing: True
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server_app.py:102 | running in fed_cad
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server_app.py:103 | min num clients 2
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server_app.py:104 | num server rounds 400
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server_app.py:105 | config num local epochs 20
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server_app.py:106 | advanced logging False
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server_app.py:107 | partition: dirichlet
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server_app.py:108 | fraction: 32
+dv - | INFO flwr 2024-10-28 00:18:28,352 | app.py:74 | Starting Flower ServerApp, config: num_rounds=400, no round_timeout
+dv - | INFO flwr 2024-10-28 00:18:28,352 | app.py:79 | 
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server.py:112 | 
+dv - | INFO flwr 2024-10-28 00:18:28,352 | server.py:113 | [ROUND 1]
+dv - | ERROR flwr 2024-10-28 00:18:28,352 | run_simulation.py:344 | ServerApp thread raised an exception: Sample larger than population or is negative
+dv - | ERROR flwr 2024-10-28 00:18:28,353 | run_simulation.py:345 | Traceback (most recent call last):
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/simulation/run_simulation.py", line 336, in server_th_with_start_checks
+    run_server_app(
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/run_serverapp.py", line 87, in run
+    server_app(driver=driver, context=context)
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server_app.py", line 120, in __call__
+    start_driver(
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/compat/app.py", line 87, in start_driver
+    hist = run_fl(
+           ^^^^^^^
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server.py", line 492, in run_fl
+    hist, elapsed_time = server.fit(
+                         ^^^^^^^^^^^
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server.py", line 115, in fit
+    res_fit = self.fit_round(
+              ^^^^^^^^^^^^^^^
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server.py", line 217, in fit_round
+    client_instructions = self.strategy.configure_fit(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/hcolema1/asfl/asfl/strats/fed_custom.py", line 140, in configure_fit
+    self.good_cid_list = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/random.py", line 430, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+
+dv - | DEBUG flwr 2024-10-28 00:18:28,353 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-10-28 00:18:28,353 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-10-28 00:18:29,862 | state_factory.py:50 | Using InMemoryState
+dv - | DEBUG flwr 2024-10-28 00:18:29,863 | vce_api.py:59 | Registered 400 nodes
+dv - | DEBUG flwr 2024-10-28 00:18:29,923 | vce_api.py:321 | Supported backends: ['ray']
+dv - | DEBUG flwr 2024-10-28 00:18:29,923 | utils.py:48 | Flower SuperNode will load and validate ClientApp `asfl.client_app:app`
+dv - | DEBUG flwr 2024-10-28 00:18:29,926 | utils.py:100 | Loading ClientApp `asfl.client_app:app`
+dv - | DEBUG flwr 2024-10-28 00:18:29,927 | raybackend.py:46 | Initialising: RayBackend
+dv - | DEBUG flwr 2024-10-28 00:18:29,927 | raybackend.py:47 | Backend config: {'init_args': {'logging_level': 30, 'log_to_driver': True}, 'client_resources': {'num_cpus': 2, 'num_gpus': 0}, 'actor': {'tensorflow': 0}}
+dv - | DEBUG flwr 2024-10-28 00:18:33,123 | raybackend.py:141 | Constructed ActorPool with: 12 actors
+dv - | DEBUG flwr 2024-10-28 00:18:33,124 | state_factory.py:50 | Using InMemoryState
+dv - | DEBUG flwr 2024-10-28 00:18:33,125 | ray_actor.py:450 | Terminated 12 actors
+dv - | DEBUG flwr 2024-10-28 00:18:34,523 | raybackend.py:193 | Terminated RayBackend
+dv - | INFO flwr 2024-10-28 00:18:55,105 | server_app.py:101 | file writing: True
+dv - | INFO flwr 2024-10-28 00:18:55,105 | server_app.py:102 | running in fed_cad
+dv - | INFO flwr 2024-10-28 00:18:55,105 | server_app.py:103 | min num clients 2
+dv - | INFO flwr 2024-10-28 00:18:55,105 | server_app.py:104 | num server rounds 400
+dv - | INFO flwr 2024-10-28 00:18:55,105 | server_app.py:105 | config num local epochs 20
+dv - | INFO flwr 2024-10-28 00:18:55,105 | server_app.py:106 | advanced logging False
+dv - | INFO flwr 2024-10-28 00:18:55,105 | server_app.py:107 | partition: dirichlet
+dv - | INFO flwr 2024-10-28 00:18:55,105 | server_app.py:108 | fraction: 32
+dv - | INFO flwr 2024-10-28 00:18:55,105 | app.py:74 | Starting Flower ServerApp, config: num_rounds=400, no round_timeout
+dv - | INFO flwr 2024-10-28 00:18:55,105 | app.py:79 | 
+dv - | INFO flwr 2024-10-28 00:18:55,106 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-10-28 00:18:55,106 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-10-28 00:18:55,106 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-10-28 00:18:55,106 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-10-28 00:18:55,106 | server.py:112 | 
+dv - | INFO flwr 2024-10-28 00:18:55,106 | server.py:113 | [ROUND 1]
+dv - | ERROR flwr 2024-10-28 00:18:55,106 | run_simulation.py:344 | ServerApp thread raised an exception: Sample larger than population or is negative
+dv - | ERROR flwr 2024-10-28 00:18:55,106 | run_simulation.py:345 | Traceback (most recent call last):
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/simulation/run_simulation.py", line 336, in server_th_with_start_checks
+    run_server_app(
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/run_serverapp.py", line 87, in run
+    server_app(driver=driver, context=context)
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server_app.py", line 120, in __call__
+    start_driver(
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/compat/app.py", line 87, in start_driver
+    hist = run_fl(
+           ^^^^^^^
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server.py", line 492, in run_fl
+    hist, elapsed_time = server.fit(
+                         ^^^^^^^^^^^
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server.py", line 115, in fit
+    res_fit = self.fit_round(
+              ^^^^^^^^^^^^^^^
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server.py", line 217, in fit_round
+    client_instructions = self.strategy.configure_fit(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/hcolema1/asfl/asfl/strats/fed_custom.py", line 140, in configure_fit
+    self.good_cid_list = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/random.py", line 430, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+
+dv - | DEBUG flwr 2024-10-28 00:18:55,106 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-10-28 00:18:55,106 | run_simulation.py:353 | Triggered stop event for Simulation Engine.

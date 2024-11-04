@@ -41,14 +41,10 @@ def main():
     csv_files = glob.glob(csv_directory)
 
     plt.figure(figsize=(12, 8))
-
-    all_rounds = None
+    lines = []  # To store line objects for toggling
 
     for csv_file in csv_files:
         data = pd.read_csv(csv_file)
-        
-        if all_rounds is None:
-            all_rounds = data['round']
         
         label = csv_file.split('/')[-1].split('.')[0]
         
@@ -57,24 +53,24 @@ def main():
         for col in columns_to_plot:
             x = data['round']
             y = data[col]
-            # plt.scatter(x, y, label=f"{label} - {col} (Data)")
-            
+
             # Spline interpolation
             x_smooth, y_smooth = create_spline(x, y)
-            plt.plot(x_smooth, y_smooth, linestyle='-', label=f"{label} - {col} (Spline)")
+            line, = plt.plot(x_smooth, y_smooth, linestyle='-', label=f"{label} - {col} (Spline)")
+            lines.append(line)  # Add line to the list
 
     plt.title(f"Partitioner: {partitioner}", fontsize=16)
     plt.suptitle('Accuracy by Round - ' + dir, fontsize=24, y=1.0)
     plt.xlabel('Round')
     plt.ylabel('Accuracy')
     
-    round_mod = round_to_nearest_5_or_10(len(all_rounds) / 10)
-    ticks = [round for round in all_rounds if round % round_mod == 0]
+    round_mod = round_to_nearest_5_or_10(len(data['round']) / 10)
+    ticks = [round for round in data['round'] if round % round_mod == 0]
     if 1 not in ticks:
         ticks = [1] + ticks
     plt.xticks(ticks)
 
-    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    legend = plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
     plt.grid(True)
 
     config_text = (f"Num Server Rounds: {num_server_rounds}\n"
@@ -85,6 +81,19 @@ def main():
              fontsize=10, verticalalignment='top', bbox=dict(boxstyle='round,pad=0.5', edgecolor='black', facecolor='lightgrey'))
 
     plt.tight_layout()
+
+    # Set up event handling for toggling lines using legend
+    def on_legend_click(event):
+        # Get the legend item that was clicked
+        for i, line in enumerate(lines):
+            if event.artist == legend.get_lines()[i]:  # Compare clicked artist with legend items
+                line.set_visible(not line.get_visible())
+                legend.get_lines()[i].set_alpha(1.0 if line.get_visible() else 0.2)  # Change legend alpha
+        plt.draw()
+
+    fig = plt.gcf()
+    fig.canvas.mpl_connect('pick_event', on_legend_click)
+
     plt.show()
 
 if __name__ == "__main__":
