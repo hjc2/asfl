@@ -104,7 +104,7 @@ class FedCustom(FedAvg):
 
 
     def configure_fit(
-        self, server_round: int, parameters: Parameters, client_manager: ClientManager
+            self, server_round: int, parameters: Parameters, client_manager: ClientManager
     ) -> List[Tuple[ClientProxy, FitIns]]:
         """Configure the next round of training."""
         config = {}
@@ -112,7 +112,6 @@ class FedCustom(FedAvg):
         if self.on_fit_config_fn is not None:
             config = self.on_fit_config_fn(server_round)
         
-
         fit_ins = FitIns(parameters, config)
 
         _, min_num_clients = self.num_fit_clients(
@@ -125,21 +124,29 @@ class FedCustom(FedAvg):
 
         for x in clients:
             CID_LIST.append(x)
+            
         if(self.cid_ll == [] and server_round == 1):
             self.cid_ll.append((0, CID_LIST))
 
         random.seed = server_round
 
-        num_in_round = vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction)
-
-        num_in_range = num_in_round * 1.5
+        # Convert to int explicitly
+        num_in_round = int(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
         
+        # Ensure num_in_range is an integer and doesn't exceed list length
+        num_in_range = min(int(num_in_round * 1.5), len(CID_LIST))
+        
+        # Sample with integer value
         self.range_cid_list = random.sample(CID_LIST, num_in_range)
 
+        # Create weights dictionary
         weights_dict = {
             client: 0.5 + float(hash(client) % 100) / 200  # Weights between 0.5 and 1.0
             for client in CID_LIST
         }
+
+        # Ensure num_in_round doesn't exceed available clients
+        num_in_round = min(num_in_round, len(self.range_cid_list))
 
         if self.smart_selection:
             top_weighted_clients = sorted(
@@ -166,13 +173,14 @@ class FedCustom(FedAvg):
         # Set seed for reproducibility
         random.seed(server_round + 1000)  # Different seed for second sampling
         
-        # Weighted sampling without replacement using random.choices
+        # Weighted sampling with integer k value
         self.good_cid_list = random.choices(
             population=self.range_cid_list,
             weights=normalized_weights,
-            k=num_in_round
+            k=int(num_in_round)
         )
 
+        # Perform intersection
         self.good_cid_list = list(top_weighted_set.intersection(set(self.good_cid_list)))
 
         sample_size = len(self.good_cid_list)
@@ -182,12 +190,11 @@ class FedCustom(FedAvg):
         clients = client_manager.sample(
             num_clients=sample_size,
             min_num_clients=min_num_clients,
-            criterion=custom, # Pass custom criterion here
+            criterion=custom,
         )
 
         # Return client/config pairs
         return [(client, fit_ins) for client in clients]
-
     
     def configure_evaluate(
             self, server_round: int, parameters: Parameters, client_manager: ClientManager
