@@ -8,4 +8,4 @@ server_configuration:
 
 
 
-# flower-simulation --app . --num-supernodes 300 --run-config 'num-server-rounds=400 local-epochs=3 partition="dirichlet" fraction=2 strat-mode="fed_avg"'
+# flower-simulation --app . --num-supernodes 200 --run-config 'num-server-rounds=400 local-epochs=3 partition="dirichlet" fraction=2 strat-mode="fed_avg"'
