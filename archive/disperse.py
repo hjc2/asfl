@@ -58,7 +58,7 @@ def main():
         data = pd.read_csv(csv_file)
         
         # Sample every 10th point
-        data = data.iloc[::10].copy()
+        data = data.iloc[::5].copy()
         
         # Store round numbers for setting x-ticks later
         if all_rounds is None:
