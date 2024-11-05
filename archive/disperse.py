@@ -57,8 +57,8 @@ def main():
         # Load the CSV data into a DataFrame
         data = pd.read_csv(csv_file)
         
-        # Decimate the data to only include every 10th point
-        data = data.iloc[::10].copy()
+        # Sample every 10th point
+        data = data.iloc[::5].copy()
         
         # Store round numbers for setting x-ticks later
         if all_rounds is None:
@@ -72,7 +72,7 @@ def main():
         
         # Plot each relevant column
         for col in columns_to_plot:
-            plt.plot(data['round'], data[col], marker='o', linestyle='-', label=f"{label} - {col}")
+            plt.plot(data['round'], data[col], marker='', linestyle='-', label=f"{label} - {col}")
 
     # Adding title and labels
     plt.title(f"Partitioner: {partitioner}", fontsize=16)
