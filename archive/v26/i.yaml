@@ -1,10 +1,6 @@
 server_configuration:
   num_server_rounds: 200
-200
   local_epochs: 5
-5
   num_supernodes: 200
-  partition: "iid
-dirichlet"
+  partition: "dirlichet"
   fraction: 2
-2
