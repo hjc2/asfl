@@ -1,0 +1,1487 @@
+dv - | INFO flwr 2024-11-06 17:17:47,825 | server_app.py:101 | file writing: True
+dv - | INFO flwr 2024-11-06 17:17:47,825 | server_app.py:102 | running in fed_cad
+dv - | INFO flwr 2024-11-06 17:17:47,825 | server_app.py:103 | min num clients 2
+dv - | INFO flwr 2024-11-06 17:17:47,826 | server_app.py:104 | num server rounds 100
+dv - | INFO flwr 2024-11-06 17:17:47,826 | server_app.py:105 | config num local epochs 5
+dv - | INFO flwr 2024-11-06 17:17:47,826 | server_app.py:106 | advanced logging False
+dv - | INFO flwr 2024-11-06 17:17:47,826 | server_app.py:107 | partition: dirichlet
+dv - | INFO flwr 2024-11-06 17:17:47,826 | server_app.py:108 | fraction: 2
+dv - | INFO flwr 2024-11-06 17:17:47,826 | app.py:74 | Starting Flower ServerApp, config: num_rounds=100, no round_timeout
+dv - | INFO flwr 2024-11-06 17:17:47,826 | app.py:79 | 
+dv - | INFO flwr 2024-11-06 17:17:47,826 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-11-06 17:17:47,826 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-11-06 17:17:47,826 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-11-06 17:17:47,826 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-11-06 17:17:47,826 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:17:47,826 | server.py:113 | [ROUND 1]
+dv - | DEBUG flwr 2024-11-06 17:17:47,826 | fed_custom.py:159 | SMART sample
+dv - | ERROR flwr 2024-11-06 17:17:47,826 | run_simulation.py:344 | ServerApp thread raised an exception: list index out of range
+dv - | ERROR flwr 2024-11-06 17:17:47,827 | run_simulation.py:345 | Traceback (most recent call last):
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/simulation/run_simulation.py", line 336, in server_th_with_start_checks
+    run_server_app(
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/run_serverapp.py", line 87, in run
+    server_app(driver=driver, context=context)
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server_app.py", line 120, in __call__
+    start_driver(
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/compat/app.py", line 87, in start_driver
+    hist = run_fl(
+           ^^^^^^^
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server.py", line 492, in run_fl
+    hist, elapsed_time = server.fit(
+                         ^^^^^^^^^^^
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server.py", line 115, in fit
+    res_fit = self.fit_round(
+              ^^^^^^^^^^^^^^^
+  File "/users/hcolema1/asfl/venv/lib64/python3.12/site-packages/flwr/server/server.py", line 217, in fit_round
+    client_instructions = self.strategy.configure_fit(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/hcolema1/asfl/asfl/strats/fed_custom.py", line 177, in configure_fit
+    self.good_cid_list = rand.choices(
+                         ^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/random.py", line 481, in choices
+    total = cum_weights[-1] + 0.0   # convert to float
+            ~~~~~~~~~~~^^^^
+IndexError: list index out of range
+
+dv - | DEBUG flwr 2024-11-06 17:17:47,827 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-11-06 17:17:47,827 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-11-06 17:17:49,413 | state_factory.py:50 | Using InMemoryState
+dv - | DEBUG flwr 2024-11-06 17:17:49,413 | vce_api.py:59 | Registered 100 nodes
+dv - | DEBUG flwr 2024-11-06 17:17:49,427 | vce_api.py:321 | Supported backends: ['ray']
+dv - | DEBUG flwr 2024-11-06 17:17:49,428 | utils.py:48 | Flower SuperNode will load and validate ClientApp `asfl.client_app:app`
+dv - | DEBUG flwr 2024-11-06 17:17:49,428 | utils.py:100 | Loading ClientApp `asfl.client_app:app`
+dv - | DEBUG flwr 2024-11-06 17:17:49,428 | raybackend.py:46 | Initialising: RayBackend
+dv - | DEBUG flwr 2024-11-06 17:17:49,428 | raybackend.py:47 | Backend config: {'init_args': {'logging_level': 30, 'log_to_driver': True}, 'client_resources': {'num_cpus': 2, 'num_gpus': 0}, 'actor': {'tensorflow': 0}}
+dv - | DEBUG flwr 2024-11-06 17:17:51,482 | raybackend.py:141 | Constructed ActorPool with: 12 actors
+dv - | DEBUG flwr 2024-11-06 17:17:51,482 | state_factory.py:50 | Using InMemoryState
+dv - | DEBUG flwr 2024-11-06 17:17:51,483 | ray_actor.py:450 | Terminated 12 actors
+dv - | DEBUG flwr 2024-11-06 17:17:52,808 | raybackend.py:193 | Terminated RayBackend
+dv - | INFO flwr 2024-11-06 17:18:17,471 | server_app.py:101 | file writing: True
+dv - | INFO flwr 2024-11-06 17:18:17,471 | server_app.py:102 | running in fed_cad
+dv - | INFO flwr 2024-11-06 17:18:17,471 | server_app.py:103 | min num clients 2
+dv - | INFO flwr 2024-11-06 17:18:17,471 | server_app.py:104 | num server rounds 100
+dv - | INFO flwr 2024-11-06 17:18:17,471 | server_app.py:105 | config num local epochs 5
+dv - | INFO flwr 2024-11-06 17:18:17,471 | server_app.py:106 | advanced logging False
+dv - | INFO flwr 2024-11-06 17:18:17,471 | server_app.py:107 | partition: dirichlet
+dv - | INFO flwr 2024-11-06 17:18:17,471 | server_app.py:108 | fraction: 2
+dv - | INFO flwr 2024-11-06 17:18:17,471 | app.py:74 | Starting Flower ServerApp, config: num_rounds=100, no round_timeout
+dv - | INFO flwr 2024-11-06 17:18:17,471 | app.py:79 | 
+dv - | INFO flwr 2024-11-06 17:18:17,472 | server.py:92 | [INIT]
+dv - | INFO flwr 2024-11-06 17:18:17,472 | server.py:277 | Using initial global parameters provided by strategy
+dv - | INFO flwr 2024-11-06 17:18:17,472 | server.py:94 | Starting evaluation of initial global parameters
+dv - | INFO flwr 2024-11-06 17:18:17,472 | server.py:106 | Evaluation returned no results (`None`)
+dv - | INFO flwr 2024-11-06 17:18:17,472 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:17,472 | server.py:113 | [ROUND 1]
+dv - | DEBUG flwr 2024-11-06 17:18:17,472 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:17,472 | server.py:226 | configure_fit: strategy sampled 27 clients (out of 100)
+dv - | DEBUG flwr 2024-11-06 17:18:21,347 | raybackend.py:141 | Constructed ActorPool with: 12 actors
+dv - | DEBUG flwr 2024-11-06 17:18:21,347 | state_factory.py:50 | Using InMemoryState
+dv - | INFO flwr 2024-11-06 17:18:33,297 | server.py:240 | aggregate_fit: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:33,306 | server.py:178 | configure_evaluate: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:33,518 | server.py:192 | aggregate_evaluate: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:33,519 | fed_custom.py:272 | aggregated accuracy: 0.07869692532942898
+dv - | INFO flwr 2024-11-06 17:18:33,519 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:33,519 | server.py:113 | [ROUND 2]
+dv - | DEBUG flwr 2024-11-06 17:18:33,519 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:33,519 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:35,573 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:35,581 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:35,793 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:35,793 | fed_custom.py:272 | aggregated accuracy: 0.046511627906976744
+dv - | INFO flwr 2024-11-06 17:18:35,793 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:35,793 | server.py:113 | [ROUND 3]
+dv - | DEBUG flwr 2024-11-06 17:18:35,793 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:35,793 | server.py:226 | configure_fit: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:37,636 | server.py:240 | aggregate_fit: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:37,643 | server.py:178 | configure_evaluate: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:37,852 | server.py:192 | aggregate_evaluate: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:37,852 | fed_custom.py:272 | aggregated accuracy: 0.0851063829787234
+dv - | INFO flwr 2024-11-06 17:18:37,852 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:37,852 | server.py:113 | [ROUND 4]
+dv - | DEBUG flwr 2024-11-06 17:18:37,852 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:37,852 | server.py:226 | configure_fit: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:39,775 | server.py:240 | aggregate_fit: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:39,783 | server.py:178 | configure_evaluate: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:40,145 | server.py:192 | aggregate_evaluate: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:40,145 | fed_custom.py:272 | aggregated accuracy: 0.11081794195250659
+dv - | INFO flwr 2024-11-06 17:18:40,145 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:40,145 | server.py:113 | [ROUND 5]
+dv - | DEBUG flwr 2024-11-06 17:18:40,145 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:40,145 | server.py:226 | configure_fit: strategy sampled 36 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:42,610 | server.py:240 | aggregate_fit: received 36 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:42,619 | server.py:178 | configure_evaluate: strategy sampled 36 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:42,832 | server.py:192 | aggregate_evaluate: received 36 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:42,832 | fed_custom.py:272 | aggregated accuracy: 0.1468189233278956
+dv - | INFO flwr 2024-11-06 17:18:42,832 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:42,832 | server.py:113 | [ROUND 6]
+dv - | DEBUG flwr 2024-11-06 17:18:42,832 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:42,833 | server.py:226 | configure_fit: strategy sampled 33 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:45,510 | server.py:240 | aggregate_fit: received 33 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:45,519 | server.py:178 | configure_evaluate: strategy sampled 33 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:45,923 | server.py:192 | aggregate_evaluate: received 33 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:45,923 | fed_custom.py:272 | aggregated accuracy: 0.0933248971844353
+dv - | INFO flwr 2024-11-06 17:18:45,923 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:45,923 | server.py:113 | [ROUND 7]
+dv - | DEBUG flwr 2024-11-06 17:18:45,923 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:45,923 | server.py:226 | configure_fit: strategy sampled 30 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:48,387 | server.py:240 | aggregate_fit: received 30 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:48,396 | server.py:178 | configure_evaluate: strategy sampled 30 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:48,607 | server.py:192 | aggregate_evaluate: received 30 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:48,607 | fed_custom.py:272 | aggregated accuracy: 0.11405295315682282
+dv - | INFO flwr 2024-11-06 17:18:48,607 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:48,607 | server.py:113 | [ROUND 8]
+dv - | DEBUG flwr 2024-11-06 17:18:48,607 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:48,607 | server.py:226 | configure_fit: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:50,318 | server.py:240 | aggregate_fit: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:50,323 | server.py:178 | configure_evaluate: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:50,530 | server.py:192 | aggregate_evaluate: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:50,530 | fed_custom.py:272 | aggregated accuracy: 0.06419073819348922
+dv - | INFO flwr 2024-11-06 17:18:50,530 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:50,530 | server.py:113 | [ROUND 9]
+dv - | DEBUG flwr 2024-11-06 17:18:50,531 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:50,531 | server.py:226 | configure_fit: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:53,081 | server.py:240 | aggregate_fit: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:53,090 | server.py:178 | configure_evaluate: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:53,299 | server.py:192 | aggregate_evaluate: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:53,299 | fed_custom.py:272 | aggregated accuracy: 0.1444672131147541
+dv - | INFO flwr 2024-11-06 17:18:53,299 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:53,299 | server.py:113 | [ROUND 10]
+dv - | DEBUG flwr 2024-11-06 17:18:53,299 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:53,299 | server.py:226 | configure_fit: strategy sampled 21 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:55,119 | server.py:240 | aggregate_fit: received 21 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:55,124 | server.py:178 | configure_evaluate: strategy sampled 21 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:55,334 | server.py:192 | aggregate_evaluate: received 21 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:55,334 | fed_custom.py:272 | aggregated accuracy: 0.13124728378965667
+dv - | INFO flwr 2024-11-06 17:18:55,334 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:55,334 | server.py:113 | [ROUND 11]
+dv - | DEBUG flwr 2024-11-06 17:18:55,334 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:55,334 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:57,558 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:57,567 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:57,777 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:57,777 | fed_custom.py:272 | aggregated accuracy: 0.20752797558494404
+dv - | INFO flwr 2024-11-06 17:18:57,777 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:18:57,777 | server.py:113 | [ROUND 12]
+dv - | DEBUG flwr 2024-11-06 17:18:57,777 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:18:57,777 | server.py:226 | configure_fit: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:18:59,855 | server.py:240 | aggregate_fit: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:18:59,863 | server.py:178 | configure_evaluate: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:00,073 | server.py:192 | aggregate_evaluate: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:00,073 | fed_custom.py:272 | aggregated accuracy: 0.11774128954745695
+dv - | INFO flwr 2024-11-06 17:19:00,073 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:00,073 | server.py:113 | [ROUND 13]
+dv - | DEBUG flwr 2024-11-06 17:19:00,073 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:00,073 | server.py:226 | configure_fit: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:02,334 | server.py:240 | aggregate_fit: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:02,341 | server.py:178 | configure_evaluate: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:02,549 | server.py:192 | aggregate_evaluate: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:02,549 | fed_custom.py:272 | aggregated accuracy: 0.2045188936501753
+dv - | INFO flwr 2024-11-06 17:19:02,549 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:02,549 | server.py:113 | [ROUND 14]
+dv - | DEBUG flwr 2024-11-06 17:19:02,549 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:02,549 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:04,887 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:04,895 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:05,107 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:05,107 | fed_custom.py:272 | aggregated accuracy: 0.2193771626297578
+dv - | INFO flwr 2024-11-06 17:19:05,107 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:05,107 | server.py:113 | [ROUND 15]
+dv - | DEBUG flwr 2024-11-06 17:19:05,107 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:05,107 | server.py:226 | configure_fit: strategy sampled 38 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:08,277 | server.py:240 | aggregate_fit: received 38 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:08,287 | server.py:178 | configure_evaluate: strategy sampled 38 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:08,701 | server.py:192 | aggregate_evaluate: received 38 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:08,701 | fed_custom.py:272 | aggregated accuracy: 0.20397249809014514
+dv - | INFO flwr 2024-11-06 17:19:08,701 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:08,701 | server.py:113 | [ROUND 16]
+dv - | DEBUG flwr 2024-11-06 17:19:08,702 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:08,702 | server.py:226 | configure_fit: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:10,547 | server.py:240 | aggregate_fit: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:10,554 | server.py:178 | configure_evaluate: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:10,774 | server.py:192 | aggregate_evaluate: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:10,774 | fed_custom.py:272 | aggregated accuracy: 0.20120259019426456
+dv - | INFO flwr 2024-11-06 17:19:10,774 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:10,774 | server.py:113 | [ROUND 17]
+dv - | DEBUG flwr 2024-11-06 17:19:10,774 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:10,774 | server.py:226 | configure_fit: strategy sampled 31 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:13,163 | server.py:240 | aggregate_fit: received 31 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:13,172 | server.py:178 | configure_evaluate: strategy sampled 31 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:13,576 | server.py:192 | aggregate_evaluate: received 31 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:13,576 | fed_custom.py:272 | aggregated accuracy: 0.2152777777777778
+dv - | INFO flwr 2024-11-06 17:19:13,576 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:13,576 | server.py:113 | [ROUND 18]
+dv - | DEBUG flwr 2024-11-06 17:19:13,576 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:13,576 | server.py:226 | configure_fit: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:15,994 | server.py:240 | aggregate_fit: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:16,001 | server.py:178 | configure_evaluate: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:16,217 | server.py:192 | aggregate_evaluate: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:16,217 | fed_custom.py:272 | aggregated accuracy: 0.20964749536178107
+dv - | INFO flwr 2024-11-06 17:19:16,217 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:16,217 | server.py:113 | [ROUND 19]
+dv - | DEBUG flwr 2024-11-06 17:19:16,217 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:16,217 | server.py:226 | configure_fit: strategy sampled 18 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:17,838 | server.py:240 | aggregate_fit: received 18 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:17,844 | server.py:178 | configure_evaluate: strategy sampled 18 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:18,049 | server.py:192 | aggregate_evaluate: received 18 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:18,049 | fed_custom.py:272 | aggregated accuracy: 0.2140812821980538
+dv - | INFO flwr 2024-11-06 17:19:18,049 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:18,049 | server.py:113 | [ROUND 20]
+dv - | DEBUG flwr 2024-11-06 17:19:18,050 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:18,050 | server.py:226 | configure_fit: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:20,102 | server.py:240 | aggregate_fit: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:20,108 | server.py:178 | configure_evaluate: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:20,312 | server.py:192 | aggregate_evaluate: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:20,312 | fed_custom.py:272 | aggregated accuracy: 0.2515182186234818
+dv - | INFO flwr 2024-11-06 17:19:20,312 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:20,312 | server.py:113 | [ROUND 21]
+dv - | DEBUG flwr 2024-11-06 17:19:20,312 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:20,312 | server.py:226 | configure_fit: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:22,245 | server.py:240 | aggregate_fit: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:22,253 | server.py:178 | configure_evaluate: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:22,461 | server.py:192 | aggregate_evaluate: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:22,461 | fed_custom.py:272 | aggregated accuracy: 0.2530612244897959
+dv - | INFO flwr 2024-11-06 17:19:22,461 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:22,461 | server.py:113 | [ROUND 22]
+dv - | DEBUG flwr 2024-11-06 17:19:22,461 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:22,461 | server.py:226 | configure_fit: strategy sampled 22 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:24,322 | server.py:240 | aggregate_fit: received 22 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:24,328 | server.py:178 | configure_evaluate: strategy sampled 22 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:24,537 | server.py:192 | aggregate_evaluate: received 22 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:24,538 | fed_custom.py:272 | aggregated accuracy: 0.15822501120573734
+dv - | INFO flwr 2024-11-06 17:19:24,538 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:24,538 | server.py:113 | [ROUND 23]
+dv - | DEBUG flwr 2024-11-06 17:19:24,538 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:24,538 | server.py:226 | configure_fit: strategy sampled 32 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:27,684 | server.py:240 | aggregate_fit: received 32 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:27,693 | server.py:178 | configure_evaluate: strategy sampled 32 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:27,903 | server.py:192 | aggregate_evaluate: received 32 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:27,903 | fed_custom.py:272 | aggregated accuracy: 0.2647956070774863
+dv - | INFO flwr 2024-11-06 17:19:27,903 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:27,903 | server.py:113 | [ROUND 24]
+dv - | DEBUG flwr 2024-11-06 17:19:27,903 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:27,903 | server.py:226 | configure_fit: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:29,829 | server.py:240 | aggregate_fit: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:29,837 | server.py:178 | configure_evaluate: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:30,040 | server.py:192 | aggregate_evaluate: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:30,040 | fed_custom.py:272 | aggregated accuracy: 0.24958263772954925
+dv - | INFO flwr 2024-11-06 17:19:30,040 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:30,040 | server.py:113 | [ROUND 25]
+dv - | DEBUG flwr 2024-11-06 17:19:30,040 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:30,040 | server.py:226 | configure_fit: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:31,979 | server.py:240 | aggregate_fit: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:31,986 | server.py:178 | configure_evaluate: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:32,204 | server.py:192 | aggregate_evaluate: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:32,204 | fed_custom.py:272 | aggregated accuracy: 0.2658272123119972
+dv - | INFO flwr 2024-11-06 17:19:32,204 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:32,204 | server.py:113 | [ROUND 26]
+dv - | DEBUG flwr 2024-11-06 17:19:32,204 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:32,204 | server.py:226 | configure_fit: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:34,866 | server.py:240 | aggregate_fit: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:34,874 | server.py:178 | configure_evaluate: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:35,086 | server.py:192 | aggregate_evaluate: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:35,086 | fed_custom.py:272 | aggregated accuracy: 0.30502717391304346
+dv - | INFO flwr 2024-11-06 17:19:35,086 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:35,086 | server.py:113 | [ROUND 27]
+dv - | DEBUG flwr 2024-11-06 17:19:35,086 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:35,087 | server.py:226 | configure_fit: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:36,718 | server.py:240 | aggregate_fit: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:36,723 | server.py:178 | configure_evaluate: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:36,930 | server.py:192 | aggregate_evaluate: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:36,930 | fed_custom.py:272 | aggregated accuracy: 0.1896629213483146
+dv - | INFO flwr 2024-11-06 17:19:36,930 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:36,930 | server.py:113 | [ROUND 28]
+dv - | DEBUG flwr 2024-11-06 17:19:36,930 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:36,930 | server.py:226 | configure_fit: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:39,273 | server.py:240 | aggregate_fit: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:39,281 | server.py:178 | configure_evaluate: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:39,492 | server.py:192 | aggregate_evaluate: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:39,492 | fed_custom.py:272 | aggregated accuracy: 0.2991975544516622
+dv - | INFO flwr 2024-11-06 17:19:39,492 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:39,492 | server.py:113 | [ROUND 29]
+dv - | DEBUG flwr 2024-11-06 17:19:39,492 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:39,492 | server.py:226 | configure_fit: strategy sampled 31 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:42,316 | server.py:240 | aggregate_fit: received 31 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:42,326 | server.py:178 | configure_evaluate: strategy sampled 31 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:42,732 | server.py:192 | aggregate_evaluate: received 31 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:42,732 | fed_custom.py:272 | aggregated accuracy: 0.260746783809225
+dv - | INFO flwr 2024-11-06 17:19:42,732 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:42,732 | server.py:113 | [ROUND 30]
+dv - | DEBUG flwr 2024-11-06 17:19:42,732 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:42,732 | server.py:226 | configure_fit: strategy sampled 31 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:45,690 | server.py:240 | aggregate_fit: received 31 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:45,697 | server.py:178 | configure_evaluate: strategy sampled 31 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:45,908 | server.py:192 | aggregate_evaluate: received 31 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:45,908 | fed_custom.py:272 | aggregated accuracy: 0.3555849306014541
+dv - | INFO flwr 2024-11-06 17:19:45,908 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:45,908 | server.py:113 | [ROUND 31]
+dv - | DEBUG flwr 2024-11-06 17:19:45,909 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:45,909 | server.py:226 | configure_fit: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:47,766 | server.py:240 | aggregate_fit: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:47,773 | server.py:178 | configure_evaluate: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:47,981 | server.py:192 | aggregate_evaluate: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:47,981 | fed_custom.py:272 | aggregated accuracy: 0.26831544563695753
+dv - | INFO flwr 2024-11-06 17:19:47,981 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:47,981 | server.py:113 | [ROUND 32]
+dv - | DEBUG flwr 2024-11-06 17:19:47,981 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:47,981 | server.py:226 | configure_fit: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:50,216 | server.py:240 | aggregate_fit: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:50,223 | server.py:178 | configure_evaluate: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:50,435 | server.py:192 | aggregate_evaluate: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:50,435 | fed_custom.py:272 | aggregated accuracy: 0.2964905203711174
+dv - | INFO flwr 2024-11-06 17:19:50,435 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:50,435 | server.py:113 | [ROUND 33]
+dv - | DEBUG flwr 2024-11-06 17:19:50,435 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:50,435 | server.py:226 | configure_fit: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:52,675 | server.py:240 | aggregate_fit: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:52,682 | server.py:178 | configure_evaluate: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:52,897 | server.py:192 | aggregate_evaluate: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:52,897 | fed_custom.py:272 | aggregated accuracy: 0.2779783393501805
+dv - | INFO flwr 2024-11-06 17:19:52,897 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:52,897 | server.py:113 | [ROUND 34]
+dv - | DEBUG flwr 2024-11-06 17:19:52,897 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:52,897 | server.py:226 | configure_fit: strategy sampled 19 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:54,412 | server.py:240 | aggregate_fit: received 19 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:54,419 | server.py:178 | configure_evaluate: strategy sampled 19 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:54,628 | server.py:192 | aggregate_evaluate: received 19 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:54,628 | fed_custom.py:272 | aggregated accuracy: 0.3024466423737637
+dv - | INFO flwr 2024-11-06 17:19:54,628 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:54,628 | server.py:113 | [ROUND 35]
+dv - | DEBUG flwr 2024-11-06 17:19:54,628 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:54,628 | server.py:226 | configure_fit: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:56,545 | server.py:240 | aggregate_fit: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:56,550 | server.py:178 | configure_evaluate: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:56,761 | server.py:192 | aggregate_evaluate: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:56,762 | fed_custom.py:272 | aggregated accuracy: 0.2317014057198255
+dv - | INFO flwr 2024-11-06 17:19:56,762 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:56,762 | server.py:113 | [ROUND 36]
+dv - | DEBUG flwr 2024-11-06 17:19:56,762 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:56,762 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:59,223 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:59,232 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:19:59,543 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:19:59,543 | fed_custom.py:272 | aggregated accuracy: 0.3075564971751412
+dv - | INFO flwr 2024-11-06 17:19:59,543 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:19:59,543 | server.py:113 | [ROUND 37]
+dv - | DEBUG flwr 2024-11-06 17:19:59,543 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:19:59,543 | server.py:226 | configure_fit: strategy sampled 26 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:01,672 | server.py:240 | aggregate_fit: received 26 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:01,678 | server.py:178 | configure_evaluate: strategy sampled 26 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:01,889 | server.py:192 | aggregate_evaluate: received 26 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:01,889 | fed_custom.py:272 | aggregated accuracy: 0.321939586645469
+dv - | INFO flwr 2024-11-06 17:20:01,889 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:01,889 | server.py:113 | [ROUND 38]
+dv - | DEBUG flwr 2024-11-06 17:20:01,889 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:01,889 | server.py:226 | configure_fit: strategy sampled 26 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:04,035 | server.py:240 | aggregate_fit: received 26 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:04,043 | server.py:178 | configure_evaluate: strategy sampled 26 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:04,255 | server.py:192 | aggregate_evaluate: received 26 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:04,255 | fed_custom.py:272 | aggregated accuracy: 0.30305466237942125
+dv - | INFO flwr 2024-11-06 17:20:04,255 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:04,255 | server.py:113 | [ROUND 39]
+dv - | DEBUG flwr 2024-11-06 17:20:04,255 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:04,255 | server.py:226 | configure_fit: strategy sampled 19 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:05,697 | server.py:240 | aggregate_fit: received 19 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:05,702 | server.py:178 | configure_evaluate: strategy sampled 19 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:05,907 | server.py:192 | aggregate_evaluate: received 19 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:05,907 | fed_custom.py:272 | aggregated accuracy: 0.30172865374541646
+dv - | INFO flwr 2024-11-06 17:20:05,907 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:05,907 | server.py:113 | [ROUND 40]
+dv - | DEBUG flwr 2024-11-06 17:20:05,907 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:05,907 | server.py:226 | configure_fit: strategy sampled 22 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:07,676 | server.py:240 | aggregate_fit: received 22 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:07,683 | server.py:178 | configure_evaluate: strategy sampled 22 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:07,893 | server.py:192 | aggregate_evaluate: received 22 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:07,893 | fed_custom.py:272 | aggregated accuracy: 0.33065595716198126
+dv - | INFO flwr 2024-11-06 17:20:07,893 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:07,893 | server.py:113 | [ROUND 41]
+dv - | DEBUG flwr 2024-11-06 17:20:07,893 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:07,893 | server.py:226 | configure_fit: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:10,032 | server.py:240 | aggregate_fit: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:10,038 | server.py:178 | configure_evaluate: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:10,246 | server.py:192 | aggregate_evaluate: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:10,246 | fed_custom.py:272 | aggregated accuracy: 0.3534927332395687
+dv - | INFO flwr 2024-11-06 17:20:10,246 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:10,246 | server.py:113 | [ROUND 42]
+dv - | DEBUG flwr 2024-11-06 17:20:10,246 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:10,246 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:12,694 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:12,703 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:12,913 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:12,914 | fed_custom.py:272 | aggregated accuracy: 0.32885686210284965
+dv - | INFO flwr 2024-11-06 17:20:12,914 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:12,914 | server.py:113 | [ROUND 43]
+dv - | DEBUG flwr 2024-11-06 17:20:12,914 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:12,914 | server.py:226 | configure_fit: strategy sampled 22 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:14,838 | server.py:240 | aggregate_fit: received 22 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:14,843 | server.py:178 | configure_evaluate: strategy sampled 22 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:15,051 | server.py:192 | aggregate_evaluate: received 22 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:15,051 | fed_custom.py:272 | aggregated accuracy: 0.27414205905826017
+dv - | INFO flwr 2024-11-06 17:20:15,051 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:15,051 | server.py:113 | [ROUND 44]
+dv - | DEBUG flwr 2024-11-06 17:20:15,051 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:15,051 | server.py:226 | configure_fit: strategy sampled 19 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:16,969 | server.py:240 | aggregate_fit: received 19 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:16,975 | server.py:178 | configure_evaluate: strategy sampled 19 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:17,182 | server.py:192 | aggregate_evaluate: received 19 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:17,183 | fed_custom.py:272 | aggregated accuracy: 0.2629589632829374
+dv - | INFO flwr 2024-11-06 17:20:17,183 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:17,183 | server.py:113 | [ROUND 45]
+dv - | DEBUG flwr 2024-11-06 17:20:17,183 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:17,183 | server.py:226 | configure_fit: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:19,511 | server.py:240 | aggregate_fit: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:19,518 | server.py:178 | configure_evaluate: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:19,729 | server.py:192 | aggregate_evaluate: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:19,729 | fed_custom.py:272 | aggregated accuracy: 0.31896249561864704
+dv - | INFO flwr 2024-11-06 17:20:19,729 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:19,729 | server.py:113 | [ROUND 46]
+dv - | DEBUG flwr 2024-11-06 17:20:19,729 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:19,729 | server.py:226 | configure_fit: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:22,174 | server.py:240 | aggregate_fit: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:22,183 | server.py:178 | configure_evaluate: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:22,396 | server.py:192 | aggregate_evaluate: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:22,396 | fed_custom.py:272 | aggregated accuracy: 0.3037567084078712
+dv - | INFO flwr 2024-11-06 17:20:22,396 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:22,396 | server.py:113 | [ROUND 47]
+dv - | DEBUG flwr 2024-11-06 17:20:22,396 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:22,396 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:24,731 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:24,739 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:24,952 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:24,952 | fed_custom.py:272 | aggregated accuracy: 0.32150858849887975
+dv - | INFO flwr 2024-11-06 17:20:24,952 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:24,952 | server.py:113 | [ROUND 48]
+dv - | DEBUG flwr 2024-11-06 17:20:24,952 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:24,952 | server.py:226 | configure_fit: strategy sampled 33 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:27,592 | server.py:240 | aggregate_fit: received 33 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:27,600 | server.py:178 | configure_evaluate: strategy sampled 33 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:28,006 | server.py:192 | aggregate_evaluate: received 33 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:28,006 | fed_custom.py:272 | aggregated accuracy: 0.3167961745367603
+dv - | INFO flwr 2024-11-06 17:20:28,006 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:28,006 | server.py:113 | [ROUND 49]
+dv - | DEBUG flwr 2024-11-06 17:20:28,006 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:28,006 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:30,345 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:30,354 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:30,568 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:30,568 | fed_custom.py:272 | aggregated accuracy: 0.38188277087033745
+dv - | INFO flwr 2024-11-06 17:20:30,568 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:30,568 | server.py:113 | [ROUND 50]
+dv - | DEBUG flwr 2024-11-06 17:20:30,568 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:30,569 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:33,015 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:33,024 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:33,236 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:33,236 | fed_custom.py:272 | aggregated accuracy: 0.368814524741901
+dv - | INFO flwr 2024-11-06 17:20:33,236 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:33,236 | server.py:113 | [ROUND 51]
+dv - | DEBUG flwr 2024-11-06 17:20:33,236 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:33,236 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:35,759 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:35,766 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:35,981 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:35,981 | fed_custom.py:272 | aggregated accuracy: 0.3512259774685222
+dv - | INFO flwr 2024-11-06 17:20:35,981 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:35,981 | server.py:113 | [ROUND 52]
+dv - | DEBUG flwr 2024-11-06 17:20:35,981 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:35,981 | server.py:226 | configure_fit: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:39,351 | server.py:240 | aggregate_fit: received 42 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:39,364 | server.py:178 | configure_evaluate: strategy sampled 42 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:39,772 | server.py:192 | aggregate_evaluate: received 42 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:39,772 | fed_custom.py:272 | aggregated accuracy: 0.3838202247191011
+dv - | INFO flwr 2024-11-06 17:20:39,772 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:39,772 | server.py:113 | [ROUND 53]
+dv - | DEBUG flwr 2024-11-06 17:20:39,772 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:39,772 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:42,100 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:42,110 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:42,322 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:42,322 | fed_custom.py:272 | aggregated accuracy: 0.3300751879699248
+dv - | INFO flwr 2024-11-06 17:20:42,322 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:42,322 | server.py:113 | [ROUND 54]
+dv - | DEBUG flwr 2024-11-06 17:20:42,322 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:42,323 | server.py:226 | configure_fit: strategy sampled 30 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:44,762 | server.py:240 | aggregate_fit: received 30 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:44,769 | server.py:178 | configure_evaluate: strategy sampled 30 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:45,173 | server.py:192 | aggregate_evaluate: received 30 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:45,173 | fed_custom.py:272 | aggregated accuracy: 0.369031377899045
+dv - | INFO flwr 2024-11-06 17:20:45,173 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:45,173 | server.py:113 | [ROUND 55]
+dv - | DEBUG flwr 2024-11-06 17:20:45,173 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:45,174 | server.py:226 | configure_fit: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:47,511 | server.py:240 | aggregate_fit: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:47,519 | server.py:178 | configure_evaluate: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:47,727 | server.py:192 | aggregate_evaluate: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:47,728 | fed_custom.py:272 | aggregated accuracy: 0.4060446780551905
+dv - | INFO flwr 2024-11-06 17:20:47,728 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:47,728 | server.py:113 | [ROUND 56]
+dv - | DEBUG flwr 2024-11-06 17:20:47,728 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:47,728 | server.py:226 | configure_fit: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:49,781 | server.py:240 | aggregate_fit: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:49,790 | server.py:178 | configure_evaluate: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:49,999 | server.py:192 | aggregate_evaluate: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:50,000 | fed_custom.py:272 | aggregated accuracy: 0.37137916126242976
+dv - | INFO flwr 2024-11-06 17:20:50,000 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:50,000 | server.py:113 | [ROUND 57]
+dv - | DEBUG flwr 2024-11-06 17:20:50,000 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:50,000 | server.py:226 | configure_fit: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:52,157 | server.py:240 | aggregate_fit: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:52,163 | server.py:178 | configure_evaluate: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:52,373 | server.py:192 | aggregate_evaluate: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:52,373 | fed_custom.py:272 | aggregated accuracy: 0.3342696629213483
+dv - | INFO flwr 2024-11-06 17:20:52,373 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:52,373 | server.py:113 | [ROUND 58]
+dv - | DEBUG flwr 2024-11-06 17:20:52,373 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:52,373 | server.py:226 | configure_fit: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:54,427 | server.py:240 | aggregate_fit: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:54,435 | server.py:178 | configure_evaluate: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:54,647 | server.py:192 | aggregate_evaluate: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:54,647 | fed_custom.py:272 | aggregated accuracy: 0.3106876553438277
+dv - | INFO flwr 2024-11-06 17:20:54,647 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:54,647 | server.py:113 | [ROUND 59]
+dv - | DEBUG flwr 2024-11-06 17:20:54,647 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:54,647 | server.py:226 | configure_fit: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:56,796 | server.py:240 | aggregate_fit: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:56,803 | server.py:178 | configure_evaluate: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:57,108 | server.py:192 | aggregate_evaluate: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:57,109 | fed_custom.py:272 | aggregated accuracy: 0.41304347826086957
+dv - | INFO flwr 2024-11-06 17:20:57,109 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:57,109 | server.py:113 | [ROUND 60]
+dv - | DEBUG flwr 2024-11-06 17:20:57,109 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:57,109 | server.py:226 | configure_fit: strategy sampled 33 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:59,757 | server.py:240 | aggregate_fit: received 33 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:59,767 | server.py:178 | configure_evaluate: strategy sampled 33 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:20:59,978 | server.py:192 | aggregate_evaluate: received 33 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:20:59,978 | fed_custom.py:272 | aggregated accuracy: 0.38264360716491663
+dv - | INFO flwr 2024-11-06 17:20:59,978 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:20:59,978 | server.py:113 | [ROUND 61]
+dv - | DEBUG flwr 2024-11-06 17:20:59,978 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:20:59,978 | server.py:226 | configure_fit: strategy sampled 26 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:02,306 | server.py:240 | aggregate_fit: received 26 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:02,314 | server.py:178 | configure_evaluate: strategy sampled 26 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:02,525 | server.py:192 | aggregate_evaluate: received 26 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:02,525 | fed_custom.py:272 | aggregated accuracy: 0.4017261671243625
+dv - | INFO flwr 2024-11-06 17:21:02,525 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:02,526 | server.py:113 | [ROUND 62]
+dv - | DEBUG flwr 2024-11-06 17:21:02,526 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:02,526 | server.py:226 | configure_fit: strategy sampled 33 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:05,285 | server.py:240 | aggregate_fit: received 33 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:05,293 | server.py:178 | configure_evaluate: strategy sampled 33 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:05,599 | server.py:192 | aggregate_evaluate: received 33 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:05,599 | fed_custom.py:272 | aggregated accuracy: 0.34005287508261733
+dv - | INFO flwr 2024-11-06 17:21:05,599 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:05,599 | server.py:113 | [ROUND 63]
+dv - | DEBUG flwr 2024-11-06 17:21:05,599 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:05,599 | server.py:226 | configure_fit: strategy sampled 21 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:07,624 | server.py:240 | aggregate_fit: received 21 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:07,631 | server.py:178 | configure_evaluate: strategy sampled 21 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:07,838 | server.py:192 | aggregate_evaluate: received 21 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:07,839 | fed_custom.py:272 | aggregated accuracy: 0.36751054852320675
+dv - | INFO flwr 2024-11-06 17:21:07,839 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:07,839 | server.py:113 | [ROUND 64]
+dv - | DEBUG flwr 2024-11-06 17:21:07,839 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:07,839 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:10,162 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:10,170 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:10,391 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:10,391 | fed_custom.py:272 | aggregated accuracy: 0.379165205191161
+dv - | INFO flwr 2024-11-06 17:21:10,391 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:10,391 | server.py:113 | [ROUND 65]
+dv - | DEBUG flwr 2024-11-06 17:21:10,391 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:10,391 | server.py:226 | configure_fit: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:12,517 | server.py:240 | aggregate_fit: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:12,525 | server.py:178 | configure_evaluate: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:12,734 | server.py:192 | aggregate_evaluate: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:12,734 | fed_custom.py:272 | aggregated accuracy: 0.37504950495049505
+dv - | INFO flwr 2024-11-06 17:21:12,735 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:12,735 | server.py:113 | [ROUND 66]
+dv - | DEBUG flwr 2024-11-06 17:21:12,735 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:12,735 | server.py:226 | configure_fit: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:15,369 | server.py:240 | aggregate_fit: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:15,379 | server.py:178 | configure_evaluate: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:15,782 | server.py:192 | aggregate_evaluate: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:15,782 | fed_custom.py:272 | aggregated accuracy: 0.3634782608695652
+dv - | INFO flwr 2024-11-06 17:21:15,782 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:15,782 | server.py:113 | [ROUND 67]
+dv - | DEBUG flwr 2024-11-06 17:21:15,782 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:15,782 | server.py:226 | configure_fit: strategy sampled 33 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:18,518 | server.py:240 | aggregate_fit: received 33 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:18,527 | server.py:178 | configure_evaluate: strategy sampled 33 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:18,736 | server.py:192 | aggregate_evaluate: received 33 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:18,736 | fed_custom.py:272 | aggregated accuracy: 0.4108024691358025
+dv - | INFO flwr 2024-11-06 17:21:18,736 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:18,736 | server.py:113 | [ROUND 68]
+dv - | DEBUG flwr 2024-11-06 17:21:18,736 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:18,736 | server.py:226 | configure_fit: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:21,246 | server.py:240 | aggregate_fit: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:21,256 | server.py:178 | configure_evaluate: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:21,466 | server.py:192 | aggregate_evaluate: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:21,466 | fed_custom.py:272 | aggregated accuracy: 0.3977472720872932
+dv - | INFO flwr 2024-11-06 17:21:21,466 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:21,466 | server.py:113 | [ROUND 69]
+dv - | DEBUG flwr 2024-11-06 17:21:21,466 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:21,466 | server.py:226 | configure_fit: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:22,976 | server.py:240 | aggregate_fit: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:22,982 | server.py:178 | configure_evaluate: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:23,195 | server.py:192 | aggregate_evaluate: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:23,195 | fed_custom.py:272 | aggregated accuracy: 0.37031330251669237
+dv - | INFO flwr 2024-11-06 17:21:23,195 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:23,195 | server.py:113 | [ROUND 70]
+dv - | DEBUG flwr 2024-11-06 17:21:23,195 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:23,195 | server.py:226 | configure_fit: strategy sampled 32 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:25,859 | server.py:240 | aggregate_fit: received 32 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:25,868 | server.py:178 | configure_evaluate: strategy sampled 32 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:26,077 | server.py:192 | aggregate_evaluate: received 32 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:26,077 | fed_custom.py:272 | aggregated accuracy: 0.3764331210191083
+dv - | INFO flwr 2024-11-06 17:21:26,077 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:26,077 | server.py:113 | [ROUND 71]
+dv - | DEBUG flwr 2024-11-06 17:21:26,077 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:26,077 | server.py:226 | configure_fit: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:28,305 | server.py:240 | aggregate_fit: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:28,314 | server.py:178 | configure_evaluate: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:28,525 | server.py:192 | aggregate_evaluate: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:28,525 | fed_custom.py:272 | aggregated accuracy: 0.3864347826086956
+dv - | INFO flwr 2024-11-06 17:21:28,525 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:28,525 | server.py:113 | [ROUND 72]
+dv - | DEBUG flwr 2024-11-06 17:21:28,525 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:28,525 | server.py:226 | configure_fit: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:30,650 | server.py:240 | aggregate_fit: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:30,657 | server.py:178 | configure_evaluate: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:30,868 | server.py:192 | aggregate_evaluate: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:30,868 | fed_custom.py:272 | aggregated accuracy: 0.37809315866084425
+dv - | INFO flwr 2024-11-06 17:21:30,868 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:30,868 | server.py:113 | [ROUND 73]
+dv - | DEBUG flwr 2024-11-06 17:21:30,868 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:30,868 | server.py:226 | configure_fit: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:32,783 | server.py:240 | aggregate_fit: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:32,790 | server.py:178 | configure_evaluate: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:33,001 | server.py:192 | aggregate_evaluate: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:33,001 | fed_custom.py:272 | aggregated accuracy: 0.3987226277372263
+dv - | INFO flwr 2024-11-06 17:21:33,001 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:33,001 | server.py:113 | [ROUND 74]
+dv - | DEBUG flwr 2024-11-06 17:21:33,001 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:33,001 | server.py:226 | configure_fit: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:35,430 | server.py:240 | aggregate_fit: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:35,438 | server.py:178 | configure_evaluate: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:35,652 | server.py:192 | aggregate_evaluate: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:35,652 | fed_custom.py:272 | aggregated accuracy: 0.4132525828286427
+dv - | INFO flwr 2024-11-06 17:21:35,652 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:35,652 | server.py:113 | [ROUND 75]
+dv - | DEBUG flwr 2024-11-06 17:21:35,652 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:35,652 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:38,001 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:38,010 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:38,219 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:38,219 | fed_custom.py:272 | aggregated accuracy: 0.3913684987089635
+dv - | INFO flwr 2024-11-06 17:21:38,219 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:38,220 | server.py:113 | [ROUND 76]
+dv - | DEBUG flwr 2024-11-06 17:21:38,220 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:38,220 | server.py:226 | configure_fit: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:40,490 | server.py:240 | aggregate_fit: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:40,499 | server.py:178 | configure_evaluate: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:40,720 | server.py:192 | aggregate_evaluate: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:40,720 | fed_custom.py:272 | aggregated accuracy: 0.4194355126831011
+dv - | INFO flwr 2024-11-06 17:21:40,721 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:40,721 | server.py:113 | [ROUND 77]
+dv - | DEBUG flwr 2024-11-06 17:21:40,721 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:40,721 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:43,169 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:43,176 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:43,479 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:43,479 | fed_custom.py:272 | aggregated accuracy: 0.4409807355516637
+dv - | INFO flwr 2024-11-06 17:21:43,479 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:43,479 | server.py:113 | [ROUND 78]
+dv - | DEBUG flwr 2024-11-06 17:21:43,479 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:43,479 | server.py:226 | configure_fit: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:45,530 | server.py:240 | aggregate_fit: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:45,538 | server.py:178 | configure_evaluate: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:45,752 | server.py:192 | aggregate_evaluate: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:45,752 | fed_custom.py:272 | aggregated accuracy: 0.38464614154338267
+dv - | INFO flwr 2024-11-06 17:21:45,752 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:45,752 | server.py:113 | [ROUND 79]
+dv - | DEBUG flwr 2024-11-06 17:21:45,752 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:45,752 | server.py:226 | configure_fit: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:48,173 | server.py:240 | aggregate_fit: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:48,183 | server.py:178 | configure_evaluate: strategy sampled 28 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:48,488 | server.py:192 | aggregate_evaluate: received 28 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:48,488 | fed_custom.py:272 | aggregated accuracy: 0.349824698091157
+dv - | INFO flwr 2024-11-06 17:21:48,488 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:48,488 | server.py:113 | [ROUND 80]
+dv - | DEBUG flwr 2024-11-06 17:21:48,488 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:48,488 | server.py:226 | configure_fit: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:50,519 | server.py:240 | aggregate_fit: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:50,525 | server.py:178 | configure_evaluate: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:50,745 | server.py:192 | aggregate_evaluate: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:50,745 | fed_custom.py:272 | aggregated accuracy: 0.38678038379530916
+dv - | INFO flwr 2024-11-06 17:21:50,745 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:50,745 | server.py:113 | [ROUND 81]
+dv - | DEBUG flwr 2024-11-06 17:21:50,745 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:50,745 | server.py:226 | configure_fit: strategy sampled 18 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:52,269 | server.py:240 | aggregate_fit: received 18 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:52,276 | server.py:178 | configure_evaluate: strategy sampled 18 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:52,484 | server.py:192 | aggregate_evaluate: received 18 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:52,485 | fed_custom.py:272 | aggregated accuracy: 0.33544973544973544
+dv - | INFO flwr 2024-11-06 17:21:52,485 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:52,485 | server.py:113 | [ROUND 82]
+dv - | DEBUG flwr 2024-11-06 17:21:52,485 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:52,485 | server.py:226 | configure_fit: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:54,410 | server.py:240 | aggregate_fit: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:54,415 | server.py:178 | configure_evaluate: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:54,623 | server.py:192 | aggregate_evaluate: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:54,623 | fed_custom.py:272 | aggregated accuracy: 0.4349688473520249
+dv - | INFO flwr 2024-11-06 17:21:54,623 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:54,623 | server.py:113 | [ROUND 83]
+dv - | DEBUG flwr 2024-11-06 17:21:54,623 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:54,623 | server.py:226 | configure_fit: strategy sampled 22 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:56,640 | server.py:240 | aggregate_fit: received 22 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:56,647 | server.py:178 | configure_evaluate: strategy sampled 22 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:56,854 | server.py:192 | aggregate_evaluate: received 22 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:56,855 | fed_custom.py:272 | aggregated accuracy: 0.40411286465805835
+dv - | INFO flwr 2024-11-06 17:21:56,855 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:56,855 | server.py:113 | [ROUND 84]
+dv - | DEBUG flwr 2024-11-06 17:21:56,855 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:56,855 | server.py:226 | configure_fit: strategy sampled 31 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:59,268 | server.py:240 | aggregate_fit: received 31 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:59,276 | server.py:178 | configure_evaluate: strategy sampled 31 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:21:59,485 | server.py:192 | aggregate_evaluate: received 31 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:21:59,485 | fed_custom.py:272 | aggregated accuracy: 0.41231463571889104
+dv - | INFO flwr 2024-11-06 17:21:59,485 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:21:59,485 | server.py:113 | [ROUND 85]
+dv - | DEBUG flwr 2024-11-06 17:21:59,485 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:21:59,485 | server.py:226 | configure_fit: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:01,699 | server.py:240 | aggregate_fit: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:01,707 | server.py:178 | configure_evaluate: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:01,917 | server.py:192 | aggregate_evaluate: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:01,917 | fed_custom.py:272 | aggregated accuracy: 0.398443579766537
+dv - | INFO flwr 2024-11-06 17:22:01,917 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:01,917 | server.py:113 | [ROUND 86]
+dv - | DEBUG flwr 2024-11-06 17:22:01,917 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:01,918 | server.py:226 | configure_fit: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:04,232 | server.py:240 | aggregate_fit: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:04,239 | server.py:178 | configure_evaluate: strategy sampled 25 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:04,448 | server.py:192 | aggregate_evaluate: received 25 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:04,448 | fed_custom.py:272 | aggregated accuracy: 0.42696177062374246
+dv - | INFO flwr 2024-11-06 17:22:04,448 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:04,448 | server.py:113 | [ROUND 87]
+dv - | DEBUG flwr 2024-11-06 17:22:04,448 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:04,448 | server.py:226 | configure_fit: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:06,373 | server.py:240 | aggregate_fit: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:06,380 | server.py:178 | configure_evaluate: strategy sampled 23 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:06,588 | server.py:192 | aggregate_evaluate: received 23 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:06,589 | fed_custom.py:272 | aggregated accuracy: 0.3878311258278146
+dv - | INFO flwr 2024-11-06 17:22:06,589 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:06,589 | server.py:113 | [ROUND 88]
+dv - | DEBUG flwr 2024-11-06 17:22:06,589 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:06,589 | server.py:226 | configure_fit: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:09,037 | server.py:240 | aggregate_fit: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:09,044 | server.py:178 | configure_evaluate: strategy sampled 27 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:09,256 | server.py:192 | aggregate_evaluate: received 27 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:09,256 | fed_custom.py:272 | aggregated accuracy: 0.45383986928104575
+dv - | INFO flwr 2024-11-06 17:22:09,256 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:09,256 | server.py:113 | [ROUND 89]
+dv - | DEBUG flwr 2024-11-06 17:22:09,256 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:09,256 | server.py:226 | configure_fit: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:11,188 | server.py:240 | aggregate_fit: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:11,195 | server.py:178 | configure_evaluate: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:11,404 | server.py:192 | aggregate_evaluate: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:11,405 | fed_custom.py:272 | aggregated accuracy: 0.4818608621425523
+dv - | INFO flwr 2024-11-06 17:22:11,405 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:11,405 | server.py:113 | [ROUND 90]
+dv - | DEBUG flwr 2024-11-06 17:22:11,405 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:11,405 | server.py:226 | configure_fit: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:13,338 | server.py:240 | aggregate_fit: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:13,346 | server.py:178 | configure_evaluate: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:13,557 | server.py:192 | aggregate_evaluate: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:13,557 | fed_custom.py:272 | aggregated accuracy: 0.36091954022988504
+dv - | INFO flwr 2024-11-06 17:22:13,557 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:13,557 | server.py:113 | [ROUND 91]
+dv - | DEBUG flwr 2024-11-06 17:22:13,557 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:13,557 | server.py:226 | configure_fit: strategy sampled 32 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:16,190 | server.py:240 | aggregate_fit: received 32 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:16,198 | server.py:178 | configure_evaluate: strategy sampled 32 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:16,602 | server.py:192 | aggregate_evaluate: received 32 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:16,603 | fed_custom.py:272 | aggregated accuracy: 0.38569157392686804
+dv - | INFO flwr 2024-11-06 17:22:16,603 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:16,603 | server.py:113 | [ROUND 92]
+dv - | DEBUG flwr 2024-11-06 17:22:16,603 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:16,603 | server.py:226 | configure_fit: strategy sampled 37 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:19,586 | server.py:240 | aggregate_fit: received 37 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:19,598 | server.py:178 | configure_evaluate: strategy sampled 37 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:20,006 | server.py:192 | aggregate_evaluate: received 37 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:20,006 | fed_custom.py:272 | aggregated accuracy: 0.445
+dv - | INFO flwr 2024-11-06 17:22:20,006 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:20,006 | server.py:113 | [ROUND 93]
+dv - | DEBUG flwr 2024-11-06 17:22:20,007 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:20,007 | server.py:226 | configure_fit: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:22,115 | server.py:240 | aggregate_fit: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:22,122 | server.py:178 | configure_evaluate: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:22,417 | server.py:192 | aggregate_evaluate: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:22,417 | fed_custom.py:272 | aggregated accuracy: 0.39957716701902746
+dv - | INFO flwr 2024-11-06 17:22:22,417 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:22,417 | server.py:113 | [ROUND 94]
+dv - | DEBUG flwr 2024-11-06 17:22:22,417 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:22,417 | server.py:226 | configure_fit: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:24,338 | server.py:240 | aggregate_fit: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:24,344 | server.py:178 | configure_evaluate: strategy sampled 24 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:24,557 | server.py:192 | aggregate_evaluate: received 24 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:24,558 | fed_custom.py:272 | aggregated accuracy: 0.44158339738662566
+dv - | INFO flwr 2024-11-06 17:22:24,558 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:24,558 | server.py:113 | [ROUND 95]
+dv - | DEBUG flwr 2024-11-06 17:22:24,558 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:24,558 | server.py:226 | configure_fit: strategy sampled 21 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:26,391 | server.py:240 | aggregate_fit: received 21 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:26,398 | server.py:178 | configure_evaluate: strategy sampled 21 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:26,608 | server.py:192 | aggregate_evaluate: received 21 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:26,608 | fed_custom.py:272 | aggregated accuracy: 0.4471299093655589
+dv - | INFO flwr 2024-11-06 17:22:26,608 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:26,608 | server.py:113 | [ROUND 96]
+dv - | DEBUG flwr 2024-11-06 17:22:26,608 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:26,608 | server.py:226 | configure_fit: strategy sampled 22 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:28,829 | server.py:240 | aggregate_fit: received 22 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:28,835 | server.py:178 | configure_evaluate: strategy sampled 22 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:29,038 | server.py:192 | aggregate_evaluate: received 22 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:29,038 | fed_custom.py:272 | aggregated accuracy: 0.45016226240148355
+dv - | INFO flwr 2024-11-06 17:22:29,038 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:29,038 | server.py:113 | [ROUND 97]
+dv - | DEBUG flwr 2024-11-06 17:22:29,038 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:29,038 | server.py:226 | configure_fit: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:30,774 | server.py:240 | aggregate_fit: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:30,779 | server.py:178 | configure_evaluate: strategy sampled 20 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:30,981 | server.py:192 | aggregate_evaluate: received 20 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:30,981 | fed_custom.py:272 | aggregated accuracy: 0.4651977966950426
+dv - | INFO flwr 2024-11-06 17:22:30,981 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:30,981 | server.py:113 | [ROUND 98]
+dv - | DEBUG flwr 2024-11-06 17:22:30,982 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:30,982 | server.py:226 | configure_fit: strategy sampled 35 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:34,248 | server.py:240 | aggregate_fit: received 35 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:34,260 | server.py:178 | configure_evaluate: strategy sampled 35 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:34,468 | server.py:192 | aggregate_evaluate: received 35 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:34,468 | fed_custom.py:272 | aggregated accuracy: 0.42032730404823426
+dv - | INFO flwr 2024-11-06 17:22:34,468 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:34,468 | server.py:113 | [ROUND 99]
+dv - | DEBUG flwr 2024-11-06 17:22:34,468 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:34,468 | server.py:226 | configure_fit: strategy sampled 26 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:36,485 | server.py:240 | aggregate_fit: received 26 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:36,494 | server.py:178 | configure_evaluate: strategy sampled 26 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:36,704 | server.py:192 | aggregate_evaluate: received 26 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:36,704 | fed_custom.py:272 | aggregated accuracy: 0.3503427265803503
+dv - | INFO flwr 2024-11-06 17:22:36,704 | server.py:112 | 
+dv - | INFO flwr 2024-11-06 17:22:36,704 | server.py:113 | [ROUND 100]
+dv - | DEBUG flwr 2024-11-06 17:22:36,704 | fed_custom.py:159 | SMART sample
+dv - | INFO flwr 2024-11-06 17:22:36,704 | server.py:226 | configure_fit: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:39,121 | server.py:240 | aggregate_fit: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:39,128 | server.py:178 | configure_evaluate: strategy sampled 29 clients (out of 100)
+dv - | INFO flwr 2024-11-06 17:22:39,344 | server.py:192 | aggregate_evaluate: received 29 results and 0 failures
+dv - | INFO flwr 2024-11-06 17:22:39,344 | fed_custom.py:272 | aggregated accuracy: 0.46924177396280403
+dv - | INFO flwr 2024-11-06 17:22:39,344 | server.py:496 | 
+dv - | INFO flwr 2024-11-06 17:22:39,344 | server.py:497 | [SUMMARY]
+dv - | INFO flwr 2024-11-06 17:22:39,344 | server.py:498 | Run finished 100 round(s) in 261.87s
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 	History (loss, distributed):
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 1: 8.88871772441124
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 2: 9.02661344691392
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 3: 9.326810742376992
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 4: 8.77159407810135
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 5: 8.970724844102824
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 6: 9.464095687458915
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 7: 8.907083770327235
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 8: 11.09912539424835
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 9: 8.831827794837821
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 10: 10.207021096901808
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 11: 10.368192098713923
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 12: 8.911765648977823
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 13: 8.340027489781054
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 14: 8.454610732847431
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 15: 9.328929973674665
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 16: 8.678002886315609
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 17: 7.810441379828585
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 18: 8.126089637841275
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 19: 7.869887402007152
+dv - | INFO flwr 2024-11-06 17:22:39,346 | server.py:500 | 		round 20: 7.182786043295976
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 21: 8.219331400978321
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 22: 10.195227807062937
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 23: 7.772915971977381
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 24: 8.282839171078448
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 25: 9.285937387445415
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 26: 7.561771021305543
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 27: 11.753371569601338
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 28: 7.272924090962306
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 29: 8.447820068340823
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 30: 6.858556109079839
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 31: 6.913282908850388
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 32: 6.976773888798383
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 33: 7.6791230758605025
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 34: 7.539872931292255
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 35: 7.041364522680633
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 36: 7.113575014690895
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 37: 7.163447387362512
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 38: 6.9413991043422
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 39: 7.201252596049861
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 40: 6.80100963207187
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 41: 6.383699938326557
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 42: 7.9431305378333805
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 43: 8.50339915480313
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 44: 6.929209692592755
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 45: 7.208457726743653
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 46: 7.0238042439459045
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 47: 6.303072190222409
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 48: 7.224301064933622
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 49: 6.335276457280926
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 50: 7.2483775766984815
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 51: 7.143972128649434
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 52: 6.9975133892927275
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 53: 6.607065124440014
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 54: 6.349632988156595
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 55: 5.6522212430045
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 56: 6.348435184268069
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 57: 6.986674362593249
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 58: 8.165768865128639
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 59: 5.6514088829494815
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 60: 6.5319240033589745
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 61: 6.035430669632553
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 62: 6.679415363825794
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 63: 7.742592923349469
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 64: 6.521377579156494
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 65: 6.319176795293789
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 66: 6.50803710846279
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 67: 6.2354945458195825
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 68: 6.714696109987237
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 69: 6.662200175374976
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 70: 6.741903487379384
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 71: 6.824250482393348
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 72: 7.594853701484776
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 73: 7.176286672602278
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 74: 6.108312551857187
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 75: 6.312716386275114
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 76: 6.2693127006579825
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 77: 6.047570892265507
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 78: 6.537313317928444
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 79: 6.275038786374691
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 80: 6.353805618855491
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 81: 8.38818130474242
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 82: 6.702313329200507
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 83: 6.275361796989787
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 84: 6.822999426428538
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 85: 6.431440218065499
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 86: 6.188296007630331
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 87: 7.247179184380351
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 88: 5.614577355971134
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 89: 5.615011240089749
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 90: 8.415239066171006
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 91: 6.026156600613283
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 92: 5.700927996585767
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 93: 5.81177607581933
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 94: 6.223939848990737
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 95: 6.248449383725572
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 96: 6.030469240720039
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 97: 5.575399112092535
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 98: 6.011118566000766
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 99: 7.151158598004092
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 		round 100: 5.604082117222239
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	History (metrics, distributed, fit):
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	{'avg_weight': [(1, 0.04),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (2, 0.038461538461538464),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (3, 0.04761904761904761),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (4, 0.04),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (5, 0.030303030303030304),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (6, 0.03333333333333333),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (7, 0.037037037037037035),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (8, 0.05555555555555555),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (9, 0.037037037037037035),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (10, 0.05263157894736842),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (11, 0.038461538461538464),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (12, 0.043478260869565216),
+dv - | INFO flwr 2024-11-06 17:22:39,347 | server.py:500 | 	                (13, 0.043478260869565216),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (14, 0.038461538461538464),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (15, 0.028571428571428567),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (16, 0.04761904761904761),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (17, 0.03571428571428571),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (18, 0.03703703703703704),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (19, 0.0588235294117647),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (20, 0.04761904761904763),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (21, 0.045454545454545456),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (22, 0.05),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (23, 0.03448275862068964),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (24, 0.04347826086956521),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (25, 0.04347826086956521),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (26, 0.037037037037037035),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (27, 0.055555555555555546),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (28, 0.04),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (29, 0.03571428571428571),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (30, 0.03571428571428571),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (31, 0.04761904761904761),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (32, 0.039999999999999994),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (33, 0.043478260869565216),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (34, 0.05555555555555555),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (35, 0.047619047619047616),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (36, 0.03846153846153847),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (37, 0.041666666666666664),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (38, 0.04166666666666668),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (39, 0.05555555555555555),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (40, 0.05),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (41, 0.047619047619047616),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (42, 0.03846153846153846),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (43, 0.049999999999999996),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (44, 0.055555555555555546),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (45, 0.039999999999999994),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (46, 0.03703703703703704),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (47, 0.03846153846153846),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (48, 0.03333333333333333),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (49, 0.03846153846153845),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (50, 0.038461538461538464),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (51, 0.03846153846153845),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (52, 0.026315789473684202),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (53, 0.03846153846153847),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (54, 0.037037037037037035),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (55, 0.043478260869565216),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (56, 0.04545454545454544),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (57, 0.04),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (58, 0.04545454545454545),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (59, 0.04000000000000001),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (60, 0.03333333333333334),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (61, 0.041666666666666664),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (62, 0.03333333333333334),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (63, 0.05263157894736842),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (64, 0.038461538461538464),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (65, 0.04347826086956521),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (66, 0.037037037037037035),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (67, 0.03333333333333332),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (68, 0.037037037037037035),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (69, 0.055555555555555546),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (70, 0.034482758620689655),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (71, 0.04),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (72, 0.04347826086956523),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (73, 0.05555555555555555),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (74, 0.03703703703703704),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (75, 0.03846153846153846),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (76, 0.039999999999999994),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (77, 0.03846153846153846),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (78, 0.04545454545454546),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (79, 0.03846153846153848),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (80, 0.04545454545454544),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (81, 0.058823529411764705),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (82, 0.04761904761904761),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (83, 0.05000000000000001),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (84, 0.035714285714285705),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (85, 0.04347826086956521),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (86, 0.043478260869565216),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (87, 0.047619047619047616),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (88, 0.039999999999999994),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (89, 0.04545454545454545),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (90, 0.04545454545454544),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (91, 0.03448275862068965),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (92, 0.029411764705882353),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (93, 0.05555555555555555),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (94, 0.04545454545454544),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (95, 0.05263157894736842),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (96, 0.05),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (97, 0.05555555555555555),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (98, 0.03125),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (99, 0.041666666666666664),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                (100, 0.037037037037037035)],
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	 'num_clients': [(1, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                 (2, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                 (3, 21),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                 (4, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                 (5, 33),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                 (6, 30),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                 (7, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                 (8, 18),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                 (9, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                 (10, 19),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                 (11, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,348 | server.py:500 | 	                 (12, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (13, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (14, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (15, 35),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (16, 21),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (17, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (18, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (19, 17),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (20, 21),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (21, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (22, 20),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (23, 29),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (24, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (25, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (26, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (27, 18),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (28, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (29, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (30, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (31, 21),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (32, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (33, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (34, 18),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (35, 21),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (36, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (37, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (38, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (39, 18),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (40, 20),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (41, 21),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (42, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (43, 20),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (44, 18),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (45, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (46, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (47, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (48, 30),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (49, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (50, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (51, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (52, 38),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (53, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (54, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (55, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (56, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (57, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (58, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (59, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (60, 30),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (61, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (62, 30),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (63, 19),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (64, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (65, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (66, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (67, 30),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (68, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (69, 18),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (70, 29),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (71, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (72, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (73, 18),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (74, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (75, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (76, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (77, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (78, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (79, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (80, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (81, 17),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (82, 21),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (83, 20),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (84, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (85, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (86, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (87, 21),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (88, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (89, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (90, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (91, 29),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (92, 34),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (93, 18),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (94, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (95, 19),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (96, 20),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (97, 18),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (98, 32),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (99, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                 (100, 27)],
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	 'std_weight': [(1, 0.010023525916381403),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                (2, 0.019089826923777146),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                (3, 0.016438520055152606),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                (4, 0.016393397754364537),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                (5, 0.014629661297922697),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                (6, 0.012807350386242637),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                (7, 0.019389343603529112),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                (8, 0.013544493692912335),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                (9, 0.017515715596649762),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                (10, 0.017752614809099714),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                (11, 0.013644132964279064),
+dv - | INFO flwr 2024-11-06 17:22:39,349 | server.py:500 | 	                (12, 0.016889375230925),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (13, 0.018292306569189593),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (14, 0.016594305071581893),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (15, 0.010126767589698348),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (16, 0.0176716705522517),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (17, 0.013877729927329613),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (18, 0.0135823791758564),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (19, 0.015897717252833277),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (20, 0.02554772037811252),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (21, 0.016110531298416827),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (22, 0.022519763259661377),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (23, 0.01743583455824254),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (24, 0.01856924853000307),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (25, 0.01597786351019922),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (26, 0.017904617085754845),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (27, 0.016830040426099473),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (28, 0.018780184956676667),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (29, 0.015562092079809943),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (30, 0.015647008633083215),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (31, 0.021068085880706123),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (32, 0.015583165646057688),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (33, 0.015662234776266062),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (34, 0.020597698193780378),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (35, 0.021054960275357297),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (36, 0.02051249373233275),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (37, 0.020494342388440383),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (38, 0.01239475169616682),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (39, 0.016843616501790733),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (40, 0.02641788518864442),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (41, 0.02686741971053032),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (42, 0.018169371549184066),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (43, 0.018193268576932115),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (44, 0.027731172169205034),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (45, 0.01739242434720353),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (46, 0.012528302965635141),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (47, 0.01494648072570156),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (48, 0.009813418865583136),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (49, 0.012755476258791696),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (50, 0.018914921129675983),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (51, 0.011522555058323072),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (52, 0.011138821227940368),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (53, 0.015717424169113137),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (54, 0.01377279269558245),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (55, 0.02069912296042253),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (56, 0.015888476611221187),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (57, 0.013720940728246034),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (58, 0.01428500078522473),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (59, 0.015604413850942876),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (60, 0.01165756816716922),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (61, 0.01915162552892721),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (62, 0.011857259456699102),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (63, 0.022164871834389078),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (64, 0.015029689456152639),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (65, 0.018250773517200534),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (66, 0.016429398705354203),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (67, 0.01057620548119909),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (68, 0.01722914087267578),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (69, 0.01895077803815541),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (70, 0.01093903598371904),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (71, 0.01677721515176695),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (72, 0.01432141698509403),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (73, 0.02028846272155573),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (74, 0.01318144475289355),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (75, 0.01555567391018044),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (76, 0.013033552015600752),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (77, 0.015267728114210604),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (78, 0.019324511881936023),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (79, 0.015292549774406475),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (80, 0.01888070446462092),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (81, 0.0236901193956822),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (82, 0.023577246490271427),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (83, 0.022925691588514655),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (84, 0.013616598728137613),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (85, 0.01576848266347518),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (86, 0.020541675272561347),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (87, 0.017994874523917716),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (88, 0.015296809224966791),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (89, 0.020427331900441777),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (90, 0.015221191777289637),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (91, 0.013871350128283302),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (92, 0.009731685652063112),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (93, 0.028391202199094596),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (94, 0.019861695654150024),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (95, 0.019904978698971818),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (96, 0.025476030455885115),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (97, 0.019431340471824942),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (98, 0.012889913520381817),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (99, 0.015868254383883406),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	                (100, 0.01576629101103615)]}
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	History (metrics, distributed, evaluate):
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	{'accuracy': [(1, 0.07869692532942898),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	              (2, 0.046511627906976744),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	              (3, 0.0851063829787234),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	              (4, 0.11081794195250659),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	              (5, 0.1468189233278956),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	              (6, 0.0933248971844353),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	              (7, 0.11405295315682282),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	              (8, 0.06419073819348922),
+dv - | INFO flwr 2024-11-06 17:22:39,350 | server.py:500 | 	              (9, 0.1444672131147541),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (10, 0.13124728378965667),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (11, 0.20752797558494404),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (12, 0.11774128954745695),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (13, 0.2045188936501753),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (14, 0.2193771626297578),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (15, 0.20397249809014514),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (16, 0.20120259019426456),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (17, 0.2152777777777778),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (18, 0.20964749536178107),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (19, 0.2140812821980538),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (20, 0.2515182186234818),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (21, 0.2530612244897959),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (22, 0.15822501120573734),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (23, 0.2647956070774863),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (24, 0.24958263772954925),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (25, 0.2658272123119972),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (26, 0.30502717391304346),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (27, 0.1896629213483146),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (28, 0.2991975544516622),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (29, 0.260746783809225),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (30, 0.3555849306014541),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (31, 0.26831544563695753),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (32, 0.2964905203711174),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (33, 0.2779783393501805),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (34, 0.3024466423737637),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (35, 0.2317014057198255),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (36, 0.3075564971751412),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (37, 0.321939586645469),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (38, 0.30305466237942125),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (39, 0.30172865374541646),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (40, 0.33065595716198126),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (41, 0.3534927332395687),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (42, 0.32885686210284965),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (43, 0.27414205905826017),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (44, 0.2629589632829374),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (45, 0.31896249561864704),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (46, 0.3037567084078712),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (47, 0.32150858849887975),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (48, 0.3167961745367603),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (49, 0.38188277087033745),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (50, 0.368814524741901),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (51, 0.3512259774685222),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (52, 0.3838202247191011),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (53, 0.3300751879699248),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (54, 0.369031377899045),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (55, 0.4060446780551905),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (56, 0.37137916126242976),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (57, 0.3342696629213483),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (58, 0.3106876553438277),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (59, 0.41304347826086957),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (60, 0.38264360716491663),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (61, 0.4017261671243625),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (62, 0.34005287508261733),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (63, 0.36751054852320675),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (64, 0.379165205191161),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (65, 0.37504950495049505),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (66, 0.3634782608695652),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (67, 0.4108024691358025),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (68, 0.3977472720872932),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (69, 0.37031330251669237),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (70, 0.3764331210191083),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (71, 0.3864347826086956),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (72, 0.37809315866084425),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (73, 0.3987226277372263),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (74, 0.4132525828286427),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (75, 0.3913684987089635),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (76, 0.4194355126831011),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (77, 0.4409807355516637),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (78, 0.38464614154338267),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (79, 0.349824698091157),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (80, 0.38678038379530916),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (81, 0.33544973544973544),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (82, 0.4349688473520249),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (83, 0.40411286465805835),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (84, 0.41231463571889104),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (85, 0.398443579766537),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (86, 0.42696177062374246),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (87, 0.3878311258278146),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (88, 0.45383986928104575),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (89, 0.4818608621425523),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (90, 0.36091954022988504),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (91, 0.38569157392686804),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (92, 0.445),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (93, 0.39957716701902746),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (94, 0.44158339738662566),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (95, 0.4471299093655589),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (96, 0.45016226240148355),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (97, 0.4651977966950426),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (98, 0.42032730404823426),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (99, 0.3503427265803503),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	              (100, 0.46924177396280403)],
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	 'count': [(1, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	           (2, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	           (3, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	           (4, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	           (5, 36),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	           (6, 33),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	           (7, 30),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	           (8, 20),
+dv - | INFO flwr 2024-11-06 17:22:39,351 | server.py:500 | 	           (9, 29),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (10, 21),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (11, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (12, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (13, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (14, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (15, 38),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (16, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (17, 31),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (18, 29),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (19, 18),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (20, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (21, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (22, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (23, 32),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (24, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (25, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (26, 29),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (27, 20),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (28, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (29, 31),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (30, 31),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (31, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (32, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (33, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (34, 19),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (35, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (36, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (37, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (38, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (39, 19),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (40, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (41, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (42, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (43, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (44, 19),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (45, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (46, 29),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (47, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (48, 33),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (49, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (50, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (51, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (52, 42),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (53, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (54, 30),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (55, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (56, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (57, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (58, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (59, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (60, 33),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (61, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (62, 33),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (63, 21),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (64, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (65, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (66, 29),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (67, 33),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (68, 29),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (69, 20),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (70, 32),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (71, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (72, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (73, 20),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (74, 29),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (75, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (76, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (77, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (78, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (79, 28),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (80, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (81, 18),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (82, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (83, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (84, 31),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (85, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (86, 25),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (87, 23),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (88, 27),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (89, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (90, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (91, 32),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (92, 37),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (93, 20),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (94, 24),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (95, 21),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (96, 22),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (97, 20),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (98, 35),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (99, 26),
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:500 | 	           (100, 29)]}
+dv - | INFO flwr 2024-11-06 17:22:39,352 | server.py:501 | 
+dv - | DEBUG flwr 2024-11-06 17:22:39,355 | run_serverapp.py:89 | ServerApp finished running.
+dv - | DEBUG flwr 2024-11-06 17:22:39,355 | run_simulation.py:349 | ServerApp finished running.
+dv - | DEBUG flwr 2024-11-06 17:22:39,355 | run_simulation.py:353 | Triggered stop event for Simulation Engine.
+dv - | DEBUG flwr 2024-11-06 17:22:40,326 | ray_actor.py:450 | Terminated 12 actors
+dv - | DEBUG flwr 2024-11-06 17:22:41,816 | raybackend.py:193 | Terminated RayBackend
+dv - | DEBUG flwr 2024-11-06 17:22:41,817 | run_simulation.py:455 | Stopping Simulation Engine now.
