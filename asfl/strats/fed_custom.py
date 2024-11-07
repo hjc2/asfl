@@ -134,7 +134,7 @@ class FedCustom(FedAvg):
         num_in_range = int(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
         
         # Ensure num_in_range is an integer and doesn't exceed list length
-        num_in_round = max(2, int(num_in_range / 2) + 10)
+        num_in_round = max(2, int(num_in_range / 2))
         
         # Sample with integer value
         self.range_cid_list = rand.sample(CID_LIST, num_in_range)
