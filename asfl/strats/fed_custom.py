@@ -288,7 +288,7 @@ class FedCustom(FedAvg):
         aggregated_accuracy = sum(accuracies) / sum(examples)
 
         metrics_aggregated["accuracy"] = aggregated_accuracy
-        metrics_aggregated["count"] = len(results)
+        metrics_aggregated["count"] = len(self.good_cid_list)
         # metrics_aggregated["all-acc"] = results
 
         log(INFO, "aggregated accuracy: " + str(aggregated_accuracy))
