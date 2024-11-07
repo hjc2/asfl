@@ -217,30 +217,38 @@ class FedCustom(FedAvg):
         ) -> List[Tuple[ClientProxy, EvaluateIns]]:
         """Configure the next round of evaluation."""
         # Do not configure federated evaluation if fraction eval is 0.
+        # if self.fraction_evaluate == 0.0:
+        #     return []
+
+        # # Parameters and config
+        # config = {}
+        # if self.on_evaluate_config_fn is not None:
+        #     # Custom evaluation config function provided
+        #     config = self.on_evaluate_config_fn(server_round)
+        # evaluate_ins = EvaluateIns(parameters, config)
+
+        # # custom = CustomCriterion(self.good_cid_list)
+        # custom = EvalAll()
+
+        # _, min_num_clients = self.num_fit_clients(
+        #     client_manager.num_available()
+        # )
+        # advlog(self.adv_log, lambda: log(ERROR, f"EVAL: good_cid_list {self.good_cid_list}"))
+        # clients = client_manager.sample(
+        #     num_clients=len(self.good_cid_list),
+        #     min_num_clients=min_num_clients,
+        #     criterion=custom, # Pass custom criterion here
+        # )
+
+        # # Return client/config pairs
+        # return [(client, evaluate_ins) for client in clients]
+    
         if self.fraction_evaluate == 0.0:
             return []
-
-        # Parameters and config
         config = {}
-        if self.on_evaluate_config_fn is not None:
-            # Custom evaluation config function provided
-            config = self.on_evaluate_config_fn(server_round)
         evaluate_ins = EvaluateIns(parameters, config)
 
-        # custom = CustomCriterion(self.good_cid_list)
-        custom = EvalAll()
-
-        _, min_num_clients = self.num_fit_clients(
-            client_manager.num_available()
-        )
-        advlog(self.adv_log, lambda: log(ERROR, f"EVAL: good_cid_list {self.good_cid_list}"))
-        clients = client_manager.sample(
-            num_clients=len(self.good_cid_list),
-            min_num_clients=min_num_clients,
-            criterion=custom, # Pass custom criterion here
-        )
-
-        # Return client/config pairs
+        clients = client_manager.all()  # All available clients
         return [(client, evaluate_ins) for client in clients]
 
     # returns the accuracy and count, etc
