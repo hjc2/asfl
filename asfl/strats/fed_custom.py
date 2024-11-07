@@ -131,7 +131,7 @@ class FedCustom(FedAvg):
         rand.seed(server_round)
 
         # Convert to int explicitly
-        num_in_range = int(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction) * 1.5)
+        num_in_range = int(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
         
         # Ensure num_in_range is an integer and doesn't exceed list length
         num_in_round = max(2, int(num_in_range / 2))
@@ -139,11 +139,11 @@ class FedCustom(FedAvg):
         # Sample with integer value
         self.range_cid_list = rand.sample(CID_LIST, num_in_range)
 
-        # Option 1: Weights between 0.1 and 1.0 (more spread)
+
         weights_dict = {
-            client: 0.1 + float(hash(client) % 100) / 111  
+            client: 0.01 + 0.99 * abs(2 * (float(hash(client) % 100) / 100 - 0.5)) 
             for client in CID_LIST
-        }
+        }   
     
         # Ensure num_in_round doesn't exceed available clients
         num_in_range = min(num_in_range, len(self.range_cid_list))
