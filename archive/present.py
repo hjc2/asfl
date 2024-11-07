@@ -26,7 +26,7 @@ def main():
     csv_files = glob.glob(csv_directory)
 
     # Create a plot
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(5, 5))
 
     # Initialize a variable to hold the round numbers
     all_rounds = None
