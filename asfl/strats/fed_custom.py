@@ -222,20 +222,26 @@ class FedCustom(FedAvg):
 
         # Parameters and config
         config = {}
-        if self.on_evaluate_config_fn is not None:
-            # Custom evaluation config function provided
-            config = self.on_evaluate_config_fn(server_round)
+
         evaluate_ins = EvaluateIns(parameters, config)
 
         # custom = CustomCriterion(self.good_cid_list)
-        custom = EvalAll()
 
         _, min_num_clients = self.num_fit_clients(
             client_manager.num_available()
         )
         advlog(self.adv_log, lambda: log(ERROR, f"EVAL: good_cid_list {self.good_cid_list}"))
+
+        clients = client_manager.all()
+        CID_LIST = []
+
+        for x in clients:
+            CID_LIST.append(x)
+
+        custom = CustomCriterion(CID_LIST)
+
         clients = client_manager.sample(
-            num_clients=len(self.good_cid_list),
+            num_clients=CID_LIST,
             min_num_clients=min_num_clients,
             criterion=custom, # Pass custom criterion here
         )
