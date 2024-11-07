@@ -234,7 +234,12 @@ class FedCustom(FedAvg):
             client_manager.num_available()
         )
         advlog(self.adv_log, lambda: log(ERROR, f"EVAL: good_cid_list {self.good_cid_list}"))
-        clients = client_manager.all()
+        clients = client_manager.sample(
+            num_clients=len(self.good_cid_list),
+            min_num_clients=min_num_clients,
+            criterion=custom, # Pass custom criterion here
+        )
+
         # Return client/config pairs
         return [(client, evaluate_ins) for client in clients]
 
