@@ -102,6 +102,4 @@ Plotting
     + `python archive/diff.py fed_avg-out.csv archive/v5/`
 ## Fun Simulation Results
 
-![screenshot](.github/Figure_1.svg)
-![screenshot](.github/Figure_2.svg)
-![screenshot](.github/Figure_5.svg)
+![screenshot](.github/Accuracy45.svg)
