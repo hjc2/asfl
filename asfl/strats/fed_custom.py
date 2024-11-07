@@ -131,10 +131,10 @@ class FedCustom(FedAvg):
         rand.seed(server_round)
 
         # Convert to int explicitly
-        num_in_round = int(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
+        num_in_range = int(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
         
         # Ensure num_in_range is an integer and doesn't exceed list length
-        num_in_range = min(int(num_in_round * 1.5), len(CID_LIST))
+        num_in_round = max(2, int(num_in_range / 2))
         
         # Sample with integer value
         self.range_cid_list = rand.sample(CID_LIST, num_in_range)
@@ -144,9 +144,9 @@ class FedCustom(FedAvg):
             client: 0.5 + float(hash(client) % 100) / 200  # Weights between 0.5 and 1.0
             for client in CID_LIST
         }
-
+    
         # Ensure num_in_round doesn't exceed available clients
-        num_in_round = min(num_in_round, len(self.range_cid_list))
+        num_in_range = min(num_in_range, len(self.range_cid_list))
 
         if self.smart_selection:
             top_weighted_clients = sorted(
@@ -182,6 +182,7 @@ class FedCustom(FedAvg):
 
         # Perform intersection
         self.good_cid_list = list(top_weighted_set.intersection(set(self.good_cid_list)))
+        log(INFO, f"configure_fit: strategy returns {len(self.good_cid_list)} out of range {num_in_range} and round {num_in_round}")
 
         sample_size = len(self.good_cid_list)
         self.cid_ll.append((server_round, self.good_cid_list))
