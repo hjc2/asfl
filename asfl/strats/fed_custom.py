@@ -139,11 +139,15 @@ class FedCustom(FedAvg):
         # Sample with integer value
         self.range_cid_list = rand.sample(CID_LIST, num_in_range)
         
+        # weights_dict = {
+        #     client: 0.01 + 0.99 * (float(hash(client) % 100) > 50)
+        #     for client in CID_LIST
+        # }
         weights_dict = {
-            client: 0.01 + 0.99 * (float(hash(client) % 100) > 50)
+            client: (0.01 + 0.19 * (float(hash(client) % 100) / 100)) if hash(client) % 100 < 50
+                    else (0.8 + 0.2 * (float(hash(client) % 100) / 100))
             for client in CID_LIST
         }
-
 
         #weights_dict = {
           #  client: 0.01 + 0.99 * abs(2 * (float(hash(client) % 100) / 100 - 0.5)) 
