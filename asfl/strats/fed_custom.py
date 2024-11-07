@@ -26,7 +26,7 @@ from flwr.server.criterion import Criterion
 from flwr.common.logger import log
 from logging import WARNING, INFO, DEBUG, CRITICAL, ERROR
 from .dat import advlog
-import random
+import random as rand
 
 WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW = """
 Setting `min_available_clients` lower than `min_fit_clients` or
@@ -72,6 +72,7 @@ class FedCustom(FedAvg):
         cid_ll: List[Tuple[int, List[int]]] = [],
         adv_log: bool = False,
         fraction: int = 2,
+        smart_selection: bool = True
     ) -> None:
         super().__init__()
 
@@ -96,67 +97,116 @@ class FedCustom(FedAvg):
         self.inplace = inplace
         self.num_rounds = num_rounds # for poisson
         self.cid_ll = cid_ll # tracks the rounds and the clients selected
-                            # used for tracking how long since it was included
         self.good_cid_list = []
         self.adv_log = adv_log
         self.fraction = fraction
+        self.smart_selection = smart_selection
 
 
     def configure_fit(
-        self, server_round: int, parameters: Parameters, client_manager: ClientManager
+            self, server_round: int, parameters: Parameters, client_manager: ClientManager
     ) -> List[Tuple[ClientProxy, FitIns]]:
         """Configure the next round of training."""
         config = {}
 
-        # log(WARNING, "fraction: " + str(self.fraction))        
-
         if self.on_fit_config_fn is not None:
-            # Custom fit config function provided
             config = self.on_fit_config_fn(server_round)
         
-
-        # log(CRITICAL, config.)
         fit_ins = FitIns(parameters, config)
 
-        # Sample clients
         _, min_num_clients = self.num_fit_clients(
             client_manager.num_available()
         )
 
         clients = client_manager.all()
         
-        advlog(self.adv_log, lambda: log(CRITICAL, "total num of rounds " + str(self.num_rounds)))
         CID_LIST = []
 
         for x in clients:
             CID_LIST.append(x)
-
-        advlog(self.adv_log, lambda: log(ERROR, "CID_LIST " + str(CID_LIST)))
-        random.seed = server_round
-
-        advlog(self.adv_log, lambda: log(CRITICAL, "CID_LIST LEN " + str(len(CID_LIST))))
-        advlog(self.adv_log, lambda: log(CRITICAL, "vehicles in round: " + str(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))))
-
-        self.good_cid_list = random.sample(CID_LIST, vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
-        
+            
         if(self.cid_ll == [] and server_round == 1):
             self.cid_ll.append((0, CID_LIST))
+
+        rand.seed(server_round)
+
+        # Convert to int explicitly
+        num_in_range = int(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
+        
+        # Ensure num_in_range is an integer and doesn't exceed list length
+        num_in_round = max(2, int(num_in_range / 2))
+        
+        # Sample with integer value
+        self.range_cid_list = rand.sample(CID_LIST, num_in_range)
+        
+        # weights_dict = {
+        #     client: 0.01 + 0.99 * (float(hash(client) % 100) > 50)
+        #     for client in CID_LIST
+        # }
+        weights_dict = {
+            client: (0.01 + 0.19 * (float(hash(client) % 100) / 100)) if hash(client) % 100 < 50
+                    else (0.8 + 0.2 * (float(hash(client) % 100) / 100))
+            for client in CID_LIST
+        }
+
+        #weights_dict = {
+          #  client: 0.01 + 0.99 * abs(2 * (float(hash(client) % 100) / 100 - 0.5)) 
+         #   for client in CID_LIST
+        #}   
+        #weights_dict = {
+        #    client: 0.01 + 0.99 * (1 / (1 + pow(2.71828, -8 * (float(hash(client) % 100) / 100 - 0.25))))
+        #            if hash(client) % 100 < 50
+        #            else 0.01 + 0.99 * (1 / (1 + pow(2.71828, -8 * (float(hash(client) % 100) / 100 - 0.75))))
+        #    for client in CID_LIST
+        #}
+    
+        # Ensure num_in_round doesn't exceed available clients
+        num_in_range = min(num_in_range, len(self.range_cid_list))
+
+        if self.smart_selection:
+            top_weighted_clients = sorted(
+                self.range_cid_list,
+                key=lambda x: weights_dict[x],
+                reverse=True
+            )[:num_in_round]
             
-        self.cid_ll.append((server_round, self.good_cid_list))
+            top_weighted_set = set(top_weighted_clients)
+            log(DEBUG, f"SMART sample")
+        else:
+            rand.seed(server_round + 500)  # Different seed for this sampling
+            random_selected = rand.sample(self.range_cid_list, num_in_round)
+            top_weighted_set = set(random_selected)
+            log(DEBUG, "random sample")
+
+        # Extract weights in the same order as range_cid_list
+        weights = [weights_dict[client] for client in self.range_cid_list]
+        
+        # Normalize weights
+        total_weight = sum(weights)
+        normalized_weights = [w/total_weight for w in weights]
+        
+        # Set seed for reproducibility
+        rand.seed(server_round + 1000)  # Different seed for second sampling
+        
+        # Weighted sampling with integer k value
+        self.good_cid_list = rand.choices(
+            population=self.range_cid_list,
+            weights=normalized_weights,
+            k=int(num_in_round)
+        )
+
+        # Perform intersection
+        self.good_cid_list = list(top_weighted_set.intersection(set(self.good_cid_list)))
+        log(INFO, f"configure_fit: strategy returns {len(self.good_cid_list)} out of range {num_in_range} and round {num_in_round}")
 
         sample_size = len(self.good_cid_list)
-
-        advlog(self.adv_log, lambda: log(ERROR, "FIT: GOOD CID LIST" + str(self.good_cid_list)))
-
-        advlog(self.adv_log, lambda: log(ERROR, "sample size " + str(sample_size)))
-        
+        self.cid_ll.append((server_round, self.good_cid_list))
         custom = CustomCriterion(self.good_cid_list)
-        # custom = EvalAll()
 
         clients = client_manager.sample(
             num_clients=sample_size,
             min_num_clients=min_num_clients,
-            criterion=custom, # Pass custom criterion here
+            criterion=custom,
         )
 
         # Return client/config pairs
@@ -172,20 +222,26 @@ class FedCustom(FedAvg):
 
         # Parameters and config
         config = {}
-        if self.on_evaluate_config_fn is not None:
-            # Custom evaluation config function provided
-            config = self.on_evaluate_config_fn(server_round)
+
         evaluate_ins = EvaluateIns(parameters, config)
 
         # custom = CustomCriterion(self.good_cid_list)
-        custom = EvalAll()
 
         _, min_num_clients = self.num_fit_clients(
             client_manager.num_available()
         )
         advlog(self.adv_log, lambda: log(ERROR, f"EVAL: good_cid_list {self.good_cid_list}"))
+
+        clients = client_manager.all()
+        CID_LIST = []
+
+        for x in clients:
+            CID_LIST.append(x)
+
+        custom = CustomCriterion(CID_LIST)
+
         clients = client_manager.sample(
-            num_clients=len(self.good_cid_list),
+            num_clients=len(CID_LIST),
             min_num_clients=min_num_clients,
             criterion=custom, # Pass custom criterion here
         )
@@ -232,7 +288,7 @@ class FedCustom(FedAvg):
         aggregated_accuracy = sum(accuracies) / sum(examples)
 
         metrics_aggregated["accuracy"] = aggregated_accuracy
-        metrics_aggregated["count"] = len(results)
+        metrics_aggregated["count"] = len(self.good_cid_list)
         # metrics_aggregated["all-acc"] = results
 
         log(INFO, "aggregated accuracy: " + str(aggregated_accuracy))
