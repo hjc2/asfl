@@ -241,7 +241,7 @@ class FedCustom(FedAvg):
         custom = CustomCriterion(CID_LIST)
 
         clients = client_manager.sample(
-            num_clients=CID_LIST,
+            num_clients=len(CID_LIST),
             min_num_clients=min_num_clients,
             criterion=custom, # Pass custom criterion here
         )
