@@ -134,22 +134,27 @@ class FedCustom(FedAvg):
         num_in_range = int(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
         
         # Ensure num_in_range is an integer and doesn't exceed list length
-        num_in_round = max(2, int(num_in_range / 2))
+        num_in_round = max(2, int(num_in_range / 2) + 10)
         
         # Sample with integer value
         self.range_cid_list = rand.sample(CID_LIST, num_in_range)
-
-
-        # weights_dict = {
-        #     client: 0.01 + 0.99 * abs(2 * (float(hash(client) % 100) / 100 - 0.5)) 
-        #     for client in CID_LIST
-        # }   
+        
         weights_dict = {
-            client: 0.01 + 0.99 * (1 / (1 + pow(2.71828, -8 * (float(hash(client) % 100) / 100 - 0.25))))
-                    if hash(client) % 100 < 50
-                    else 0.01 + 0.99 * (1 / (1 + pow(2.71828, -8 * (float(hash(client) % 100) / 100 - 0.75))))
+            client: 0.01 + 0.99 * (float(hash(client) % 100) > 50)
             for client in CID_LIST
         }
+
+
+        #weights_dict = {
+          #  client: 0.01 + 0.99 * abs(2 * (float(hash(client) % 100) / 100 - 0.5)) 
+         #   for client in CID_LIST
+        #}   
+        #weights_dict = {
+        #    client: 0.01 + 0.99 * (1 / (1 + pow(2.71828, -8 * (float(hash(client) % 100) / 100 - 0.25))))
+        #            if hash(client) % 100 < 50
+        #            else 0.01 + 0.99 * (1 / (1 + pow(2.71828, -8 * (float(hash(client) % 100) / 100 - 0.75))))
+        #    for client in CID_LIST
+        #}
     
         # Ensure num_in_round doesn't exceed available clients
         num_in_range = min(num_in_range, len(self.range_cid_list))
