@@ -58,7 +58,7 @@ def main():
 
         # Plot each relevant column
         for col in columns_to_plot:
-            data = data.iloc[::5].copy()
+            # data = data.iloc[::5].copy()
             plt.plot(data['round'], data[col], marker='', linestyle='-', label=f"{label}", color=color)
 
     plt.ylim(0, 1.0)

@@ -131,7 +131,7 @@ class FedCustom(FedAvg):
         rand.seed(server_round)
 
         # Convert to int explicitly
-        num_in_range = int(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction))
+        num_in_range = int(vehicles_in_round(self.num_rounds, len(clients), server_round, fraction=self.fraction) * 1.5)
         
         # Ensure num_in_range is an integer and doesn't exceed list length
         num_in_round = max(2, int(num_in_range / 2))
