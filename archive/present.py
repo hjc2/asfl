@@ -53,12 +53,16 @@ def main():
         
         # Get the columns to plot, excluding 'count' and 'round'
         columns_to_plot = [col for col in data.columns if col not in ['count', 'round']]
+        # columns_to_plot = [col for col in data.columns if col not in ['accuracy', 'round']]
         
+
         # Plot each relevant column
         for col in columns_to_plot:
+            data = data.iloc[::5].copy()
             plt.plot(data['round'], data[col], marker='', linestyle='-', label=f"{label}", color=color)
 
     plt.ylim(0, 1.0)
+    # plt.ylim(0, 100.0)
 
 
     plt.xlabel('Training Period')
