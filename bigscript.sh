@@ -53,10 +53,3 @@ fi
 echo "Done! Created i.yaml and executed ./scripts/many.sh on $new_folder."
 
 
-git add .
-
-git commit -m "new run $new_folder"
-git push
-
-echo "All operations completed successfully!"
-
