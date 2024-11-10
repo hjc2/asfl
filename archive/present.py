@@ -25,8 +25,8 @@ def main():
     # Get a list of all CSV files in the directory
     csv_files = glob.glob(csv_directory)
 
-    # Create a plot
-    plt.figure(figsize=(5, 5))
+    # Create a figure and axis object
+    fig, ax = plt.subplots(figsize=(10, 6))
 
     # Initialize a variable to hold the round numbers
     all_rounds = None
@@ -50,32 +50,45 @@ def main():
         if(label == "fed_avg"):
             label = "FedAvg"
             color = 'blue'
+        if(label == "fed_freq"):
+            label = "FedFreq"
+            color = 'green'
+        if(label == "fed_equal"):
+            label = "FedEqual"
+            color = 'purple'
+        if(label == "fed_adaptive"):
+            label = "FedAdaptive"
+            color = 'orange'
         
         # Get the columns to plot, excluding 'count' and 'round'
         columns_to_plot = [col for col in data.columns if col not in ['count', 'round']]
-        # columns_to_plot = [col for col in data.columns if col not in ['accuracy', 'round']]
         
-
         # Plot each relevant column
         for col in columns_to_plot:
-            # data = data.iloc[::5].copy()
-            plt.plot(data['round'], data[col], marker='', linestyle='-', label=f"{label}", color=color)
+            ax.plot(data['round'], data[col], marker='', linestyle='-', label=f"{label}", color=color)
 
-    plt.ylim(0, 1.0)
-    # plt.ylim(0, 100.0)
-
-
-    plt.xlabel('Training Period')
-    plt.ylabel('Value of the accuracy')
+    ax.set_ylim(0, 1.0)
+    ax.set_xlabel('Training Period')
+    ax.set_ylabel('Value of the accuracy')
     
     # Generate ticks every 50 rounds up to the maximum round
     max_round = max(all_rounds)
     ticks = list(range(0, max_round + 50, 50))
-    plt.xticks(ticks)
+    ax.set_xticks(ticks)
 
-    plt.legend()
-    plt.grid(True)
+    # Set ticks to appear on both sides with ticks pointing inward
+    ax.yaxis.set_ticks_position('both')
+    ax.xaxis.set_ticks_position('both')
+    ax.tick_params(axis='y', direction='in')
+    ax.tick_params(axis='x', direction='in')
+    
+    ax.legend()
+    # ax.grid(True)
+    ax.grid(True, color='0.9')
 
+    # Adjust layout to prevent label cutoff
+    plt.tight_layout()
+    
     plt.show()
 
 if __name__ == "__main__":
