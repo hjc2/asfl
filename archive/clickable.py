@@ -49,11 +49,15 @@ def main():
 
         # Define colors and labels
         color_map = {
-            "fed_cad": ("DVSAA-AFL", 'red'),
+            "fed_cad": ("DVSAA-AFL (trim)", 'red'),
             "fed_avg": ("FedAvg", 'blue'),
             "fed_freq": ("FedFreq", 'green'),
             "fed_equal": ("FedEqual", 'purple'),
-            "fed_adaptive": ("FedAdaptive", 'orange')
+            "fed_adaptive": ("DVSAA-AFL", 'orange'),
+            "fed_acc": ("FedAcc", 'magenta'),
+            "fed_loss": ("FedLoss", 'magenta'),
+            "fed_trim": ("FedTrim", 'magenta'),
+            # "fed_fuzz": ("FedFuzz", 'gray'),
         }
         
         if label in color_map:

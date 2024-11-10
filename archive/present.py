@@ -45,20 +45,21 @@ def main():
         label = f"{label}".replace("-out","")
 
         if(label == "fed_cad"):
-            label = "DVSAA-AFL"
+            label = "DVSAA-AFL (trim)"
             color = 'red'
         if(label == "fed_avg"):
             label = "FedAvg"
             color = 'blue'
+        if(label == "fed_adaptive"):
+            label = "FedAdaptive"
+            color = 'orange'
         if(label == "fed_freq"):
             label = "FedFreq"
             color = 'green'
         if(label == "fed_equal"):
             label = "FedEqual"
             color = 'purple'
-        if(label == "fed_adaptive"):
-            label = "FedAdaptive"
-            color = 'orange'
+
         
         # Get the columns to plot, excluding 'count' and 'round'
         columns_to_plot = [col for col in data.columns if col not in ['count', 'round']]
@@ -67,6 +68,7 @@ def main():
         for col in columns_to_plot:
             ax.plot(data['round'], data[col], marker='', linestyle='-', label=f"{label}", color=color)
 
+    ax.set_xlim(left=0)
     ax.set_ylim(0, 1.0)
     ax.set_xlabel('Training Period')
     ax.set_ylabel('Value of the accuracy')

@@ -20,6 +20,7 @@ from .strats.fed_trust import FedTrust
 from .strats.fed_adaptive import FedAdaptive
 from .strats.fed_trim import FedTrim # trimmed avg
 from .strats.fed_cad import FedCad # categorical
+from .strats.fed_final import FedFinal
 
 from typing import Union
 from logging import WARNING, INFO, DEBUG, CRITICAL
@@ -52,6 +53,7 @@ def create_strategy(strat_mode, parameters, set_num_rounds, inplace_setter, adv_
         'fed_adaptive': FedAdaptive,
         'fed_trim': FedTrim,
         'fed_cad': FedCad,
+        'fed_final': FedFinal,
     }
 
     if strat_mode not in strategies:
