@@ -92,7 +92,7 @@ def main():
     lined = dict()
     for legline, origline in zip(leg.get_lines(), lines.values()):
         legline.set_picker(True)  # Enable picking on the legend line
-        legline.set_pickradius(10)  # Make the pickup radius larger
+        legline.set_pickradius(3)  # Make the pickup radius larger
         legline.set_linewidth(3)  # Make the legend lines thicker
         lined[legline] = origline
 
