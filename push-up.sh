@@ -1,5 +1,5 @@
 
-git add .
+git add archive/
 
 
 archive_dir="archive"
