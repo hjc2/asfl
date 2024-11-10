@@ -4,3 +4,8 @@ server_configuration:
   num_supernodes: 200
   partition: "dirichlet"
   fraction: 4
+
+
+
+
+# flower-simulation --app . --num-supernodes 200 --run-config 'num-server-rounds=400 local-epochs=5 partition="dirichlet" fraction=4 strat-mode="fed_cad"'

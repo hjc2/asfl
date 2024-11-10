@@ -100,6 +100,13 @@ Plotting
     + `python archive/curve.py archive/v5/`
 - `diff.py` plots the difference in accuracy between a file name in the directory, and the other files in a directory
     + `python archive/diff.py fed_avg-out.csv archive/v5/`
+
+## update scripts
+- `bigscript.sh` creates a new archive dir, moves the files to the new dir, and CSV's them. Also creates the YAML describing the simulation run.
+- `push-up.sh` sends the code to the github repo with an archive numbered commit
+- `clickable.py` displays a graphic where lines can be enabled / disabled
+- `present.py` displays a graphic ready for inclusion in thesis.
+
 ## Fun Simulation Results
 
 ![screenshot](.github/Accuracy45.svg)

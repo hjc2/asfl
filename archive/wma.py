@@ -32,7 +32,7 @@ def main():
     csv_directory = dir + '*.csv'
     csv_files = glob.glob(csv_directory)
 
-    plt.figure(figsize=(5, 5))
+    plt.figure(figsize=(8, 8))
     all_rounds = None
     window_size = 5
 
@@ -45,7 +45,7 @@ def main():
         label = csv_file.split('\\')[-1].split('.')[0]
         label = f"{label}".replace("-out","")
 
-        if(label == "fed_cad"):
+        if(label == "fed_cad" or label == "fed_adaptive"):
             label = "DVSAA-AFL"
             color = 'red'
             marker = 's'  # square marker
