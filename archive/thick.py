@@ -26,7 +26,7 @@ def main():
     csv_files = glob.glob(csv_directory)
 
     # Create a figure and axis object
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(6, 6))
 
     # Initialize a variable to hold the round numbers
     all_rounds = None
@@ -49,11 +49,11 @@ def main():
 
         # Define colors and labels
         color_map = {
-            "fed_cad": ("DVSAA-AFL (trim)", 'red'),
+            # "fed_cad": ("DVSAA-AFL (trim)", 'red'),
             "fed_avg": ("FedAvg", 'blue'),
             # "fed_freq": ("FedFreq", 'green'),
             # "fed_equal": ("FedEqual", 'purple'),
-            "fed_adaptive": ("DVSAA-AFL", 'orange'),
+            # "fed_adaptive": ("DVSAA-AFL", 'orange'),
             # "fed_acc": ("FedAcc", 'magenta'),
             # "fed_loss": ("FedLoss", 'magenta'),
             # "fed_trim": ("FedTrim", 'magenta'),
