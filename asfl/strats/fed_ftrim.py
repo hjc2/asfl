@@ -26,7 +26,7 @@ class FuzzySet:
         else:
             return (self.high - x) / (self.high - self.mid)
 
-class FedFinal(FedAdaptive):
+class FedFtrim(FedAdaptive):
     def __init__(
         self,
         *args,
@@ -157,13 +157,22 @@ class FedFinal(FedAdaptive):
             reverse=True
         )
 
+        # Calculate the number of models to trim
+        num_to_trim = max(1, int(len(sorted_results) * self.trim_fraction))
+
+        # Filter out the bottom fraction of models
+        trimmed_results = sorted_results[:-num_to_trim]
+
+        if not trimmed_results:
+            return None, {}
+
         # Calculate adaptive weights using fuzzy logic
-        adaptive_weights = self._calculate_adaptive_weights(sorted_results, freq_appearance)
+        adaptive_weights = self._calculate_adaptive_weights(trimmed_results, freq_appearance)
 
         # Extract parameters and num_examples
         weights_results = [
             (parameters_to_ndarrays(fit_res.parameters), adaptive_weights[idx])
-            for idx, (_, fit_res) in enumerate(sorted_results)
+            for idx, (_, fit_res) in enumerate(trimmed_results)
         ]
 
         # Aggregate parameters
@@ -174,7 +183,7 @@ class FedFinal(FedAdaptive):
 
         # Calculate metrics for monitoring
         metrics = {
-            "num_clients": len(sorted_results),
+            "num_clients": len(trimmed_results),
             "avg_weight": float(np.mean(adaptive_weights)),
             "std_weight": float(np.std(adaptive_weights)),
             "max_weight": float(np.max(adaptive_weights)),

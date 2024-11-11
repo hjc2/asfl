@@ -57,6 +57,7 @@ def main():
             "fed_acc": ("FedAcc", 'magenta'),
             "fed_loss": ("FedLoss", 'magenta'),
             "fed_trim": ("FedTrim", 'magenta'),
+            "fed_final": ("FedFinal", 'lightgreen'),
             # "fed_fuzz": ("FedFuzz", 'gray'),
         }
         
