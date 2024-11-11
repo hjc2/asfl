@@ -4,3 +4,9 @@ server_configuration:
   num_supernodes: 50
   partition: "dirichlet"
   fraction: 2
+
+
+# flower-simulation --app . --num-supernodes 50 --run-config 'num-server-rounds=200 local-epochs=5 partition="dirichlet" fraction=2 strat-mode="fed_avg"'
+flower-simulation --app . --num-supernodes 50 --run-config 'num-server-rounds=200 local-epochs=5 partition="dirichlet" fraction=2 strat-mode="fed_avg"'
+flower-simulation --app . --num-supernodes 50 --run-config 'num-server-rounds=200 local-epochs=5 partition="dirichlet" fraction=2 strat-mode="fed_ftrim"'
+flower-simulation --app . --num-supernodes 50 --run-config 'num-server-rounds=200 local-epochs=5 partition="dirichlet" fraction=2 strat-mode="fed_final"'
