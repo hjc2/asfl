@@ -1,0 +1,6 @@
+server_configuration:
+  num_server_rounds: 50
+  local_epochs: 1
+  num_supernodes: 20
+  partition: "dirichlet"
+  fraction: 2
