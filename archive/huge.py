@@ -26,7 +26,7 @@ def main():
     csv_files = glob.glob(csv_directory)
 
     # Create a figure and axis object
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(8, 3))
 
     # Initialize a variable to hold the round numbers
     all_rounds = None
@@ -42,34 +42,25 @@ def main():
         
         # Determine the label for the plot (extract from filename)
         label = csv_file.split('\\')[-1].split('.')[0]  # Gets the filename without the path and extension
-        label = f"{label}".replace("-out","")
+        if not label == "fed_ftrim-out":
+            label = f"{label}".replace("-out","")
 
-        if(label == "fed_ftrim"):
-            label = "DVSAA-AFL (trim)"
-            color = 'orange'
-        if(label == "fed_final"):
-            label = "DVSAA-AFL"
-            color = 'red'
-        if(label == "fed_avg"):
-            label = "FedAvg"
-            color = 'blue'
-        # if(label == "fed_adaptive"):
-        #     label = "FedAdaptive"
-        #     color = 'orange'
-        # if(label == "fed_freq"):
-        #     label = "FedFreq"
-        #     color = 'green'
-        # if(label == "fed_equal"):
-        #     label = "FedEqual"
-        #     color = 'purple'
+            if(label == "fed_ftrim"):
+                label = "DVSAA-AFL (trim)"
+                color = 'orange'
+            if(label == "fed_final"):
+                label = "DVSAA-AFL"
+                color = 'red'
+            if(label == "fed_avg"):
+                label = "FedAvg"
+                color = 'blue'
 
-        
-        # Get the columns to plot, excluding 'count' and 'round'
-        columns_to_plot = [col for col in data.columns if col not in ['count', 'round']]
-        
-        # Plot each relevant column
-        for col in columns_to_plot:
-            ax.plot(data['round'], data[col], marker='', linestyle='-', label=f"{label}", color=color)
+            # Get the columns to plot, excluding 'count' and 'round'
+            columns_to_plot = [col for col in data.columns if col not in ['count', 'round']]
+            
+            # Plot each relevant column
+            for col in columns_to_plot:
+                ax.plot(data['round'], data[col], marker='', linestyle='-', label=f"{label}", color=color)
 
     ax.set_xlim(left=0)
     ax.set_ylim(0, 1.0)
@@ -78,7 +69,7 @@ def main():
     
     # Generate ticks every 50 rounds up to the maximum round
     max_round = max(all_rounds)
-    ticks = list(range(0, max_round + 50, 50))
+    ticks = list(range(0, max_round + 200, 200))
     ax.set_xticks(ticks)
 
     # Set ticks to appear on both sides with ticks pointing inward

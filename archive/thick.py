@@ -4,16 +4,20 @@ import glob
 import sys
 
 def main():
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <input_file>")
-        print("Example: python plot.py v1/")
-        print("Error: Invalid number of arguments")
-        sys.exit(1)
+    # if len(sys.argv) != 2:
+        # print("Usage: python script.py <input_file>")
+        # print("Example: python plot.py v1/")
+        # print("Error: Invalid number of arguments")
+        # sys.exit(1)
     if '/' not in sys.argv[1]:
         print("Usage: python script.py <input_file>")
         print("Example: python plot.py v1/")
         print("Error: Must be a directory")
         sys.exit(1)
+
+    trim = True
+    if len(sys.argv) != 3:
+        trim = False
 
     dir = sys.argv[1]
 
@@ -26,7 +30,7 @@ def main():
     csv_files = glob.glob(csv_directory)
 
     # Create a figure and axis object
-    fig, ax = plt.subplots(figsize=(6, 6))
+    fig, ax = plt.subplots(figsize=(4, 4))
 
     # Initialize a variable to hold the round numbers
     all_rounds = None
@@ -49,17 +53,13 @@ def main():
 
         # Define colors and labels
         color_map = {
-            # "fed_cad": ("DVSAA-AFL (trim)", 'red'),
             "fed_avg": ("FedAvg", 'blue'),
-            # "fed_freq": ("FedFreq", 'green'),
-            # "fed_equal": ("FedEqual", 'purple'),
-            # "fed_adaptive": ("DVSAA-AFL", 'orange'),
-            # "fed_acc": ("FedAcc", 'magenta'),
-            # "fed_loss": ("FedLoss", 'magenta'),
-            # "fed_trim": ("FedTrim", 'magenta'),
-            "fed_final": ("DVSAA-AFL", 'red'),
+            # "fed_final": ("DVSAA-AFL", 'red'),
             "fed_ftrim": ("DVSAA-AFL (trim)", 'orange'),
-            # "fed_fuzz": ("FedFuzz", 'gray'),
+        } if trim else {
+            "fed_avg": ("FedAvg", 'blue'),
+            "fed_final": ("DVSAA-AFL", 'red'),
+            # "fed_ftrim": ("DVSAA-AFL (trim)", 'orange'),
         }
         
         if label in color_map:
