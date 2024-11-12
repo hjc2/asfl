@@ -15,7 +15,7 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from torchvision.transforms import Compose, Normalize, ToTensor
 from flwr_datasets import FederatedDataset
-from flwr_datasets.partitioner import IidPartitioner, ExponentialPartitioner, DirichletPartitioner
+from flwr_datasets.partitioner import IidPartitioner, ExponentialPartitioner, DirichletPartitioner, ShardPartitioner
 from flwr.common.logger import log
 from flwr.common import Context
 
@@ -76,6 +76,18 @@ def load_data(node_config, partition_id: int, num_partitions: int):
 
         elif node_config["partition"] == "iid":
             partitioner = IidPartitioner(num_partitions=num_partitions)
+            fds = FederatedDataset(
+                dataset="uoft-cs/cifar10",
+                partitioners={"train": partitioner},
+            )
+        elif node_config["partition"] == "shard":
+            partitioner = ShardPartitioner(
+                num_partitions=num_partitions,
+                partition_by="label",
+                seed=42,
+                min_partition_size=10,
+                self_balancing=True,
+            )
             fds = FederatedDataset(
                 dataset="uoft-cs/cifar10",
                 partitioners={"train": partitioner},
