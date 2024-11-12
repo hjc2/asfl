@@ -14,7 +14,7 @@ num_partitions = 50
 
 partitioner_list = []
 # title_list = ["IidPartitioner", "DirichletPartitioner", "ShardPartitioner"]
-title_list = ["IidPartitioner", "DirichletPartitioner"]
+title_list = ["IidPartitioner", "DirichletPartitioner", "ShardPartitioner"]
 
 # IID
 fds = FederatedDataset(
@@ -36,6 +36,19 @@ fds = FederatedDataset(
             seed=42,
             min_partition_size=10,
             self_balancing=True, 
+        ),
+    },
+)
+partitioner_list.append(fds.partitioners["train"])
+
+fds = FederatedDataset(
+    dataset="cifar10",
+    partitioners = {
+        "train": ShardPartitioner(
+            num_partitions=num_partitions,
+            partition_by="label",
+            seed=42,
+            num_shards_per_partition=3,
         ),
     },
 )

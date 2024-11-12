@@ -85,8 +85,7 @@ def load_data(node_config, partition_id: int, num_partitions: int):
                 num_partitions=num_partitions,
                 partition_by="label",
                 seed=42,
-                min_partition_size=10,
-                self_balancing=True,
+                num_shards_per_partition=2,
             )
             fds = FederatedDataset(
                 dataset="uoft-cs/cifar10",
