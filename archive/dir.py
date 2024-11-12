@@ -4,6 +4,37 @@ import glob
 import sys
 import os
 import yaml
+import hashlib
+import colorsys
+
+def get_consistent_color(name):
+    """Generate a consistent color based on string hash"""
+    # Generate hash of the name
+    hash_obj = hashlib.md5(name.encode())
+    hash_int = int(hash_obj.hexdigest(), 16)
+    
+    # Use hash to generate HSV values
+    # Hue: Use full hash for color variety (0-1)
+    hue = (hash_int % 1000) / 1000.0
+    # Saturation: Keep relatively high for vibrant colors (0.6-0.9)
+    saturation = 0.7 + (hash_int % 200) / 1000.0
+    # Value: Keep high for visibility (0.8-1.0)
+    value = 0.8 + (hash_int % 200) / 1000.0
+    
+    # Convert HSV to RGB
+    rgb = colorsys.hsv_to_rgb(hue, saturation, value)
+    return rgb
+
+def get_display_name(label, epochs):
+    """Generate consistent display names for algorithms"""
+    name_map = {
+        "fed_avg": "FedAvg",
+        "fed_final": "DVSAA-AFL",
+        "fed_ftrim": "DVSAA-AFL (trim)",
+        # Add more mappings as needed
+    }
+    base_name = name_map.get(label, label)
+    return f"{base_name} (E={epochs})"
 
 def main():
     if len(sys.argv) != 3:
@@ -37,7 +68,7 @@ def main():
     for subdir in subdirs:
         # Look for the target file in this subdirectory
         target_path = os.path.join(subdir, target_file)
-        yaml_path = os.path.join(subdir, "i.yaml")  # Assuming the YAML file is named config.yaml
+        yaml_path = os.path.join(subdir, "i.yaml")
         
         if not os.path.exists(target_path):
             print(f"Warning: {target_file} not found in {subdir}")
@@ -65,24 +96,10 @@ def main():
         
         # Determine the label for the plot (use subdirectory name)
         label = os.path.basename(os.path.dirname(subdir))
-
-        # Define colors and labels (now including epochs)
-        # color_map = {
-        #     "fed_avg-out.csv": (f"FedAvg (E={epochs})", 'blue'),
-        #     "fed_final-out.csv": (f"DVSAA-AFL (E={epochs})", 'red'),
-        #     "fed_ftrim-out.csv": (f"DVSAA-AFL (trim) (E={epochs})", 'orange'),
-        #     # Add more mappings as needed
-        # }
         
-        # print(label)
-        # if label in color_map:
-        #     # print(label)
-        #     display_label, color = color_map[label]
-        # else:
-        #     print(f"Warning: No color mapping for {label}, skipping...")
-        #     continue
-        color = 'blue'
-        display_label = f"FedAvg (E={epochs})"
+        # Generate display name and color
+        display_label = get_display_name(label, epochs)
+        color = get_consistent_color(label)  # Generate color based on label
         
         # Get the columns to plot, excluding 'count' and 'round'
         columns_to_plot = [col for col in data.columns if col not in ['count', 'round']]
