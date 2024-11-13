@@ -1,0 +1,6 @@
+server_configuration:
+  num_server_rounds: 2000
+  local_epochs: 5
+  num_supernodes: 50
+  partition: "shard"
+  fraction: 2
