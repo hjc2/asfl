@@ -60,7 +60,11 @@ fig, axes, df_list = plot_comparison_label_distribution(
     partitioner_list=partitioner_list,
     label_name="label",
     subtitle="Comparison of Partitioning Schemes on CIFAR10",
+    size_unit="absolute",
     titles=title_list,
+    figsize=(15, 5),
+    max_num_partitions=50,
+    partition_id_axis="x",
     legend=True,
     verbose_labels=True,
 )
